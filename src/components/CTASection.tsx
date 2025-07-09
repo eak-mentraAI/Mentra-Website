@@ -21,7 +21,7 @@ const CTASection = () => {
               <img 
                 src="/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png" 
                 alt="Sprig ready to help" 
-                className="w-24 h-24 animate-float"
+                className="w-24 h-24 object-contain animate-float"
               />
             </div>
             
@@ -90,7 +90,7 @@ const CTASection = () => {
               <img 
                 src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png" 
                 alt="Sprig" 
-                className="w-8 h-8"
+                className="w-8 h-8 object-contain"
               />
               <span className="text-white font-medium">— Sprig & the Mentra Team</span>
             </div>

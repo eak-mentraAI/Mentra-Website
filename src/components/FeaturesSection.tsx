@@ -85,7 +85,7 @@ const FeaturesSection = () => {
             <img 
               src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png" 
               alt="Sprig" 
-              className="w-8 h-8 animate-bounce-gentle"
+              className="w-8 h-8 object-contain animate-bounce-gentle"
             />
             <span className="text-gray-700 font-medium">Ready to start your growth journey?</span>
           </div>

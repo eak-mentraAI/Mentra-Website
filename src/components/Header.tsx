@@ -33,7 +33,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
               alt="Mentra Logo" 
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
