@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Mentra's Warm Discovery Palette
+				'mentra-blue': '#3A86FF',
+				'journal-sand': '#F5F3F0',
+				'curiosity-coral': '#FF6B6B',
+				'grit-gold': '#FFD93D',
+				'growth-green': '#6BCF7F',
+				'wisdom-purple': '#A8E6CF'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +92,52 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(58, 134, 255, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px rgba(58, 134, 255, 0.6)'
+					}
+				},
+				'bounce-gentle': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
+				},
+				'fade-in-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite',
+				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+				'fade-in-up': 'fade-in-up 0.6s ease-out'
+			},
+			fontFamily: {
+				'rounded': ['Inter', 'system-ui', 'sans-serif']
 			}
 		}
 	},
