@@ -12,25 +12,29 @@ const TestimonialsSection = () => {
       quote: "Mentra has transformed how my daughter approaches learning. She's more confident, emotionally aware, and excited about school.",
       author: "Sarah Chen",
       role: "Parent",
-      color: "curiosity-coral"
+      color: "curiosity-coral",
+      avatar: "/lovable-uploads/69642821-e647-4bdf-b739-25771a5f9674.png"
     },
     {
       quote: "As an educator, I've seen remarkable growth in emotional intelligence among students using Mentra. Sprig makes complex concepts accessible.",
       author: "Michael Rodriguez",
       role: "Elementary Teacher",
-      color: "growth-green"
+      color: "growth-green",
+      avatar: "/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png"
     },
     {
       quote: "The journaling feature helped me understand my feelings better. Now I know why some subjects feel harder and how to work through challenges.",
       author: "Emma, Age 10",
       role: "Student",
-      color: "grit-gold"
+      color: "grit-gold",
+      avatar: "/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png"
     },
     {
       quote: "Mentra provides the emotional support framework that modern education needs. It's not just about academic growth—it's about human development.",
       author: "Dr. Amanda Foster",
       role: "Child Psychologist",
-      color: "mentra-blue"
+      color: "mentra-blue",
+      avatar: "/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
     }
   ];
 
@@ -66,8 +70,12 @@ const TestimonialsSection = () => {
         <div className="max-w-4xl mx-auto relative">
           <Card className="bg-white border-0 shadow-2xl rounded-3xl overflow-hidden">
             <CardContent className="p-12 text-center">
-              <div className={`w-16 h-16 mx-auto mb-8 bg-${testimonials[currentTestimonial].color}/10 rounded-full flex items-center justify-center`}>
-                <Quote className={`w-8 h-8 text-${testimonials[currentTestimonial].color}`} />
+              <div className="flex justify-center mb-8">
+                <img 
+                  src={testimonials[currentTestimonial].avatar}
+                  alt={testimonials[currentTestimonial].author}
+                  className="w-20 h-20 object-contain rounded-full"
+                />
               </div>
               
               <blockquote className="text-2xl lg:text-3xl text-gray-800 leading-relaxed mb-8 font-medium">

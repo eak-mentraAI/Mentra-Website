@@ -60,7 +60,7 @@ const AboutSection = () => {
                   <img 
                     src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png" 
                     alt="Sprig mascot" 
-                    className="w-16 h-16 animate-bounce-gentle"
+                    className="w-16 h-16 object-contain animate-bounce-gentle"
                   />
                   <div className="bg-mentra-blue/10 rounded-2xl p-4 flex-1">
                     <p className="text-mentra-blue font-medium">
@@ -79,7 +79,7 @@ const AboutSection = () => {
                   <img 
                     src="/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png" 
                     alt="Sprig with star" 
-                    className="w-16 h-16 animate-float"
+                    className="w-16 h-16 object-contain animate-float"
                   />
                   <div className="bg-growth-green/10 rounded-2xl p-4 flex-1">
                     <p className="text-growth-green font-medium">
