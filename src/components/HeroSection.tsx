@@ -37,7 +37,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <button 
           onClick={() => setSelectedPersona('students')}
-          className="absolute top-1/3 right-1/4 w-20 h-20 bg-growth-green rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 pointer-events-auto group cursor-pointer border-4 border-white/40 hover:border-white/60 animate-pulse hover:animate-none"
+          className="absolute top-1/3 right-1/4 w-20 h-20 bg-growth-green rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 pointer-events-auto group cursor-pointer border-4 border-white/40 hover:border-white/60"
           aria-label="Learn about benefits for students"
         >
           <div className="w-full h-full bg-growth-green rounded-full group-hover:animate-none opacity-90 group-hover:opacity-100 flex items-center justify-center">
@@ -47,7 +47,7 @@ const HeroSection = () => {
         
         <button 
           onClick={() => setSelectedPersona('parents')}
-          className="absolute bottom-1/3 left-1/6 w-18 h-18 bg-grit-gold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 pointer-events-auto group cursor-pointer border-4 border-white/40 hover:border-white/60 animate-pulse hover:animate-none"
+          className="absolute bottom-1/3 left-1/6 w-18 h-18 bg-grit-gold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 pointer-events-auto group cursor-pointer border-4 border-white/40 hover:border-white/60"
           aria-label="Learn about benefits for parents"
           style={{animationDelay: '1s'}}
         >
@@ -58,7 +58,7 @@ const HeroSection = () => {
         
         <button 
           onClick={() => setSelectedPersona('educators')}
-          className="absolute top-1/4 left-1/3 w-16 h-16 bg-curiosity-coral rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 pointer-events-auto group cursor-pointer border-4 border-white/40 hover:border-white/60 animate-pulse hover:animate-none"
+          className="absolute top-1/4 left-1/3 w-16 h-16 bg-curiosity-coral rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-125 pointer-events-auto group cursor-pointer border-4 border-white/40 hover:border-white/60"
           aria-label="Learn about benefits for educators"
           style={{animationDelay: '2s'}}
         >
@@ -112,15 +112,15 @@ const HeroSection = () => {
             {/* Trust Indicators - Enhanced */}
             <div className="flex items-center gap-8 justify-center lg:justify-start text-sm text-gray-500">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-growth-green rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-growth-green rounded-full"></div>
                 <span className="font-medium">Privacy-First & Safe</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-grit-gold rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                <div className="w-3 h-3 bg-grit-gold rounded-full"></div>
                 <span className="font-medium">Educator Designed</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-curiosity-coral rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                <div className="w-3 h-3 bg-curiosity-coral rounded-full"></div>
                 <span className="font-medium">Human-Centered</span>
               </div>
             </div>

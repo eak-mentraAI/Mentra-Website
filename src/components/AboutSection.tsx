@@ -94,8 +94,8 @@ const AboutSection = () => {
             </Card>
 
             {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-curiosity-coral/20 rounded-full animate-pulse"></div>
-            <div className="absolute -bottom-6 -left-6 w-6 h-6 bg-grit-gold/20 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-curiosity-coral/20 rounded-full"></div>
+            <div className="absolute -bottom-6 -left-6 w-6 h-6 bg-grit-gold/20 rounded-full"></div>
           </div>
         </div>
       </div>

@@ -66,8 +66,8 @@ const SprigActionSection = () => {
                   </div>
                   
                   {/* Floating Particles */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-current rounded-full opacity-30 animate-pulse"></div>
-                  <div className="absolute bottom-8 left-4 w-1.5 h-1.5 bg-current rounded-full opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-current rounded-full opacity-30"></div>
+                  <div className="absolute bottom-8 left-4 w-1.5 h-1.5 bg-current rounded-full opacity-20"></div>
                 </div>
 
                 {/* Content Section */}
