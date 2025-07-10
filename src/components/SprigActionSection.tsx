@@ -61,13 +61,10 @@ const SprigActionSection = () => {
                     <img 
                       src={story.image}
                       alt={story.title}
-                      className="w-32 h-32 object-contain animate-float group-hover:scale-110 transition-transform duration-300"
+                      className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                   
-                  {/* Floating Particles */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-current rounded-full opacity-30"></div>
-                  <div className="absolute bottom-8 left-4 w-1.5 h-1.5 bg-current rounded-full opacity-20"></div>
                 </div>
 
                 {/* Content Section */}

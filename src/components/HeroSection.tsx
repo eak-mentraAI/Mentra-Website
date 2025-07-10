@@ -110,20 +110,6 @@ const HeroSection = () => {
             </div>
 
             {/* Trust Indicators - Enhanced */}
-            <div className="flex items-center gap-8 justify-center lg:justify-start text-sm text-gray-500">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-growth-green rounded-full"></div>
-                <span className="font-medium">Privacy-First & Safe</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-grit-gold rounded-full"></div>
-                <span className="font-medium">Educator Designed</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-curiosity-coral rounded-full"></div>
-                <span className="font-medium">Human-Centered</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Content - Sprig Animation */}
