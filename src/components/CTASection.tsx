@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Users, Sparkles } from 'lucide-react';
@@ -40,20 +39,13 @@ const CTASection = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 mt-8">
+            <div className="flex justify-center mb-12 mt-8">
               <Button 
                 size="lg" 
                 className="bg-white text-mentra-blue hover:bg-white/90 px-8 py-4 rounded-full font-bold text-lg transition-all duration-200 shadow-2xl hover:shadow-3xl group"
               >
                 Begin Your Journey
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-mentra-blue px-8 py-4 rounded-full font-bold text-lg transition-all duration-200"
-              >
-                Talk to Our Team
               </Button>
             </div>
           </div>
