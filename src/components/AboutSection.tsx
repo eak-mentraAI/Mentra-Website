@@ -7,15 +7,18 @@ const AboutSection = () => {
     <section id="about" className="py-20 bg-journal-sand/30">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
+          {/* Left Content - Enhanced copy */}
           <div className="space-y-8">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
-                What is{' '}
-                <span className="text-mentra-blue">Mentra</span>?
+                AI That Makes You{' '}
+                <span className="text-mentra-blue">More Human</span>
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Mentra is an AI-powered educational platform that transforms learning through personalized journaling and emotional intelligence. With Sprig as your guide, discover a new way to grow, reflect, and thrive.
+                Mentra isn't just another AI tool—it's a pedagogically grounded learning companion designed to strengthen the timeless skills that make students uniquely human while teaching them to work effectively with artificial intelligence.
+              </p>
+              <p className="text-lg text-gray-500 leading-relaxed">
+                Built by educators, trusted by parents, and loved by students who want to grow, not just consume content.
               </p>
             </div>
 
@@ -25,8 +28,8 @@ const AboutSection = () => {
                   <div className="w-6 h-6 bg-mentra-blue rounded-full"></div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Personalized Learning Journey</h3>
-                  <p className="text-gray-600">Every student is unique. Sprig adapts to your learning style, pace, and emotional needs.</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Pedagogically Grounded</h3>
+                  <p className="text-gray-600">From Socratic questioning to metacognition—every interaction is designed by educators who understand how real learning happens.</p>
                 </div>
               </div>
 
@@ -35,8 +38,8 @@ const AboutSection = () => {
                   <div className="w-6 h-6 bg-growth-green rounded-full"></div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Emotional Intelligence</h3>
-                  <p className="text-gray-600">Learn to understand and express your emotions through guided reflection and journaling.</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Human Skills First</h3>
+                  <p className="text-gray-600">Strengthen critical thinking, emotional intelligence, and ethical reasoning—the skills that no AI can replace.</p>
                 </div>
               </div>
 
@@ -45,8 +48,8 @@ const AboutSection = () => {
                   <div className="w-6 h-6 bg-grit-gold rounded-full"></div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Safe & Trusted</h3>
-                  <p className="text-gray-600">A secure environment where students can explore their thoughts and feelings with confidence.</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Safe & Values-Driven</h3>
+                  <p className="text-gray-600">Privacy-first design with built-in safety measures. Your data stays secure, your values stay central.</p>
                 </div>
               </div>
             </div>
@@ -64,14 +67,14 @@ const AboutSection = () => {
                   />
                   <div className="bg-mentra-blue/10 rounded-2xl p-4 flex-1">
                     <p className="text-mentra-blue font-medium">
-                      "How are you feeling about today's lesson? Let's reflect together!"
+                      "I notice you're working on fractions. What's one thing that's clicking for you, and what feels challenging?"
                     </p>
                   </div>
                 </div>
 
                 <div className="bg-journal-sand rounded-2xl p-4 ml-12">
                   <p className="text-gray-700 italic">
-                    "I'm excited about learning fractions, but I'm also a bit nervous about the quiz tomorrow..."
+                    "I get how to add them when the bottom numbers are the same, but I'm confused when they're different..."
                   </p>
                 </div>
 
@@ -83,7 +86,7 @@ const AboutSection = () => {
                   />
                   <div className="bg-growth-green/10 rounded-2xl p-4 flex-1">
                     <p className="text-growth-green font-medium">
-                      "That's perfectly normal! Let's break down what makes you excited and create a plan for the quiz."
+                      "Great insight! You've identified exactly what you understand. Let's think about why those 'bottom numbers' matter..."
                     </p>
                   </div>
                 </div>

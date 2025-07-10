@@ -28,12 +28,12 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Made bigger */}
           <div className="flex items-center space-x-2">
             <img 
               src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
               alt="Mentra Logo" 
-              className="h-12 w-auto"
+              className="h-16 w-auto md:h-20"
             />
           </div>
 
@@ -53,7 +53,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl hover:animate-glow">
-              Get Started
+              Start Learning
             </Button>
           </div>
 
@@ -82,7 +82,7 @@ const Header = () => {
               ))}
               <div className="px-4 pt-2">
                 <Button className="w-full bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium">
-                  Get Started
+                  Start Learning
                 </Button>
               </div>
             </nav>
