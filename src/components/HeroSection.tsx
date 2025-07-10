@@ -1,9 +1,29 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, X } from 'lucide-react';
 
 const HeroSection = () => {
+  const [selectedPersona, setSelectedPersona] = useState<string | null>(null);
+
+  const personas = {
+    students: {
+      title: "For Students",
+      description: "Learn to use AI better while refining timeless skills that make you a better human. Develop critical thinking, emotional intelligence, and self-awareness through guided reflection.",
+      color: "growth-green"
+    },
+    parents: {
+      title: "For Parents", 
+      description: "Get meaningful insights about your child's emotional and academic growth without notification fatigue. Stay connected to their learning journey in a thoughtful way.",
+      color: "grit-gold"
+    },
+    educators: {
+      title: "For Educators",
+      description: "Receive insights into students' individual needs along with an AI companion that helps reinforce the lessons you craft. Enhance your teaching with personalized student understanding.",
+      color: "curiosity-coral"
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 relative overflow-hidden">
       {/* Background Decorations */}
@@ -11,6 +31,33 @@ const HeroSection = () => {
         <div className="absolute top-20 left-10 w-32 h-32 bg-curiosity-coral/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-grit-gold/10 rounded-full blur-xl"></div>
         <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-growth-green/10 rounded-full blur-lg"></div>
+      </div>
+
+      {/* Interactive Persona Dots */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <button 
+          onClick={() => setSelectedPersona('students')}
+          className="absolute top-1/3 right-1/4 w-16 h-16 bg-growth-green rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 pointer-events-auto group cursor-pointer border-4 border-white/20 hover:border-white/40"
+          aria-label="Learn about benefits for students"
+        >
+          <div className="w-full h-full bg-growth-green rounded-full animate-pulse group-hover:animate-none opacity-80 group-hover:opacity-100"></div>
+        </button>
+        
+        <button 
+          onClick={() => setSelectedPersona('parents')}
+          className="absolute bottom-1/3 left-1/6 w-14 h-14 bg-grit-gold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 pointer-events-auto group cursor-pointer border-4 border-white/20 hover:border-white/40"
+          aria-label="Learn about benefits for parents"
+        >
+          <div className="w-full h-full bg-grit-gold rounded-full animate-pulse group-hover:animate-none opacity-80 group-hover:opacity-100"></div>
+        </button>
+        
+        <button 
+          onClick={() => setSelectedPersona('educators')}
+          className="absolute top-1/4 left-1/3 w-12 h-12 bg-curiosity-coral rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 pointer-events-auto group cursor-pointer border-4 border-white/20 hover:border-white/40"
+          aria-label="Learn about benefits for educators"
+        >
+          <div className="w-full h-full bg-curiosity-coral rounded-full animate-pulse group-hover:animate-none opacity-80 group-hover:opacity-100"></div>
+        </button>
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
@@ -91,6 +138,39 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Persona Modal */}
+      {selectedPersona && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-6 max-w-md w-full mx-4 relative animate-scale-in">
+            <button 
+              onClick={() => setSelectedPersona(null)}
+              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className={`w-8 h-8 bg-${personas[selectedPersona as keyof typeof personas].color} rounded-full`}></div>
+                <h3 className="text-xl font-bold text-gray-900">
+                  {personas[selectedPersona as keyof typeof personas].title}
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                {personas[selectedPersona as keyof typeof personas].description}
+              </p>
+              <Button 
+                onClick={() => setSelectedPersona(null)}
+                className="w-full bg-mentra-blue hover:bg-mentra-blue/90 text-white"
+              >
+                Got it!
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
