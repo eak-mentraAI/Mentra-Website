@@ -122,18 +122,6 @@ const FeaturesSection = () => {
           <CarouselNext className="hidden md:flex" />
         </Carousel>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-4 bg-journal-sand rounded-full px-6 py-3">
-            <img 
-              src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png" 
-              alt="Sprig" 
-              className="w-8 h-8 object-contain animate-bounce-gentle"
-            />
-            <span className="text-gray-700 font-medium">Ready to start your growth journey?</span>
-          </div>
-        </div>
-
         {/* Dots indicator for mobile */}
         <div className="flex justify-center mt-4 md:hidden">
           {[0,1,2].map(idx => (
