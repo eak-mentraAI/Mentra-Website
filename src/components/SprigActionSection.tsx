@@ -25,7 +25,7 @@ const SprigActionSection = () => {
       accentColor: "mentra-blue"
     },
     {
-      image: "/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png",
+      image: "/lovable-uploads/MENTRA_SPRIG_HEART.png",
       title: "Gentle Encouragement",
       description: "On challenging days, Sprig provides emotional support and adaptive learning strategies.",
       bgColor: "growth-green/10",

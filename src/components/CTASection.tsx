@@ -16,14 +16,6 @@ const CTASection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main CTA Content - Enhanced copy */}
           <div className="mb-12">
-            <div className="flex justify-center mb-8">
-              <img 
-                src="/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png" 
-                alt="Sprig ready to help" 
-                className="w-24 h-24 object-contain animate-float"
-              />
-            </div>
-            
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Ready to Learn{' '}
               <span className="text-grit-gold">With Purpose</span>?
