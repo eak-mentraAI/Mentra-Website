@@ -55,9 +55,12 @@ const HeroSection = () => {
                 size="lg"
                 className="border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                 aria-label="Watch a demonstration of how Mentra works"
+                asChild
               >
-                <Play className="mr-2 h-5 w-5" aria-hidden="true" />
-                See How It Works
+                <a href="/how-it-works">
+                  <Play className="mr-2 h-5 w-5" aria-hidden="true" />
+                  See How It Works
+                </a>
               </Button>
             </div>
 
