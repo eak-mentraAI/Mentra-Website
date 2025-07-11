@@ -17,7 +17,7 @@ const HeroSection = () => {
           {/* Left Content - Enhanced copy */}
           <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                 Where Students{' '}
                 <span className="text-mentra-blue relative">
                   Thrive
@@ -25,17 +25,17 @@ const HeroSection = () => {
                 </span>{' '}
                 with AI
               </h1>
-              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
                 Meet Sprig, your AI learning companion designed by educators, built for students, and trusted by parents. 
                 Together, we'll strengthen the timeless skills that make you uniquely human while mastering AI as a powerful learning tool.
               </p>
-              <p className="text-lg text-gray-500 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed">
                 This isn't just another AI tool—it's pedagogically grounded, emotionally intelligent, and designed to empower rather than replace human thinking.
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-4">
+            <div className="flex flex-col gap-4 sm:flex-row justify-center lg:justify-start mb-4">
               <Button 
                 size="lg" 
                 className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:animate-glow group"
@@ -63,7 +63,8 @@ const HeroSection = () => {
               <img 
                 src="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" 
                 alt="Sprig, your AI learning companion" 
-                className="w-80 h-80 lg:w-96 lg:h-96 animate-float drop-shadow-2xl"
+                className="w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 animate-float drop-shadow-2xl"
+                loading="lazy"
               />
               
               {/* Floating Elements */}

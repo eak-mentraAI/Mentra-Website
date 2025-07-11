@@ -103,7 +103,7 @@ const FeaturesSection = () => {
                 <Card 
                   className={`group hover:shadow-2xl transition-all duration-300 border-0 bg-${feature.bgColor} hover:scale-105 cursor-pointer h-full`}
                 >
-                  <CardContent className="p-8 text-center space-y-6 h-full flex flex-col justify-between">
+                  <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
                     <div className="space-y-6">
                       <div className={`w-16 h-16 mx-auto bg-${feature.color}/20 rounded-2xl flex items-center justify-center`}>
                         <feature.icon className={`w-8 h-8 text-${feature.color}`} />
@@ -128,8 +128,8 @@ const FeaturesSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+          <CarouselPrevious className="flex md:flex" />
+          <CarouselNext className="flex md:flex" />
         </Carousel>
 
         {/* Dots indicator for mobile */}
@@ -140,6 +140,11 @@ const FeaturesSection = () => {
               className={`mx-1 w-2 h-2 rounded-full ${current === idx ? 'bg-mentra-blue' : 'bg-gray-300'} inline-block transition-all`}
             />
           ))}
+        </div>
+
+        {/* Swipe cue for mobile */}
+        <div className="flex justify-center mt-2 md:hidden">
+          <span className="text-xs text-gray-400 animate-pulse">Swipe to see more</span>
         </div>
       </div>
     </section>

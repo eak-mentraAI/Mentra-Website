@@ -39,7 +39,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
                 alt="Mentra Logo" 
-                className="h-16 w-auto md:h-20 mb-2"
+                className="h-16 w-auto md:h-20 mb-2 mx-auto"
               />
             </div>
             

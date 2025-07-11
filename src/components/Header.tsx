@@ -23,17 +23,19 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 h-16 transition-all duration-300 ${
+    <header className={`sticky top-0 w-full z-50 h-16 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
     }`}>
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
         {/* Logo - Made bigger */}
         <div className="flex items-center space-x-2">
-          <img 
-            src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
-            alt="Mentra Logo" 
-            className="h-16 w-auto md:h-20 flex-shrink-0"
-          />
+          <a href="/" aria-label="Home">
+            <img 
+              src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
+              alt="Mentra Logo" 
+              className="h-16 w-auto md:h-20 flex-shrink-0"
+            />
+          </a>
         </div>
 
         {/* Desktop Navigation */}
@@ -58,10 +60,11 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden"
+          className="md:hidden w-12 h-12 flex items-center justify-center"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation menu"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
