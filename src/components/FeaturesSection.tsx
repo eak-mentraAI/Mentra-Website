@@ -99,9 +99,11 @@ const FeaturesSection = () => {
         <Carousel className="w-full max-w-6xl mx-auto" setApi={setEmblaApi}>
           <CarouselContent className="-ml-2 md:-ml-4">
             {features.map((feature, index) => (
-              <CarouselItem key={feature.title} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={feature.title} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                 <Card 
-                  className={`group hover:shadow-2xl transition-all duration-300 border-0 bg-${feature.bgColor} hover:scale-105 cursor-pointer h-full`}
+                  className={`group transition-all duration-300 border-0 bg-${feature.bgColor} cursor-pointer h-full 
+                    hover:shadow-2xl hover:scale-105 hover:z-10 
+                    xl:hover:shadow-3xl xl:hover:scale-110`}
                 >
                   <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
                     <div className="space-y-6">
@@ -128,8 +130,8 @@ const FeaturesSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="flex md:flex" />
-          <CarouselNext className="flex md:flex" />
+          <CarouselPrevious className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute left-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200" />
+          <CarouselNext className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute right-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200" />
         </Carousel>
 
         {/* Dots indicator for mobile */}
