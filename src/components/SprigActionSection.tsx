@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -89,25 +88,6 @@ const SprigActionSection = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Bottom Message */}
-        <div className="text-center mt-16">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-lg text-gray-600 mb-6">
-              Every interaction with Sprig is designed to nurture both academic achievement and emotional well-being.
-            </p>
-            <div className="flex justify-center">
-              <div className="flex items-center gap-3 bg-journal-sand rounded-full px-6 py-3">
-                <div className="flex -space-x-2">
-                  <img src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png" alt="Sprig" className="w-8 h-8 object-contain rounded-full border-2 border-white" />
-                  <img src="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" alt="Sprig thinking" className="w-8 h-8 object-contain rounded-full border-2 border-white" />
-                  <img src="/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png" alt="Sprig with star" className="w-8 h-8 object-contain rounded-full border-2 border-white" />
-                </div>
-                <span className="text-gray-700 font-medium">Your learning companion, every step of the way</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
