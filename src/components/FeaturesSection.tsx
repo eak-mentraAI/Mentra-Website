@@ -71,6 +71,16 @@ const FeaturesSection = () => {
   ];
 
   const [current, setCurrent] = useState(0);
+  const [emblaApi, setEmblaApi] = useState<any>(null);
+
+  // Sync current index with Embla carousel
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
+    emblaApi.on('select', onSelect);
+    onSelect();
+    return () => emblaApi.off('select', onSelect);
+  }, [emblaApi]);
 
   return (
     <section id="features" className="py-20 bg-white">
@@ -86,7 +96,7 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        <Carousel className="w-full max-w-6xl mx-auto">
+        <Carousel className="w-full max-w-6xl mx-auto" setApi={setEmblaApi}>
           <CarouselContent className="-ml-2 md:-ml-4">
             {features.map((feature, index) => (
               <CarouselItem key={feature.title} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
@@ -124,7 +134,7 @@ const FeaturesSection = () => {
 
         {/* Dots indicator for mobile */}
         <div className="flex justify-center mt-4 md:hidden">
-          {[0,1,2].map(idx => (
+          {features.map((_, idx) => (
             <span
               key={idx}
               className={`mx-1 w-2 h-2 rounded-full ${current === idx ? 'bg-mentra-blue' : 'bg-gray-300'} inline-block transition-all`}
