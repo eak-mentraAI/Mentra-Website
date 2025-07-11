@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { BookOpen, Heart, Brain, Star, Users, Wrench, Target, Map, Compass } from 'lucide-react';
@@ -71,6 +70,8 @@ const FeaturesSection = () => {
     }
   ];
 
+  const [current, setCurrent] = useState(0);
+
   return (
     <section id="features" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -131,6 +132,16 @@ const FeaturesSection = () => {
             />
             <span className="text-gray-700 font-medium">Ready to start your growth journey?</span>
           </div>
+        </div>
+
+        {/* Dots indicator for mobile */}
+        <div className="flex justify-center mt-4 md:hidden">
+          {[0,1,2].map(idx => (
+            <span
+              key={idx}
+              className={`mx-1 w-2 h-2 rounded-full ${current === idx ? 'bg-mentra-blue' : 'bg-gray-300'} inline-block transition-all`}
+            />
+          ))}
         </div>
       </div>
     </section>
