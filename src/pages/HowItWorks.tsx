@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -96,13 +96,24 @@ const flywheel = [
 ];
 
 export default function HowItWorks() {
+  const [current, setCurrent] = useState(0);
+  const [emblaApi, setEmblaApi] = useState<any>(null);
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
+    emblaApi.on('select', onSelect);
+    onSelect();
+    return () => emblaApi.off('select', onSelect);
+  }, [emblaApi]);
+
   return (
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
       <main className="flex-1 flex flex-col items-center py-12 px-4">
         <section className="w-full max-w-4xl mx-auto flex flex-col items-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
-            See Mentra in Action
+            See Mentra <span className="text-mentra-blue">in Action</span>
           </h1>
           <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl">
             Watch how students thrive with Mentra's AI-powered, human-centered learning experience.
@@ -121,7 +132,7 @@ export default function HowItWorks() {
           {/* What You'll See in the Demo */}
           <div className="mb-12 w-full max-w-4xl">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center">
-              What You'll See in the Demo
+              What <span className="text-mentra-blue">You'll See</span> in the Demo
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {demoFeatures.map((feature) => (
@@ -139,9 +150,9 @@ export default function HowItWorks() {
           {/* The Mentra Flywheel of Growth */}
           <section className="w-full max-w-6xl mx-auto mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
-              The Mentra Flywheel of Growth
+              The Mentra Flywheel of <span className="text-mentra-blue">Growth</span>
             </h2>
-            <Carousel className="w-full max-w-6xl mx-auto">
+            <Carousel className="w-full max-w-6xl mx-auto" setApi={setEmblaApi} aria-label="Flywheel carousel">
               <CarouselContent className="-ml-2 md:-ml-4">
                 {flywheel.map((step, index) => (
                   <CarouselItem
@@ -169,6 +180,21 @@ export default function HowItWorks() {
               <CarouselPrevious className="left-2" />
               <CarouselNext className="right-2" />
             </Carousel>
+            {/* Dots indicator for mobile */}
+            <div className="flex justify-center mt-4 md:hidden" role="tablist" aria-label="Flywheel navigation">
+              {flywheel.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => emblaApi?.scrollTo(idx)}
+                  className={`mx-1 w-2 h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 ${
+                    current === idx ? 'bg-mentra-blue' : 'bg-gray-300'
+                  }`}
+                  role="tab"
+                  aria-selected={current === idx}
+                  aria-label={`Go to flywheel step ${idx + 1} of ${flywheel.length}`}
+                />
+              ))}
+            </div>
           </section>
 
           <blockquote className="italic text-center text-mentra-blue mb-8 max-w-2xl mx-auto">
