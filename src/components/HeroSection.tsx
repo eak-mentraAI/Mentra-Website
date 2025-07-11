@@ -12,7 +12,7 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-growth-green/10 rounded-full blur-lg"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 py-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content - Enhanced copy */}
           <div className="text-center lg:text-left space-y-8 animate-fade-in-up">

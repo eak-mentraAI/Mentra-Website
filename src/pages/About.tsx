@@ -8,7 +8,7 @@ export default function About() {
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4">
         {/* Hero Section */}
-        <section className="w-full max-w-5xl flex flex-col md:flex-row items-center gap-10 mb-16">
+        <section className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-10 mb-16">
           <img
             src="/edward-kerr.jpg"
             alt="Edward Kerr, Founder of Mentra"
