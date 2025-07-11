@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart, Mail, MapPin } from 'lucide-react';
 
@@ -38,27 +37,15 @@ const Footer = () => {
           <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/69642821-e647-4bdf-b739-25771a5f9674.png" 
+                src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
                 alt="Mentra Logo" 
-                className="h-8 w-auto"
+                className="h-16 w-auto md:h-20 mb-2"
               />
             </div>
             
             <p className="text-gray-300 leading-relaxed">
               Empowering students to grow through AI-powered learning and emotional intelligence with Sprig, your trusted companion.
             </p>
-            
-            <div className="flex items-center gap-4">
-              <img 
-                src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png" 
-                alt="Sprig waving" 
-                className="w-12 h-12 animate-bounce-gentle"
-              />
-              <div className="text-sm text-gray-400">
-                <p>Sprig says:</p>
-                <p className="text-mentra-blue italic">"Keep growing!"</p>
-              </div>
-            </div>
           </div>
 
           {/* Product Links */}
