@@ -152,7 +152,7 @@ export default function HowItWorks() {
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
               The Mentra Flywheel of <span className="text-mentra-blue">Growth</span>
             </h2>
-            <Carousel className="w-full max-w-6xl mx-auto" setApi={setEmblaApi} aria-label="Flywheel carousel">
+            <Carousel className="w-full max-w-6xl mx-auto" setApi={setEmblaApi} aria-label="Flywheel carousel" opts={{ loop: true }}>
               <CarouselContent className="-ml-2 md:-ml-4">
                 {flywheel.map((step, index) => (
                   <CarouselItem
