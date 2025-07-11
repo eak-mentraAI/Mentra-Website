@@ -12,8 +12,8 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-growth-green/10 rounded-full blur-lg"></div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="mx-auto max-w-screen-xl px-4 py-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center justify-between">
           {/* Left Content - Enhanced copy */}
           <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
             <div className="space-y-6">
@@ -91,6 +91,9 @@ const HeroSection = () => {
           <span className="text-xs text-gray-500 font-medium">Discover More</span>
         </div>
       </div>
+
+      {/* Animated background shape for desktop */}
+      <div className="hidden lg:block absolute right-0 top-1/4 w-[500px] h-[500px] bg-gradient-to-br from-mentra-blue/10 via-grit-gold/10 to-growth-green/10 rounded-full blur-3xl animate-pulse-slow z-0" style={{ pointerEvents: 'none' }} />
     </section>
   );
 };
