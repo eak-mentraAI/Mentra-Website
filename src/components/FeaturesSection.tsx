@@ -141,11 +141,6 @@ const FeaturesSection = () => {
             />
           ))}
         </div>
-
-        {/* Swipe cue for mobile */}
-        <div className="flex justify-center mt-2 md:hidden">
-          <span className="text-xs text-gray-400 animate-pulse">Swipe to see more</span>
-        </div>
       </div>
     </section>
   );
