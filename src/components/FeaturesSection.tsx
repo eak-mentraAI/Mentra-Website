@@ -83,10 +83,17 @@ const FeaturesSection = () => {
   }, [emblaApi]);
 
   return (
-    <section id="features" className="py-20 bg-white">
+    <section 
+      id="features" 
+      className="py-20 bg-white"
+      aria-labelledby="features-heading"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 
+            id="features-heading"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+          >
             How{' '}
             <span className="text-mentra-blue">Sprig</span>{' '}
             Helps You Grow
@@ -96,19 +103,32 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        <Carousel className="w-full max-w-6xl mx-auto" setApi={setEmblaApi}>
+        <Carousel 
+          className="w-full max-w-6xl mx-auto" 
+          setApi={setEmblaApi}
+          aria-label="Features carousel"
+        >
           <CarouselContent className="-ml-2 md:-ml-4">
             {features.map((feature, index) => (
-              <CarouselItem key={feature.title} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+              <CarouselItem 
+                key={feature.title} 
+                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+              >
                 <Card 
                   className={`group transition-all duration-300 border-0 bg-${feature.bgColor} cursor-pointer h-full 
                     hover:shadow-2xl hover:scale-105 hover:z-10 
-                    xl:hover:shadow-3xl xl:hover:scale-110`}
+                    xl:hover:shadow-3xl xl:hover:scale-110 focus-within:ring-2 focus-within:ring-mentra-blue focus-within:ring-offset-2`}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Learn more about ${feature.title}`}
                 >
                   <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
                     <div className="space-y-6">
                       <div className={`w-16 h-16 mx-auto bg-${feature.color}/20 rounded-2xl flex items-center justify-center`}>
-                        <feature.icon className={`w-8 h-8 text-${feature.color}`} />
+                        <feature.icon 
+                          className={`w-8 h-8 text-${feature.color}`} 
+                          aria-hidden="true"
+                        />
                       </div>
                       
                       <div className="space-y-3">
@@ -130,16 +150,32 @@ const FeaturesSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute left-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200" />
-          <CarouselNext className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute right-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200" />
+          <CarouselPrevious 
+            className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute left-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2" 
+            aria-label="Previous features"
+          />
+          <CarouselNext 
+            className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute right-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2" 
+            aria-label="Next features"
+          />
         </Carousel>
 
         {/* Dots indicator for mobile */}
-        <div className="flex justify-center mt-4 md:hidden">
+        <div 
+          className="flex justify-center mt-4 md:hidden"
+          role="tablist"
+          aria-label="Feature navigation"
+        >
           {features.map((_, idx) => (
-            <span
+            <button
               key={idx}
-              className={`mx-1 w-2 h-2 rounded-full ${current === idx ? 'bg-mentra-blue' : 'bg-gray-300'} inline-block transition-all`}
+              onClick={() => emblaApi?.scrollTo(idx)}
+              className={`mx-1 w-2 h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 ${
+                current === idx ? 'bg-mentra-blue' : 'bg-gray-300'
+              }`}
+              role="tab"
+              aria-selected={current === idx}
+              aria-label={`Go to feature ${idx + 1} of ${features.length}`}
             />
           ))}
         </div>

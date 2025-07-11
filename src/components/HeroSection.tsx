@@ -4,9 +4,12 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 relative overflow-hidden">
+    <section 
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 relative overflow-hidden"
+      aria-labelledby="hero-heading"
+    >
       {/* Background Decorations */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute top-20 left-10 w-32 h-32 bg-curiosity-coral/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-grit-gold/10 rounded-full blur-xl"></div>
         <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-growth-green/10 rounded-full blur-lg"></div>
@@ -17,7 +20,10 @@ const HeroSection = () => {
           {/* Left Content - Enhanced copy */}
           <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
             <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+              <h1 
+                id="hero-heading"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight"
+              >
                 Where Students{' '}
                 <span className="text-mentra-blue relative">
                   Thrive
@@ -38,17 +44,19 @@ const HeroSection = () => {
             <div className="flex flex-col gap-4 sm:flex-row justify-center lg:justify-start mb-4">
               <Button 
                 size="lg" 
-                className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:animate-glow group"
+                className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:animate-glow group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                aria-label="Begin your learning journey with Mentra"
               >
                 Start Your Journey
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group"
+                className="border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                aria-label="Watch a demonstration of how Mentra works"
               >
-                <Play className="mr-2 h-5 w-5" />
+                <Play className="mr-2 h-5 w-5" aria-hidden="true" />
                 See How It Works
               </Button>
             </div>
@@ -62,19 +70,19 @@ const HeroSection = () => {
               {/* Main Sprig Character */}
               <img 
                 src="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" 
-                alt="Sprig, your AI learning companion" 
+                alt="Sprig, your AI learning companion - a friendly animated character" 
                 className="w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 animate-float drop-shadow-2xl"
                 loading="lazy"
               />
               
               {/* Floating Elements */}
-              <div className="absolute -top-8 -right-8 animate-bounce-gentle">
+              <div className="absolute -top-8 -right-8 animate-bounce-gentle" aria-hidden="true">
                 <div className="w-6 h-6 bg-grit-gold rounded-full opacity-80"></div>
               </div>
-              <div className="absolute -bottom-4 -left-4 animate-bounce-gentle" style={{animationDelay: '1s'}}>
+              <div className="absolute -bottom-4 -left-4 animate-bounce-gentle" style={{animationDelay: '1s'}} aria-hidden="true">
                 <div className="w-4 h-4 bg-curiosity-coral rounded-full opacity-60"></div>
               </div>
-              <div className="absolute top-1/4 -left-8 animate-bounce-gentle" style={{animationDelay: '2s'}}>
+              <div className="absolute top-1/4 -left-8 animate-bounce-gentle" style={{animationDelay: '2s'}} aria-hidden="true">
                 <div className="w-3 h-3 bg-growth-green rounded-full opacity-70"></div>
               </div>
             </div>
@@ -83,7 +91,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator - Enhanced for touch */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
         <div className="flex flex-col items-center gap-2">
           <div className="w-6 h-10 border-2 border-mentra-blue rounded-full flex justify-center">
             <div className="w-1 h-3 bg-mentra-blue rounded-full mt-2 animate-bounce"></div>
@@ -93,7 +101,7 @@ const HeroSection = () => {
       </div>
 
       {/* Animated background shape for desktop */}
-      <div className="hidden lg:block absolute right-0 top-1/4 w-[500px] h-[500px] bg-gradient-to-br from-mentra-blue/10 via-grit-gold/10 to-growth-green/10 rounded-full blur-3xl animate-pulse-slow z-0" style={{ pointerEvents: 'none' }} />
+      <div className="hidden lg:block absolute right-0 top-1/4 w-[500px] h-[500px] bg-gradient-to-br from-mentra-blue/10 via-grit-gold/10 to-growth-green/10 rounded-full blur-3xl animate-pulse-slow z-0" style={{ pointerEvents: 'none' }} aria-hidden="true" />
     </section>
   );
 };

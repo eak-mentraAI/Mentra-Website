@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
@@ -53,11 +52,28 @@ const TestimonialsSection = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  // Handle keyboard navigation
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      prevTestimonial();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      nextTestimonial();
+    }
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-br from-journal-sand/50 to-wisdom-purple/10">
+    <section 
+      className="py-20 bg-gradient-to-br from-journal-sand/50 to-wisdom-purple/10"
+      aria-labelledby="testimonials-heading"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 
+            id="testimonials-heading"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+          >
             Why{' '}
             <span className="text-mentra-blue">Mentra</span>{' '}
             Works
@@ -67,18 +83,29 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto relative">
+        <div 
+          className="max-w-4xl mx-auto relative"
+          role="region"
+          aria-label="Testimonials carousel"
+          aria-live="polite"
+          aria-atomic="true"
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+        >
           <Card className="bg-white border-0 shadow-2xl rounded-3xl overflow-hidden">
             <CardContent className="p-12 text-center">
               <div className="flex justify-center mb-8">
                 <img 
                   src={testimonials[currentTestimonial].avatar}
-                  alt={testimonials[currentTestimonial].author}
+                  alt={`${testimonials[currentTestimonial].author}, ${testimonials[currentTestimonial].role}`}
                   className="w-20 h-20 object-contain rounded-full"
                 />
               </div>
               
-              <blockquote className="text-2xl lg:text-3xl text-gray-800 leading-relaxed mb-8 font-medium">
+              <blockquote 
+                className="text-2xl lg:text-3xl text-gray-800 leading-relaxed mb-8 font-medium"
+                aria-label={`Testimonial from ${testimonials[currentTestimonial].author}`}
+              >
                 "{testimonials[currentTestimonial].quote}"
               </blockquote>
               
@@ -99,29 +126,38 @@ const TestimonialsSection = () => {
               variant="outline"
               size="icon"
               onClick={prevTestimonial}
-              className="rounded-full border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white"
+              className="rounded-full border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+              aria-label="Previous testimonial"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5" aria-hidden="true" />
             </Button>
             <Button
               variant="outline"
               size="icon"
               onClick={nextTestimonial}
-              className="rounded-full border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white"
+              className="rounded-full border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+              aria-label="Next testimonial"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5" aria-hidden="true" />
             </Button>
           </div>
 
           {/* Indicators */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div 
+            className="flex justify-center gap-2 mt-6"
+            role="tablist"
+            aria-label="Testimonial navigation"
+          >
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                className={`w-3 h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 ${
                   index === currentTestimonial ? 'bg-mentra-blue' : 'bg-gray-300'
                 }`}
+                role="tab"
+                aria-selected={index === currentTestimonial}
+                aria-label={`Go to testimonial ${index + 1} of ${testimonials.length}`}
               />
             ))}
           </div>
