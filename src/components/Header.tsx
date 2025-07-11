@@ -32,12 +32,12 @@ const Header = () => {
             <img 
               src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
               alt="Mentra Logo" 
-              className="h-16 w-auto md:h-20"
+              className="h-16 w-auto md:h-20 flex-shrink-0"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-shrink-0">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -50,7 +50,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:block flex-shrink-0">
             <Button className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl hover:animate-glow">
               Start Learning
             </Button>
