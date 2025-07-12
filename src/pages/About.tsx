@@ -8,7 +8,7 @@ export default function About() {
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4">
         {/* Hero Section */}
-        <section className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-10 mb-16">
+        <section className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10 mb-16">
           <img
             src="/edward-kerr.jpg"
             alt="Edward Kerr, Founder of Mentra"
@@ -26,7 +26,7 @@ export default function About() {
         </section>
 
         {/* Vision & Origin Story */}
-        <section className="w-full max-w-3xl mb-12">
+        <section className="container mx-auto px-4 mb-12">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4">Mentra Strategic Vision</h2>
           <p className="text-gray-700 mb-4">
             As a technologist developing AI solutions, I see a future where productivity shifts increasingly from humans to AI. This transition threatens the foundation of the long-standing social contract: go to school, get good grades, get a good job. That promise feels fragile in the world my daughters—Grace, Hope, and Joy—are inheriting.
@@ -40,7 +40,7 @@ export default function About() {
         </section>
 
         {/* Problem Space */}
-        <section className="w-full max-w-3xl mb-12">
+        <section className="container mx-auto px-4 mb-12">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4">The Problem We're Solving</h2>
           <p className="text-gray-700 mb-4">
             Students today are using AI to secure outcomes—a completed essay, a finished assignment—but are missing the true value of learning: critical thinking, media literacy, self-regulation, and creative synthesis. Meanwhile, teachers are under-resourced and stuck in outdated systems, while parents are too often disconnected from their child's learning journey.
@@ -54,7 +54,7 @@ export default function About() {
         </section>
 
         {/* Trends + Opportunity */}
-        <section className="w-full max-w-3xl mb-12">
+        <section className="container mx-auto px-4 mb-12">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4">Why This Moment Matters</h2>
           <p className="text-gray-700 mb-4">
             AI is advancing faster than any prior technology—and it is rapidly taking over both intellectual and physical labor domains. Students are coasting through school with generative tools. Teachers are overwhelmed. The education system is struggling to adapt.
@@ -65,7 +65,7 @@ export default function About() {
         </section>
 
         {/* Timing + Urgency */}
-        <section className="w-full max-w-3xl mb-12">
+        <section className="container mx-auto px-4 mb-12">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4">Why Now</h2>
           <p className="text-gray-700 mb-4">
             If we don't act now, we'll lose a generation of learners to misaligned incentives and technological shortcuts. These students will follow the path we laid out for them, only to discover the promise is gone. That creates disillusionment, systemic distrust, and eventually—social instability.
@@ -76,7 +76,7 @@ export default function About() {
         </section>
 
         {/* Unique Insight + Advantage */}
-        <section className="w-full max-w-3xl mb-12">
+        <section className="container mx-auto px-4 mb-12">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4">Why We're Different</h2>
           <p className="text-gray-700 mb-4">
             We are not another edtech company. We are:
@@ -92,7 +92,7 @@ export default function About() {
         </section>
 
         {/* Product + Business Trajectory */}
-        <section className="w-full max-w-3xl mb-12">
+        <section className="container mx-auto px-4 mb-12">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4">Our Roadmap</h2>
           <p className="text-gray-700 mb-4">
             We are building an AI-native platform that:
@@ -118,7 +118,7 @@ export default function About() {
         </section>
 
         {/* Personal Note */}
-        <section className="w-full max-w-3xl mb-12 text-right">
+        <section className="container mx-auto px-4 mb-12 text-right">
           <p className="italic text-gray-600 mb-2">Thank you for joining us on this journey.</p>
           <p className="font-bold text-gray-900">Edward Kerr<br/>Founder, Mentra</p>
         </section>

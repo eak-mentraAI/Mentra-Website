@@ -111,7 +111,7 @@ export default function HowItWorks() {
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
       <main className="flex-1 flex flex-col items-center py-12 px-4">
-        <section className="w-full max-w-4xl mx-auto flex flex-col items-center mb-12">
+        <section className="container mx-auto px-4 flex flex-col items-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
             See Mentra <span className="text-mentra-blue">in Action</span>
           </h1>
@@ -130,7 +130,7 @@ export default function HowItWorks() {
           </div>
 
           {/* What You'll See in the Demo */}
-          <div className="mb-12 w-full max-w-4xl">
+          <div className="mb-12 w-full container mx-auto px-4">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center">
               What <span className="text-mentra-blue">You'll See</span> in the Demo
             </h2>
@@ -148,7 +148,7 @@ export default function HowItWorks() {
           </div>
 
           {/* The Mentra Flywheel of Growth */}
-          <section className="w-full max-w-6xl mx-auto mb-16">
+          <section className="container mx-auto px-4 mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
               The Mentra Flywheel of <span className="text-mentra-blue">Growth</span>
             </h2>

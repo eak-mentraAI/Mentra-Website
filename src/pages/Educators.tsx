@@ -147,7 +147,7 @@ export default function Educators() {
         <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 text-center max-w-2xl">
           Discover how Mentra enhances your teaching while maintaining professional control and pedagogical excellence.
         </p>
-        <section className="w-full max-w-4xl mx-auto mb-10 sm:mb-12">
+        <section className="container mx-auto px-4 mb-10 sm:mb-12">
           {/* Mobile Dropdown Selector */}
           <select
             className="block w-full rounded-lg border-none p-4 mb-6 sm:hidden bg-blue-50 text-mentra-blue font-bold text-lg focus:ring-2 focus:ring-mentra-blue focus:outline-none shadow min-h-[56px]"
@@ -182,7 +182,7 @@ export default function Educators() {
           </Tabs>
         </section>
         {/* CTA and Contact Form */}
-        <section className="w-full max-w-xl mx-auto bg-white/90 rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center mb-12 sm:mb-16">
+        <section className="container mx-auto px-4 bg-white/90 rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center mb-12 sm:mb-16">
           <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-2">Are you ready to take the next step in <span className="text-mentra-blue">AI assisted learning</span>?</h2>
           <p className="text-gray-700 mb-4 sm:mb-6 text-center">Schedule a call with our team today.</p>
           <form action="https://formspree.io/f/meokybnp" method="POST" className="w-full space-y-3 sm:space-y-4">
