@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { BookOpen, FileText, Sparkles, Users, BarChart3, Star, Heart, Settings2, ShieldCheck } from 'lucide-react';
+import { BookOpen, FileText, Sparkles, Users, BarChart3, Star, Heart, Settings2, ShieldCheck, Eye } from 'lucide-react';
 
 const tabData = [
   {
@@ -12,14 +12,17 @@ const tabData = [
         <h2 className="text-2xl font-bold text-gray-900">Socratic AI Enhances Teaching</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
           <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+            <Sparkles className="w-8 h-8 text-mentra-blue mb-2" />
             <span className="text-mentra-blue font-bold mb-2">Critical Thinking Development</span>
             <span className="text-gray-700 text-sm">AI guides students through questions rather than providing direct answers, fostering deeper understanding.</span>
           </div>
           <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+            <BookOpen className="w-8 h-8 text-mentra-blue mb-2" />
             <span className="text-mentra-blue font-bold mb-2">Personalized Learning Paths</span>
             <span className="text-gray-700 text-sm">Adapts to individual student needs while maintaining curriculum standards.</span>
           </div>
           <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+            <Heart className="w-8 h-8 text-mentra-blue mb-2" />
             <span className="text-mentra-blue font-bold mb-2">Enhanced Student Engagement</span>
             <span className="text-gray-700 text-sm">Interactive dialogues keep students actively participating in their learning journey.</span>
           </div>
@@ -34,14 +37,17 @@ const tabData = [
         <h2 className="text-2xl font-bold text-gray-900">You Remain in Control</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
           <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+            <Eye className="w-8 h-8 text-mentra-blue mb-2" />
             <span className="text-mentra-blue font-bold mb-2">Real-time Oversight</span>
             <span className="text-gray-700 text-sm">Monitor all student-AI interactions with detailed progress insights and intervention alerts.</span>
           </div>
           <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+            <Settings2 className="w-8 h-8 text-mentra-blue mb-2" />
             <span className="text-mentra-blue font-bold mb-2">Customizable Parameters</span>
             <span className="text-gray-700 text-sm">Set learning objectives, difficulty levels, and content boundaries to match your teaching goals.</span>
           </div>
           <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+            <Users className="w-8 h-8 text-mentra-blue mb-2" />
             <span className="text-mentra-blue font-bold mb-2">Seamless Intervention</span>
             <span className="text-gray-700 text-sm">Step into conversations at any time with full context and conversation history.</span>
           </div>
@@ -157,12 +163,12 @@ export default function Educators() {
           </select>
           {/* Desktop Tabs */}
           <Tabs defaultValue={selectedTab} value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-            <TabsList className="hidden sm:flex overflow-x-auto whitespace-nowrap bg-blue-50 rounded-lg p-1 scrollbar-hide">
+            <TabsList className="hidden sm:flex w-full bg-blue-50 rounded-lg p-1 gap-1">
               {tabData.map(tab => (
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="mx-0 min-w-[120px] px-4 py-2 text-sm font-medium rounded-md border border-blue-100 transition-colors bg-white text-mentra-blue data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:border-blue-600 data-[state=active]:shadow focus:outline-none focus:ring-2 focus:ring-mentra-blue"
+                  className="flex-1 min-w-0 px-3 py-2 text-sm font-medium rounded-md border border-blue-100 transition-colors bg-white text-mentra-blue data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:border-blue-600 data-[state=active]:shadow focus:outline-none focus:ring-2 focus:ring-mentra-blue"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -184,6 +190,7 @@ export default function Educators() {
             <input type="email" name="email" required placeholder="Email" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Email" />
             <input type="tel" name="phone" required placeholder="Phone Number" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Phone Number" />
             <textarea name="notes" placeholder="Additional Notes (optional)" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue min-h-[80px] text-base" aria-label="Additional Notes" />
+            <input type="hidden" name="context" value="Sent from the educators page" />
             <button type="submit" className="w-full bg-mentra-blue text-white font-semibold py-2 rounded hover:bg-mentra-blue/90 transition text-base">Schedule Call</button>
           </form>
         </section>
