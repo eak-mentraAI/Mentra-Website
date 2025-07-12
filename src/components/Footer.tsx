@@ -1,3 +1,4 @@
+// Trigger redeploy: trivial comment
 import React from 'react';
 import { Heart, Mail, MapPin } from 'lucide-react';
 
@@ -14,7 +15,8 @@ const Footer = () => {
     resources: [
       { name: 'Help Center', href: '#help' },
       { name: 'Parent Guide', href: '#parent-guide' },
-      { name: 'Educator Resources', href: '#educators' }
+      { name: 'Educator Resources', href: '#educators' },
+      { name: 'FAQ', href: '/faq' },
     ],
     company: [
       { name: 'About Us', href: '#about' },
