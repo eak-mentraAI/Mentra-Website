@@ -6,11 +6,11 @@ const Footer = () => {
     product: [
       { name: 'Features', href: '#features' },
       { name: 'How it Works', href: '/how-it-works' },
+      { name: 'Educators', href: '/educators' },
       { name: 'Pricing', href: '#pricing' },
       { name: 'Security', href: '#security' }
     ],
     resources: [
-      { name: 'Blog', href: '#blog' },
       { name: 'Help Center', href: '#help' },
       { name: 'Parent Guide', href: '#parent-guide' },
       { name: 'Educator Resources', href: '#educators' }
