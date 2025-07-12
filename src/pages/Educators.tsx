@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -130,6 +130,7 @@ const tabData = [
 ];
 
 export default function Educators() {
+  const [selectedTab, setSelectedTab] = useState(tabData[0].label);
   return (
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
@@ -141,8 +142,20 @@ export default function Educators() {
           Discover how Mentra enhances your teaching while maintaining professional control and pedagogical excellence.
         </p>
         <section className="w-full max-w-4xl mx-auto mb-10 sm:mb-12">
-          <Tabs defaultValue={tabData[0].label} className="w-full">
-            <TabsList className="flex overflow-x-auto whitespace-nowrap bg-blue-50 rounded-lg p-1 scrollbar-hide">
+          {/* Mobile Dropdown Selector */}
+          <select
+            className="block w-full rounded border p-2 mb-4 sm:hidden"
+            value={selectedTab}
+            onChange={e => setSelectedTab(e.target.value)}
+            aria-label="Select section"
+          >
+            {tabData.map(tab => (
+              <option key={tab.label} value={tab.label}>{tab.label}</option>
+            ))}
+          </select>
+          {/* Desktop Tabs */}
+          <Tabs defaultValue={selectedTab} value={selectedTab} onValueChange={setSelectedTab} className="w-full">
+            <TabsList className="hidden sm:flex overflow-x-auto whitespace-nowrap bg-blue-50 rounded-lg p-1 scrollbar-hide">
               {tabData.map(tab => (
                 <TabsTrigger
                   key={tab.label}
@@ -155,7 +168,7 @@ export default function Educators() {
             </TabsList>
             {tabData.map(tab => (
               <TabsContent key={tab.label} value={tab.label} className="">
-                {tab.content}
+                {selectedTab === tab.label && tab.content}
               </TabsContent>
             ))}
           </Tabs>
