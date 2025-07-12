@@ -147,7 +147,7 @@ export default function Educators() {
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="mx-1 min-w-[110px] px-3 py-2 text-sm font-semibold rounded-full transition-colors data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow text-mentra-blue focus:outline-none focus:ring-2 focus:ring-mentra-blue"
+                  className="mx-1 min-w-[150px] px-5 py-2 text-sm font-semibold rounded-full border border-blue-200 transition-colors bg-white text-mentra-blue data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:border-blue-600 data-[state=active]:shadow focus:outline-none focus:ring-2 focus:ring-mentra-blue"
                 >
                   {tab.label}
                 </TabsTrigger>
