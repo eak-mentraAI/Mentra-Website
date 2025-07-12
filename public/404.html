@@ -27,5 +27,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // SPA routing for GitHub Pages
+      (function(){
+        const path = window.location.pathname;
+        const search = window.location.search;
+        const hash = window.location.hash;
+        const url = path + search + hash;
+        
+        // Store the intended URL
+        sessionStorage.setItem('redirect', url);
+        
+        // Redirect to the root
+        window.location.replace('/');
+      })();
+    </script>
   </body>
 </html> 
