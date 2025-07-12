@@ -9,7 +9,7 @@ const Footer = () => {
       { name: 'Educators', href: '/educators' },
       { name: 'Parents', href: '/parents' },
       { name: 'Pricing', href: '#pricing' },
-      { name: 'Security', href: '#security' }
+      { name: 'Security', href: '#security' },
     ],
     resources: [
       { name: 'Help Center', href: '#help' },
@@ -59,12 +59,27 @@ const Footer = () => {
             <ul className="space-y-3" role="list">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-mentra-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
-                  >
-                    {link.name}
-                  </a>
+                  {link.name === 'Features' ? (
+                    <a
+                      href={link.href}
+                      onClick={e => {
+                        if (window.location.pathname !== '/') {
+                          e.preventDefault();
+                          window.location.href = '/#features';
+                        }
+                      }}
+                      className="text-gray-300 hover:text-mentra-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-300 hover:text-mentra-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -56,11 +56,11 @@ const Header = () => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'Features', href: '#features' },
     { name: 'How it Works', href: '/how-it-works' },
     { name: 'Educators', href: '/educators' },
     { name: 'Parents', href: '/parents' },
-    { name: 'Features', href: '#features' },
+    { name: 'About', href: '/about' },
   ];
 
   return (
@@ -94,13 +94,34 @@ const Header = () => {
         >
           {navItems.map((item) => {
             const isActive = location.pathname === item.href || (item.href !== '/' && location.hash === item.href);
+            if (item.name === 'Features') {
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={e => {
+                    if (location.pathname !== '/') {
+                      e.preventDefault();
+                      window.location.href = '/#features';
+                    }
+                  }}
+                  className={
+                    `text-gray-700 hover:text-mentra-blue transition-colors duration-200 font-medium relative px-1 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md ` +
+                    (location.pathname === '/' && location.hash === '#features' ? 'text-mentra-blue font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-mentra-blue after:rounded-full after:content-["\""]' : '')
+                  }
+                  aria-current={location.pathname === '/' && location.hash === '#features' ? 'page' : undefined}
+                >
+                  {item.name}
+                </a>
+              );
+            }
             return (
               <a
                 key={item.name}
                 href={item.href}
                 className={
                   `text-gray-700 hover:text-mentra-blue transition-colors duration-200 font-medium relative px-1 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md ` +
-                  (isActive ? 'text-mentra-blue font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-mentra-blue after:rounded-full after:content-[""]' : '')
+                  (isActive ? 'text-mentra-blue font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-mentra-blue after:rounded-full after:content-["\""]' : '')
                 }
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -145,6 +166,26 @@ const Header = () => {
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => {
               const isActive = location.pathname === item.href || (item.href !== '/' && location.hash === item.href);
+              if (item.name === 'Features') {
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={e => {
+                      if (location.pathname !== '/') {
+                        e.preventDefault();
+                        window.location.href = '/#features';
+                      }
+                    }}
+                    className="text-gray-700 hover:text-mentra-blue transition-colors duration-200 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md"
+                    aria-current={location.pathname === '/' && location.hash === '#features' ? 'page' : undefined}
+                    onFocus={() => setIsMenuOpen(true)}
+                    onBlur={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
               return (
                 <a
                   key={item.name}
