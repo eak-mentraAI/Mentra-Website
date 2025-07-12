@@ -118,7 +118,7 @@ export default function HowItWorks() {
           <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl">
             Watch how students thrive with Mentra's AI-powered, human-centered learning experience.
           </p>
-          <div className="w-full aspect-w-16 aspect-h-9 mb-8 rounded-2xl overflow-hidden shadow-xl bg-gray-200">
+          <div className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl bg-gray-200 mb-8">
             <iframe
               src="https://www.youtube.com/embed/CWTHgahgStQ"
               title="Mentra Demo"
