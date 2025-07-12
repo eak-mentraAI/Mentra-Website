@@ -97,7 +97,7 @@ const tabData = [
           </div>
           <div className="flex items-start gap-3">
             <img src="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" alt="Sprig AI" className="w-8 h-8" />
-            <div className="bg-red-100 text-red-700 rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg font-semibold">
+            <div className="bg-red-100 text-red-700 rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg">
               "That's a good question! Before we decide, what is the problem asking you to find?"
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function Educators() {
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="mx-1 min-w-[150px] px-5 py-2 text-sm font-semibold rounded-full border border-blue-200 transition-colors bg-white text-mentra-blue data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:border-blue-600 data-[state=active]:shadow focus:outline-none focus:ring-2 focus:ring-mentra-blue"
+                  className="mx-0 min-w-[120px] px-4 py-2 text-sm font-medium rounded-md border border-blue-100 transition-colors bg-white text-mentra-blue data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:border-blue-600 data-[state=active]:shadow focus:outline-none focus:ring-2 focus:ring-mentra-blue"
                 >
                   {tab.label}
                 </TabsTrigger>
