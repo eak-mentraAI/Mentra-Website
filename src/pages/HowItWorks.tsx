@@ -164,8 +164,8 @@ export default function HowItWorks() {
                     >
                       <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
                         <div className="space-y-6">
-                          <div className={`w-16 h-16 mx-auto bg-${step.color}/20 rounded-2xl flex items-center justify-center`}>
-                            <step.icon className={`w-8 h-8 text-${step.color}`} aria-hidden="true" />
+                          <div className="w-16 h-16 mx-auto bg-${step.color}/20 rounded-2xl flex items-center justify-center">
+                            <span className="w-10 h-10 flex items-center justify-center rounded-full bg-${step.color} text-white text-2xl font-bold" aria-label={`Step ${index + 1}`}>{index + 1}</span>
                           </div>
                           <div className="space-y-3">
                             <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
