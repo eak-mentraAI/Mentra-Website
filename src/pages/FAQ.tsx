@@ -7,6 +7,7 @@ const faqSections = [
   {
     section: 'Security',
     color: 'bg-blue-50',
+    border: 'border-blue-700',
     questions: [
       {
         question: "How is student data protected from cyber threats?",
@@ -25,6 +26,7 @@ const faqSections = [
   {
     section: 'Safety',
     color: 'bg-red-50',
+    border: 'border-red-700',
     questions: [
       {
         question: "Is Mentra safe for young children?",
@@ -43,6 +45,7 @@ const faqSections = [
   {
     section: 'Learner Passport',
     color: 'bg-green-50',
+    border: 'border-green-700',
     questions: [
       {
         question: "What is a Learner Passport?",
@@ -61,6 +64,7 @@ const faqSections = [
   {
     section: 'Pedagogy',
     color: 'bg-yellow-50',
+    border: 'border-yellow-700',
     questions: [
       {
         question: "How does Mentra ensure AI tutoring doesn't replace human teachers?",
@@ -83,6 +87,7 @@ const faqSections = [
   {
     section: 'General',
     color: 'bg-yellow-100',
+    border: 'border-yellow-800',
     questions: [
       {
         question: "Does Mentra work on tablets and smartphones?",
@@ -111,7 +116,7 @@ const FAQ = () => {
           <div className="space-y-8 mb-12">
             {faqSections.map((section, sIdx) => (
               <div key={section.section}>
-                <div className={`mb-4 px-6 py-3 rounded-xl font-bold text-black text-xl ${section.color}`}>{section.section}</div>
+                <div className={`mb-4 px-6 py-3 rounded-xl font-bold text-black text-xl border ${section.color} ${section.border}`}>{section.section}</div>
                 <Accordion type="single" collapsible className="w-full space-y-4">
                   {section.questions.map((faq, idx) => (
                     <AccordionItem key={idx} value={`faq-${sIdx}-${idx}`} className="bg-white/90 rounded-xl shadow border border-gray-200">
