@@ -97,7 +97,7 @@ const tabData = [
           </div>
           <div className="flex items-start gap-3">
             <img src="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" alt="Sprig AI" className="w-8 h-8" />
-            <div className="bg-blue-100 text-mentra-blue rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg">
+            <div className="bg-red-100 text-red-700 rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg font-semibold">
               "That's a good question! Before we decide, what is the problem asking you to find?"
             </div>
           </div>
@@ -144,13 +144,13 @@ export default function Educators() {
         <section className="w-full max-w-4xl mx-auto mb-10 sm:mb-12">
           {/* Mobile Dropdown Selector */}
           <select
-            className="block w-full rounded-lg border-none p-3 mb-4 sm:hidden bg-blue-50 text-mentra-blue font-bold text-base focus:ring-2 focus:ring-mentra-blue focus:outline-none shadow"
+            className="block w-full rounded-lg border-none p-4 mb-6 sm:hidden bg-blue-50 text-mentra-blue font-bold text-lg focus:ring-2 focus:ring-mentra-blue focus:outline-none shadow min-h-[56px]"
             value={selectedTab}
             onChange={e => setSelectedTab(e.target.value)}
             aria-label="Select section"
           >
             {tabData.map(tab => (
-              <option key={tab.label} value={tab.label} className="font-bold text-mentra-blue bg-white">
+              <option key={tab.label} value={tab.label} className="font-bold text-mentra-blue bg-white text-lg">
                 {tab.label}
               </option>
             ))}
