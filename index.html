@@ -28,5 +28,15 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      // SPA routing for GitHub Pages
+      (function(){
+        const redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          window.location.replace(redirect);
+        }
+      })();
+    </script>
   </body>
 </html>
