@@ -142,12 +142,12 @@ export default function Educators() {
         </p>
         <section className="w-full max-w-4xl mx-auto mb-10 sm:mb-12">
           <Tabs defaultValue={tabData[0].label} className="w-full">
-            <TabsList className="flex justify-start sm:justify-center mb-4 sm:mb-6 bg-blue-50 rounded-lg p-1 overflow-x-auto scrollbar-hide whitespace-nowrap" aria-label="Educator Info Tabs">
+            <TabsList className="flex overflow-x-auto whitespace-nowrap bg-blue-50 rounded-lg p-1 scrollbar-hide">
               {tabData.map(tab => (
                 <TabsTrigger
                   key={tab.label}
                   value={tab.label}
-                  className="mx-1 sm:mx-2 px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold transition-colors rounded-lg data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg text-mentra-blue focus:outline-none focus:ring-2 focus:ring-mentra-blue min-w-[120px] sm:min-w-[140px]"
+                  className="mx-1 min-w-[110px] px-3 py-2 text-sm font-semibold rounded-full transition-colors data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow text-mentra-blue focus:outline-none focus:ring-2 focus:ring-mentra-blue"
                 >
                   {tab.label}
                 </TabsTrigger>
