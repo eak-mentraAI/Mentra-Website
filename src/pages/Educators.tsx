@@ -144,13 +144,15 @@ export default function Educators() {
         <section className="w-full max-w-4xl mx-auto mb-10 sm:mb-12">
           {/* Mobile Dropdown Selector */}
           <select
-            className="block w-full rounded border p-2 mb-4 sm:hidden"
+            className="block w-full rounded-lg border-none p-3 mb-4 sm:hidden bg-blue-50 text-mentra-blue font-bold text-base focus:ring-2 focus:ring-mentra-blue focus:outline-none shadow"
             value={selectedTab}
             onChange={e => setSelectedTab(e.target.value)}
             aria-label="Select section"
           >
             {tabData.map(tab => (
-              <option key={tab.label} value={tab.label}>{tab.label}</option>
+              <option key={tab.label} value={tab.label} className="font-bold text-mentra-blue bg-white">
+                {tab.label}
+              </option>
             ))}
           </select>
           {/* Desktop Tabs */}
