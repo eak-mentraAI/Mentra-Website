@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
@@ -10,6 +9,17 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  useEffect(() => {
+    if (window.location.hash === '#features') {
+      const el = document.getElementById('features');
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 100); // slight delay to ensure DOM is ready
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen font-rounded">
       <Header />
