@@ -94,7 +94,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator - Enhanced for touch */}
-      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
+      <div className="absolute bottom-2 sm:bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
         <div className="flex flex-col items-center gap-2">
           <div className="w-6 h-10 border-2 border-mentra-blue rounded-full flex justify-center">
             <div className="w-1 h-3 bg-mentra-blue rounded-full mt-2 animate-bounce"></div>
