@@ -122,7 +122,7 @@ const FeaturesSection = () => {
                 <Card 
                   className={`group transition-all duration-300 border-0 bg-${feature.bgColor} cursor-pointer h-full 
                     hover:shadow-2xl 
-                    xl:hover:shadow-3xl focus-within:ring-2 focus-within:ring-mentra-blue focus-within:ring-offset-2`}
+                    xl:hover:shadow-3xl`}
                   tabIndex={0}
                   role="button"
                   aria-label={`Learn more about ${feature.title}`}

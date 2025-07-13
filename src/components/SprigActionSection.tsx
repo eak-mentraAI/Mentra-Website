@@ -77,7 +77,7 @@ const SprigActionSection = () => {
                 className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/2 xl:basis-1/4 overflow-visible"
               >
                 <Card
-                  className={`group transition-all duration-300 border-0 bg-${story.bgColor} cursor-pointer h-full hover:shadow-2xl xl:hover:shadow-3xl focus-within:ring-2 focus-within:ring-mentra-blue focus-within:ring-offset-2`}
+                  className={`group transition-all duration-300 border-0 bg-${story.bgColor} cursor-pointer h-full hover:shadow-2xl xl:hover:shadow-3xl`}
                   tabIndex={0}
                   role="button"
                   aria-label={`See more about ${story.title}`}
