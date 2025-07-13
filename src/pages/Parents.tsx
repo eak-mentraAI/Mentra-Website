@@ -183,20 +183,20 @@ export default function Parents() {
             ))}
           </Tabs>
         </section>
+        {/* CTA and Contact Form - moved inside main */}
+        <section className="container mx-auto px-4 bg-white/90 rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center mb-12 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-2">Have questions about <span className="text-mentra-blue">student privacy</span> or want to talk to our team?</h2>
+          <p className="text-gray-700 mb-4 sm:mb-6 text-center">Schedule a call with our team today.</p>
+          <form id="parents-contact-form" action="https://formspree.io/f/meokybnp" method="POST" className="w-full space-y-3 sm:space-y-4">
+            <input type="text" name="name" required placeholder="Name" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Name" />
+            <input type="email" name="email" required placeholder="Email" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Email" />
+            <input type="tel" name="phone" required placeholder="Phone Number" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Phone Number" />
+            <textarea id="parents-notes" name="notes" placeholder="Additional Notes (optional)" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue min-h-[80px] text-base" aria-label="Additional Notes" />
+            <input type="hidden" name="context" value="Sent from the parents page" />
+            <button type="submit" className="w-full bg-mentra-blue text-white font-semibold py-2 rounded hover:bg-mentra-blue/90 transition text-base">Schedule Call</button>
+          </form>
+        </section>
       </main>
-      {/* CTA and Contact Form */}
-      <section className="container mx-auto px-4 bg-white/90 rounded-2xl shadow-xl p-4 sm:p-8 flex flex-col items-center mb-12 sm:mb-16">
-        <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-2">Have questions about <span className="text-mentra-blue">student privacy</span> or want to talk to our team?</h2>
-        <p className="text-gray-700 mb-4 sm:mb-6 text-center">Schedule a call with our team today.</p>
-        <form id="parents-contact-form" action="https://formspree.io/f/meokybnp" method="POST" className="w-full space-y-3 sm:space-y-4">
-          <input type="text" name="name" required placeholder="Name" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Name" />
-          <input type="email" name="email" required placeholder="Email" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Email" />
-          <input type="tel" name="phone" required placeholder="Phone Number" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue text-base" aria-label="Phone Number" />
-          <textarea id="parents-notes" name="notes" placeholder="Additional Notes (optional)" className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-mentra-blue focus:border-mentra-blue min-h-[80px] text-base" aria-label="Additional Notes" />
-          <input type="hidden" name="context" value="Sent from the parents page" />
-          <button type="submit" className="w-full bg-mentra-blue text-white font-semibold py-2 rounded hover:bg-mentra-blue/90 transition text-base">Schedule Call</button>
-        </form>
-      </section>
       <Footer />
     </div>
   );

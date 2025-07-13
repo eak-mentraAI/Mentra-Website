@@ -10,7 +10,6 @@ const Footer = () => {
       { name: 'Educators', href: '/educators' },
       { name: 'Parents', href: '/parents' },
       { name: 'Pricing', href: '/pricing' },
-      { name: 'Security', href: '#security' },
     ],
     resources: [
       { name: 'Help Center', href: '#help' },
@@ -19,7 +18,7 @@ const Footer = () => {
       { name: 'FAQ', href: '/faq' },
     ],
     company: [
-      { name: 'About Us', href: '#about' },
+      { name: 'About Us', href: '/about' },
       { name: 'Careers', href: '#careers' },
       { name: 'Press', href: '#press' },
       { name: 'Contact', href: '#contact' }
