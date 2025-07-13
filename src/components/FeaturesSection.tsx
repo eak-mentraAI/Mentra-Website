@@ -8,7 +8,16 @@ const colorGradientMap: Record<string, string> = {
   'curiosity-coral': 'from-curiosity-coral to-curiosity-coral/50',
   'growth-green': 'from-growth-green to-growth-green/50',
   'grit-gold': 'from-grit-gold to-grit-gold/50',
+  'wisdom-purple': 'from-wisdom-purple to-wisdom-purple/50',
 };
+
+const colorPattern = [
+  { color: 'mentra-blue', bgColor: 'mentra-blue/10' },
+  { color: 'curiosity-coral', bgColor: 'curiosity-coral/10' },
+  { color: 'growth-green', bgColor: 'growth-green/10' },
+  { color: 'grit-gold', bgColor: 'grit-gold/10' },
+  { color: 'wisdom-purple', bgColor: 'wisdom-purple/10' },
+];
 
 const FeaturesSection = () => {
   const features = [
@@ -16,66 +25,52 @@ const FeaturesSection = () => {
       icon: BookOpen,
       title: 'Express Yourself with Interactive Journaling',
       description: 'Share your thoughts and feelings through guided prompts that adapt to you.',
-      color: 'mentra-blue',
-      bgColor: 'mentra-blue/10'
     },
     {
       icon: Heart,
       title: 'Grow Emotional Intelligence with AI Feedback',
       description: 'Get personalized feedback to help you understand and process your emotions.',
-      color: 'curiosity-coral',
-      bgColor: 'curiosity-coral/10'
     },
     {
       icon: Brain,
       title: 'Personalized Learning Paths for Every Student',
       description: 'Learning journeys that adjust to your pace, interests, and readiness for new concepts.',
-      color: 'growth-green',
-      bgColor: 'growth-green/10'
     },
     {
       icon: Star,
       title: 'Track Your Growth with Meaningful Milestones',
       description: 'Celebrate your progress with milestones that recognize academic and emotional growth.',
-      color: 'grit-gold',
-      bgColor: 'grit-gold/10'
     },
     {
       icon: Users,
       title: 'AI-Guided Assignments for Deeper Learning',
       description: 'Assignments that adapt to your learning style and help you master new skills.',
-      color: 'mentra-blue',
-      bgColor: 'mentra-blue/10'
     },
     {
       icon: Wrench,
       title: 'Master Next-Gen Skills in the Agent Workbench',
       description: 'Orchestrate AI agents to accomplish complex tasks and build future-ready skills.',
-      color: 'growth-green',
-      bgColor: 'growth-green/10'
     },
     {
       icon: Target,
       title: 'Sharpen Your Skills in the Prompt Engineering Lab',
       description: 'Practice with AI challenges and get feedback to improve your prompt crafting.',
-      color: 'curiosity-coral',
-      bgColor: 'curiosity-coral/10'
     },
     {
       icon: Map,
       title: 'Build Your Learner Passport for the Future',
       description: 'Track your learning trends and export your progress as a personal AI assistant.',
-      color: 'grit-gold',
-      bgColor: 'grit-gold/10'
     },
     {
       icon: Compass,
       title: 'Explore Freely in a Safe, Guided Sandbox',
       description: 'Safely explore ideas and concepts in a sandbox designed for discovery.',
-      color: 'mentra-blue',
-      bgColor: 'mentra-blue/10'
-    }
-  ];
+    },
+  ].map((feature, i) => ({
+    ...feature,
+    color: colorPattern[i % colorPattern.length].color,
+    bgColor: colorPattern[i % colorPattern.length].bgColor,
+  }));
 
   const [current, setCurrent] = useState(0);
   const [emblaApi, setEmblaApi] = useState<any>(null);
