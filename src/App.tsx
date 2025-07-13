@@ -16,6 +16,7 @@ import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
 import Blog from "./pages/Blog";
 import CookieConsent from "./components/CookieConsent";
+import Press from "./pages/Press";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/cookies" element={<Cookies />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/press" element={<Press />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
