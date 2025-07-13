@@ -13,7 +13,7 @@ export default function About() {
           <img
             src="/edward-kerr.jpg"
             alt="Edward Kerr, Founder of Mentra"
-            className="w-64 h-64 object-cover rounded-2xl shadow-xl border-4 border-white"
+            className="w-64 h-64 object-cover rounded-2xl shadow-lg border-4 border-journal-sand"
           />
           <div className="flex-1 text-left">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why We Built Mentra</h1>
