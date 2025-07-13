@@ -100,8 +100,10 @@ const SprigActionSection = () => {
                         </p>
                       </div>
                     </div>
-                    {/* Always show gradient line for all cards */}
-                    <div className="mt-6">
+                    {/* Show gradient line only on hover (desktop) or selected (mobile) */}
+                    <div
+                      className={`mt-6 transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${current === index ? 'md:opacity-0 opacity-100' : 'md:opacity-0 opacity-0'}`}
+                    >
                       <div className={`w-full h-1 bg-gradient-to-r ${accentGradientMap[story.accentColor] || 'from-mentra-blue to-mentra-blue/50'} rounded-full`}></div>
                     </div>
                   </CardContent>
