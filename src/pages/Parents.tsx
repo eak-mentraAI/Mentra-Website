@@ -188,7 +188,7 @@ export default function Parents() {
         <section className="container mx-auto px-4 mb-10 sm:mb-12">
           {/* Mobile Dropdown Selector */}
           <select
-            className="block w-full rounded-lg border-none p-4 mb-6 sm:hidden bg-mentra-blue text-white font-bold text-lg focus:ring-2 focus:ring-mentra-blue focus:outline-none shadow min-h-[56px]"
+            className="block w-full rounded-lg border border-black/20 p-4 mb-6 sm:hidden bg-mentra-blue text-white font-bold text-lg focus:ring-2 focus:ring-mentra-blue focus:outline-none shadow min-h-[56px]"
             value={selectedTab}
             onChange={e => setSelectedTab(e.target.value)}
             aria-label="Select section"
