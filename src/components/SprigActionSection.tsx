@@ -59,7 +59,7 @@ const SprigActionSection = () => {
         </div>
 
         <Carousel 
-          className="w-full max-w-6xl mx-auto" 
+          className="w-full max-w-6xl mx-auto px-2 md:px-4" 
           setApi={setEmblaApi}
           aria-label="Sprig in Action carousel"
         >
@@ -93,8 +93,8 @@ const SprigActionSection = () => {
                         </p>
                       </div>
                     </div>
-                    {/* Hover Effect */}
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* Always show gradient line for all cards */}
+                    <div className="mt-6">
                       <div className={`w-full h-1 bg-gradient-to-r from-${story.accentColor} to-${story.accentColor}/50 rounded-full`}></div>
                     </div>
                   </CardContent>
