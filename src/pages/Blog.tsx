@@ -249,7 +249,10 @@ const Blog = () => {
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-mentra-blue/10 rounded-full flex items-center justify-center">
                           <span className="text-mentra-blue font-semibold text-sm">
-                            {featuredPost.author.split(' ').map(n => n[0]).join('')}
+                            {(() => {
+                              const parts = featuredPost.author.split(' ');
+                              return parts[0][0] + parts[parts.length - 1][0];
+                            })()}
                           </span>
                         </div>
                         <span className="text-gray-700 font-medium">{featuredPost.author}</span>
@@ -312,7 +315,10 @@ const Blog = () => {
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 bg-mentra-blue/10 rounded-full flex items-center justify-center">
                           <span className="text-mentra-blue font-semibold text-xs">
-                            {post.author.split(' ').map(n => n[0]).join('')}
+                            {(() => {
+                              const parts = post.author.split(' ');
+                              return parts[0][0] + parts[parts.length - 1][0];
+                            })()}
                           </span>
                         </div>
                         <span className="text-gray-700 font-medium text-sm">{post.author}</span>
