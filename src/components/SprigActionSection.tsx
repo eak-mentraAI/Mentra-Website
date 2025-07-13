@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const SprigActionSection = () => {
@@ -33,6 +33,20 @@ const SprigActionSection = () => {
     }
   ];
 
+  const [current, setCurrent] = useState(0);
+
+  // Touch/swipe handlers for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX = e.changedTouches[0].screenX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX < touchStartX - 40) setCurrent((current + 1) % sprigStories.length);
+    if (touchEndX > touchStartX + 40) setCurrent((current - 1 + sprigStories.length) % sprigStories.length);
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -45,26 +59,25 @@ const SprigActionSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop: Show all cards in a grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {sprigStories.map((story, index) => (
-            <Card 
+            <Card
               key={story.title}
-              className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-${story.bgColor} hover:scale-105 cursor-pointer overflow-hidden`}
-              style={{animationDelay: `${index * 0.2}s`}}
+              className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-${story.bgColor} hover:scale-105 cursor-pointer overflow-hidden w-full max-w-md`}
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               <CardContent className="p-0">
                 {/* Image Section */}
                 <div className="relative p-8 pb-4">
                   <div className="flex justify-center">
-                    <img 
+                    <img
                       src={story.image}
                       alt={story.title}
                       className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  
                 </div>
-
                 {/* Content Section */}
                 <div className="p-8 pt-4 space-y-4">
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-current transition-colors">
@@ -73,13 +86,12 @@ const SprigActionSection = () => {
                   <p className="text-gray-600 leading-relaxed text-sm">
                     {story.description}
                   </p>
-                  
                   {/* Progress Indicator */}
                   <div className="pt-4">
                     <div className={`w-full h-1 bg-gray-200 rounded-full overflow-hidden`}>
-                      <div 
+                      <div
                         className={`h-full bg-${story.accentColor} rounded-full transition-all duration-1000 group-hover:w-full`}
-                        style={{width: '30%'}}
+                        style={{ width: '30%' }}
                       ></div>
                     </div>
                   </div>
@@ -87,6 +99,59 @@ const SprigActionSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Mobile: Carousel */}
+        <div className="md:hidden relative flex flex-col items-center">
+          <div
+            className="w-full flex items-center justify-center gap-8 overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <Card
+              key={sprigStories[current].title}
+              className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-${sprigStories[current].bgColor} hover:scale-105 cursor-pointer overflow-hidden w-full max-w-md`}
+            >
+              <CardContent className="p-0">
+                <div className="relative p-8 pb-4">
+                  <div className="flex justify-center">
+                    <img
+                      src={sprigStories[current].image}
+                      alt={sprigStories[current].title}
+                      className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
+                <div className="p-8 pt-4 space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-current transition-colors">
+                    {sprigStories[current].title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {sprigStories[current].description}
+                  </p>
+                  <div className="pt-4">
+                    <div className={`w-full h-1 bg-gray-200 rounded-full overflow-hidden`}>
+                      <div
+                        className={`h-full bg-${sprigStories[current].accentColor} rounded-full transition-all duration-1000 group-hover:w-full`}
+                        style={{ width: '30%' }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          {/* Dots for mobile */}
+          <div className="flex items-center justify-center mt-6 gap-2">
+            {sprigStories.map((_, idx) => (
+              <button
+                key={idx}
+                className={`w-3 h-3 rounded-full ${current === idx ? 'bg-mentra-blue' : 'bg-gray-300'}`}
+                onClick={() => setCurrent(idx)}
+                aria-label={`Go to card ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
