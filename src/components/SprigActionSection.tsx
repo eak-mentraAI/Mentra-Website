@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const SprigActionSection = () => {
   const sprigStories = [
@@ -34,35 +35,16 @@ const SprigActionSection = () => {
   ];
 
   const [current, setCurrent] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
+  const [emblaApi, setEmblaApi] = useState<any>(null);
 
-  // Touch/swipe handlers for mobile
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX = e.changedTouches[0].screenX;
-  };
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    touchEndX = e.changedTouches[0].screenX;
-    if (touchEndX < touchStartX - 40) handleSwipe('left');
-    if (touchEndX > touchStartX + 40) handleSwipe('right');
-  };
-
-  const handleSwipe = (dir: 'left' | 'right') => {
-    if (animating) return;
-    setDirection(dir);
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrent((prev) => {
-        if (dir === 'left') return (prev + 1) % sprigStories.length;
-        if (dir === 'right') return (prev - 1 + sprigStories.length) % sprigStories.length;
-        return prev;
-      });
-      setAnimating(false);
-      setDirection(null);
-    }, 300); // match transition duration
-  };
+  // Sync current index with Embla carousel
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
+    emblaApi.on('select', onSelect);
+    onSelect();
+    return () => emblaApi.off('select', onSelect);
+  }, [emblaApi]);
 
   return (
     <section className="py-20 bg-white">
@@ -76,106 +58,78 @@ const SprigActionSection = () => {
           </p>
         </div>
 
-        {/* Desktop: Show all cards in a grid */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {sprigStories.map((story, index) => (
-            <Card
-              key={story.title}
-              className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-${story.bgColor} hover:scale-105 cursor-pointer overflow-hidden w-full max-w-md`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <CardContent className="p-0">
-                {/* Image Section */}
-                <div className="relative p-8 pb-4">
-                  <div className="flex justify-center">
-                    <img
-                      src={story.image}
-                      alt={story.title}
-                      className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                </div>
-                {/* Content Section */}
-                <div className="p-8 pt-4 space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-current transition-colors">
-                    {story.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {story.description}
-                  </p>
-                  {/* Progress Indicator */}
-                  <div className="pt-4">
-                    <div className={`w-full h-1 bg-gray-200 rounded-full overflow-hidden`}>
-                      <div
-                        className={`h-full bg-${story.accentColor} rounded-full transition-all duration-1000 group-hover:w-full`}
-                        style={{ width: '30%' }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Mobile: Carousel with sliding animation */}
-        <div className="md:hidden relative flex flex-col items-center">
-          <div
-            className="w-full flex items-center justify-center gap-8 overflow-hidden"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div
-              className={`w-full max-w-md transition-transform duration-300 ${
-                animating && direction === 'left' ? '-translate-x-full' : ''
-              } ${animating && direction === 'right' ? 'translate-x-full' : ''}`}
-              style={{ position: 'absolute' }}
-            >
-              <Card
-                key={sprigStories[current].title}
-                className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-${sprigStories[current].bgColor} hover:scale-105 cursor-pointer overflow-hidden w-full max-w-md`}
+        <Carousel 
+          className="w-full max-w-6xl mx-auto" 
+          setApi={setEmblaApi}
+          aria-label="Sprig in Action carousel"
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {sprigStories.map((story, index) => (
+              <CarouselItem 
+                key={story.title} 
+                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/2 xl:basis-1/4"
               >
-                <CardContent className="p-0">
-                  <div className="relative p-8 pb-4">
-                    <div className="flex justify-center">
-                      <img
-                        src={sprigStories[current].image}
-                        alt={sprigStories[current].title}
-                        className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                  </div>
-                  <div className="p-8 pt-4 space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-current transition-colors">
-                      {sprigStories[current].title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {sprigStories[current].description}
-                    </p>
-                    <div className="pt-4">
-                      <div className={`w-full h-1 bg-gray-200 rounded-full overflow-hidden`}>
-                        <div
-                          className={`h-full bg-${sprigStories[current].accentColor} rounded-full transition-all duration-1000 group-hover:w-full`}
-                          style={{ width: '30%' }}
-                        ></div>
+                <Card
+                  className={`group transition-all duration-300 border-0 bg-${story.bgColor} cursor-pointer h-full hover:shadow-2xl xl:hover:shadow-3xl focus-within:ring-2 focus-within:ring-mentra-blue focus-within:ring-offset-2`}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`See more about ${story.title}`}
+                >
+                  <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
+                    <div className="space-y-6">
+                      <div className={`w-24 h-24 mx-auto bg-${story.accentColor}/20 rounded-2xl flex items-center justify-center`}>
+                        <img
+                          src={story.image}
+                          alt={story.title}
+                          className="w-20 h-20 object-contain"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-gray-900">
+                          {story.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {story.description}
+                        </p>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-          {/* Dots for mobile */}
-          <div className="flex items-center justify-center mt-6 gap-2">
-            {sprigStories.map((_, idx) => (
-              <button
-                key={idx}
-                className={`w-3 h-3 rounded-full ${current === idx ? 'bg-mentra-blue' : 'bg-gray-300'}`}
-                onClick={() => setCurrent(idx)}
-                aria-label={`Go to card ${idx + 1}`}
-              />
+                    {/* Hover Effect */}
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className={`w-full h-1 bg-gradient-to-r from-${story.accentColor} to-${story.accentColor}/50 rounded-full`}></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
             ))}
-          </div>
+          </CarouselContent>
+          <CarouselPrevious 
+            className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute left-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2" 
+            aria-label="Previous Sprig story"
+          />
+          <CarouselNext 
+            className="flex items-center justify-center w-12 h-12 text-2xl md:w-14 md:h-14 xl:w-16 xl:h-16 bg-white/80 hover:bg-white shadow-lg border border-gray-200 rounded-full absolute right-0 top-1/2 -translate-y-1/2 z-10 transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2" 
+            aria-label="Next Sprig story"
+          />
+        </Carousel>
+
+        {/* Dots indicator for mobile */}
+        <div 
+          className="flex justify-center mt-4 md:hidden"
+          role="tablist"
+          aria-label="Sprig in Action navigation"
+        >
+          {sprigStories.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => emblaApi?.scrollTo(idx)}
+              className={`mx-1 w-2 h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 ${
+                current === idx ? 'bg-mentra-blue' : 'bg-gray-300'
+              }`}
+              role="tab"
+              aria-selected={current === idx}
+              aria-label={`Go to Sprig story ${idx + 1} of ${sprigStories.length}`}
+            />
+          ))}
         </div>
       </div>
     </section>
