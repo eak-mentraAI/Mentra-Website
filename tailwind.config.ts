@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,13 +62,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Mentra's Warm Discovery Palette
+				// Mentra's Warm Discovery Palette (brand guide exact hex codes)
 				'mentra-blue': '#3A86FF',
-				'journal-sand': '#F5F3F0',
+				'growth-green': '#06D6A0',
 				'curiosity-coral': '#FF6B6B',
-				'grit-gold': '#FFD93D',
-				'growth-green': '#6BCF7F',
-				'wisdom-purple': '#A8E6CF'
+				'journal-sand': '#FFF9F3',
+				'grit-gold': '#FFD166',
+				'charcoal': '#333333',
+				'off-white': '#FAFAFA',
+				'wisdom-purple': '#8b5cf6' // legacy/optional
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -137,7 +138,8 @@ export default {
 				'fade-in-up': 'fade-in-up 0.6s ease-out'
 			},
 			fontFamily: {
-				'rounded': ['Inter', 'system-ui', 'sans-serif']
+				'rounded': ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
+				'display': ['Poppins', 'DM Sans', 'Inter', 'system-ui', 'sans-serif']
 			}
 		}
 	},
