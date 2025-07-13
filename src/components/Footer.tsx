@@ -12,6 +12,7 @@ const Footer = () => {
       { name: 'Pricing', href: '/pricing' },
     ],
     resources: [
+      { name: 'Blog', href: '/blog' },
       { name: 'Help Center', href: '#help' },
       { name: 'Parent Guide', href: '#parent-guide' },
       { name: 'Educator Resources', href: '#educators' },
