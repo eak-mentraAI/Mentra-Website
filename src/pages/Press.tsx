@@ -46,16 +46,71 @@ export default function Press() {
               <img src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" alt="Mentra Logo" className="h-20 mb-2" />
               <a href="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" download className="text-mentra-blue underline text-sm">Download Logo (PNG)</a>
             </div>
-            {/* Wordmark Placeholder */}
+            {/* Brand Icon (Logo with no words) */}
             <div className="flex flex-col items-center">
-              <img src="/lovable-uploads/MENTRA_SPRIG_HEART.png" alt="Mentra Wordmark" className="h-20 mb-2" />
-              <a href="/lovable-uploads/MENTRA_SPRIG_HEART.png" download className="text-mentra-blue underline text-sm">Download Wordmark (PNG)</a>
+              <img src="/lovable-uploads/MENTRA_SPRIG_HEART.png" alt="Mentra Brand Icon" className="h-20 mb-2" />
+              <a href="/lovable-uploads/MENTRA_SPRIG_HEART.png" download className="text-mentra-blue underline text-sm">Download Brand Icon (PNG)</a>
             </div>
-            {/* Sprig Icon Placeholder */}
+            {/* Sprig Icon */}
             <div className="flex flex-col items-center">
               <img src="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" alt="Sprig Icon" className="h-20 mb-2" />
               <a href="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" download className="text-mentra-blue underline text-sm">Download Sprig Icon (PNG)</a>
             </div>
+          </div>
+        </section>
+
+        {/* Brand Colors & Typography Section */}
+        <section className="container mx-auto px-4 mb-16 max-w-3xl">
+          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Brand Colors & Typography</h2>
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold mb-2">Brand Colors</h3>
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left text-sm border border-gray-200 rounded-lg">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="px-4 py-2 font-bold">Token Name</th>
+                    <th className="px-4 py-2 font-bold">Hex Code</th>
+                    <th className="px-4 py-2 font-bold">Usage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="px-4 py-2">Primary / Mentra Blue</td><td className="px-4 py-2">#3A86FF</td><td className="px-4 py-2">Buttons, highlights, Sprig identity color</td></tr>
+                  <tr><td className="px-4 py-2">Secondary / Growth Green</td><td className="px-4 py-2">#06D6A0</td><td className="px-4 py-2">Positive actions, check-ins, Sprig leaves</td></tr>
+                  <tr><td className="px-4 py-2">Accent / Curiosity Coral</td><td className="px-4 py-2">#FF6B6B</td><td className="px-4 py-2">Micro-wins, reflection triggers</td></tr>
+                  <tr><td className="px-4 py-2">Background / Journal Sand</td><td className="px-4 py-2">#FFF9F3</td><td className="px-4 py-2">Page backgrounds, gentle neutral</td></tr>
+                  <tr><td className="px-4 py-2">Highlight / Grit Gold</td><td className="px-4 py-2">#FFD166</td><td className="px-4 py-2">Sprig milestones, achievement highlights</td></tr>
+                  <tr><td className="px-4 py-2">Text / Charcoal</td><td className="px-4 py-2">#333333</td><td className="px-4 py-2">Primary text</td></tr>
+                  <tr><td className="px-4 py-2">Text Light / Off-White</td><td className="px-4 py-2">#FAFAFA</td><td className="px-4 py-2">Text on dark backgrounds</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">Accessibility: All color combinations must meet WCAG AA contrast ratios. Use lighter tints and darker variants for hover/focus states.</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Typography System</h3>
+            <p className="mb-2"><b>Primary Font:</b> DM Sans<br/><b>Display Option:</b> Poppins (use for student-facing materials)</p>
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left text-sm border border-gray-200 rounded-lg">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="px-4 py-2 font-bold">Text Style</th>
+                    <th className="px-4 py-2 font-bold">Font</th>
+                    <th className="px-4 py-2 font-bold">Size</th>
+                    <th className="px-4 py-2 font-bold">Weight</th>
+                    <th className="px-4 py-2 font-bold">Line Height</th>
+                    <th className="px-4 py-2 font-bold">Use Case</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="px-4 py-2">H1</td><td className="px-4 py-2">DM Sans</td><td className="px-4 py-2">48px</td><td className="px-4 py-2">Bold</td><td className="px-4 py-2">120%</td><td className="px-4 py-2">Hero headlines</td></tr>
+                  <tr><td className="px-4 py-2">H2</td><td className="px-4 py-2">DM Sans</td><td className="px-4 py-2">36px</td><td className="px-4 py-2">SemiBold</td><td className="px-4 py-2">120%</td><td className="px-4 py-2">Section headers</td></tr>
+                  <tr><td className="px-4 py-2">Body Large</td><td className="px-4 py-2">DM Sans</td><td className="px-4 py-2">18px</td><td className="px-4 py-2">Regular</td><td className="px-4 py-2">140%</td><td className="px-4 py-2">Descriptive content</td></tr>
+                  <tr><td className="px-4 py-2">Body</td><td className="px-4 py-2">DM Sans</td><td className="px-4 py-2">16px</td><td className="px-4 py-2">Regular</td><td className="px-4 py-2">140%</td><td className="px-4 py-2">Journaling, base UI</td></tr>
+                  <tr><td className="px-4 py-2">Caption</td><td className="px-4 py-2">DM Sans</td><td className="px-4 py-2">12px</td><td className="px-4 py-2">Medium</td><td className="px-4 py-2">130%</td><td className="px-4 py-2">Tooltips, helper text</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">Use sentence case for UI elements and maintain sufficient padding around text blocks.</p>
           </div>
         </section>
 
