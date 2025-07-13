@@ -11,19 +11,25 @@ const tabData = [
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-900">Socratic AI Enhances Teaching</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <Sparkles className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Critical Thinking Development</span>
+          <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+              <Sparkles className="w-8 h-8 text-mentra-blue" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">Critical Thinking Development</span>
             <span className="text-gray-700 text-sm">AI guides students through questions rather than providing direct answers, fostering deeper understanding.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <BookOpen className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Personalized Learning Paths</span>
+          <div className="bg-curiosity-coral/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-curiosity-coral/20 rounded-2xl flex items-center justify-center mb-2">
+              <BookOpen className="w-8 h-8 text-curiosity-coral" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">Personalized Learning Paths</span>
             <span className="text-gray-700 text-sm">Adapts to individual student needs while maintaining curriculum standards.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <Heart className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Enhanced Student Engagement</span>
+          <div className="bg-growth-green/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2">
+              <Heart className="w-8 h-8 text-growth-green" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">Enhanced Student Engagement</span>
             <span className="text-gray-700 text-sm">Interactive dialogues keep students actively participating in their learning journey.</span>
           </div>
         </div>
@@ -36,19 +42,19 @@ const tabData = [
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-900">You Remain in Control</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+          <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
             <Eye className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Real-time Oversight</span>
+            <span className="text-gray-900 font-bold mb-2">Real-time Oversight</span>
             <span className="text-gray-700 text-sm">Monitor all student-AI interactions with detailed progress insights and intervention alerts.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+          <div className="bg-curiosity-coral/10 rounded-xl p-4 shadow flex flex-col items-center">
             <Settings2 className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Customizable Parameters</span>
+            <span className="text-gray-900 font-bold mb-2">Customizable Parameters</span>
             <span className="text-gray-700 text-sm">Set learning objectives, difficulty levels, and content boundaries to match your teaching goals.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
+          <div className="bg-growth-green/10 rounded-xl p-4 shadow flex flex-col items-center">
             <Users className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Seamless Intervention</span>
+            <span className="text-gray-900 font-bold mb-2">Seamless Intervention</span>
             <span className="text-gray-700 text-sm">Step into conversations at any time with full context and conversation history.</span>
           </div>
         </div>
@@ -61,29 +67,39 @@ const tabData = [
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-900">Seamless Curriculum Integration</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <BookOpen className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Aligned Standards</span>
+          <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+              <BookOpen className="w-8 h-8 text-mentra-blue" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">Aligned Standards</span>
             <span className="text-gray-700 text-sm text-center">Aligns with state and national curriculum standards.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <Settings2 className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">LMS Integration</span>
+          <div className="bg-curiosity-coral/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-curiosity-coral/20 rounded-2xl flex items-center justify-center mb-2">
+              <Settings2 className="w-8 h-8 text-curiosity-coral" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">LMS Integration</span>
             <span className="text-gray-700 text-sm text-center">Integrates with popular LMS platforms.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <Sparkles className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Differentiated Instruction</span>
+          <div className="bg-growth-green/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2">
+              <Sparkles className="w-8 h-8 text-growth-green" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">Differentiated Instruction</span>
             <span className="text-gray-700 text-sm text-center">Supports differentiated instruction strategies.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <BarChart3 className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Assessment Data</span>
+          <div className="bg-grit-gold/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-grit-gold/20 rounded-2xl flex items-center justify-center mb-2">
+              <BarChart3 className="w-8 h-8 text-grit-gold" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">Assessment Data</span>
             <span className="text-gray-700 text-sm text-center">Provides detailed assessment data.</span>
           </div>
-          <div className="bg-white/80 rounded-xl p-4 shadow flex flex-col items-center">
-            <Users className="w-8 h-8 text-mentra-blue mb-2" />
-            <span className="text-mentra-blue font-bold mb-2">Professional Resources</span>
+          <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+              <Users className="w-8 h-8 text-mentra-blue" />
+            </div>
+            <span className="text-gray-900 font-bold mb-2">Professional Resources</span>
             <span className="text-gray-700 text-sm text-center">Offers professional development resources.</span>
           </div>
         </div>
