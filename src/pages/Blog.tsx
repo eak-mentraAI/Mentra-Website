@@ -152,17 +152,19 @@ const Blog = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
-      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 py-12 px-4 font-rounded">
+      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 py-12 px-4 font-rounded flex flex-col items-center">
         <div className="container mx-auto px-4">
           {/* Header Section */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Mentra Blog</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Insights, research, and stories about AI-powered learning, emotional intelligence, and the future of education.
+          <section className="container mx-auto max-w-7xl px-4 flex flex-col items-center justify-center text-center mb-12">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Mentra <span className="text-mentra-blue">Insights</span>
+            </h1>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-0">
+              Leading the conversation on the future of learning, AI, and human growth. Explore bold ideas, research, and real stories from the front lines of education innovation.
             </p>
-          </div>
+          </section>
 
           {/* Search and Filter Section */}
           <div className="bg-white rounded-2xl shadow-lg p-6 mb-12">
@@ -174,18 +176,18 @@ const Blog = () => {
                   placeholder="Search articles..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 bg-blue-50 border-blue-100 focus:ring-mentra-blue focus:border-mentra-blue"
                 />
               </div>
 
               {/* Category Filter */}
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-blue-50 border-blue-100 focus:ring-mentra-blue focus:border-mentra-blue">
                   <SelectValue placeholder="All Categories" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-blue-50">
                   {categories.map(category => (
-                    <SelectItem key={category} value={category}>
+                    <SelectItem key={category} value={category} className="bg-blue-50 focus:bg-blue-100">
                       {category === 'all' ? 'All Categories' : category}
                     </SelectItem>
                   ))}
@@ -194,14 +196,14 @@ const Blog = () => {
 
               {/* Sort Options */}
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-blue-50 border-blue-100 focus:ring-mentra-blue focus:border-mentra-blue">
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="newest">Newest First</SelectItem>
-                  <SelectItem value="oldest">Oldest First</SelectItem>
-                  <SelectItem value="title">Alphabetical</SelectItem>
-                  <SelectItem value="readTime">Read Time</SelectItem>
+                <SelectContent className="bg-blue-50">
+                  <SelectItem value="newest" className="bg-blue-50 focus:bg-blue-100">Newest First</SelectItem>
+                  <SelectItem value="oldest" className="bg-blue-50 focus:bg-blue-100">Oldest First</SelectItem>
+                  <SelectItem value="title" className="bg-blue-50 focus:bg-blue-100">Alphabetical</SelectItem>
+                  <SelectItem value="readTime" className="bg-blue-50 focus:bg-blue-100">Read Time</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -347,7 +349,7 @@ const Blog = () => {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
