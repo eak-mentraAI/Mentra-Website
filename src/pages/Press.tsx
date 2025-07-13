@@ -44,8 +44,8 @@ export default function Press() {
               </div>
               {/* Brand Icon (Logo with no words) */}
               <div className="flex flex-col items-center">
-                <img src="/lovable-uploads/MENTRA_SPRIG_HEART.png" alt="Mentra Brand Icon" className="h-20 mb-2" />
-                <a href="/lovable-uploads/MENTRA_SPRIG_HEART.png" download className="text-mentra-blue underline text-sm">Download Brand Icon (PNG)</a>
+                <img src="/logo_no_words.png" alt="Mentra Brand Icon" className="h-20 mb-2" />
+                <a href="/logo_no_words.png" download className="text-mentra-blue underline text-sm">Download Brand Icon (PNG)</a>
               </div>
               {/* Sprig Icon */}
               <div className="flex flex-col items-center">
