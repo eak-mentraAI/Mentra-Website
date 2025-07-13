@@ -33,9 +33,8 @@ export default function Press() {
           <div className="bg-white/80 rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Media Kit</h2>
             <p className="text-gray-700 mb-6">Download our brand assets for use in press coverage. For additional requests, contact us at <a href="mailto:hello@mentra.ai" className="text-mentra-blue underline">hello@mentra.ai</a>.</p>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 mb-6">
               <a href="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" download className="bg-mentra-blue text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-mentra-blue/90 transition">Download All Assets (ZIP)</a>
-              {/* Placeholder for ZIP, update link if you add a ZIP file */}
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {/* Main Logo */}
