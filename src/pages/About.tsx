@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4">
+      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         {/* Hero Section */}
         <section className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10 mb-16">
           <img

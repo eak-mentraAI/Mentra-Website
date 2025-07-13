@@ -10,6 +10,7 @@ import HowItWorks from "./pages/HowItWorks";
 import Educators from "./pages/Educators";
 import Parents from "./pages/Parents";
 import FAQ from "./pages/FAQ";
+import Pricing from "./pages/Pricing";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/educators" element={<Educators />} />
           <Route path="/parents" element={<Parents />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

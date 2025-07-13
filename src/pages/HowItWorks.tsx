@@ -110,7 +110,7 @@ export default function HowItWorks() {
   return (
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
-      <main className="flex-1 flex flex-col items-center py-12 px-4">
+      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         <section className="container mx-auto px-4 flex flex-col items-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
             See Mentra <span className="text-mentra-blue">in Action</span>

@@ -86,8 +86,8 @@ const faqSections = [
   },
   {
     section: 'General',
-    color: 'bg-yellow-100',
-    border: 'border-yellow-800',
+    color: 'bg-gray-100',
+    border: 'border-black',
     questions: [
       {
         question: "Does Mentra work on tablets and smartphones?",
@@ -109,7 +109,7 @@ const FAQ = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4">
+      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         <section className="container mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h1>
           <p className="text-gray-500 mb-8 text-center">Common concerns from educators, parents, and students with detailed answers.</p>
