@@ -17,8 +17,7 @@ const CTASection = () => {
           {/* Main CTA Content - Enhanced copy */}
           <div className="mb-12">
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Ready to Learn{' '}
-              <span className="text-grit-gold">With Purpose</span>?
+              Ready to Learn <span>With Purpose</span>?
             </h2>
             
             <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">

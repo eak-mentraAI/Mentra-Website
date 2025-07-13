@@ -17,43 +17,43 @@ const demoFeatures = [
     icon: Trophy,
     color: "mentra-blue",
     bgColor: "mentra-blue/10",
-    title: "Motivating Dashboards",
-    description: "Motivates students by challenging them and celebrating their accomplishments.",
+    title: "Personalized Dashboards",
+    description: "See how students track their progress with motivating challenges and celebrations.",
   },
   {
     icon: Heart,
-    color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    title: "Emotional Growth",
-    description: "Personalized journaling for emotional growth.",
+    color: "curiosity-coral",
+    bgColor: "curiosity-coral/10",
+    title: "Emotional Intelligence",
+    description: "Watch guided journaling that builds self-awareness and emotional growth.",
   },
   {
     icon: Settings2,
-    color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    title: "AI Skills Mastery",
-    description: "Grow new AI-specific skills like agent orchestration and prompt engineering.",
+    color: "growth-green",
+    bgColor: "growth-green/10",
+    title: "AI Skills Development",
+    description: "See students master agent orchestration and prompt engineering skills.",
   },
   {
     icon: Sparkles,
-    color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    title: "AI Feedback",
-    description: "AI trained in pedagogical frameworks to foster true growth.",
+    color: "grit-gold",
+    bgColor: "grit-gold/10",
+    title: "Pedagogical AI",
+    description: "Watch AI trained in educational frameworks guide deeper understanding.",
   },
   {
     icon: ShieldCheck,
-    color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    title: "Curated Learning",
-    description: "A safe and innovative architecture that supports individualized learning for each student.",
+    color: "wisdom-purple",
+    bgColor: "wisdom-purple/10",
+    title: "Safe Learning Environment",
+    description: "See how our architecture supports individualized learning safely.",
   },
   {
     icon: Users,
     color: "mentra-blue",
     bgColor: "mentra-blue/10",
-    title: "Educational Insights",
-    description: "Curated experiences for educators and parents to deliver improved outcomes and support their children/students.",
+    title: "Educator Insights",
+    description: "Watch how teachers and parents get meaningful insights to support growth.",
   },
 ];
 
@@ -63,35 +63,35 @@ const flywheel = [
     title: "Reflective Engagement",
     color: "mentra-blue",
     bgColor: "mentra-blue/10",
-    description: "Students actively reflect on their learning, emotions, and progress through guided prompts and journaling."
+    description: "Students reflect on learning, emotions, and progress through guided prompts."
   },
   {
     icon: FileText,
     title: "AI Summarization",
     color: "curiosity-coral",
     bgColor: "curiosity-coral/10",
-    description: "Mentra's AI distills student input into meaningful summaries, highlighting key insights and growth areas."
+    description: "AI distills student input into meaningful insights and growth areas."
   },
   {
     icon: Sparkles,
     title: "Insight Delivery",
     color: "growth-green",
     bgColor: "growth-green/10",
-    description: "Personalized insights and feedback are delivered to help students understand themselves and their learning journey."
+    description: "Personalized insights help students understand their learning journey."
   },
   {
     icon: Users,
     title: "Responsive Support",
     color: "grit-gold",
     bgColor: "grit-gold/10",
-    description: "AI, parents, and educators provide timely support and encouragement tailored to each student's needs."
+    description: "AI, parents, and educators provide timely, tailored support."
   },
   {
     icon: BarChart3,
     title: "Student Growth",
-    color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    description: "Students experience measurable growth, building confidence and skills for future challenges."
+    color: "wisdom-purple",
+    bgColor: "wisdom-purple/10",
+    description: "Students build confidence and skills for future challenges."
   },
 ];
 
@@ -113,10 +113,10 @@ export default function HowItWorks() {
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         <section className="container mx-auto px-4 flex flex-col items-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
-            See Mentra <span className="text-mentra-blue">in Action</span>
+            See Mentra <span className="text-mentra-blue">Transform</span> Learning
           </h1>
           <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl">
-            Watch how students thrive with Mentra's AI-powered, human-centered learning experience.
+            Watch how students thrive with AI-powered, human-centered learning that builds lasting growth.
           </p>
           <div className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl bg-gray-200 mb-8">
             <iframe
@@ -132,7 +132,7 @@ export default function HowItWorks() {
           {/* What You'll See in the Demo */}
           <div className="mb-12 w-full container mx-auto px-4">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center">
-              What <span className="text-mentra-blue">You'll See</span> in the Demo
+              What <span className="text-mentra-blue">You'll Discover</span> in the Demo
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {demoFeatures.map((feature) => (

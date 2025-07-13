@@ -38,8 +38,7 @@ const SprigActionSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-mentra-blue">Sprig</span>{' '}
-            in Action
+            Sprig in <span className="text-mentra-blue">Action</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             See how Sprig adapts to different learning moments, providing personalized support for every step of your educational journey.

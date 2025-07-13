@@ -7,64 +7,64 @@ const FeaturesSection = () => {
   const features = [
     {
       icon: BookOpen,
-      title: 'Interactive Journaling',
-      description: 'Express thoughts and feelings through guided prompts that adapt to your emotional state and learning journey.',
+      title: 'Express Yourself with Interactive Journaling',
+      description: 'Share your thoughts and feelings through guided prompts that adapt to you.',
       color: 'mentra-blue',
       bgColor: 'mentra-blue/10'
     },
     {
       icon: Heart,
-      title: 'Emotional Insights',
-      description: 'Develop emotional intelligence with AI-powered feedback that helps you understand and process your feelings.',
+      title: 'Grow Emotional Intelligence with AI Feedback',
+      description: 'Get personalized feedback to help you understand and process your emotions.',
       color: 'curiosity-coral',
       bgColor: 'curiosity-coral/10'
     },
     {
       icon: Brain,
-      title: 'Guided Learning',
-      description: 'Personalized learning paths that adjust to your pace, interests, and emotional readiness for new concepts.',
+      title: 'Personalized Learning Paths for Every Student',
+      description: 'Learning journeys that adjust to your pace, interests, and readiness for new concepts.',
       color: 'growth-green',
       bgColor: 'growth-green/10'
     },
     {
       icon: Star,
-      title: 'Growth Tracking',
-      description: 'Celebrate your progress with meaningful milestones that recognize both academic and emotional development.',
+      title: 'Track Your Growth with Meaningful Milestones',
+      description: 'Celebrate your progress with milestones that recognize academic and emotional growth.',
       color: 'grit-gold',
       bgColor: 'grit-gold/10'
     },
     {
       icon: Users,
-      title: 'AI-Guided Assignments',
-      description: 'Teacher-issued and AI-guided assignments that adapt to your learning style while maintaining pedagogical rigor.',
+      title: 'AI-Guided Assignments for Deeper Learning',
+      description: 'Assignments that adapt to your learning style and help you master new skills.',
       color: 'mentra-blue',
       bgColor: 'mentra-blue/10'
     },
     {
       icon: Wrench,
-      title: 'Agent Workbench',
-      description: 'Learn to orchestrate AI agents to accomplish complex tasks, building comfort with next-generation knowledge work.',
+      title: 'Master Next-Gen Skills in the Agent Workbench',
+      description: 'Orchestrate AI agents to accomplish complex tasks and build future-ready skills.',
       color: 'growth-green',
       bgColor: 'growth-green/10'
     },
     {
       icon: Target,
-      title: 'Prompt Engineering Lab',
-      description: 'Practice with AI challenges and receive personalized scoring and feedback to improve your prompt crafting skills.',
+      title: 'Sharpen Your Skills in the Prompt Engineering Lab',
+      description: 'Practice with AI challenges and get feedback to improve your prompt crafting.',
       color: 'curiosity-coral',
       bgColor: 'curiosity-coral/10'
     },
     {
       icon: Map,
-      title: 'Learner Passport',
-      description: 'A comprehensive graph of your learning trends that can be exported as a personal AI assistant when you graduate.',
+      title: 'Build Your Learner Passport for the Future',
+      description: 'Track your learning trends and export your progress as a personal AI assistant.',
       color: 'grit-gold',
       bgColor: 'grit-gold/10'
     },
     {
       icon: Compass,
-      title: 'Open Exploration',
-      description: 'Safely explore ideas and concepts in a pedagogically grounded sandbox environment designed for discovery.',
+      title: 'Explore Freely in a Safe, Guided Sandbox',
+      description: 'Safely explore ideas and concepts in a sandbox designed for discovery.',
       color: 'mentra-blue',
       bgColor: 'mentra-blue/10'
     }
@@ -94,9 +94,7 @@ const FeaturesSection = () => {
             id="features-heading"
             className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
           >
-            How{' '}
-            <span className="text-mentra-blue">Sprig</span>{' '}
-            Helps You Grow
+            How Sprig Helps You <span className="text-mentra-blue">Grow</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover the features that make learning with Mentra a transformative experience for students, parents, and educators.

@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../App.css';
+import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
+import { Brain, Users, Star, Heart, Laptop2 } from 'lucide-react';
 
 export default function About() {
   return (
@@ -26,99 +28,159 @@ export default function About() {
           </div>
         </section>
 
-        {/* Vision & Origin Story */}
+        {/* Vision & Origin Story - For Parents & Educators */}
         <section className="container mx-auto px-4 mb-16 text-left">
-          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Mentra Strategic Vision</h2>
+          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">A Vision for Growth—For Every Child</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            As a technologist developing AI solutions, I see a future where productivity shifts increasingly from humans to AI. This transition threatens the foundation of the long-standing social contract: go to school, get good grades, get a good job. That promise feels fragile in the world my daughters—Grace, Hope, and Joy—are inheriting.
+            <b>For parents and educators:</b> The world is changing fast. AI is rewriting what it means to succeed in school and life. Mentra was created to help your children and students not just keep up, but grow into thoughtful, resilient, and adaptable humans—no matter how the world changes.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            As a father, I fear we're on the brink of raising a "lost generation" of children who couldn't adapt in time—not because they lacked talent, but because we failed to evolve the system fast enough. My response to this is Mentra—a product that ensures students can still succeed even as society redefines success. Whether society continues to prize grades or pivots toward deeper human skills, Mentra supports both: helping students earn good grades through meaningful effort and scaffolding, while also nurturing the kind of growth that transcends test scores.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            <b>Mentra exists to amplify the human journey</b>—using AI to deepen reflection, resilience, and individualized support—without replacing the teacher or undermining the student's agency.
+            We believe in amplifying the human journey—using AI to deepen reflection, resilience, and individualized support, while keeping teachers and families at the center of learning.
           </p>
         </section>
 
-        {/* Problem Space */}
-        <section className="container mx-auto px-4 mb-16 text-left">
-          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">The Problem We're Solving</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Students today are using AI to secure outcomes—a completed essay, a finished assignment—but are missing the true value of learning: <b>critical thinking, media literacy, self-regulation, and creative synthesis</b>. Meanwhile, teachers are under-resourced and stuck in outdated systems, while parents are too often disconnected from their child's learning journey.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            In addition, parents are overwhelmed. Many of today's tools to keep parents connected inundate them with notifications about trivial items that don't add value beyond the in-person interactions they already have with their children. Instead of enhancing their understanding, these tools often add to the mental noise.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            <b>There are no organic incentives to prioritize the process over the product.</b> Everyone is chasing grades, not growth. The education system still rewards completion and correctness, even as AI makes both increasingly effortless. We risk raising a generation that meets all the traditional requirements but misses the actual development needed to thrive in a post-AI world. Mentra isn't about disrupting those systems for the sake of it—it's about preserving their spirit while evolving their function.
-          </p>
+        {/* Problem Space - For All Personas */}
+        <section className="container mx-auto px-4 mb-16">
+          <h2 className="text-2xl font-bold text-mentra-blue mb-8 tracking-tight text-left">The Challenge We Solve</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8">
+            {/* Institutional Adaptation Card */}
+            <Card className="bg-mentra-blue/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Brain className="w-8 h-8 text-mentra-blue" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">Bridging the Adaptation Gap</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                Institutions can't keep pace with AI's rapid evolution—risking a lost generation. We map trends and release targeted features to help students, parents, and educators adapt and thrive.
+              </CardContent>
+            </Card>
+            {/* Timeless Skills Card */}
+            <Card className="bg-curiosity-coral/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-curiosity-coral/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Star className="w-8 h-8 text-curiosity-coral" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">Developing Timeless Skills</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                As AI reshapes the workforce, we focus on critical thinking, creative problem solving, self-regulation, and media literacy—skills that remain valuable no matter how technology changes.
+              </CardContent>
+            </Card>
+            {/* Orchestrators & Understanding Card */}
+            <Card className="bg-growth-green/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Users className="w-8 h-8 text-growth-green" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">From Doers to Orchestrators</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                We help students become orchestrators of AI—designing workflows, not just completing tasks. Our AI is grounded in pedagogical approaches like Socratic scaffolding to ensure true understanding, not just output.
+              </CardContent>
+            </Card>
+            {/* Motivation & Citizenship Card */}
+            <Card className="bg-grit-gold/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-grit-gold/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Heart className="w-8 h-8 text-grit-gold" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">Fostering Intrinsic Motivation</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                As AI automates more work, we help students find purpose beyond grades—cultivating a renaissance mindset and responsible citizenship for a world where growth is self-driven.
+              </CardContent>
+            </Card>
+            {/* Deep Learning & Reflection Card */}
+            <Card className="bg-wisdom-purple/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-wisdom-purple/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Laptop2 className="w-8 h-8 text-wisdom-purple" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">Grounded, Reflective Learning</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                Our AI never just gives answers. We use evidence-based, Socratic methods to guide students toward understanding, reflection, and lifelong learning.
+              </CardContent>
+            </Card>
+          </div>
         </section>
 
-        {/* Trends + Opportunity */}
+        {/* Trends + Opportunity - For Policy/Legal & Visionaries */}
         <section className="container mx-auto px-4 mb-16 text-left">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Why This Moment Matters</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            AI is advancing faster than any prior technology—and it is rapidly taking over both intellectual and physical labor domains. Students are coasting through school with generative tools. Teachers are overwhelmed. The education system is struggling to adapt.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Meanwhile, productivity is no longer human-bound. AI agents are outperforming entry-level knowledge workers. Robotics is catching up in physical domains. The very definition of "value" in the economy is changing. <b>This creates a generational opportunity:</b>
-          </p>
-          <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
-            <li>Build AI-native learning tools that shape emotionally intelligent, adaptable young people—not just task-completers.</li>
-            <li>Help students succeed in traditional metrics, but also prepare them for what comes next.</li>
-          </ul>
-        </section>
-
-        {/* Timing + Urgency */}
-        <section className="container mx-auto px-4 mb-16 text-left">
-          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Why Now</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            If we don't act now, we'll lose a generation of learners to misaligned incentives and technological shortcuts. These students will follow the path we laid out for them, only to discover the promise is gone. That creates disillusionment, systemic distrust, and eventually—social instability.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            <b>Education is not just a personal pursuit.</b> It is a pillar of democracy, innovation, and opportunity. If we lose this moment, we risk unraveling more than individual futures. We risk the infrastructure of modern society.
+            AI is transforming work, learning, and society. The definition of value is shifting from what you know to how you think, adapt, and connect. This is a generational opportunity to build tools that shape emotionally intelligent, adaptable young people—not just task-completers.
           </p>
         </section>
 
-        {/* Unique Insight + Advantage */}
+        {/* Why Now - For All */}
         <section className="container mx-auto px-4 mb-16 text-left">
-          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Why We're Different</h2>
+          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Why Now?</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We are not another edtech company. We are:
-          </p>
-          <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
-            <li><b>Concerned parents</b> who feel the urgency firsthand</li>
-            <li><b>Technologists</b> who understand the architecture of the future</li>
-            <li><b>Educators and people leaders</b> who see the classroom not as a commodity, but as a community</li>
-          </ul>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            We know how to connect the key personas—students, parents, teachers—and guide them through this AI transition with empathy and technical precision.
+            If we don't act, we risk raising a generation that meets all the requirements but misses the real development needed to thrive in a post-AI world. Education is a pillar of democracy, innovation, and opportunity. Mentra is here to help you protect and evolve that pillar.
           </p>
         </section>
 
-        {/* Product + Business Trajectory */}
+        {/* Unique Insight + Advantage - For All Personas */}
+        <section className="container mx-auto px-4 mb-16">
+          <h2 className="text-2xl font-bold text-mentra-blue mb-8 tracking-tight text-left">Who We Are</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Parents Card */}
+            <Card className="bg-mentra-blue/10 border-0 shadow-xl">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Users className="w-8 h-8 text-mentra-blue" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">Parents</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                We feel the urgency firsthand and want to empower the next generation to thrive.
+              </CardContent>
+            </Card>
+            {/* Educators Card */}
+            <Card className="bg-growth-green/10 border-0 shadow-xl">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Star className="w-8 h-8 text-growth-green" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">Educators</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                We see the classroom as a community and champion whole-child learning.
+              </CardContent>
+            </Card>
+            {/* Technologists Card */}
+            <Card className="bg-wisdom-purple/10 border-0 shadow-xl">
+              <CardHeader className="flex flex-col items-center justify-center">
+                <div className="w-14 h-14 bg-wisdom-purple/20 rounded-2xl flex items-center justify-center mb-2">
+                  <Laptop2 className="w-8 h-8 text-wisdom-purple" />
+                </div>
+                <CardTitle className="text-center text-xl font-bold">Technologists</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-gray-700">
+                We design the architecture of the future—tools that serve humanity, not just efficiency.
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Product + Business Trajectory - For All Personas */}
         <section className="container mx-auto px-4 mb-16 text-left">
-          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Our Roadmap</h2>
+          <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Our Roadmap: Adapting for the Future, Together</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We are building an AI-native platform that:
+            AI is evolving at breakneck speed. Our roadmap isn't just a list of features—it's a living strategy, shaped by evidence, research, and the real needs of students, parents, and educators.
           </p>
-          <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
-            <li>Connects educators, students (K–12), and parents into a shared, role-based learning environment</li>
-            <li>Uses adaptive journaling and assignment-linked prompts to extract meaning from the learning journey</li>
-            <li>Grows with students as they grow, learning from their inputs and becoming more tailored over time</li>
-            <li>Preserves privacy and builds trust while giving teachers visibility and parents confidence</li>
+          <ul className="list-disc list-inside text-gray-700 mb-4 ml-4 space-y-2">
+            <li><b>Evidence-Based Foresight:</b> We continuously map AI trends and educational research to anticipate what's next—so you're always prepared, not left behind.</li>
+            <li><b>Targeted Feature Releases:</b> Every new tool or experience we launch is designed to address a specific, emerging challenge—whether it's developing timeless skills, orchestrating AI agents, or fostering intrinsic motivation.</li>
+            <li><b>Timeless Skills, Not Just Tech:</b> We prioritize features that help students build critical thinking, creative problem solving, self-regulation, and media literacy—skills that will matter no matter how AI evolves.</li>
+            <li><b>Orchestrator Experiences:</b> We're introducing student experiences that go beyond 'doing'—helping learners design, direct, and orchestrate AI workflows for the real world.</li>
+            <li><b>Pedagogical Integrity:</b> All our AI is grounded in proven educational methods, like Socratic scaffolding, to ensure students don't just get answers—they learn how to think, reflect, and grow.</li>
+            <li><b>A Human-Centered Future:</b> As AI takes on more, we're committed to nurturing a generation motivated by curiosity, purpose, and responsible citizenship—not just grades or productivity.</li>
           </ul>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            From kindergarten to the workforce, students won't just learn with Mentra—they'll grow up with it. In early years, Mentra may guide students visually or via voice, adapting to literacy levels. As students mature, the structure of journaling and support evolves, becoming more complex, reflective, and student-led.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            And one day, that growth companion—the student's personal learning AI—can graduate with them. It becomes a lifelong agent of reflection, planning, and self-direction. Becoming things like personal assistants, professional assistants, or higher education companions.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Whether grades remain central or society reorients its measures of success, Mentra ensures students don't miss out. If grades still matter, students earn them the right way—by engaging in real learning. If the system shifts, Mentra is there to support that transition too.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            <b>That's our vision:</b> A learning system as intelligent, empathetic, and growth-focused as the humans it's meant to support.
+            Our roadmap is your roadmap. As the world changes, we'll keep you, your students, and your family ahead of the curve—empowered, adaptable, and ready for whatever comes next.
           </p>
         </section>
 

@@ -9,7 +9,7 @@ const tabData = [
     label: 'Pedagogical Effectiveness',
     content: (
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-900">Socratic AI Enhances Teaching</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Pedagogically Aligned AI <span className="text-mentra-blue">Empowers</span> Teaching</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
           <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
             <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
@@ -40,7 +40,7 @@ const tabData = [
     label: 'Professional Control',
     content: (
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-900">You Remain in Control</h2>
+        <h2 className="text-2xl font-bold text-gray-900">You <span className="text-mentra-blue">Guide</span> the Experience</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
           <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
             <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
@@ -71,7 +71,7 @@ const tabData = [
     label: 'Curriculum Integration',
     content: (
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-900">Seamless Curriculum Integration</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Seamless <span className="text-mentra-blue">Integration</span></h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
           <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
             <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
@@ -101,9 +101,9 @@ const tabData = [
             <span className="text-gray-900 font-bold mb-2">Assessment Data</span>
             <span className="text-gray-700 text-sm text-center">Provides detailed assessment data.</span>
           </div>
-          <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
-            <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
-              <Users className="w-8 h-8 text-mentra-blue" />
+          <div className="bg-wisdom-purple/10 rounded-xl p-4 shadow flex flex-col items-center">
+            <div className="w-16 h-16 bg-wisdom-purple/20 rounded-2xl flex items-center justify-center mb-2">
+              <Users className="w-8 h-8 text-wisdom-purple" />
             </div>
             <span className="text-gray-900 font-bold mb-2">Professional Resources</span>
             <span className="text-gray-700 text-sm text-center">Offers professional development resources.</span>
@@ -116,7 +116,7 @@ const tabData = [
     label: 'Example Interaction',
     content: (
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-900">See Socratic AI in Action</h2>
+        <h2 className="text-2xl font-bold text-gray-900">See Socratic AI <span className="text-mentra-blue">in Action</span></h2>
         <div className="bg-white rounded-xl p-6 shadow flex flex-col gap-4">
           <div className="flex items-start gap-3 justify-end ml-4">
             <div className="bg-gray-100 text-gray-700 rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg italic text-right">
@@ -164,10 +164,10 @@ export default function Educators() {
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
-          For <span className="text-mentra-blue">Educators</span>
+          <span className="text-mentra-blue">Empower</span> Educators
         </h1>
         <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 text-center max-w-2xl">
-          Discover how Mentra enhances your teaching while maintaining professional control and pedagogical excellence.
+          Discover how Mentra enhances your teaching, keeps you in control, and supports pedagogical excellence—so you can focus on what matters most: student growth.
         </p>
         <section className="container mx-auto px-4 mb-10 sm:mb-12">
           {/* Mobile Dropdown Selector */}

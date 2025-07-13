@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 
@@ -11,14 +10,10 @@ const AboutSection = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
-                AI That Makes You{' '}
-                <span className="text-mentra-blue">More Human</span>
+                Mentra was founded to help every child <span className="text-mentra-blue">thrive</span> in an AI-powered world.
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Mentra isn't just another AI tool—it's a pedagogically grounded learning companion designed to strengthen the timeless skills that make students uniquely human while teaching them to work effectively with artificial intelligence.
-              </p>
-              <p className="text-lg text-gray-500 leading-relaxed">
-                Built by educators, trusted by parents, and loved by students who want to grow, not just consume content.
+                We believe in nurturing critical thinking, emotional intelligence, and lifelong learning—so students don't just keep up, they grow.
               </p>
             </div>
 

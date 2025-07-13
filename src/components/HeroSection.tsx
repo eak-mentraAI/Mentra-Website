@@ -24,16 +24,10 @@ const HeroSection = () => {
                 id="hero-heading"
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight"
               >
-                Where Students{' '}
-                <span className="text-mentra-blue relative">
-                  Thrive
-                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-mentra-blue to-growth-green rounded-full"></div>
-                </span>{' '}
-                with AI
+                Mentra: Human <span className="text-mentra-blue">Growth</span>, Powered by AI
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                Meet Sprig, your AI learning companion designed by educators, built for students, and trusted by parents. 
-                Together, we'll strengthen the timeless skills that make you uniquely human while mastering AI as a powerful learning tool.
+                Personalized journaling, guided discovery, and emotional growth—powered by Sprig, your AI learning companion.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed">
                 This isn't just another AI tool—it's pedagogically grounded, emotionally intelligent, and designed to empower rather than replace human thinking.

@@ -8,30 +8,30 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      quote: "Mentra has transformed how my daughter approaches learning. She's more confident, emotionally aware, and excited about school.",
+      quote: "My students now reflect on their learning journey instead of just completing assignments.",
       author: "Sarah Chen",
-      role: "Parent",
+      role: "5th Grade Teacher",
       color: "curiosity-coral",
       avatar: "/lovable-uploads/69642821-e647-4bdf-b739-25771a5f9674.png"
     },
     {
-      quote: "As an educator, I've seen remarkable growth in emotional intelligence among students using Mentra. Sprig makes complex concepts accessible.",
+      quote: "I can see my child's emotional growth alongside their academic progress.",
       author: "Michael Rodriguez",
-      role: "Elementary Teacher",
+      role: "Parent of 8-year-old",
       color: "growth-green",
       avatar: "/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png"
     },
     {
-      quote: "The journaling feature helped me understand my feelings better. Now I know why some subjects feel harder and how to work through challenges.",
+      quote: "I learned to ask better questions and think through problems step by step.",
       author: "Emma, Age 10",
       role: "Student",
       color: "grit-gold",
       avatar: "/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png"
     },
     {
-      quote: "Mentra provides the emotional support framework that modern education needs. It's not just about academic growth—it's about human development.",
+      quote: "Students develop metacognitive skills that transfer to all subjects.",
       author: "Dr. Amanda Foster",
-      role: "Child Psychologist",
+      role: "School Principal",
       color: "mentra-blue",
       avatar: "/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
     }
@@ -74,9 +74,7 @@ const TestimonialsSection = () => {
             id="testimonials-heading"
             className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
           >
-            Why{' '}
-            <span className="text-mentra-blue">Mentra</span>{' '}
-            Works
+            Why Mentra <span className="text-mentra-blue">Works</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Hear from the families, educators, and students who have experienced the transformative power of learning with Sprig.
