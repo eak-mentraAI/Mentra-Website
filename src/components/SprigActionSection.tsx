@@ -34,6 +34,8 @@ const SprigActionSection = () => {
   ];
 
   const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState<'left' | 'right' | null>(null);
 
   // Touch/swipe handlers for mobile
   let touchStartX = 0;
@@ -43,8 +45,23 @@ const SprigActionSection = () => {
   };
   const handleTouchEnd = (e: React.TouchEvent) => {
     touchEndX = e.changedTouches[0].screenX;
-    if (touchEndX < touchStartX - 40) setCurrent((current + 1) % sprigStories.length);
-    if (touchEndX > touchStartX + 40) setCurrent((current - 1 + sprigStories.length) % sprigStories.length);
+    if (touchEndX < touchStartX - 40) handleSwipe('left');
+    if (touchEndX > touchStartX + 40) handleSwipe('right');
+  };
+
+  const handleSwipe = (dir: 'left' | 'right') => {
+    if (animating) return;
+    setDirection(dir);
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent((prev) => {
+        if (dir === 'left') return (prev + 1) % sprigStories.length;
+        if (dir === 'right') return (prev - 1 + sprigStories.length) % sprigStories.length;
+        return prev;
+      });
+      setAnimating(false);
+      setDirection(null);
+    }, 300); // match transition duration
   };
 
   return (
@@ -101,45 +118,52 @@ const SprigActionSection = () => {
           ))}
         </div>
 
-        {/* Mobile: Carousel */}
+        {/* Mobile: Carousel with sliding animation */}
         <div className="md:hidden relative flex flex-col items-center">
           <div
             className="w-full flex items-center justify-center gap-8 overflow-hidden"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            <Card
-              key={sprigStories[current].title}
-              className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-${sprigStories[current].bgColor} hover:scale-105 cursor-pointer overflow-hidden w-full max-w-md`}
+            <div
+              className={`w-full max-w-md transition-transform duration-300 ${
+                animating && direction === 'left' ? '-translate-x-full' : ''
+              } ${animating && direction === 'right' ? 'translate-x-full' : ''}`}
+              style={{ position: 'absolute' }}
             >
-              <CardContent className="p-0">
-                <div className="relative p-8 pb-4">
-                  <div className="flex justify-center">
-                    <img
-                      src={sprigStories[current].image}
-                      alt={sprigStories[current].title}
-                      className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                </div>
-                <div className="p-8 pt-4 space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-current transition-colors">
-                    {sprigStories[current].title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {sprigStories[current].description}
-                  </p>
-                  <div className="pt-4">
-                    <div className={`w-full h-1 bg-gray-200 rounded-full overflow-hidden`}>
-                      <div
-                        className={`h-full bg-${sprigStories[current].accentColor} rounded-full transition-all duration-1000 group-hover:w-full`}
-                        style={{ width: '30%' }}
-                      ></div>
+              <Card
+                key={sprigStories[current].title}
+                className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-${sprigStories[current].bgColor} hover:scale-105 cursor-pointer overflow-hidden w-full max-w-md`}
+              >
+                <CardContent className="p-0">
+                  <div className="relative p-8 pb-4">
+                    <div className="flex justify-center">
+                      <img
+                        src={sprigStories[current].image}
+                        alt={sprigStories[current].title}
+                        className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="p-8 pt-4 space-y-4">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-current transition-colors">
+                      {sprigStories[current].title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {sprigStories[current].description}
+                    </p>
+                    <div className="pt-4">
+                      <div className={`w-full h-1 bg-gray-200 rounded-full overflow-hidden`}>
+                        <div
+                          className={`h-full bg-${sprigStories[current].accentColor} rounded-full transition-all duration-1000 group-hover:w-full`}
+                          style={{ width: '30%' }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
           {/* Dots for mobile */}
           <div className="flex items-center justify-center mt-6 gap-2">
