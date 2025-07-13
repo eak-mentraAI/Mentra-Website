@@ -9,9 +9,9 @@ export default function Press() {
       <Header />
       <main className="bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         {/* Hero Section */}
-        <section className="container mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center gap-8 mb-16 relative">
+        <section className="container mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center justify-center gap-8 mb-16 relative">
           {/* Left: Header and intro */}
-          <div className="flex-1 min-w-0 text-left">
+          <div className="flex-1 min-w-0 flex flex-col items-center md:items-center justify-center text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               <span className="text-mentra-blue">For</span> the Media
             </h1>
