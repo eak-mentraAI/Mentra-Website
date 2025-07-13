@@ -37,7 +37,7 @@ const Blog = () => {
       date: '2024-01-15',
       category: 'AI & Education',
       tags: ['AI', 'Personalization', 'Learning'],
-      image: '/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png',
+      image: '/edtech_2.jpg.webp',
       featured: true,
       readTime: 8
     },
@@ -50,7 +50,7 @@ const Blog = () => {
       date: '2024-01-10',
       category: 'Emotional Intelligence',
       tags: ['Emotional Intelligence', 'Journaling', 'Self-Reflection'],
-      image: '/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png',
+      image: '/edtech_3.jpg.avif',
       featured: false,
       readTime: 6
     },
@@ -63,7 +63,7 @@ const Blog = () => {
       date: '2024-01-05',
       category: 'Assessment',
       tags: ['Assessment', 'Innovation', 'Learning Outcomes'],
-      image: '/lovable-uploads/69642821-e647-4bdf-b739-25771a5f9674.png',
+      image: '/edtech_4.jpg',
       featured: false,
       readTime: 7
     },
@@ -76,7 +76,7 @@ const Blog = () => {
       date: '2024-01-01',
       category: 'Parent Engagement',
       tags: ['Parent Engagement', 'Technology', 'Collaboration'],
-      image: '/lovable-uploads/ee369d68-1572-409b-ba14-676fe8d3ca36.png',
+      image: '/teacher_power.jpg',
       featured: false,
       readTime: 5
     },
@@ -89,20 +89,20 @@ const Blog = () => {
       date: '2023-12-28',
       category: 'Research',
       tags: ['Research', 'Learning Science', 'Evidence-Based'],
-      image: '/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png',
+      image: '/edtech_5.jpg',
       featured: false,
       readTime: 9
     },
     {
       id: '6',
       title: 'Preparing Students for an AI-Powered Workforce',
-      excerpt: 'How educators can help students develop the skills they'll need to thrive in a world where AI is ubiquitous.',
+      excerpt: 'How educators can help students develop the skills they\'ll need to thrive in a world where AI is ubiquitous.',
       content: 'Full blog content would go here...',
       author: 'Emma Davis',
       date: '2023-12-20',
       category: 'Future Skills',
       tags: ['Future Skills', 'AI', 'Workforce Preparation'],
-      image: '/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png',
+      image: '/edtech_social.jpg',
       featured: false,
       readTime: 6
     }
