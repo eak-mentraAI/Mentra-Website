@@ -43,17 +43,23 @@ const tabData = [
         <h2 className="text-2xl font-bold text-gray-900">You Remain in Control</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
           <div className="bg-mentra-blue/10 rounded-xl p-4 shadow flex flex-col items-center">
-            <Eye className="w-8 h-8 text-mentra-blue mb-2" />
+            <div className="w-16 h-16 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+              <Eye className="w-8 h-8 text-mentra-blue" />
+            </div>
             <span className="text-gray-900 font-bold mb-2">Real-time Oversight</span>
             <span className="text-gray-700 text-sm">Monitor all student-AI interactions with detailed progress insights and intervention alerts.</span>
           </div>
           <div className="bg-curiosity-coral/10 rounded-xl p-4 shadow flex flex-col items-center">
-            <Settings2 className="w-8 h-8 text-mentra-blue mb-2" />
+            <div className="w-16 h-16 bg-curiosity-coral/20 rounded-2xl flex items-center justify-center mb-2">
+              <Settings2 className="w-8 h-8 text-curiosity-coral" />
+            </div>
             <span className="text-gray-900 font-bold mb-2">Customizable Parameters</span>
             <span className="text-gray-700 text-sm">Set learning objectives, difficulty levels, and content boundaries to match your teaching goals.</span>
           </div>
           <div className="bg-growth-green/10 rounded-xl p-4 shadow flex flex-col items-center">
-            <Users className="w-8 h-8 text-mentra-blue mb-2" />
+            <div className="w-16 h-16 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2">
+              <Users className="w-8 h-8 text-growth-green" />
+            </div>
             <span className="text-gray-900 font-bold mb-2">Seamless Intervention</span>
             <span className="text-gray-700 text-sm">Step into conversations at any time with full context and conversation history.</span>
           </div>
@@ -166,7 +172,7 @@ export default function Educators() {
         <section className="container mx-auto px-4 mb-10 sm:mb-12">
           {/* Mobile Dropdown Selector */}
           <select
-            className="block w-full rounded-lg border-none p-4 mb-6 sm:hidden bg-blue-50 text-mentra-blue font-bold text-lg focus:ring-2 focus:ring-mentra-blue focus:outline-none shadow min-h-[56px]"
+            className="block w-full rounded-lg border-none p-4 mb-6 sm:hidden bg-gray-100 text-gray-900 font-bold text-lg focus:ring-2 focus:ring-gray-900 focus:outline-none shadow min-h-[56px]"
             value={selectedTab}
             onChange={e => setSelectedTab(e.target.value)}
             aria-label="Select section"
