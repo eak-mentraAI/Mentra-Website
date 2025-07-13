@@ -135,9 +135,12 @@ const Header = () => {
         <div className="hidden md:block flex-shrink-0">
           <Button 
             className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl hover:animate-glow focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-            aria-label="Start learning with Mentra"
+            aria-label="Start your journey with Mentra"
+            asChild
           >
-            Start Learning
+            <a href="/pricing">
+              Start Journey
+            </a>
           </Button>
         </div>
 
@@ -201,10 +204,13 @@ const Header = () => {
             <div className="px-4 pt-2">
               <Button 
                 className="w-full bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-                aria-label="Start learning with Mentra"
+                aria-label="Start your journey with Mentra"
                 onClick={() => setIsMenuOpen(false)}
+                asChild
               >
-                Start Learning
+                <a href="/pricing">
+                  Start Journey
+                </a>
               </Button>
             </div>
           </nav>

@@ -46,9 +46,12 @@ const HeroSection = () => {
                 size="lg" 
                 className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:animate-glow group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                 aria-label="Begin your learning journey with Mentra"
+                asChild
               >
-                Start Your Journey
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                <a href="/pricing">
+                  Start Your Journey
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                </a>
               </Button>
               <Button 
                 variant="outline" 
