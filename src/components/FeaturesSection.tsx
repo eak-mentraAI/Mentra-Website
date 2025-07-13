@@ -3,6 +3,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { BookOpen, Heart, Brain, Star, Users, Wrench, Target, Map, Compass } from 'lucide-react';
 
+const colorGradientMap: Record<string, string> = {
+  'mentra-blue': 'from-mentra-blue to-mentra-blue/50',
+  'curiosity-coral': 'from-curiosity-coral to-curiosity-coral/50',
+  'growth-green': 'from-growth-green to-growth-green/50',
+  'grit-gold': 'from-grit-gold to-grit-gold/50',
+};
+
 const FeaturesSection = () => {
   const features = [
     {
@@ -109,8 +116,8 @@ const FeaturesSection = () => {
           <CarouselContent className="-ml-2 md:-ml-4">
             {features.map((feature, index) => (
               <CarouselItem 
-                key={feature.title} 
-                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                key={feature.title}
+                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 overflow-visible"
               >
                 <Card 
                   className={`group transition-all duration-300 border-0 bg-${feature.bgColor} cursor-pointer h-full 
@@ -141,7 +148,7 @@ const FeaturesSection = () => {
 
                     {/* Always show gradient line for all cards */}
                     <div className="mt-6">
-                      <div className={`w-full h-1 bg-gradient-to-r from-${feature.color} to-${feature.color}/50 rounded-full`}></div>
+                      <div className={`w-full h-1 bg-gradient-to-r ${colorGradientMap[feature.color] || 'from-mentra-blue to-mentra-blue/50'} rounded-full`}></div>
                     </div>
                   </CardContent>
                 </Card>

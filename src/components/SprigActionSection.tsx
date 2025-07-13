@@ -37,6 +37,13 @@ const SprigActionSection = () => {
   const [current, setCurrent] = useState(0);
   const [emblaApi, setEmblaApi] = useState<any>(null);
 
+  const accentGradientMap: Record<string, string> = {
+    'mentra-blue': 'from-mentra-blue to-mentra-blue/50',
+    'curiosity-coral': 'from-curiosity-coral to-curiosity-coral/50',
+    'growth-green': 'from-growth-green to-growth-green/50',
+    'grit-gold': 'from-grit-gold to-grit-gold/50',
+  };
+
   // Sync current index with Embla carousel
   React.useEffect(() => {
     if (!emblaApi) return;
@@ -66,8 +73,8 @@ const SprigActionSection = () => {
           <CarouselContent className="-ml-2 md:-ml-4">
             {sprigStories.map((story, index) => (
               <CarouselItem 
-                key={story.title} 
-                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/2 xl:basis-1/4"
+                key={story.title}
+                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/2 xl:basis-1/4 overflow-visible"
               >
                 <Card
                   className={`group transition-all duration-300 border-0 bg-${story.bgColor} cursor-pointer h-full hover:shadow-2xl xl:hover:shadow-3xl focus-within:ring-2 focus-within:ring-mentra-blue focus-within:ring-offset-2`}
@@ -95,7 +102,7 @@ const SprigActionSection = () => {
                     </div>
                     {/* Always show gradient line for all cards */}
                     <div className="mt-6">
-                      <div className={`w-full h-1 bg-gradient-to-r from-${story.accentColor} to-${story.accentColor}/50 rounded-full`}></div>
+                      <div className={`w-full h-1 bg-gradient-to-r ${accentGradientMap[story.accentColor] || 'from-mentra-blue to-mentra-blue/50'} rounded-full`}></div>
                     </div>
                   </CardContent>
                 </Card>
