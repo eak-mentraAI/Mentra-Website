@@ -146,19 +146,19 @@ const Footer = () => {
           </p>
           <div className="flex gap-6 text-sm">
             <a 
-              href="#privacy" 
+              href="/privacy" 
               className="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
             >
               Privacy Policy
             </a>
             <a 
-              href="#terms" 
+              href="/terms" 
               className="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
             >
               Terms of Service
             </a>
             <a 
-              href="#cookies" 
+              href="/cookies" 
               className="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
             >
               Cookie Policy

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import '../App.css';
 
 export default function About() {
@@ -127,6 +128,7 @@ export default function About() {
           <p className="font-bold text-gray-900">Edward Kerr<br/>Founder, Mentra</p>
         </section>
       </main>
+      <Footer />
     </>
   );
 } 
