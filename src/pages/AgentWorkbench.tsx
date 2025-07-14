@@ -182,7 +182,7 @@ const AgentWorkbench: React.FC = () => {
         {/* Header */}
         <header className="w-full h-16 flex items-center px-12 bg-mentra-blue text-off-white justify-between" style={{ height: 64 }}>
           <div className="flex items-center gap-4">
-            <img src="/logo_no_words.png" alt="Mentra Logo" className="h-10" />
+            <img src="/lovable-uploads/MENTRA_SPRIG_HEART.png" alt="Mentra Logo" className="h-10" />
             <span className="text-2xl font-bold tracking-tight">Agent Workbench</span>
           </div>
           <div className="flex items-center gap-4">
