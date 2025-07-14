@@ -175,7 +175,7 @@ const AgentWorkbench: React.FC = () => {
           {/* Central Canvas */}
           <section className="flex-1 relative bg-mentra-blue/10" ref={reactFlowWrapper}>
             {/* Dot grid overlay */}
-            <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(rgba(58,134,255,0.12) 1.5px, transparent 1.5px)', backgroundSize: '32px 32px' }} />
+            <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(rgba(58,134,255,0.18) 3px, transparent 3px)', backgroundSize: '32px 32px' }} />
             <ReactFlow
               nodes={nodes}
               edges={edges}
