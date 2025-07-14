@@ -101,6 +101,8 @@ const AgentWorkbench: React.FC = () => {
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
   const [selectedNode, setSelectedNode] = useState<Node | null>(null);
   const [draggedAgent, setDraggedAgent] = useState<any>(null);
+  const [ghostPos, setGhostPos] = useState<{x: number, y: number} | null>(null);
+  const canvasRef = useRef<HTMLDivElement>(null);
   const [zoom, setZoom] = useState(1);
   const [mobileLibraryOpen, setMobileLibraryOpen] = useState(false);
   const [mobileInspectorOpen, setMobileInspectorOpen] = useState(false);
@@ -231,7 +233,7 @@ const AgentWorkbench: React.FC = () => {
           </aside>
 
           {/* Central Canvas */}
-          <section className="flex-1 relative bg-mentra-blue/10 border-2 border-mentra-blue rounded-xl mt-2 font-rounded" ref={reactFlowWrapper} style={{ minHeight: 'calc(70vh - 64px)', fontFamily: 'DM Sans, Poppins, sans-serif' }}>
+          <section className="flex-1 relative bg-mentra-blue/10 border-2 border-mentra-blue rounded-xl mt-2 font-rounded" ref={el => { reactFlowWrapper.current = el; canvasRef.current = el; }} style={{ minHeight: 'calc(70vh - 64px)', fontFamily: 'DM Sans, Poppins, sans-serif' }}>
             {/* Dot grid overlay */}
             <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(rgba(58,134,255,0.18) 3px, transparent 3px)', backgroundSize: '32px 32px' }} />
             <ReactFlow
@@ -384,41 +386,27 @@ const AgentWorkbench: React.FC = () => {
                   className={`flex items-center gap-3 p-3 rounded-2xl shadow-lg border-0 cursor-grab transition group hover:shadow-2xl ${agentBgMap[agent.type]}`}
                   style={{ minHeight: 64 }}
                   draggable
-                  onDragStart={(e) => onDragStart(e, agent)}
-                  // Support both tap and touch for mobile tap-to-add
-                  onClick={() => {
-                    if (window.innerWidth < 768 && reactFlowInstance) {
-                      const center = reactFlowInstance.project({
-                        x: window.innerWidth / 2 - 140,
-                        y: window.innerHeight / 2 - 64,
-                      });
-                      const newNode = {
-                        id: `${agent.type}-${+new Date()}`,
-                        type: 'default',
-                        position: center,
-                        data: { label: agent.label, icon: agentIcons[agent.type], color: agent.color },
-                        style: {
-                          background: '#FAFAFA',
-                          borderRadius: 12,
-                          boxShadow: '0 2px 8px rgba(51,51,51,0.06)',
-                          border: `2px solid ${agent.color}`,
-                          minWidth: 180,
-                        },
-                      };
-                      setNodes((nds) => nds.concat(newNode));
-                      setMobileLibraryOpen(false);
+                  onTouchStart={e => {
+                    if (window.innerWidth < 768) {
+                      setDraggedAgent(agent);
+                      setGhostPos({ x: e.touches[0].clientX, y: e.touches[0].clientY });
                     }
                   }}
-                  onTouchEnd={() => {
-                    if (window.innerWidth < 768 && reactFlowInstance) {
-                      const center = reactFlowInstance.project({
-                        x: window.innerWidth / 2 - 140,
-                        y: window.innerHeight / 2 - 64,
-                      });
+                  onTouchMove={e => {
+                    if (window.innerWidth < 768 && draggedAgent) {
+                      setGhostPos({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+                    }
+                  }}
+                  onTouchEnd={e => {
+                    if (window.innerWidth < 768 && draggedAgent && reactFlowInstance && canvasRef.current) {
+                      const rect = canvasRef.current.getBoundingClientRect();
+                      const x = e.changedTouches[0].clientX - rect.left;
+                      const y = e.changedTouches[0].clientY - rect.top;
+                      const pos = reactFlowInstance.project({ x, y });
                       const newNode = {
                         id: `${agent.type}-${+new Date()}`,
                         type: 'default',
-                        position: center,
+                        position: pos,
                         data: { label: agent.label, icon: agentIcons[agent.type], color: agent.color },
                         style: {
                           background: '#FAFAFA',
@@ -428,7 +416,9 @@ const AgentWorkbench: React.FC = () => {
                           minWidth: 180,
                         },
                       };
-                      setNodes((nds) => nds.concat(newNode));
+                      setNodes(nds => nds.concat(newNode));
+                      setDraggedAgent(null);
+                      setGhostPos(null);
                       setMobileLibraryOpen(false);
                     }
                   }}
@@ -442,39 +432,103 @@ const AgentWorkbench: React.FC = () => {
                 </div>
               ))}
             </div>
-          </Drawer>
-          <Drawer open={mobileInspectorOpen && !!selectedNode} onClose={() => setMobileInspectorOpen(false)} title="Agent Properties">
-            {selectedNode ? (
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-10 h-10 flex items-center justify-center rounded-lg" style={{ background: selectedNode.data.color + '22' }}>{selectedNode.data.icon}</span>
-                  <span className="font-bold text-charcoal text-lg">{selectedNode.data.label}</span>
+            {/* Ghost preview for drag-and-drop */}
+            {ghostPos && draggedAgent && (
+              <div style={{ position: 'fixed', left: ghostPos.x - 40, top: ghostPos.y - 40, pointerEvents: 'none', zIndex: 9999, opacity: 0.8 }}>
+                <div className={`flex items-center gap-3 p-3 rounded-2xl shadow-lg border-0 ${agentBgMap[draggedAgent.type]}`}
+                  style={{ minHeight: 64, minWidth: 180 }}>
+                  <span className={`w-10 h-10 flex items-center justify-center rounded-xl ${agentIconBgMap[draggedAgent.type]}`}>{React.cloneElement(agentIcons[draggedAgent.type], { className: `${agentIconTextMap[draggedAgent.type]} w-6 h-6` })}</span>
+                  <span className="text-charcoal text-base font-normal">{draggedAgent.label}</span>
                 </div>
-                <label className="block text-xs font-bold mb-1 text-charcoal">Prompt</label>
-                <textarea className="w-full rounded-lg border px-3 py-2 mb-3 text-sm" rows={3} placeholder="Enter prompt..." />
-                <label className="block text-xs font-bold mb-1 text-charcoal">Model</label>
-                <select className="w-full rounded-lg border px-3 py-2 mb-3 text-sm">
-                  <option>GPT-4o</option>
-                  <option>Claude 3</option>
-                  <option>Gemini 1.5</option>
-                </select>
-                <label className="block text-xs font-bold mb-1 text-charcoal">Output Preview</label>
-                <div className="flex items-center gap-2 mb-3">
-                  <input type="checkbox" id="output-preview" className="accent-growth-green" />
-                  <label htmlFor="output-preview" className="text-sm">Show output preview</label>
-                </div>
-                <details>
-                  <summary className="cursor-pointer text-xs text-charcoal/60 mb-2">Advanced</summary>
-                  <div className="pl-2">
-                    <label className="block text-xs font-bold mb-1 text-charcoal">Temperature</label>
-                    <input type="range" min="0" max="1" step="0.01" className="w-full mb-2" />
-                    <label className="block text-xs font-bold mb-1 text-charcoal">Max Tokens</label>
-                    <input type="number" min="1" max="4096" className="w-full mb-2" />
-                  </div>
-                </details>
               </div>
-            ) : null}
+            )}
           </Drawer>
+          {/* Collapsible side tab for Agent Properties on mobile */}
+          {isMobileDevice && selectedNode && (
+            <>
+              {/* Collapsed bar */}
+              {!mobileInspectorOpen && (
+                <div
+                  className="fixed right-0 top-1/3 z-50 bg-mentra-blue text-white px-3 py-2 rounded-l-2xl shadow-lg flex items-center cursor-pointer"
+                  style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+                  onClick={() => setMobileInspectorOpen(true)}
+                >
+                  <span className="mr-2">Agent Properties</span>
+                  <span className="text-xl">&#8592;</span>
+                </div>
+              )}
+              {/* Expanded drawer */}
+              {mobileInspectorOpen && (
+                <div className="fixed right-0 top-0 h-full w-4/5 max-w-xs bg-white shadow-2xl z-50 flex flex-col p-4 animate-slide-in">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-charcoal text-lg">Agent Properties</span>
+                    <button className="text-2xl" onClick={() => setMobileInspectorOpen(false)}>&#8594;</button>
+                  </div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg" style={{ background: selectedNode.data.color + '22' }}>{selectedNode.data.icon}</span>
+                    <span className="font-bold text-charcoal text-lg">{selectedNode.data.label}</span>
+                  </div>
+                  <label className="block text-xs font-bold mb-1 text-charcoal">Prompt</label>
+                  <textarea className="w-full rounded-lg border px-3 py-2 mb-3 text-sm" rows={3} placeholder="Enter prompt..." />
+                  <label className="block text-xs font-bold mb-1 text-charcoal">Model</label>
+                  <select className="w-full rounded-lg border px-3 py-2 mb-3 text-sm">
+                    <option>GPT-4o</option>
+                    <option>Claude 3</option>
+                    <option>Gemini 1.5</option>
+                  </select>
+                  <label className="block text-xs font-bold mb-1 text-charcoal">Output Preview</label>
+                  <div className="flex items-center gap-2 mb-3">
+                    <input type="checkbox" id="output-preview" className="accent-growth-green" />
+                    <label htmlFor="output-preview" className="text-sm">Show output preview</label>
+                  </div>
+                  <details>
+                    <summary className="cursor-pointer text-xs text-charcoal/60 mb-2">Advanced</summary>
+                    <div className="pl-2">
+                      <label className="block text-xs font-bold mb-1 text-charcoal">Temperature</label>
+                      <input type="range" min="0" max="1" step="0.01" className="w-full mb-2" />
+                      <label className="block text-xs font-bold mb-1 text-charcoal">Max Tokens</label>
+                      <input type="number" min="1" max="4096" className="w-full mb-2" />
+                    </div>
+                  </details>
+                </div>
+              )}
+            </>
+          )}
+          {/* Fallback for desktop and non-selected node */}
+          {!isMobileDevice && (
+            <Drawer open={mobileInspectorOpen && !!selectedNode} onClose={() => setMobileInspectorOpen(false)} title="Agent Properties">
+              {selectedNode ? (
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="w-10 h-10 flex items-center justify-center rounded-lg" style={{ background: selectedNode.data.color + '22' }}>{selectedNode.data.icon}</span>
+                    <span className="font-bold text-charcoal text-lg">{selectedNode.data.label}</span>
+                  </div>
+                  <label className="block text-xs font-bold mb-1 text-charcoal">Prompt</label>
+                  <textarea className="w-full rounded-lg border px-3 py-2 mb-3 text-sm" rows={3} placeholder="Enter prompt..." />
+                  <label className="block text-xs font-bold mb-1 text-charcoal">Model</label>
+                  <select className="w-full rounded-lg border px-3 py-2 mb-3 text-sm">
+                    <option>GPT-4o</option>
+                    <option>Claude 3</option>
+                    <option>Gemini 1.5</option>
+                  </select>
+                  <label className="block text-xs font-bold mb-1 text-charcoal">Output Preview</label>
+                  <div className="flex items-center gap-2 mb-3">
+                    <input type="checkbox" id="output-preview" className="accent-growth-green" />
+                    <label htmlFor="output-preview" className="text-sm">Show output preview</label>
+                  </div>
+                  <details>
+                    <summary className="cursor-pointer text-xs text-charcoal/60 mb-2">Advanced</summary>
+                    <div className="pl-2">
+                      <label className="block text-xs font-bold mb-1 text-charcoal">Temperature</label>
+                      <input type="range" min="0" max="1" step="0.01" className="w-full mb-2" />
+                      <label className="block text-xs font-bold mb-1 text-charcoal">Max Tokens</label>
+                      <input type="number" min="1" max="4096" className="w-full mb-2" />
+                    </div>
+                  </details>
+                </div>
+              ) : null}
+            </Drawer>
+          )}
         </main>
         {/* Optional Footer (removed Run Test and Tidy Up buttons) */}
         <footer className="w-full h-16 flex items-center justify-end px-12 bg-white border-t border-journal-sand gap-4"></footer>
