@@ -173,7 +173,7 @@ const AgentWorkbench: React.FC = () => {
           </aside>
 
           {/* Central Canvas */}
-          <section className="flex-1 relative bg-[#FFF9F3]" ref={reactFlowWrapper}>
+          <section className="flex-1 relative bg-mentra-blue/10" ref={reactFlowWrapper}>
             <ReactFlow
               nodes={nodes}
               edges={edges}
