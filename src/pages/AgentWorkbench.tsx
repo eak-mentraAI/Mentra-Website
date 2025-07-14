@@ -121,30 +121,36 @@ const AgentWorkbench: React.FC = () => {
           <aside className="w-[280px] bg-white border-r border-journal-sand flex flex-col p-6 gap-6">
             <div>
               <input className="w-full rounded-lg border px-3 py-2 mb-3 text-sm" placeholder="Search agents..." />
-              <div className="flex gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 <Badge className="bg-mentra-blue/10 text-mentra-blue">All</Badge>
                 <Badge className="bg-growth-green/10 text-growth-green">Academic</Badge>
                 <Badge className="bg-curiosity-coral/10 text-curiosity-coral">Creative</Badge>
                 <Badge className="bg-wisdom-purple/10 text-wisdom-purple">Organize</Badge>
               </div>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               {demoAgents.map((agent) => (
                 <div
                   key={agent.type}
-                  className="flex items-center gap-3 p-3 rounded-xl bg-journal-sand cursor-grab border border-transparent hover:border-mentra-blue transition"
+                  className="flex items-center gap-3 p-4 rounded-2xl shadow-lg bg-white border-0 cursor-grab transition group hover:shadow-2xl"
+                  style={{ minHeight: 88 }}
                   draggable
                   onDragStart={(e) => onDragStart(e, agent)}
                 >
-                  <span className="w-10 h-10 flex items-center justify-center rounded-lg" style={{ background: agent.color + '22' }}>{agentIcons[agent.type]}</span>
-                  <span className="font-medium text-charcoal">{agent.label}</span>
+                  <span
+                    className="w-12 h-12 flex items-center justify-center rounded-xl"
+                    style={{ background: agent.color + '22' }}
+                  >
+                    {agentIcons[agent.type]}
+                  </span>
+                  <span className="font-bold text-charcoal text-lg group-hover:text-mentra-blue transition-colors">{agent.label}</span>
                 </div>
               ))}
             </div>
           </aside>
 
           {/* Central Canvas */}
-          <section className="flex-1 relative" ref={reactFlowWrapper}>
+          <section className="flex-1 relative bg-[#FFF9F3]" ref={reactFlowWrapper}>
             <ReactFlow
               nodes={nodes}
               edges={edges}
