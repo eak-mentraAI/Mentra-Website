@@ -61,14 +61,33 @@ const agentIconTextMap = {
   Organizer: 'text-wisdom-purple',
 };
 
-// Simple Drawer component for mobile
-function Drawer({ open, onClose, children }: { open: boolean, onClose: () => void, children: React.ReactNode }) {
+// Helper to detect mobile
+const isMobileDevice = typeof window !== 'undefined' && window.innerWidth < 768;
+
+// Collapsible Drawer component for mobile
+function Drawer({ open, onClose, children, title }: { open: boolean, onClose: () => void, children: React.ReactNode, title?: string }) {
+  const [expanded, setExpanded] = React.useState(false);
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex flex-col justify-end md:hidden">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative bg-white rounded-t-2xl shadow-lg p-4 max-h-[70vh] overflow-y-auto animate-slide-up">
-        <button className="absolute top-2 right-4 text-2xl" onClick={onClose}>&times;</button>
+      <div
+        className={`relative bg-white rounded-t-2xl shadow-lg p-4 overflow-y-auto animate-slide-up transition-all duration-300`}
+        style={{ minHeight: expanded ? '60vh' : '30vh', maxHeight: '70vh' }}
+      >
+        <div className="flex items-center justify-between mb-2">
+          {title && <h2 className="text-lg font-bold">{title}</h2>}
+          <div className="flex gap-2">
+            <button
+              className="text-xs px-2 py-1 rounded bg-gray-100 border border-gray-200"
+              onClick={() => setExpanded((v) => !v)}
+              aria-label={expanded ? 'Collapse' : 'Expand'}
+            >
+              {expanded ? 'Collapse' : 'Expand'}
+            </button>
+            <button className="text-2xl ml-2" onClick={onClose}>&times;</button>
+          </div>
+        </div>
         {children}
       </div>
     </div>
@@ -85,6 +104,7 @@ const AgentWorkbench: React.FC = () => {
   const [zoom, setZoom] = useState(1);
   const [mobileLibraryOpen, setMobileLibraryOpen] = useState(false);
   const [mobileInspectorOpen, setMobileInspectorOpen] = useState(false);
+  const [connectMode, setConnectMode] = useState(false); // for tap-to-connect
 
   // Drag from library
   const onDragStart = (event: React.DragEvent, agent: any) => {
@@ -128,7 +148,16 @@ const AgentWorkbench: React.FC = () => {
   };
 
   // Node selection
-  const onNodeClick = (_: any, node: Node) => setSelectedNode(node);
+  const onNodeClick = (_: any, node: Node) => {
+    if (isMobileDevice && connectMode && selectedNode && selectedNode.id !== node.id) {
+      // Create edge from selectedNode to tapped node
+      setEdges((eds) => addEdge({ source: selectedNode.id, target: node.id, sourceHandle: null, targetHandle: null }, eds));
+      setConnectMode(false);
+      setSelectedNode(null);
+    } else {
+      setSelectedNode(node);
+    }
+  };
 
   // Edge creation
   const onConnect = useCallback((params: Edge | Connection) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
@@ -203,11 +232,18 @@ const AgentWorkbench: React.FC = () => {
             {/* Dot grid overlay */}
             <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(rgba(58,134,255,0.18) 3px, transparent 3px)', backgroundSize: '32px 32px' }} />
             <ReactFlow
-              nodes={nodes}
+              nodes={nodes.map((node) => ({
+                ...node,
+                style: {
+                  ...node.style,
+                  boxShadow: selectedNode && node.id === selectedNode.id ? '0 0 0 4px #3A86FF55, 0 2px 8px rgba(51,51,51,0.06)' : node.style?.boxShadow,
+                  zIndex: selectedNode && node.id === selectedNode.id ? 20 : 1,
+                },
+              }))}
               edges={edges}
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
-              onConnect={onConnect}
+              onConnect={isMobileDevice ? undefined : onConnect}
               onNodeClick={onNodeClick}
               onDrop={onDrop}
               onDragOver={onDragOver}
@@ -218,6 +254,47 @@ const AgentWorkbench: React.FC = () => {
               onMove={(_, viewport) => setZoom(viewport?.zoom || 1)}
               style={{ background: 'transparent', minHeight: 'calc(100vh - 64px)' }}
               className="relative z-10"
+              nodeTypes={{
+                default: (props) => {
+                  const isSelected = selectedNode && props.id === selectedNode.id;
+                  return (
+                    <div
+                      style={{
+                        ...props.data?.style,
+                        boxShadow: isSelected ? '0 0 0 4px #3A86FF55, 0 2px 8px rgba(51,51,51,0.06)' : undefined,
+                        borderRadius: 12,
+                        background: '#FAFAFA',
+                        border: `2px solid ${props.data?.color || '#3A86FF'}`,
+                        minWidth: 180,
+                        zIndex: isSelected ? 20 : 1,
+                        position: 'relative',
+                      }}
+                      className="flex flex-col items-center justify-center p-2"
+                    >
+                      <div className="flex items-center gap-2">
+                        {props.data?.icon}
+                        <span className="font-bold text-base" style={{ color: props.data?.color }}>{props.data?.label}</span>
+                      </div>
+                      {/* Show Connect button on mobile if selected */}
+                      {isMobileDevice && isSelected && !connectMode && (
+                        <button
+                          className="mt-2 px-3 py-1 bg-mentra-blue text-white rounded-full text-xs shadow"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setConnectMode(true);
+                          }}
+                        >
+                          Connect
+                        </button>
+                      )}
+                      {/* Show tap-to-connect instructions */}
+                      {isMobileDevice && isSelected && connectMode && (
+                        <div className="mt-2 text-xs text-mentra-blue">Tap another agent to connect</div>
+                      )}
+                    </div>
+                  );
+                },
+              }}
             >
               <Background
                 gap={32}
@@ -296,9 +373,8 @@ const AgentWorkbench: React.FC = () => {
             )}
           </aside>
           {/* Mobile Drawers */}
-          <Drawer open={mobileLibraryOpen} onClose={() => setMobileLibraryOpen(false)}>
+          <Drawer open={mobileLibraryOpen} onClose={() => setMobileLibraryOpen(false)} title="Agent Library">
             <div className="flex flex-col gap-3">
-              <h2 className="text-lg font-bold mb-2">Agent Library</h2>
               {demoAgents.map((agent) => (
                 <div
                   key={agent.type}
@@ -306,6 +382,33 @@ const AgentWorkbench: React.FC = () => {
                   style={{ minHeight: 64 }}
                   draggable
                   onDragStart={(e) => onDragStart(e, agent)}
+                  onTouchStart={(e) => {
+                    // For touch drag-and-drop, let the default drag logic run
+                  }}
+                  onClick={() => {
+                    // Tap-to-add fallback for mobile
+                    if (window.innerWidth < 768 && reactFlowInstance) {
+                      const center = reactFlowInstance.project({
+                        x: window.innerWidth / 2 - 140, // 140 = half node minWidth
+                        y: window.innerHeight / 2 - 64, // 64 = header height
+                      });
+                      const newNode = {
+                        id: `${agent.type}-${+new Date()}`,
+                        type: 'default',
+                        position: center,
+                        data: { label: agent.label, icon: agentIcons[agent.type], color: agent.color },
+                        style: {
+                          background: '#FAFAFA',
+                          borderRadius: 12,
+                          boxShadow: '0 2px 8px rgba(51,51,51,0.06)',
+                          border: `2px solid ${agent.color}`,
+                          minWidth: 180,
+                        },
+                      };
+                      setNodes((nds) => nds.concat(newNode));
+                      setMobileLibraryOpen(false);
+                    }
+                  }}
                 >
                   <span
                     className={`w-10 h-10 flex items-center justify-center rounded-xl ${agentIconBgMap[agent.type]}`}
@@ -317,10 +420,9 @@ const AgentWorkbench: React.FC = () => {
               ))}
             </div>
           </Drawer>
-          <Drawer open={mobileInspectorOpen && !!selectedNode} onClose={() => setMobileInspectorOpen(false)}>
+          <Drawer open={mobileInspectorOpen && !!selectedNode} onClose={() => setMobileInspectorOpen(false)} title="Agent Properties">
             {selectedNode ? (
               <div className="flex flex-col gap-3">
-                <h2 className="text-lg font-bold mb-2">Agent Properties</h2>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-10 h-10 flex items-center justify-center rounded-lg" style={{ background: selectedNode.data.color + '22' }}>{selectedNode.data.icon}</span>
                   <span className="font-bold text-charcoal text-lg">{selectedNode.data.label}</span>
