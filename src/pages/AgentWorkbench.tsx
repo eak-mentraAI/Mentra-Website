@@ -154,8 +154,11 @@ const AgentWorkbench: React.FC = () => {
       setEdges((eds) => addEdge({ source: selectedNode.id, target: node.id, sourceHandle: null, targetHandle: null }, eds));
       setConnectMode(false);
       setSelectedNode(null);
+      setMobileInspectorOpen(false);
     } else {
       setSelectedNode(node);
+      // On mobile, open the properties drawer when a node is selected
+      if (isMobileDevice) setMobileInspectorOpen(true);
     }
   };
 
@@ -382,15 +385,35 @@ const AgentWorkbench: React.FC = () => {
                   style={{ minHeight: 64 }}
                   draggable
                   onDragStart={(e) => onDragStart(e, agent)}
-                  onTouchStart={(e) => {
-                    // For touch drag-and-drop, let the default drag logic run
-                  }}
+                  // Support both tap and touch for mobile tap-to-add
                   onClick={() => {
-                    // Tap-to-add fallback for mobile
                     if (window.innerWidth < 768 && reactFlowInstance) {
                       const center = reactFlowInstance.project({
-                        x: window.innerWidth / 2 - 140, // 140 = half node minWidth
-                        y: window.innerHeight / 2 - 64, // 64 = header height
+                        x: window.innerWidth / 2 - 140,
+                        y: window.innerHeight / 2 - 64,
+                      });
+                      const newNode = {
+                        id: `${agent.type}-${+new Date()}`,
+                        type: 'default',
+                        position: center,
+                        data: { label: agent.label, icon: agentIcons[agent.type], color: agent.color },
+                        style: {
+                          background: '#FAFAFA',
+                          borderRadius: 12,
+                          boxShadow: '0 2px 8px rgba(51,51,51,0.06)',
+                          border: `2px solid ${agent.color}`,
+                          minWidth: 180,
+                        },
+                      };
+                      setNodes((nds) => nds.concat(newNode));
+                      setMobileLibraryOpen(false);
+                    }
+                  }}
+                  onTouchEnd={() => {
+                    if (window.innerWidth < 768 && reactFlowInstance) {
+                      const center = reactFlowInstance.project({
+                        x: window.innerWidth / 2 - 140,
+                        y: window.innerHeight / 2 - 64,
                       });
                       const newNode = {
                         id: `${agent.type}-${+new Date()}`,
