@@ -20,7 +20,7 @@ import { Book, Lightbulb, Pen, FlaskConical, Puzzle } from 'lucide-react';
 
 // Lucide agent icons
 const agentIcons = {
-  Research: <Book size={28} className="text-mentra-blue" />,
+  Research: <img src="/lovable-uploads/MENTRA_SPRIG_HEART.png" alt="Sprig AI" className="w-7 h-7 object-contain" />,
   Curiosity: <Lightbulb size={28} className="text-curiosity-coral" />,
   Writer: <Pen size={28} className="text-grit-gold" />,
   Math: <FlaskConical size={28} className="text-growth-green" />,
@@ -128,19 +128,21 @@ const AgentWorkbench: React.FC = () => {
 
   return (
     <ReactFlowProvider>
-      <div className="min-h-screen bg-journal-sand flex flex-col" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+      <div className="min-h-screen bg-journal-sand flex flex-col font-rounded" style={{ fontFamily: 'DM Sans, Poppins, sans-serif' }}>
         {/* Header */}
         <header className="w-full h-16 flex items-center px-12 bg-mentra-blue text-off-white justify-between" style={{ height: 64 }}>
           <div className="flex items-center gap-4">
-            <img src="/logo.png" alt="Mentra Logo" className="h-10" />
+            <img src="/logo_no_words.png" alt="Mentra Logo" className="h-10" />
             <span className="text-2xl font-bold tracking-tight">Agent Workbench</span>
           </div>
           <div className="flex items-center gap-4">
-            <Button className="bg-growth-green text-white rounded-full px-6 py-2 font-bold">Save</Button>
+            <Button className="bg-growth-green text-white rounded-full px-6 py-2 font-bold w-32">Save</Button>
+            <Button className="bg-growth-green text-white rounded-full px-6 py-2 font-bold w-32">Run Test</Button>
+            <Button className="bg-growth-green text-white rounded-full px-6 py-2 font-bold w-32">Tidy Up</Button>
             <Button variant="outline" className="rounded-full px-3 py-2">⋮</Button>
           </div>
         </header>
-        <main className="flex flex-1 min-h-0">
+        <main className="flex flex-1 min-h-0 font-rounded" style={{ fontFamily: 'DM Sans, Poppins, sans-serif' }}>
           {/* Left Sidebar: Agent Library */}
           <aside className="w-[280px] bg-white border-r border-journal-sand flex flex-col p-6 gap-6">
             <div>
@@ -173,7 +175,7 @@ const AgentWorkbench: React.FC = () => {
           </aside>
 
           {/* Central Canvas */}
-          <section className="flex-1 relative bg-mentra-blue/10" ref={reactFlowWrapper}>
+          <section className="flex-1 relative bg-mentra-blue/10 border-2 border-mentra-blue rounded-xl mt-2 font-rounded" ref={reactFlowWrapper} style={{ minHeight: 'calc(70vh - 64px)', fontFamily: 'DM Sans, Poppins, sans-serif' }}>
             {/* Dot grid overlay */}
             <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(rgba(58,134,255,0.18) 3px, transparent 3px)', backgroundSize: '32px 32px' }} />
             <ReactFlow
@@ -201,14 +203,27 @@ const AgentWorkbench: React.FC = () => {
                 style={{ opacity: isDragging ? 1 : 0.1, transition: 'opacity 0.3s' }}
               />
             </ReactFlow>
-            {/* Move MiniMap and Controls to bottom-right, outside canvas */}
-            <div className="absolute bottom-4 right-4 flex flex-col gap-2 z-10 items-end">
-              <MiniMap nodeColor={n => n.data?.color || '#3A86FF'} style={{ background: '#fff', borderRadius: 8, boxShadow: '0 2px 8px rgba(51,51,51,0.08)' }} />
-              <div className="flex items-center gap-2 bg-white/90 rounded-lg px-3 py-1 shadow border border-gray-200 mb-1">
-                <span className="text-xs text-gray-600">Zoom:</span>
-                <span className="text-sm font-bold text-charcoal" id="zoom-indicator">{Math.round(zoom * 100)}%</span>
+            {/* MiniMap in bottom-left */}
+            <div className="absolute bottom-4 left-4 z-10">
+              <div className="bg-white rounded-lg shadow border border-gray-200 flex items-center justify-center" style={{ width: 120, height: 80 }}>
+                <MiniMap 
+                  nodeColor={n => n.data?.color || '#3A86FF'} 
+                  style={{ background: 'transparent', borderRadius: 8, width: '100%', height: '100%' }} 
+                />
               </div>
-              <Controls showInteractive={false} style={{ background: '#fff', borderRadius: 8, boxShadow: '0 2px 8px rgba(51,51,51,0.08)' }} />
+            </div>
+            {/* Controls and Zoom % in bottom-right, with buffer and no overlap */}
+            <div className="absolute bottom-4 right-4 z-10 flex flex-row items-end gap-10">
+              <div className="bg-white rounded-lg shadow border border-gray-200 flex items-center justify-center p-1" style={{ height: 56 }}>
+                <Controls 
+                  showInteractive={false} 
+                  style={{ background: 'transparent', borderRadius: 8, boxShadow: 'none', transform: 'scale(0.8)', transformOrigin: 'bottom right' }} 
+                />
+              </div>
+              <div className="flex items-center gap-1 bg-white/90 rounded px-3 py-2 shadow border border-gray-200">
+                <span className="text-xs text-gray-600">Zoom:</span>
+                <span className="text-xs font-bold text-charcoal min-w-[32px] text-right" id="zoom-indicator">{Math.round(zoom * 100)}%</span>
+              </div>
             </div>
             {/* Empty state illustration */}
             {nodes.length === 0 && (
@@ -257,11 +272,8 @@ const AgentWorkbench: React.FC = () => {
             )}
           </aside>
         </main>
-        {/* Optional Footer */}
-        <footer className="w-full h-16 flex items-center justify-end px-12 bg-white border-t border-journal-sand gap-4">
-          <Button className="bg-growth-green text-white rounded-full px-6 py-2 font-bold">Run Test</Button>
-          <Button variant="outline" className="rounded-full px-6 py-2">Tidy Up</Button>
-        </footer>
+        {/* Optional Footer (removed Run Test and Tidy Up buttons) */}
+        <footer className="w-full h-16 flex items-center justify-end px-12 bg-white border-t border-journal-sand gap-4"></footer>
       </div>
     </ReactFlowProvider>
   );
