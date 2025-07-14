@@ -38,6 +38,29 @@ const demoAgents = [
 const initialNodes: Node[] = [];
 const initialEdges: Edge[] = [];
 
+// Add color class maps for pastel backgrounds
+const agentBgMap = {
+  Research: 'bg-mentra-blue/10',
+  Curiosity: 'bg-curiosity-coral/10',
+  Writer: 'bg-grit-gold/10',
+  Math: 'bg-growth-green/10',
+  Organizer: 'bg-wisdom-purple/10',
+};
+const agentIconBgMap = {
+  Research: 'bg-mentra-blue/20',
+  Curiosity: 'bg-curiosity-coral/20',
+  Writer: 'bg-grit-gold/20',
+  Math: 'bg-growth-green/20',
+  Organizer: 'bg-wisdom-purple/20',
+};
+const agentIconTextMap = {
+  Research: 'text-mentra-blue',
+  Curiosity: 'text-curiosity-coral',
+  Writer: 'text-grit-gold',
+  Math: 'text-growth-green',
+  Organizer: 'text-wisdom-purple',
+};
+
 const AgentWorkbench: React.FC = () => {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -132,16 +155,15 @@ const AgentWorkbench: React.FC = () => {
               {demoAgents.map((agent) => (
                 <div
                   key={agent.type}
-                  className="flex items-center gap-3 p-4 rounded-2xl shadow-lg bg-white border-0 cursor-grab transition group hover:shadow-2xl"
+                  className={`flex items-center gap-3 p-4 rounded-2xl shadow-lg border-0 cursor-grab transition group hover:shadow-2xl ${agentBgMap[agent.type]}`}
                   style={{ minHeight: 88 }}
                   draggable
                   onDragStart={(e) => onDragStart(e, agent)}
                 >
                   <span
-                    className="w-12 h-12 flex items-center justify-center rounded-xl"
-                    style={{ background: agent.color + '22' }}
+                    className={`w-12 h-12 flex items-center justify-center rounded-xl ${agentIconBgMap[agent.type]}`}
                   >
-                    {agentIcons[agent.type]}
+                    {React.cloneElement(agentIcons[agent.type], { className: `${agentIconTextMap[agent.type]} w-7 h-7` })}
                   </span>
                   <span className="font-bold text-charcoal text-lg group-hover:text-mentra-blue transition-colors">{agent.label}</span>
                 </div>
