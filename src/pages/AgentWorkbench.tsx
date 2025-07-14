@@ -16,24 +16,15 @@ import ReactFlow, {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { Book, Lightbulb, Pen, FlaskConical, Puzzle } from 'lucide-react';
 
-// Demo agent icons (SVG inline, styled to match site)
+// Lucide agent icons
 const agentIcons = {
-  Research: (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#3A86FF"/><path d="M10 22l4-4m0 0l4-4m-4 4l4 4m-4-4l-4-4" stroke="#FAFAFA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-  ),
-  Curiosity: (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#FF6B6B"/><path d="M16 10v8m0 4h.01" stroke="#FAFAFA" strokeWidth="2" strokeLinecap="round"/></svg>
-  ),
-  Writer: (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#FFD166"/><rect x="10" y="14" width="12" height="4" rx="2" fill="#FAFAFA"/></svg>
-  ),
-  Math: (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#06D6A0"/><path d="M12 16h8M16 12v8" stroke="#FAFAFA" strokeWidth="2" strokeLinecap="round"/></svg>
-  ),
-  Organizer: (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#9B5DE5"/><rect x="10" y="10" width="12" height="12" rx="2" fill="#FAFAFA"/></svg>
-  ),
+  Research: <Book size={28} className="text-mentra-blue" />,
+  Curiosity: <Lightbulb size={28} className="text-curiosity-coral" />,
+  Writer: <Pen size={28} className="text-grit-gold" />,
+  Math: <FlaskConical size={28} className="text-growth-green" />,
+  Organizer: <Puzzle size={28} className="text-wisdom-purple" />,
 };
 
 const demoAgents = [
@@ -176,9 +167,12 @@ const AgentWorkbench: React.FC = () => {
                 variant={BackgroundVariant.Dots}
                 style={{ opacity: isDragging ? 1 : 0.1, transition: 'opacity 0.3s' }}
               />
-              <MiniMap nodeColor={n => n.data?.color || '#3A86FF'} />
-              <Controls />
             </ReactFlow>
+            {/* Move MiniMap and Controls to bottom-right, outside canvas */}
+            <div className="absolute bottom-4 right-4 flex flex-col gap-2 z-10">
+              <MiniMap nodeColor={n => n.data?.color || '#3A86FF'} style={{ background: '#fff', borderRadius: 8, boxShadow: '0 2px 8px rgba(51,51,51,0.08)' }} />
+              <Controls showInteractive={false} style={{ background: '#fff', borderRadius: 8, boxShadow: '0 2px 8px rgba(51,51,51,0.08)' }} />
+            </div>
             {/* Empty state illustration */}
             {nodes.length === 0 && (
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
