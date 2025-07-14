@@ -20,7 +20,7 @@ import { Book, Lightbulb, Pen, FlaskConical, Puzzle } from 'lucide-react';
 
 // Lucide agent icons
 const agentIcons = {
-  Research: <img src="/lovable-uploads/MENTRA_SPRIG_HEART.png" alt="Sprig AI" className="w-7 h-7 object-contain" />,
+  Research: <Book size={28} className="text-mentra-blue" />,
   Curiosity: <Lightbulb size={28} className="text-curiosity-coral" />,
   Writer: <Pen size={28} className="text-grit-gold" />,
   Math: <FlaskConical size={28} className="text-growth-green" />,
@@ -61,6 +61,20 @@ const agentIconTextMap = {
   Organizer: 'text-wisdom-purple',
 };
 
+// Simple Drawer component for mobile
+function Drawer({ open, onClose, children }: { open: boolean, onClose: () => void, children: React.ReactNode }) {
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex flex-col justify-end md:hidden">
+      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
+      <div className="relative bg-white rounded-t-2xl shadow-lg p-4 max-h-[70vh] overflow-y-auto animate-slide-up">
+        <button className="absolute top-2 right-4 text-2xl" onClick={onClose}>&times;</button>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 const AgentWorkbench: React.FC = () => {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -69,6 +83,8 @@ const AgentWorkbench: React.FC = () => {
   const [selectedNode, setSelectedNode] = useState<Node | null>(null);
   const [draggedAgent, setDraggedAgent] = useState<any>(null);
   const [zoom, setZoom] = useState(1);
+  const [mobileLibraryOpen, setMobileLibraryOpen] = useState(false);
+  const [mobileInspectorOpen, setMobileInspectorOpen] = useState(false);
 
   // Drag from library
   const onDragStart = (event: React.DragEvent, agent: any) => {
@@ -143,8 +159,16 @@ const AgentWorkbench: React.FC = () => {
           </div>
         </header>
         <main className="flex flex-1 min-h-0 font-rounded" style={{ fontFamily: 'DM Sans, Poppins, sans-serif' }}>
-          {/* Left Sidebar: Agent Library */}
-          <aside className="w-[280px] bg-white border-r border-journal-sand flex flex-col p-6 gap-6">
+          {/* Mobile FAB for Agent Library */}
+          <button
+            className="fixed bottom-20 right-6 z-40 md:hidden bg-mentra-blue text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center text-3xl"
+            onClick={() => setMobileLibraryOpen(true)}
+            aria-label="Open Agent Library"
+          >
+            +
+          </button>
+          {/* Left Sidebar: Agent Library (desktop only) */}
+          <aside className="w-[280px] bg-white border-r border-journal-sand flex flex-col p-6 gap-6 hidden md:flex">
             <div>
               <input className="w-full rounded-lg border px-3 py-2 mb-3 text-sm" placeholder="Search agents..." />
               <div className="flex flex-wrap gap-2 mb-6">
@@ -228,14 +252,14 @@ const AgentWorkbench: React.FC = () => {
             {/* Empty state illustration */}
             {nodes.length === 0 && (
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <img src="/sprig-help.png" alt="Sprig help" className="w-32 mb-4" />
+                <img src="/AI.png" alt="Sprig help" className="w-32 mb-4" />
                 <p className="text-lg text-charcoal/70">Drag an agent here to start your flow.</p>
               </div>
             )}
           </section>
 
-          {/* Right Sidebar: Properties Inspector */}
-          <aside className="w-[280px] bg-white border-l border-journal-sand flex flex-col p-6 gap-6">
+          {/* Right Sidebar: Properties Inspector (desktop only) */}
+          <aside className="w-[280px] bg-white border-l border-journal-sand flex flex-col p-6 gap-6 hidden md:flex">
             {selectedNode ? (
               <>
                 <div className="flex items-center gap-3 mb-4">
@@ -271,6 +295,61 @@ const AgentWorkbench: React.FC = () => {
               </div>
             )}
           </aside>
+          {/* Mobile Drawers */}
+          <Drawer open={mobileLibraryOpen} onClose={() => setMobileLibraryOpen(false)}>
+            <div className="flex flex-col gap-3">
+              <h2 className="text-lg font-bold mb-2">Agent Library</h2>
+              {demoAgents.map((agent) => (
+                <div
+                  key={agent.type}
+                  className={`flex items-center gap-3 p-3 rounded-2xl shadow-lg border-0 cursor-grab transition group hover:shadow-2xl ${agentBgMap[agent.type]}`}
+                  style={{ minHeight: 64 }}
+                  draggable
+                  onDragStart={(e) => onDragStart(e, agent)}
+                >
+                  <span
+                    className={`w-10 h-10 flex items-center justify-center rounded-xl ${agentIconBgMap[agent.type]}`}
+                  >
+                    {React.cloneElement(agentIcons[agent.type], { className: `${agentIconTextMap[agent.type]} w-6 h-6` })}
+                  </span>
+                  <span className="text-charcoal text-base group-hover:text-mentra-blue transition-colors font-normal">{agent.label}</span>
+                </div>
+              ))}
+            </div>
+          </Drawer>
+          <Drawer open={mobileInspectorOpen && !!selectedNode} onClose={() => setMobileInspectorOpen(false)}>
+            {selectedNode ? (
+              <div className="flex flex-col gap-3">
+                <h2 className="text-lg font-bold mb-2">Agent Properties</h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-10 h-10 flex items-center justify-center rounded-lg" style={{ background: selectedNode.data.color + '22' }}>{selectedNode.data.icon}</span>
+                  <span className="font-bold text-charcoal text-lg">{selectedNode.data.label}</span>
+                </div>
+                <label className="block text-xs font-bold mb-1 text-charcoal">Prompt</label>
+                <textarea className="w-full rounded-lg border px-3 py-2 mb-3 text-sm" rows={3} placeholder="Enter prompt..." />
+                <label className="block text-xs font-bold mb-1 text-charcoal">Model</label>
+                <select className="w-full rounded-lg border px-3 py-2 mb-3 text-sm">
+                  <option>GPT-4o</option>
+                  <option>Claude 3</option>
+                  <option>Gemini 1.5</option>
+                </select>
+                <label className="block text-xs font-bold mb-1 text-charcoal">Output Preview</label>
+                <div className="flex items-center gap-2 mb-3">
+                  <input type="checkbox" id="output-preview" className="accent-growth-green" />
+                  <label htmlFor="output-preview" className="text-sm">Show output preview</label>
+                </div>
+                <details>
+                  <summary className="cursor-pointer text-xs text-charcoal/60 mb-2">Advanced</summary>
+                  <div className="pl-2">
+                    <label className="block text-xs font-bold mb-1 text-charcoal">Temperature</label>
+                    <input type="range" min="0" max="1" step="0.01" className="w-full mb-2" />
+                    <label className="block text-xs font-bold mb-1 text-charcoal">Max Tokens</label>
+                    <input type="number" min="1" max="4096" className="w-full mb-2" />
+                  </div>
+                </details>
+              </div>
+            ) : null}
+          </Drawer>
         </main>
         {/* Optional Footer (removed Run Test and Tidy Up buttons) */}
         <footer className="w-full h-16 flex items-center justify-end px-12 bg-white border-t border-journal-sand gap-4"></footer>
