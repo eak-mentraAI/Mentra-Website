@@ -145,10 +145,10 @@ const AgentWorkbench: React.FC = () => {
             <div>
               <input className="w-full rounded-lg border px-3 py-2 mb-3 text-sm" placeholder="Search agents..." />
               <div className="flex flex-wrap gap-2 mb-6">
-                <Badge className="bg-mentra-blue/10 text-mentra-blue">All</Badge>
-                <Badge className="bg-growth-green/10 text-growth-green">Academic</Badge>
-                <Badge className="bg-curiosity-coral/10 text-curiosity-coral">Creative</Badge>
-                <Badge className="bg-wisdom-purple/10 text-wisdom-purple">Organize</Badge>
+                <Badge className="bg-mentra-blue/10 text-charcoal font-normal">All</Badge>
+                <Badge className="bg-growth-green/10 text-charcoal font-normal">Academic</Badge>
+                <Badge className="bg-curiosity-coral/10 text-charcoal font-normal">Creative</Badge>
+                <Badge className="bg-wisdom-purple/10 text-charcoal font-normal">Organize</Badge>
               </div>
             </div>
             <div className="flex flex-col gap-4">
