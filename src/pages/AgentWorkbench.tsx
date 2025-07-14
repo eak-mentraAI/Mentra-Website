@@ -164,6 +164,7 @@ const AgentWorkbench: React.FC = () => {
               onDrop={onDrop}
               onDragOver={onDragOver}
               fitView
+              onInit={setReactFlowInstance}
               onMoveStart={() => setIsDragging(true)}
               onMoveEnd={() => setIsDragging(false)}
               style={{ background: 'transparent', minHeight: 'calc(100vh - 64px)' }}
