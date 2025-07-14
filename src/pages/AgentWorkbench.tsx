@@ -68,6 +68,7 @@ const AgentWorkbench: React.FC = () => {
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
   const [selectedNode, setSelectedNode] = useState<Node | null>(null);
   const [draggedAgent, setDraggedAgent] = useState<any>(null);
+  const [zoom, setZoom] = useState(1);
 
   // Drag from library
   const onDragStart = (event: React.DragEvent, agent: any) => {
@@ -151,21 +152,21 @@ const AgentWorkbench: React.FC = () => {
                 <Badge className="bg-wisdom-purple/10 text-charcoal font-normal">Organize</Badge>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {demoAgents.map((agent) => (
                 <div
                   key={agent.type}
-                  className={`flex items-center gap-3 p-4 rounded-2xl shadow-lg border-0 cursor-grab transition group hover:shadow-2xl ${agentBgMap[agent.type]}`}
-                  style={{ minHeight: 88 }}
+                  className={`flex items-center gap-3 p-3 rounded-2xl shadow-lg border-0 cursor-grab transition group hover:shadow-2xl ${agentBgMap[agent.type]}`}
+                  style={{ minHeight: 64 }}
                   draggable
                   onDragStart={(e) => onDragStart(e, agent)}
                 >
                   <span
-                    className={`w-12 h-12 flex items-center justify-center rounded-xl ${agentIconBgMap[agent.type]}`}
+                    className={`w-10 h-10 flex items-center justify-center rounded-xl ${agentIconBgMap[agent.type]}`}
                   >
-                    {React.cloneElement(agentIcons[agent.type], { className: `${agentIconTextMap[agent.type]} w-7 h-7` })}
+                    {React.cloneElement(agentIcons[agent.type], { className: `${agentIconTextMap[agent.type]} w-6 h-6` })}
                   </span>
-                  <span className="font-bold text-charcoal text-lg group-hover:text-mentra-blue transition-colors">{agent.label}</span>
+                  <span className="text-charcoal text-base group-hover:text-mentra-blue transition-colors font-normal">{agent.label}</span>
                 </div>
               ))}
             </div>
@@ -186,6 +187,7 @@ const AgentWorkbench: React.FC = () => {
               onInit={setReactFlowInstance}
               onMoveStart={() => setIsDragging(true)}
               onMoveEnd={() => setIsDragging(false)}
+              onMove={(_, viewport) => setZoom(viewport?.zoom || 1)}
               style={{ background: 'transparent', minHeight: 'calc(100vh - 64px)' }}
             >
               <Background
@@ -197,8 +199,12 @@ const AgentWorkbench: React.FC = () => {
               />
             </ReactFlow>
             {/* Move MiniMap and Controls to bottom-right, outside canvas */}
-            <div className="absolute bottom-4 right-4 flex flex-col gap-2 z-10">
+            <div className="absolute bottom-4 right-4 flex flex-col gap-2 z-10 items-end">
               <MiniMap nodeColor={n => n.data?.color || '#3A86FF'} style={{ background: '#fff', borderRadius: 8, boxShadow: '0 2px 8px rgba(51,51,51,0.08)' }} />
+              <div className="flex items-center gap-2 bg-white/90 rounded-lg px-3 py-1 shadow border border-gray-200 mb-1">
+                <span className="text-xs text-gray-600">Zoom:</span>
+                <span className="text-sm font-bold text-charcoal" id="zoom-indicator">{Math.round(zoom * 100)}%</span>
+              </div>
               <Controls showInteractive={false} style={{ background: '#fff', borderRadius: 8, boxShadow: '0 2px 8px rgba(51,51,51,0.08)' }} />
             </div>
             {/* Empty state illustration */}
