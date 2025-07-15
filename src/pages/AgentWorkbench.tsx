@@ -12,6 +12,8 @@ import ReactFlow, {
   Position,
   BackgroundVariant,
   Handle,
+  NodeChange,
+  EdgeChange
 } from 'reactflow';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -54,6 +56,7 @@ import { TemplateModal } from '@/components/ui/TemplateModal';
 import { NewProjectModal } from '@/components/ui/NewProjectModal';
 import { LoadWorkflowModal } from '@/components/ui/LoadWorkflowModal';
 import { Project, ProjectTemplate } from '@/types/project';
+import { Agent, AgentCategory, WorkflowOutput, ReactFlowInstance, Workflow } from '@/types/agent';
 
 // Agent categories with colors and icons
 const agentCategories = {
@@ -334,7 +337,7 @@ const AgentWorkbench: React.FC = () => {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [nodes, setNodes, rawOnNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
   const [selectedNode, setSelectedNode] = useState<Node | null>(null);
   const [zoom, setZoom] = useState(1);
   const [isEditingZoom, setIsEditingZoom] = useState(false);
@@ -345,7 +348,7 @@ const AgentWorkbench: React.FC = () => {
   const [showSaveDialog, setShowSaveDialog] = useState(false);
   const [showRunTestDialog, setShowRunTestDialog] = useState(false);
   const [showWorkflowOutput, setShowWorkflowOutput] = useState(false);
-  const [workflowOutput, setWorkflowOutput] = useState<any>(null);
+  const [workflowOutput, setWorkflowOutput] = useState<WorkflowOutput | null>(null);
   const [aiFeedback, setAiFeedback] = useState<string>('');
   const [testProgress, setTestProgress] = useState(0);
   const [testSteps, setTestSteps] = useState<string[]>([]);
@@ -374,7 +377,7 @@ const AgentWorkbench: React.FC = () => {
   const [showProjectInfoModal, setShowProjectInfoModal] = useState(false);
   
   // Workflow state
-  const [currentWorkflow, setCurrentWorkflow] = useState<any>(null);
+  const [currentWorkflow, setCurrentWorkflow] = useState<Workflow | null>(null);
   const [workflowName, setWorkflowName] = useState<string>('Untitled Workflow');
 
   const categoryPills = [
@@ -445,14 +448,14 @@ const AgentWorkbench: React.FC = () => {
   };
 
   // Set default viewport when React Flow initializes
-  const onInit = useCallback((instance: any) => {
+  const onInit = useCallback((instance: ReactFlowInstance) => {
     setReactFlowInstance(instance);
     // Set default viewport to 100% zoom at center
     instance.setViewport({ x: 0, y: 0, zoom: 1 });
   }, []);
 
   // Node state with NaN check logging
-  const onNodesChange = useCallback((changes) => {
+  const onNodesChange = useCallback((changes: NodeChange[]) => {
     setNodes((nds) => {
       const updated = applyNodeChanges(changes, nds);
       // Log any nodes with NaN positions
@@ -466,7 +469,7 @@ const AgentWorkbench: React.FC = () => {
   }, [setNodes]);
 
   // Drag from library
-  const onDragStart = (event: React.DragEvent, agent: any) => {
+  const onDragStart = (event: React.DragEvent, agent: Agent) => {
     // Only serialize primitive data
     const dragData = {
       type: agent.type,
@@ -573,7 +576,7 @@ const AgentWorkbench: React.FC = () => {
         setTimeout(() => {
           setShowRunTestDialog(false);
           // Simulate workflow output
-          const mockOutput = {
+          const mockOutput: WorkflowOutput = {
             type: 'text',
             content: 'This is a sample workflow output that could contain text, tables, images, or other content based on the user\'s workflow configuration.',
             timestamp: new Date().toISOString()
@@ -591,7 +594,7 @@ const AgentWorkbench: React.FC = () => {
   };
 
   // In AgentWorkbench component, add helper for updating node data
-  const updateSelectedNodeData = (field, value) => {
+  const updateSelectedNodeData = (field: string, value: string | number | boolean) => {
     if (!selectedNode) return;
     setNodes(nds => nds.map(n =>
       n.id === selectedNode.id ? { ...n, data: { ...n.data, [field]: value } } : n
@@ -646,7 +649,7 @@ const AgentWorkbench: React.FC = () => {
     // TODO: Implement project creation logic
   };
 
-  const handleSaveProjectGoal = (project: any) => {
+  const handleSaveProjectGoal = (project: Project) => {
     setCurrentProject(project);
     console.log('Updated project goals:', project);
     // TODO: Implement project goal update logic
@@ -654,7 +657,7 @@ const AgentWorkbench: React.FC = () => {
 
 
 
-  const handleLoadWorkflow = (workflow: any) => {
+  const handleLoadWorkflow = (workflow: Workflow) => {
     setShowLoadWorkflowModal(false);
     setWorkflowName(workflow.name);
     console.log('Loading workflow:', workflow);
@@ -822,7 +825,7 @@ const AgentWorkbench: React.FC = () => {
               </div>
             </header>
             <main className="flex flex-1 min-h-0 min-w-0 font-rounded gap-0" style={{ fontFamily: 'DM Sans, Poppins, sans-serif' }}>
-              <section className="flex-1 h-full relative bg-mentra-blue/10 border-r border-mentra-blue font-rounded overflow-hidden" ref={el => { reactFlowWrapper.current = el; }} style={{ fontFamily: 'DM Sans, Poppins, sans-serif' }}>
+              <section className="flex-1 h-full relative bg-mentra-blue/10 border-r border-mentra-blue font-rounded overflow-hidden" ref={reactFlowWrapper} style={{ fontFamily: 'DM Sans, Poppins, sans-serif' }}>
                 {/* Dot grid overlay */}
                 <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(rgba(58,134,255,0.18) 3px, transparent 3px)', backgroundSize: '32px 32px' }} />
                 <ReactFlow
