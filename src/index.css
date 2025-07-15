@@ -129,6 +129,12 @@ html {
   display: none !important;
 }
 
+/* Remove React Flow's default node borders */
+.react-flow__node-default,
+.react-flow__node-default.selected {
+  border: none !important;
+}
+
 
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
