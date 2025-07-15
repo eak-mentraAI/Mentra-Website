@@ -1,6 +1,5 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import ReactFlow, {
-  Controls,
   Background,
   addEdge,
   useNodesState,
@@ -17,6 +16,7 @@ import ReactFlow, {
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { 
   Lightbulb, 
   FlaskConical, 
@@ -42,19 +42,18 @@ import {
   Menu,
   Info,
   Edit,
-  Download
+  Download,
+  AlertTriangle
 } from 'lucide-react';
-import { Icon } from '@iconify/react';
 import 'reactflow/dist/style.css';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
-import { useToast } from '@/components/ui/use-toast';
 import { ProjectMenu } from '@/components/ui/ProjectMenu';
 import { ProjectGoalModal } from '@/components/ui/ProjectGoalModal';
 import { TemplateModal } from '@/components/ui/TemplateModal';
 import { NewProjectModal } from '@/components/ui/NewProjectModal';
 import { LoadWorkflowModal } from '@/components/ui/LoadWorkflowModal';
-import { Label } from '@/components/ui/label';
+import { Project, ProjectTemplate } from '@/types/project';
 
 // Agent categories with colors and icons
 const agentCategories = {
@@ -94,11 +93,11 @@ const agentCategories = {
     textClass: 'text-wisdom-purple'
   },
   Ethics: {
-    color: '#FF8E53',
-    icon: <Heart size={28} className="text-orange-500" />,
-    bgClass: 'bg-orange-500/10',
-    iconBgClass: 'bg-orange-500/20',
-    textClass: 'text-orange-500'
+    color: '#FF6B6B',
+    icon: <Heart size={28} className="text-curiosity-coral" />,
+    bgClass: 'bg-curiosity-coral/10',
+    iconBgClass: 'bg-curiosity-coral/20',
+    textClass: 'text-curiosity-coral'
   }
 };
 
@@ -221,24 +220,24 @@ const demoAgents = [
   // Ethics & Reflection Agents
   { 
     type: 'Ethics', 
-    color: '#FF8E53', 
+    color: '#FF6B6B', 
     label: 'AI Ethics Owl',
     description: 'Asks questions about fairness, safety, and bias when using AI tools.',
-    icon: <Heart size={28} className="text-orange-500" />
+    icon: <Heart size={28} className="text-curiosity-coral" />
   },
   { 
     type: 'Ethics', 
-    color: '#FF8E53', 
+    color: '#FF6B6B', 
     label: 'Reflecto',
     description: 'At the end of a project, asks "What worked? What was hard? What would you do differently?"',
-    icon: <Heart size={28} className="text-orange-500" />
+    icon: <Heart size={28} className="text-curiosity-coral" />
   },
   { 
     type: 'Ethics', 
-    color: '#FF8E53', 
+    color: '#FF6B6B', 
     label: 'Privacy Pal',
     description: 'Reminds students not to enter personal information or guides them through safe sharing practices.',
-    icon: <Heart size={28} className="text-orange-500" />
+    icon: <Heart size={28} className="text-curiosity-coral" />
   }
 ];
 
@@ -331,7 +330,6 @@ const AgentWorkbench: React.FC = () => {
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
   const [selectedNode, setSelectedNode] = useState<Node | null>(null);
   const [zoom, setZoom] = useState(1);
-  const [showPreview, setShowPreview] = useState(false);
   const [isEditingZoom, setIsEditingZoom] = useState(false);
   const [zoomInputValue, setZoomInputValue] = useState('100');
   
@@ -361,18 +359,11 @@ const AgentWorkbench: React.FC = () => {
   const [showTemplateModal, setShowTemplateModal] = useState(false);
   const [showNewProjectModal, setShowNewProjectModal] = useState(false);
   const [showProjectGoalModal, setShowProjectGoalModal] = useState(false);
-  const [editingProjectGoal, setEditingProjectGoal] = useState(false);
   const [showLoadWorkflowModal, setShowLoadWorkflowModal] = useState(false);
-  const [projectGoal, setProjectGoal] = useState({
-    name: '',
-    objective: '',
-    successMetrics: [],
-    targetDate: '',
-    priority: 'medium'
-  });
+
 
   // Project information state
-  const [currentProject, setCurrentProject] = useState<any>(null);
+  const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const [showProjectInfoModal, setShowProjectInfoModal] = useState(false);
   
   // Workflow state
@@ -386,7 +377,7 @@ const AgentWorkbench: React.FC = () => {
     { label: 'Planner', color: 'bg-grit-gold/10 text-grit-gold' },
     { label: 'Simulation', color: 'bg-growth-green/10 text-growth-green' },
     { label: 'Skill Coach', color: 'bg-wisdom-purple/10 text-wisdom-purple' },
-    { label: 'Ethics', color: 'bg-orange-500/10 text-orange-500' },
+    { label: 'Ethics', color: 'bg-curiosity-coral/10 text-curiosity-coral' },
   ];
 
   // Filter out nodes with NaN positions to prevent SVG errors
@@ -634,27 +625,23 @@ const AgentWorkbench: React.FC = () => {
     }
   };
 
-  const handleLoadTemplate = (template: any) => {
+  const handleLoadTemplate = (template: ProjectTemplate) => {
     setShowTemplateModal(false);
-    setCurrentProject(template.goals);
-    setProjectGoal(template.goals);
+    setCurrentProject(template.defaultProject as Project);
     console.log('Loaded template:', template);
     // TODO: Implement template loading logic
   };
 
-  const handleCreateProject = (project: any) => {
+  const handleCreateProject = (project: Project) => {
     setShowNewProjectModal(false);
     setCurrentProject(project);
-    setProjectGoal(project);
     console.log('Created project:', project);
     // TODO: Implement project creation logic
   };
 
-  const handleSaveProjectGoal = (goal: any) => {
-    setEditingProjectGoal(false);
-    setProjectGoal(goal);
-    setCurrentProject(goal);
-    console.log('Updated project goals:', goal);
+  const handleSaveProjectGoal = (project: any) => {
+    setCurrentProject(project);
+    console.log('Updated project goals:', project);
     // TODO: Implement project goal update logic
   };
 
@@ -867,12 +854,8 @@ const AgentWorkbench: React.FC = () => {
                     style={{ opacity: isDragging ? 1 : 0.08, transition: 'opacity 0.3s' }}
                   />
                 </ReactFlow>
-                {/* Controls and Zoom % in bottom-right, with buffer and no overlap */}
-                <div className="absolute bottom-4 right-4 z-10 flex items-end gap-4">
-                  <Controls
-                    showInteractive={false}
-                    className="rf-controls--tight"
-                  />
+                {/* Zoom % in bottom-right */}
+                <div className="absolute bottom-4 right-4 z-10">
                   <div className="flex items-center gap-1 bg-white/90 rounded px-2 py-2 shadow border border-gray-200">
                     <span className="text-xs text-gray-600">Zoom:</span>
                     {isEditingZoom ? (
@@ -1236,23 +1219,9 @@ const AgentWorkbench: React.FC = () => {
         />
 
         <ProjectGoalModal 
-          open={showProjectGoalModal && !editingProjectGoal} 
+          open={showProjectGoalModal} 
           onOpenChange={setShowProjectGoalModal}
-          initialGoal={projectGoal}
-          viewOnly
-          onEdit={() => {
-            setEditingProjectGoal(true);
-            setShowProjectGoalModal(false);
-          }}
-        />
-        
-        <ProjectGoalModal
-          open={editingProjectGoal}
-          onOpenChange={open => {
-            setEditingProjectGoal(open);
-            if (!open) setShowProjectGoalModal(true);
-          }}
-          initialGoal={projectGoal}
+          project={currentProject}
           onSave={handleSaveProjectGoal}
         />
 
@@ -1309,6 +1278,67 @@ const AgentWorkbench: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Constraints */}
+                {currentProject.constraints && currentProject.constraints.length > 0 && (
+                  <div className="space-y-2">
+                    <Label className="text-sm font-semibold text-gray-700">Constraints</Label>
+                    <div className="space-y-2">
+                      {currentProject.constraints.map((constraint: string, index: number) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <AlertTriangle className="w-4 h-4 text-grit-gold" />
+                          <span className="text-gray-700">{constraint}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Deliverables */}
+                {currentProject.deliverables && currentProject.deliverables.length > 0 && (
+                  <div className="space-y-2">
+                    <Label className="text-sm font-semibold text-gray-700">Deliverables</Label>
+                    <div className="space-y-2">
+                      {currentProject.deliverables.map((deliverable: string, index: number) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <FileText className="w-4 h-4 text-growth-green" />
+                          <span className="text-gray-700">{deliverable}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Stakeholders */}
+                {currentProject.stakeholders && currentProject.stakeholders.length > 0 && (
+                  <div className="space-y-2">
+                    <Label className="text-sm font-semibold text-gray-700">Stakeholders</Label>
+                    <div className="space-y-2">
+                      {currentProject.stakeholders.map((stakeholder: string, index: number) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <Users className="w-4 h-4 text-wisdom-purple" />
+                          <span className="text-gray-700">{stakeholder}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Grade Level & Subject */}
+                <div className="grid grid-cols-2 gap-4">
+                  {currentProject.gradeLevel && (
+                    <div className="space-y-2">
+                      <Label className="text-sm font-semibold text-gray-700">Grade Level</Label>
+                      <div className="text-gray-700">{currentProject.gradeLevel}</div>
+                    </div>
+                  )}
+                  {currentProject.subjectArea && (
+                    <div className="space-y-2">
+                      <Label className="text-sm font-semibold text-gray-700">Subject Area</Label>
+                      <div className="text-gray-700">{currentProject.subjectArea}</div>
+                    </div>
+                  )}
+                </div>
+
                 {/* Target Date */}
                 {currentProject.targetDate && (
                   <div className="space-y-2">
@@ -1333,8 +1363,7 @@ const AgentWorkbench: React.FC = () => {
                   <Button 
                     onClick={() => {
                       setShowProjectInfoModal(false);
-                      setProjectGoal(currentProject);
-                      setEditingProjectGoal(true);
+                      setShowProjectGoalModal(true);
                     }} 
                     className="bg-mentra-blue hover:bg-mentra-blue/90 rounded-lg"
                   >
