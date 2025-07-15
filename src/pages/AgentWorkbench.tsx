@@ -286,7 +286,8 @@ const nodeTypes = {
           boxShadow: '0 2px 8px rgba(51,51,51,0.06)',
           border: selected ? '3px solid #3A86FF' : 'none',
           position: 'relative',
-          minWidth: 140,
+          minWidth: 180,
+          width: 'fit-content',
           whiteSpace: 'nowrap',
         }}
       >
