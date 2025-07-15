@@ -278,17 +278,21 @@ const nodeTypes = {
         style={{
           outline: 'none',
           background: '#fff',
-          padding: '8px 16px',
+          padding: '12px 16px',
           display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
           alignItems: 'center',
+          justifyContent: 'center',
           gap: 10,
           borderRadius: 10,
           boxShadow: '0 2px 8px rgba(51,51,51,0.06)',
           border: selected ? '3px solid #3A86FF' : 'none',
           position: 'relative',
           minWidth: 180,
+          minHeight: 80,
           width: 'fit-content',
-          whiteSpace: 'nowrap',
+          whiteSpace: 'normal',
         }}
       >
         {/* Handles */}
