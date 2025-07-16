@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search, Calendar, Tag, ArrowUpDown, Clock } from 'lucide-react';
 import '../App.css';
+import OptimizedImage from '../components/OptimizedImage';
 
 interface BlogPost {
   id: string;
@@ -216,10 +217,11 @@ const Blog = () => {
               <article className="bg-white rounded-3xl shadow-xl overflow-hidden">
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="relative h-64 lg:h-full">
-                    <img
+                    <OptimizedImage
                       src={featuredPost.image}
                       alt={featuredPost.title}
                       className="w-full h-full object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-mentra-blue text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -285,10 +287,11 @@ const Blog = () => {
               {regularPosts.map(post => (
                 <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="relative h-48">
-                    <img
+                    <OptimizedImage
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-sm font-medium">

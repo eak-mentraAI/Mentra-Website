@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import OptimizedImage from './OptimizedImage';
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -93,10 +94,11 @@ const TestimonialsSection = () => {
           <Card className="bg-white border-0 shadow-2xl rounded-3xl overflow-hidden">
             <CardContent className="p-12 text-center">
               <div className="flex justify-center mb-8">
-                <img 
+                <OptimizedImage
                   src={testimonials[currentTestimonial].avatar}
                   alt={`${testimonials[currentTestimonial].author}, ${testimonials[currentTestimonial].role}`}
                   className="w-20 h-20 object-contain rounded-full"
+                  sizes="5rem"
                 />
               </div>
               

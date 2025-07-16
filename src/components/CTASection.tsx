@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Users, Sparkles } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
 const CTASection = () => {
   return (
@@ -75,10 +76,11 @@ const CTASection = () => {
               That's not just our mission—it's our promise."
             </p>
             <div className="flex items-center justify-center gap-3">
-              <img 
-                src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png" 
-                alt="Sprig" 
+              <OptimizedImage
+                src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png"
+                alt="Sprig"
                 className="w-8 h-8 object-contain"
+                sizes="2rem"
               />
               <span className="text-white font-medium">— The Mentra Team</span>
             </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import type { CarouselApi } from '@/components/ui/carousel';
+import OptimizedImage from './OptimizedImage';
 
 const SprigActionSection = () => {
   const sprigStories = [
@@ -88,10 +89,11 @@ const SprigActionSection = () => {
                   <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
                     <div className="space-y-6">
                       <div className={`w-24 h-24 mx-auto bg-${story.accentColor}/20 rounded-2xl flex items-center justify-center`}>
-                        <img
+                        <OptimizedImage
                           src={story.image}
                           alt={story.title}
                           className="w-20 h-20 object-contain"
+                          sizes="5rem"
                         />
                       </div>
                       <div className="space-y-3">
