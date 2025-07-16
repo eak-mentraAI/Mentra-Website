@@ -105,7 +105,7 @@ export const trackImageLoad = (src: string) => {
 // Memory usage monitoring
 export const trackMemoryUsage = () => {
   if ('memory' in performance) {
-    const memory = (performance as any).memory;
+    const memory = (performance as Performance & { memory: { usedJSHeapSize: number; totalJSHeapSize: number; jsHeapSizeLimit: number } }).memory;
     console.log('Memory Usage:', {
       usedJSHeapSize: `${(memory.usedJSHeapSize / 1048576).toFixed(2)} MB`,
       totalJSHeapSize: `${(memory.totalJSHeapSize / 1048576).toFixed(2)} MB`,
@@ -117,7 +117,7 @@ export const trackMemoryUsage = () => {
 // Network quality monitoring
 export const trackNetworkQuality = () => {
   if ('connection' in navigator) {
-    const connection = (navigator as any).connection;
+    const connection = (navigator as Navigator & { connection: { effectiveType: string; downlink: number; rtt: number; saveData: boolean } }).connection;
     console.log('Network Quality:', {
       effectiveType: connection.effectiveType,
       downlink: connection.downlink,
