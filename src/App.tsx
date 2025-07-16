@@ -17,15 +17,12 @@ import Cookies from "./pages/Cookies";
 import Blog from "./pages/Blog";
 import CookieConsent from "./components/CookieConsent";
 import Press from "./pages/Press";
-import AgentWorkbench from "./pages/AgentWorkbench";
+
 
 const queryClient = new QueryClient();
 
 // Component to conditionally render CookieConsent
 const AppContent = () => {
-  const location = useLocation();
-  const isAgentWorkbench = location.pathname === '/agent-workbench';
-  
   return (
     <>
       <Routes>
@@ -41,11 +38,10 @@ const AppContent = () => {
         <Route path="/cookies" element={<Cookies />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/press" element={<Press />} />
-        <Route path="/agent-workbench" element={<AgentWorkbench />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {!isAgentWorkbench && <CookieConsent />}
+      <CookieConsent />
     </>
   );
 };
