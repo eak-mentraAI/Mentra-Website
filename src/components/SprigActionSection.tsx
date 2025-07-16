@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import type { CarouselApi } from '@/components/ui/carousel';
 
 const SprigActionSection = () => {
   const sprigStories = [
@@ -35,7 +36,7 @@ const SprigActionSection = () => {
   ];
 
   const [current, setCurrent] = useState(0);
-  const [emblaApi, setEmblaApi] = useState<any>(null);
+  const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
 
   const accentGradientMap: Record<string, string> = {
     'mentra-blue': 'from-mentra-blue to-mentra-blue/50',
@@ -50,7 +51,9 @@ const SprigActionSection = () => {
     const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
     emblaApi.on('select', onSelect);
     onSelect();
-    return () => emblaApi.off('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
   }, [emblaApi]);
 
   return (

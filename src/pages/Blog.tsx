@@ -27,7 +27,7 @@ const Blog = () => {
   const [sortBy, setSortBy] = useState('newest');
 
   // Sample blog data - replace with your actual blog posts
-  const blogPosts: BlogPost[] = [
+  const blogPosts: BlogPost[] = useMemo(() => [
     {
       id: '1',
       title: 'How AI is Transforming Student Learning: A Deep Dive into Personalized Education',
@@ -106,14 +106,14 @@ const Blog = () => {
       featured: false,
       readTime: 6
     }
-  ];
+  ], []);
 
   // Get unique categories
   const categories = ['all', ...Array.from(new Set(blogPosts.map(post => post.category)))];
 
   // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
-    let filtered = blogPosts.filter(post => {
+    const filtered = blogPosts.filter(post => {
       const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -138,7 +138,7 @@ const Blog = () => {
     }
 
     return filtered;
-  }, [blogPosts, searchTerm, selectedCategory, sortBy]);
+  }, [searchTerm, selectedCategory, sortBy, blogPosts]);
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = filteredAndSortedPosts.filter(post => !post.featured);

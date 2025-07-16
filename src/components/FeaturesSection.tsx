@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { BookOpen, Heart, Brain, Star, Users, Wrench, Target, Map, Compass } from 'lucide-react';
+import type { CarouselApi } from '@/components/ui/carousel';
 
 const colorGradientMap: Record<string, string> = {
   'mentra-blue': 'from-mentra-blue to-mentra-blue/50',
@@ -73,7 +74,7 @@ const FeaturesSection = () => {
   }));
 
   const [current, setCurrent] = useState(0);
-  const [emblaApi, setEmblaApi] = useState<any>(null);
+  const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
 
   // Sync current index with Embla carousel
   React.useEffect(() => {
@@ -81,7 +82,9 @@ const FeaturesSection = () => {
     const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
     emblaApi.on('select', onSelect);
     onSelect();
-    return () => emblaApi.off('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
   }, [emblaApi]);
 
   return (

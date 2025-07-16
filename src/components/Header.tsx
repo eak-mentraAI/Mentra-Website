@@ -107,7 +107,7 @@ const Header = () => {
                   }}
                   className={
                     `text-gray-700 hover:text-mentra-blue transition-colors duration-200 font-medium relative px-1 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md ` +
-                    (location.pathname === '/' && location.hash === '#features' ? 'text-mentra-blue font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-mentra-blue after:rounded-full after:content-["\""]' : '')
+                    (location.pathname === '/' && location.hash === '#features' ? 'text-mentra-blue font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-mentra-blue after:rounded-full after:content-[""]' : '')
                   }
                   aria-current={location.pathname === '/' && location.hash === '#features' ? 'page' : undefined}
                 >
@@ -121,7 +121,7 @@ const Header = () => {
                 href={item.href}
                 className={
                   `text-gray-700 hover:text-mentra-blue transition-colors duration-200 font-medium relative px-1 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md ` +
-                  (isActive ? 'text-mentra-blue font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-mentra-blue after:rounded-full after:content-["\""]' : '')
+                  (isActive ? 'text-mentra-blue font-semibold after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-mentra-blue after:rounded-full after:content-[""]' : '')
                 }
                 aria-current={isActive ? 'page' : undefined}
               >
