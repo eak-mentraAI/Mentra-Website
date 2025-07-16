@@ -89,7 +89,7 @@ const Header = memo(() => {
             className="focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md"
           >
             <OptimizedImage
-              src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
+              src="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
               alt="Mentra Logo"
               className="h-16 w-auto md:h-20 flex-shrink-0"
               sizes="(max-width: 768px) 4rem, 5rem"

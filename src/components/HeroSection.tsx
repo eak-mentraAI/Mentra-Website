@@ -70,7 +70,7 @@ const HeroSection = () => {
             <div className="relative">
               {/* Main Sprig Character */}
               <OptimizedImage
-                src="/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
+                src="/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
                 alt="Sprig, your AI learning companion - a friendly animated character"
                 className="w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 animate-float drop-shadow-2xl"
                 sizes="(max-width: 640px) 10rem, (max-width: 1024px) 15rem, (max-width: 1280px) 20rem, 24rem"

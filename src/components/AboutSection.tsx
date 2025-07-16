@@ -57,7 +57,7 @@ const AboutSection = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <OptimizedImage
-                    src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png"
+                    src="/13ee0557-7701-4480-8818-ad3335de97fd.png"
                     alt="Sprig mascot"
                     className="w-16 h-16 object-contain animate-bounce-gentle"
                     sizes="4rem"
@@ -77,7 +77,7 @@ const AboutSection = () => {
 
                 <div className="flex items-center gap-4">
                   <OptimizedImage
-                    src="/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png"
+                    src="/cedb8c52-6559-4531-87f6-39ad0937d397.png"
                     alt="Sprig with star"
                     className="w-16 h-16 object-contain animate-float"
                     sizes="4rem"

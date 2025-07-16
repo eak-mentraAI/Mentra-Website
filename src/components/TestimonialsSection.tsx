@@ -13,28 +13,28 @@ const TestimonialsSection = () => {
       author: "Sarah Chen",
       role: "5th Grade Teacher",
       color: "curiosity-coral",
-      avatar: "/lovable-uploads/69642821-e647-4bdf-b739-25771a5f9674.png"
+      avatar: "/69642821-e647-4bdf-b739-25771a5f9674.png"
     },
     {
       quote: "I can see my child's emotional growth alongside their academic progress.",
       author: "Michael Rodriguez",
       role: "Parent of 8-year-old",
       color: "growth-green",
-      avatar: "/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png"
+      avatar: "/13ee0557-7701-4480-8818-ad3335de97fd.png"
     },
     {
       quote: "I learned to ask better questions and think through problems step by step.",
       author: "Emma, Age 10",
       role: "Student",
       color: "grit-gold",
-      avatar: "/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png"
+      avatar: "/cedb8c52-6559-4531-87f6-39ad0937d397.png"
     },
     {
       quote: "Students develop metacognitive skills that transfer to all subjects.",
       author: "Dr. Amanda Foster",
       role: "School Principal",
       color: "mentra-blue",
-      avatar: "/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
+      avatar: "/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
     }
   ];
 

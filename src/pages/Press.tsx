@@ -68,13 +68,13 @@ export default function Press() {
             {/* Logo with Words (Color) */}
             <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm border">
               <OptimizedImage
-                src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
+                src="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
                 alt="Mentra Logo with Words (Color)"
                 className="h-16 mb-3"
                 sizes="4rem"
               />
               <span className="text-sm text-gray-600 mb-2">Logo with Words (Color)</span>
-              <a href="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+                              <a href="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
             {/* Logo Icon Only (White) */}
             <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-sm border">
@@ -125,7 +125,7 @@ export default function Press() {
           <div className="text-center mt-8">
             <p className="text-gray-600 mb-4">Need all assets? Download our complete media kit:</p>
             <a 
-              href="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
+                                href="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
               download 
               className="inline-flex items-center px-6 py-3 bg-mentra-blue text-white rounded-full font-semibold hover:bg-mentra-blue/90 transition-colors"
             >

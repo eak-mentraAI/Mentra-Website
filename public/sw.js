@@ -9,7 +9,7 @@ const STATIC_FILES = [
   '/index.html',
   '/src/main.tsx',
   '/src/index.css',
-  '/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png',
+  '/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png',
   '/edward-kerr.jpg',
   '/press.png',
   '/spy.png',
@@ -21,9 +21,9 @@ const STATIC_FILES = [
   '/logo_no_words.png',
   '/logo_watermark.png',
   '/logo_watermark_white.png',
-  '/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png',
-  '/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png',
-  '/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png'
+  '/13ee0557-7701-4480-8818-ad3335de97fd.png',
+  '/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png',
+  '/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png'
 ];
 
 // Install event - cache static files
@@ -158,8 +158,8 @@ self.addEventListener('sync', (event) => {
 self.addEventListener('push', (event) => {
   const options = {
     body: event.data ? event.data.text() : 'New notification from Mentra',
-    icon: '/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png',
-    badge: '/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png',
+    icon: '/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png',
+    badge: '/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),

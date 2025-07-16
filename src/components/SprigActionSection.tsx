@@ -7,28 +7,28 @@ import OptimizedImage from './OptimizedImage';
 const SprigActionSection = () => {
   const sprigStories = [
     {
-      image: "/lovable-uploads/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png",
+      image: "/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png",
       title: "Eureka Moments",
       description: "When understanding clicks, Sprig celebrates your breakthrough with encouraging insights and next-step guidance.",
       bgColor: "grit-gold/10",
       accentColor: "grit-gold"
     },
     {
-      image: "/lovable-uploads/cedb8c52-6559-4531-87f6-39ad0937d397.png",
+      image: "/cedb8c52-6559-4531-87f6-39ad0937d397.png",
       title: "Achievement Unlocked",
       description: "Every milestone matters. Sprig helps you recognize progress and builds confidence for bigger challenges ahead.",
       bgColor: "curiosity-coral/10",
       accentColor: "curiosity-coral"
     },
     {
-      image: "/lovable-uploads/ee369d68-1572-409b-ba14-676fe8d3ca36.png",
+      image: "/ee369d68-1572-409b-ba14-676fe8d3ca36.png",
       title: "Thoughtful Reflection",
       description: "Dive deep into learning through guided journaling that connects emotions with academic growth.",
       bgColor: "mentra-blue/10",
       accentColor: "mentra-blue"
     },
     {
-      image: "/lovable-uploads/MENTRA_SPRIG_HEART.png",
+      image: "/MENTRA_SPRIG_HEART.png",
       title: "Gentle Encouragement",
       description: "On challenging days, Sprig provides emotional support and adaptive learning strategies.",
       bgColor: "growth-green/10",

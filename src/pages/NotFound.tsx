@@ -17,7 +17,7 @@ const NotFound = () => {
       <div className="text-center max-w-md mx-auto px-4">
         <div className="mb-8">
           <OptimizedImage
-            src="/lovable-uploads/13ee0557-7701-4480-8818-ad3335de97fd.png"
+            src="/13ee0557-7701-4480-8818-ad3335de97fd.png"
             alt="Sprig looking curious"
             className="w-24 h-24 mx-auto mb-4 animate-bounce-gentle"
             sizes="6rem"

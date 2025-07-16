@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center space-x-3">
               <OptimizedImage
-                src="/lovable-uploads/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
+                src="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
                 alt="Mentra Logo"
                 className="h-16 w-auto md:h-20 mb-2 mx-auto"
                 sizes="(max-width: 768px) 4rem, 5rem"
