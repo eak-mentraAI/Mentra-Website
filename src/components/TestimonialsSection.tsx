@@ -12,7 +12,7 @@ const TestimonialsSection = () => {
       author: "Sarah Chen",
       role: "5th Grade Teacher",
       color: "curiosity-coral",
-      avatar: "/images/sprig/69642821-e647-4bdf-b739-25771a5f9674.png"
+      avatar: "/images/logos/69642821-e647-4bdf-b739-25771a5f9674.png"
     },
     {
       quote: "I can see my child's emotional growth alongside their academic progress.",
