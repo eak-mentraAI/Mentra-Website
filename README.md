@@ -82,3 +82,4 @@ This project is configured for deployment to GitHub Pages via GitHub Actions. Th
 ## License
 
 This project is proprietary software owned by Mentra.
+# Trigger deployment
