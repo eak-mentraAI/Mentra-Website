@@ -6,7 +6,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/Mentra-Website/',
+  base: mode === 'production' ? '/Mentra-Website/' : '/',
   server: {
     host: "::",
     port: 3000,
