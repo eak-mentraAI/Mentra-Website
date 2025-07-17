@@ -38,7 +38,7 @@ const Blog = () => {
       date: '2024-01-15',
       category: 'AI & Education',
       tags: ['AI', 'Personalization', 'Learning'],
-      image: '/edtech_2.jpg.webp',
+      image: '/images/other/edtech_2.jpg.webp',
       featured: true,
       readTime: 8
     },
@@ -51,7 +51,7 @@ const Blog = () => {
       date: '2024-01-10',
       category: 'Emotional Intelligence',
       tags: ['Emotional Intelligence', 'Journaling', 'Self-Reflection'],
-      image: '/edtech_3.jpg.avif',
+      image: '/images/other/edtech_3.jpg.avif',
       featured: false,
       readTime: 6
     },
@@ -64,7 +64,7 @@ const Blog = () => {
       date: '2024-01-05',
       category: 'Assessment',
       tags: ['Assessment', 'Innovation', 'Learning Outcomes'],
-      image: '/edtech_4.jpg',
+      image: '/images/other/edtech_4.jpg',
       featured: false,
       readTime: 7
     },
@@ -77,7 +77,7 @@ const Blog = () => {
       date: '2024-01-01',
       category: 'Parent Engagement',
       tags: ['Parent Engagement', 'Technology', 'Collaboration'],
-      image: '/teacher_power.jpg',
+      image: '/images/other/teacher_power.jpg',
       featured: false,
       readTime: 5
     },
@@ -90,7 +90,7 @@ const Blog = () => {
       date: '2023-12-28',
       category: 'Research',
       tags: ['Research', 'Learning Science', 'Evidence-Based'],
-      image: '/edtech_5.jpg',
+      image: '/images/other/edtech_5.jpg',
       featured: false,
       readTime: 9
     },
@@ -103,7 +103,7 @@ const Blog = () => {
       date: '2023-12-20',
       category: 'Future Skills',
       tags: ['Future Skills', 'AI', 'Workforce Preparation'],
-      image: '/edtech_social.jpg',
+      image: '/images/other/edtech_social.jpg',
       featured: false,
       readTime: 6
     }

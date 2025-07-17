@@ -23,7 +23,7 @@ export default function Press() {
           {/* Right: Large Sprig Icon */}
           <div className="flex-shrink-0 flex items-center justify-center mt-6 md:mt-0">
             <OptimizedImage
-              src="/press.png"
+              src="/images/other/press.png"
               alt="Sprig Press Icon"
               className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl"
               sizes="(max-width: 768px) 12rem, (max-width: 1024px) 16rem, (max-width: 1280px) 20rem, 24rem"
@@ -57,75 +57,75 @@ export default function Press() {
             {/* Logo with Words (White) */}
             <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-sm border">
               <OptimizedImage
-                src="/logo_with_words_white.png"
+                src="/images/logos/logo_with_words_white.png"
                 alt="Mentra Logo with Words (White)"
                 className="h-16 mb-3"
                 sizes="4rem"
               />
               <span className="text-sm text-gray-300 mb-2">Logo with Words (White)</span>
-              <a href="/logo_with_words_white.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+                              <a href="/images/logos/logo_with_words_white.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
             {/* Logo with Words (Color) */}
             <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm border">
               <OptimizedImage
-                src="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
+                src="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
                 alt="Mentra Logo with Words (Color)"
                 className="h-16 mb-3"
                 sizes="4rem"
               />
               <span className="text-sm text-gray-600 mb-2">Logo with Words (Color)</span>
-                              <a href="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+                              <a href="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
             {/* Logo Icon Only (White) */}
             <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-sm border">
               <OptimizedImage
-                src="/logo_icononly_white.png"
+                src="/images/logos/logo_icononly_white.png"
                 alt="Mentra Logo Icon Only (White)"
                 className="h-16 mb-3"
                 sizes="4rem"
               />
               <span className="text-sm text-gray-300 mb-2">Logo Icon Only (White)</span>
-              <a href="/logo_icononly_white.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+                              <a href="/images/logos/logo_icononly_white.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
             {/* Logo No Words (Color) */}
             <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm border">
               <OptimizedImage
-                src="/logo_no_words.png"
+                src="/images/logos/logo_no_words.png"
                 alt="Mentra Logo No Words (Color)"
                 className="h-16 mb-3"
                 sizes="4rem"
               />
               <span className="text-sm text-gray-600 mb-2">Logo No Words (Color)</span>
-              <a href="/logo_no_words.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+                              <a href="/images/logos/logo_no_words.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
             {/* Logo Watermark (Color) */}
             <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm border">
               <OptimizedImage
-                src="/logo_watermark.png"
+                src="/images/logos/logo_watermark.png"
                 alt="Mentra Logo Watermark (Color)"
                 className="h-16 mb-3"
                 sizes="4rem"
               />
               <span className="text-sm text-gray-600 mb-2">Logo Watermark (Color)</span>
-              <a href="/logo_watermark.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+                              <a href="/images/logos/logo_watermark.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
             {/* Logo Watermark (White) */}
             <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-sm border">
               <OptimizedImage
-                src="/logo_watermark_white.png"
+                src="/images/logos/logo_watermark_white.png"
                 alt="Mentra Logo Watermark (White)"
                 className="h-16 mb-3"
                 sizes="4rem"
               />
               <span className="text-sm text-gray-300 mb-2">Logo Watermark (White)</span>
-              <a href="/logo_watermark_white.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+                              <a href="/images/logos/logo_watermark_white.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
           </div>
           {/* Download All Button */}
           <div className="text-center mt-8">
             <p className="text-gray-600 mb-4">Need all assets? Download our complete media kit:</p>
             <a 
-                                href="/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
+                                href="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
               download 
               className="inline-flex items-center px-6 py-3 bg-mentra-blue text-white rounded-full font-semibold hover:bg-mentra-blue/90 transition-colors"
             >

@@ -14,7 +14,7 @@ export default function About() {
         {/* Hero Section */}
         <section className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10 mb-20">
           <OptimizedImage
-            src="/edward-kerr.jpg"
+            src="/images/other/edward-kerr.jpg"
             alt="Edward Kerr, Founder of Mentra"
             className="w-64 h-64 object-cover rounded-2xl shadow-lg border-4 border-journal-sand"
             sizes="(max-width: 768px) 16rem, 16rem"

@@ -77,7 +77,7 @@ const CTASection = () => {
             </p>
             <div className="flex items-center justify-center gap-3">
               <OptimizedImage
-                src="/13ee0557-7701-4480-8818-ad3335de97fd.png"
+                src="/images/sprig/13ee0557-7701-4480-8818-ad3335de97fd.png"
                 alt="Sprig"
                 className="w-8 h-8 object-contain"
                 sizes="2rem"

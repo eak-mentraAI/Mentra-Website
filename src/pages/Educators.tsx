@@ -126,7 +126,7 @@ const tabData = [
           </div>
           <div className="flex items-start gap-3">
             <OptimizedImage
-              src="/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
+              src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
               alt="Sprig AI"
               className="w-8 h-8"
               sizes="2rem"
@@ -142,7 +142,7 @@ const tabData = [
           </div>
           <div className="flex items-start gap-3">
             <OptimizedImage
-              src="/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
+              src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
               alt="Sprig AI"
               className="w-8 h-8"
               sizes="2rem"
@@ -158,7 +158,7 @@ const tabData = [
           </div>
           <div className="flex items-start gap-3">
             <OptimizedImage
-              src="/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
+              src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
               alt="Sprig AI"
               className="w-8 h-8"
               sizes="2rem"

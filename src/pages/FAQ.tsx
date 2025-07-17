@@ -160,7 +160,7 @@ const FAQ = () => {
           </div>
           <div className="flex-shrink-0 flex items-center justify-center mt-6 md:mt-0">
             <OptimizedImage
-              src="/question.png"
+              src="/images/other/question.png"
               alt="FAQ Icon"
               className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl"
               sizes="(max-width: 768px) 12rem, (max-width: 1024px) 16rem, (max-width: 1280px) 20rem, 24rem"
