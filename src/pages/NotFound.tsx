@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import OptimizedImage from "../components/OptimizedImage";
 
 const NotFound = () => {
   const location = useLocation();
@@ -16,11 +15,10 @@ const NotFound = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 font-rounded">
       <div className="text-center max-w-md mx-auto px-4">
         <div className="mb-8">
-          <OptimizedImage
-            src="/images/sprig/13ee0557-7701-4480-8818-ad3335de97fd.png"
-            alt="Sprig looking curious"
+          <img 
+            src="/images/sprig/13ee0557-7701-4480-8818-ad3335de97fd.png" 
+            alt="Sprig looking curious" 
             className="w-24 h-24 mx-auto mb-4 animate-bounce-gentle"
-            sizes="6rem"
           />
         </div>
         

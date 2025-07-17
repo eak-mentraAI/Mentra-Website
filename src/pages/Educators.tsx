@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { BookOpen, FileText, Sparkles, Users, BarChart3, Star, Heart, Settings2, ShieldCheck, Eye } from 'lucide-react';
-import OptimizedImage from '../components/OptimizedImage';
 
 const tabData = [
   {
@@ -125,12 +124,7 @@ const tabData = [
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <OptimizedImage
-              src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
-              alt="Sprig AI"
-              className="w-8 h-8"
-              sizes="2rem"
-            />
+            <img src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" alt="Sprig AI" className="w-8 h-8" />
             <div className="bg-red-100 text-red-700 rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg">
               "That's a good question! Before we decide, what is the problem asking you to find?"
             </div>
@@ -141,12 +135,7 @@ const tabData = [
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <OptimizedImage
-              src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
-              alt="Sprig AI"
-              className="w-8 h-8"
-              sizes="2rem"
-            />
+            <img src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" alt="Sprig AI" className="w-8 h-8" />
             <div className="bg-blue-100 text-mentra-blue rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg">
               "Exactly! What do you know about finding the area of a rectangle?"
             </div>
@@ -157,12 +146,7 @@ const tabData = [
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <OptimizedImage
-              src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png"
-              alt="Sprig AI"
-              className="w-8 h-8"
-              sizes="2rem"
-            />
+            <img src="/images/sprig/060630a8-ed64-4d31-8e7b-c1c12d2b6e6e.png" alt="Sprig AI" className="w-8 h-8" />
             <div className="bg-green-100 text-green-700 rounded-lg px-4 py-2 max-w-[80vw] sm:max-w-lg">
               "That's a great start! Next let's think through why multiplying the sides gives you the area—what does a side of a rectangle represent?"
             </div>

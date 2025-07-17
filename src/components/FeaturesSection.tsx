@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Card, CardContent } from './ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { BookOpen, Heart, Brain, Star, Users, Wrench, Target, Map, Compass } from 'lucide-react';
-import type { CarouselApi } from '@/components/ui/carousel';
+import type { CarouselApi } from './ui/carousel';
 
 const colorGradientMap: Record<string, string> = {
   'mentra-blue': 'from-mentra-blue to-mentra-blue/50',

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import OptimizedImage from './OptimizedImage';
 
 const AboutSection = () => {
   return (
@@ -56,11 +55,10 @@ const AboutSection = () => {
             <Card className="p-8 bg-white shadow-2xl rounded-3xl border-0">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <OptimizedImage
-                    src="/images/sprig/13ee0557-7701-4480-8818-ad3335de97fd.png"
-                    alt="Sprig mascot"
+                  <img 
+                    src="/images/sprig/13ee0557-7701-4480-8818-ad3335de97fd.png" 
+                    alt="Sprig mascot" 
                     className="w-16 h-16 object-contain animate-bounce-gentle"
-                    sizes="4rem"
                   />
                   <div className="bg-mentra-blue/10 rounded-2xl p-4 flex-1">
                     <p className="text-mentra-blue font-medium">
@@ -76,11 +74,10 @@ const AboutSection = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <OptimizedImage
-                    src="/images/testimonials/cedb8c52-6559-4531-87f6-39ad0937d397.png"
-                    alt="Sprig with star"
+                  <img 
+                    src="/images/sprig/cedb8c52-6559-4531-87f6-39ad0937d397.png" 
+                    alt="Sprig with star" 
                     className="w-16 h-16 object-contain animate-float"
-                    sizes="4rem"
                   />
                   <div className="bg-growth-green/10 rounded-2xl p-4 flex-1">
                     <p className="text-growth-green font-medium">

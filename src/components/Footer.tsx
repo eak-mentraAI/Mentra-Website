@@ -1,7 +1,6 @@
 // Trigger redeploy: trivial comment
 import React from 'react';
 import { Heart, Mail, MapPin } from 'lucide-react';
-import OptimizedImage from './OptimizedImage';
 
 const Footer = () => {
   const footerLinks = {
@@ -44,11 +43,10 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center space-x-3">
-              <OptimizedImage
-                src="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png"
-                alt="Mentra Logo"
+              <img 
+                src="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
+                alt="Mentra Logo" 
                 className="h-16 w-auto md:h-20 mb-2 mx-auto"
-                sizes="(max-width: 768px) 4rem, 5rem"
               />
             </div>
             

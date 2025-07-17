@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search, Calendar, Tag, ArrowUpDown, Clock } from 'lucide-react';
 import '../App.css';
-import OptimizedImage from '../components/OptimizedImage';
 
 interface BlogPost {
   id: string;
@@ -28,7 +27,7 @@ const Blog = () => {
   const [sortBy, setSortBy] = useState('newest');
 
   // Sample blog data - replace with your actual blog posts
-  const blogPosts: BlogPost[] = useMemo(() => [
+  const blogPosts: BlogPost[] = [
     {
       id: '1',
       title: 'How AI is Transforming Student Learning: A Deep Dive into Personalized Education',
@@ -38,7 +37,7 @@ const Blog = () => {
       date: '2024-01-15',
       category: 'AI & Education',
       tags: ['AI', 'Personalization', 'Learning'],
-      image: '/images/other/edtech_2.jpg.webp',
+      image: '/images/sprig/edtech_2.jpg.webp',
       featured: true,
       readTime: 8
     },
@@ -51,7 +50,7 @@ const Blog = () => {
       date: '2024-01-10',
       category: 'Emotional Intelligence',
       tags: ['Emotional Intelligence', 'Journaling', 'Self-Reflection'],
-      image: '/images/other/edtech_3.jpg.avif',
+      image: '/images/sprig/edtech_3.jpg.avif',
       featured: false,
       readTime: 6
     },
@@ -64,7 +63,7 @@ const Blog = () => {
       date: '2024-01-05',
       category: 'Assessment',
       tags: ['Assessment', 'Innovation', 'Learning Outcomes'],
-      image: '/images/other/edtech_4.jpg',
+      image: '/images/sprig/edtech_4.jpg',
       featured: false,
       readTime: 7
     },
@@ -77,7 +76,7 @@ const Blog = () => {
       date: '2024-01-01',
       category: 'Parent Engagement',
       tags: ['Parent Engagement', 'Technology', 'Collaboration'],
-      image: '/images/other/teacher_power.jpg',
+      image: '/images/sprig/teacher_power.jpg',
       featured: false,
       readTime: 5
     },
@@ -90,7 +89,7 @@ const Blog = () => {
       date: '2023-12-28',
       category: 'Research',
       tags: ['Research', 'Learning Science', 'Evidence-Based'],
-      image: '/images/other/edtech_5.jpg',
+      image: '/images/sprig/edtech_5.jpg',
       featured: false,
       readTime: 9
     },
@@ -103,18 +102,18 @@ const Blog = () => {
       date: '2023-12-20',
       category: 'Future Skills',
       tags: ['Future Skills', 'AI', 'Workforce Preparation'],
-      image: '/images/other/edtech_social.jpg',
+      image: '/images/sprig/edtech_social.jpg',
       featured: false,
       readTime: 6
     }
-  ], []);
+  ];
 
   // Get unique categories
   const categories = ['all', ...Array.from(new Set(blogPosts.map(post => post.category)))];
 
   // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
-    const filtered = blogPosts.filter(post => {
+    let filtered = blogPosts.filter(post => {
       const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -139,7 +138,7 @@ const Blog = () => {
     }
 
     return filtered;
-  }, [searchTerm, selectedCategory, sortBy, blogPosts]);
+  }, [blogPosts, searchTerm, selectedCategory, sortBy]);
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = filteredAndSortedPosts.filter(post => !post.featured);
@@ -217,11 +216,10 @@ const Blog = () => {
               <article className="bg-white rounded-3xl shadow-xl overflow-hidden">
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="relative h-64 lg:h-full">
-                    <OptimizedImage
+                    <img
                       src={featuredPost.image}
                       alt={featuredPost.title}
                       className="w-full h-full object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-mentra-blue text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -287,11 +285,10 @@ const Blog = () => {
               {regularPosts.map(post => (
                 <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="relative h-48">
-                    <OptimizedImage
+                    <img
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-sm font-medium">

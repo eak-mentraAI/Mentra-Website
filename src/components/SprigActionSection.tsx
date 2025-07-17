@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import type { CarouselApi } from '@/components/ui/carousel';
-import OptimizedImage from './OptimizedImage';
 
 const SprigActionSection = () => {
   const sprigStories = [
@@ -14,14 +12,14 @@ const SprigActionSection = () => {
       accentColor: "grit-gold"
     },
     {
-      image: "/images/testimonials/cedb8c52-6559-4531-87f6-39ad0937d397.png",
+      image: "/images/sprig/cedb8c52-6559-4531-87f6-39ad0937d397.png",
       title: "Achievement Unlocked",
       description: "Every milestone matters. Sprig helps you recognize progress and builds confidence for bigger challenges ahead.",
       bgColor: "curiosity-coral/10",
       accentColor: "curiosity-coral"
     },
     {
-      image: "/images/testimonials/ee369d68-1572-409b-ba14-676fe8d3ca36.png",
+      image: "/images/sprig/ee369d68-1572-409b-ba14-676fe8d3ca36.png",
       title: "Thoughtful Reflection",
       description: "Dive deep into learning through guided journaling that connects emotions with academic growth.",
       bgColor: "mentra-blue/10",
@@ -37,7 +35,7 @@ const SprigActionSection = () => {
   ];
 
   const [current, setCurrent] = useState(0);
-  const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
+  const [emblaApi, setEmblaApi] = useState<any>(null);
 
   const accentGradientMap: Record<string, string> = {
     'mentra-blue': 'from-mentra-blue to-mentra-blue/50',
@@ -52,9 +50,7 @@ const SprigActionSection = () => {
     const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
     emblaApi.on('select', onSelect);
     onSelect();
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
+    return () => emblaApi.off('select', onSelect);
   }, [emblaApi]);
 
   return (
@@ -89,11 +85,10 @@ const SprigActionSection = () => {
                   <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
                     <div className="space-y-6">
                       <div className={`w-24 h-24 mx-auto bg-${story.accentColor}/20 rounded-2xl flex items-center justify-center`}>
-                        <OptimizedImage
+                        <img
                           src={story.image}
                           alt={story.title}
                           className="w-20 h-20 object-contain"
-                          sizes="5rem"
                         />
                       </div>
                       <div className="space-y-3">

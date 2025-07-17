@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import '../App.css';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Brain, Users, Star, Heart, Laptop2 } from 'lucide-react';
-import OptimizedImage from '../components/OptimizedImage';
 
 export default function About() {
   return (
@@ -13,11 +12,10 @@ export default function About() {
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         {/* Hero Section */}
         <section className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10 mb-20">
-          <OptimizedImage
-            src="/images/other/edward-kerr.jpg"
+          <img
+            src="/images/sprig/edward-kerr.jpg"
             alt="Edward Kerr, Founder of Mentra"
             className="w-64 h-64 object-cover rounded-2xl shadow-lg border-4 border-journal-sand"
-            sizes="(max-width: 768px) 16rem, 16rem"
           />
           <div className="flex-1 text-left">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why We Built Mentra</h1>

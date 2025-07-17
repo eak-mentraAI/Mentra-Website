@@ -11,7 +11,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from '@/components/ui/card';
-import type { CarouselApi } from '@/components/ui/carousel';
 
 const demoFeatures = [
   {
@@ -98,16 +97,14 @@ const flywheel = [
 
 export default function HowItWorks() {
   const [current, setCurrent] = useState(0);
-  const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
+  const [emblaApi, setEmblaApi] = useState<any>(null);
 
   React.useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
     emblaApi.on('select', onSelect);
     onSelect();
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
+    return () => emblaApi.off('select', onSelect);
   }, [emblaApi]);
 
   return (

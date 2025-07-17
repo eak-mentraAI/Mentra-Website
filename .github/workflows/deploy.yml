@@ -28,12 +28,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: List dist contents
-        run: ls -l dist
-
-      - name: Show current branch
-        run: git branch
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

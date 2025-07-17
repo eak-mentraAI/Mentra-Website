@@ -38,8 +38,8 @@ export interface Project {
 export interface SavedWorkflow {
   id: string;
   name: string;
-  nodes: unknown[];
-  edges: unknown[];
+  nodes: any[];
+  edges: any[];
   createdAt: Date;
   updatedAt: Date;
   description?: string;

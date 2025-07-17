@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import OptimizedImage from './OptimizedImage';
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -13,7 +12,7 @@ const TestimonialsSection = () => {
       author: "Sarah Chen",
       role: "5th Grade Teacher",
       color: "curiosity-coral",
-      avatar: "/images/testimonials/69642821-e647-4bdf-b739-25771a5f9674.png"
+      avatar: "/images/sprig/69642821-e647-4bdf-b739-25771a5f9674.png"
     },
     {
       quote: "I can see my child's emotional growth alongside their academic progress.",
@@ -27,7 +26,7 @@ const TestimonialsSection = () => {
       author: "Emma, Age 10",
       role: "Student",
       color: "grit-gold",
-      avatar: "/images/testimonials/cedb8c52-6559-4531-87f6-39ad0937d397.png"
+      avatar: "/images/sprig/cedb8c52-6559-4531-87f6-39ad0937d397.png"
     },
     {
       quote: "Students develop metacognitive skills that transfer to all subjects.",
@@ -43,7 +42,7 @@ const TestimonialsSection = () => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [testimonials.length]);
+  }, []);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -94,11 +93,10 @@ const TestimonialsSection = () => {
           <Card className="bg-white border-0 shadow-2xl rounded-3xl overflow-hidden">
             <CardContent className="p-12 text-center">
               <div className="flex justify-center mb-8">
-                <OptimizedImage
+                <img 
                   src={testimonials[currentTestimonial].avatar}
                   alt={`${testimonials[currentTestimonial].author}, ${testimonials[currentTestimonial].role}`}
                   className="w-20 h-20 object-contain rounded-full"
-                  sizes="5rem"
                 />
               </div>
               
