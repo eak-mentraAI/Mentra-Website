@@ -26,17 +26,11 @@ const CTASection = () => {
               Ready to Learn <span className="bg-gradient-to-r from-white to-grit-gold bg-clip-text text-transparent">With Purpose</span>?
             </h2>
 
-            <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">
-              Join thousands of students who are mastering AI while strengthening the human skills that matter most.
-              Your learning companion is waiting to help you think deeper, grow stronger, and explore further.
+            <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
+              AI designed for growth, not shortcuts. Your learning companion is waiting.
             </p>
 
-            <p className="text-lg text-white/80 leading-relaxed">
-              This is AI designed for growth, not shortcuts—for empowerment, not replacement.
-            </p>
-
-            {/* CTA Button */}
-            <div className="flex justify-center mb-12 mt-8">
+            <div className="flex justify-center">
               <Button
                 size="lg"
                 className="bg-white text-mentra-blue hover:bg-white/90 px-8 py-4 rounded-full font-bold text-lg transition-all duration-200 shadow-2xl hover:shadow-3xl group"
@@ -49,12 +43,10 @@ const CTASection = () => {
           </div>
           </AnimateOnScroll>
 
-          {/* Final Message */}
           <AnimateOnScroll delay={200}>
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
             <p className="text-white/90 text-lg leading-relaxed mb-4">
-              "Every student deserves learning that honors their humanity while preparing them for an AI-powered world.
-              That's not just our mission—it's our promise."
+              "Every student deserves learning that honors their humanity while preparing them for an AI-powered world."
             </p>
             <div className="flex items-center justify-center gap-3">
               <img

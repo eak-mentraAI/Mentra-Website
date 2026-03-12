@@ -26,7 +26,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Pedagogically Grounded</h3>
-                  <p className="text-gray-600">From Socratic questioning to metacognition—every interaction is designed by educators who understand how real learning happens.</p>
+                  <p className="text-gray-600">Every interaction is designed by educators using Socratic questioning and metacognition.</p>
                 </div>
               </div>
 
@@ -36,7 +36,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Human Skills First</h3>
-                  <p className="text-gray-600">Strengthen critical thinking, emotional intelligence, and ethical reasoning—the skills that no AI can replace.</p>
+                  <p className="text-gray-600">Critical thinking, emotional intelligence, and ethical reasoning — skills no AI can replace.</p>
                 </div>
               </div>
 
@@ -46,7 +46,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Safe & Values-Driven</h3>
-                  <p className="text-gray-600">Privacy-first design with built-in safety measures. Your data stays secure, your values stay central.</p>
+                  <p className="text-gray-600">Privacy-first, COPPA/FERPA compliant. Your data stays secure, your values stay central.</p>
                 </div>
               </div>
             </div>

@@ -25,48 +25,48 @@ const FeaturesSection = () => {
   const features = [
     {
       icon: BookOpen,
-      title: 'Express Yourself with Interactive Journaling',
-      description: 'Share your thoughts and feelings through guided prompts that adapt to you.',
+      title: 'Interactive Journaling',
+      description: 'Guided prompts that adapt to how you think and feel.',
     },
     {
       icon: Heart,
-      title: 'Grow Emotional Intelligence with AI Feedback',
-      description: 'Get personalized feedback to help you understand and process your emotions.',
+      title: 'Emotional Intelligence',
+      description: 'AI feedback that helps you understand and process emotions.',
     },
     {
       icon: Brain,
-      title: 'Personalized Learning Paths for Every Student',
-      description: 'Learning journeys that adjust to your pace, interests, and readiness for new concepts.',
+      title: 'Personalized Learning Paths',
+      description: 'Journeys that adjust to your pace and readiness.',
     },
     {
       icon: Star,
-      title: 'Track Your Growth with Meaningful Milestones',
-      description: 'Celebrate your progress with milestones that recognize academic and emotional growth.',
+      title: 'Meaningful Milestones',
+      description: 'Progress tracking for academic and emotional growth.',
     },
     {
       icon: Users,
-      title: 'AI-Guided Assignments for Deeper Learning',
-      description: 'Assignments that adapt to your learning style and help you master new skills.',
+      title: 'Adaptive Assignments',
+      description: 'Tasks that match your learning style and push you forward.',
     },
     {
       icon: Wrench,
-      title: 'Master Next-Gen Skills in the Agent Workbench',
-      description: 'Orchestrate AI agents to accomplish complex tasks and build future-ready skills.',
+      title: 'Agent Workbench',
+      description: 'Orchestrate AI agents and build future-ready skills.',
     },
     {
       icon: Target,
-      title: 'Sharpen Your Skills in the Prompt Engineering Lab',
-      description: 'Practice with AI challenges and get feedback to improve your prompt crafting.',
+      title: 'Prompt Engineering Lab',
+      description: 'Practice crafting prompts with real-time AI feedback.',
     },
     {
       icon: Map,
-      title: 'Build Your Learner Passport for the Future',
-      description: 'Track your learning trends and export your progress as a personal AI assistant.',
+      title: 'Learner Passport',
+      description: 'A portable record of your skills, growth, and learning trends.',
     },
     {
       icon: Compass,
-      title: 'Explore Freely in a Safe, Guided Sandbox',
-      description: 'Safely explore ideas and concepts in a sandbox designed for discovery.',
+      title: 'Safe Exploration Sandbox',
+      description: 'Freely explore ideas in a guided, safe environment.',
     },
   ].map((feature, i) => ({
     ...feature,
@@ -104,7 +104,7 @@ const FeaturesSection = () => {
             How Sprig Helps You <span className="text-mentra-blue">Grow</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover the features that make learning with Mentra a transformative experience for students, parents, and educators.
+            Tools that make learning personal, meaningful, and future-ready.
           </p>
         </div>
         </AnimateOnScroll>

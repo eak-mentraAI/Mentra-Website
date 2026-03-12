@@ -58,9 +58,6 @@ const HeroSection = () => {
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
                 Personalized journaling, guided discovery, and emotional growth—powered by Sprig, your AI learning companion.
               </p>
-              <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed">
-                This isn't just another AI tool—it's pedagogically grounded, emotionally intelligent, and designed to empower rather than replace human thinking.
-              </p>
             </div>
 
             {/* CTA Buttons */}
