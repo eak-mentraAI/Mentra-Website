@@ -39,48 +39,30 @@ const faqSections = [
       { question: "Do you offer financial assistance?", answer: "Yes — need-based discounts for families and schools. Contact us to discuss." },
     ],
   },
-  {
-    section: 'Integration & Use',
-    questions: [
-      { question: "How does Mentra integrate with existing curriculum?", answer: "Teachers customize AI responses and align activities with current lesson plans. It enhances, not replaces." },
-      { question: "Can students use Mentra for homework help?", answer: "Yes — 24/7 support with explanations, practice problems, and independent problem-solving guidance." },
-      { question: "How much time should students spend on Mentra?", answer: "15–30 minutes per session, 3–5 times per week. Teachers and parents can set limits." },
-      { question: "What subjects does Mentra cover?", answer: "Core skills: critical thinking, problem-solving, and literacy. Expanding based on educator feedback." },
-    ],
-  },
-  {
-    section: 'Support & Success',
-    questions: [
-      { question: "How do I get technical support?", answer: "Email, phone, live chat, and help center. Typical response within 2–4 hours." },
-      { question: "What if we're not seeing the expected results?", answer: "Our team analyzes usage patterns and adjusts the approach to meet your needs." },
-      { question: "Can we customize Mentra for our specific needs?", answer: "Yes — branded interfaces, custom learning paths, and system integrations available." },
-      { question: "What success stories can you share?", answer: "Improved critical thinking, engagement, and problem-solving across schools and families. Contact us for details." },
-    ],
-  },
 ];
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-16">
+    <section id="faq" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
-          Frequently Asked Questions
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-16 text-center">
+          Frequently asked questions
         </h2>
 
-        <div className="space-y-12 mb-12 max-w-4xl mx-auto">
-          {faqSections.map((section, sIdx) => (
+        <div className="space-y-12 mb-12 max-w-3xl mx-auto">
+          {faqSections.map((section) => (
             <AnimateOnScroll key={section.section}>
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-6 tracking-tight bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-4">
                   {section.section}
                 </h3>
-                <Accordion type="single" collapsible className="w-full space-y-3">
+                <Accordion type="single" collapsible className="w-full space-y-2">
                   {section.questions.map((faq, idx) => (
-                    <AccordionItem key={idx} value={`faq-${sIdx}-${idx}`} className="bg-white rounded-xl border border-gray-200">
-                      <AccordionTrigger className="text-base font-medium px-6 py-4 text-left text-gray-900 hover:bg-gray-50 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
+                    <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className="bg-gray-50 rounded-xl border border-gray-100">
+                      <AccordionTrigger className="text-sm font-medium px-5 py-4 text-left text-gray-900 hover:bg-gray-100 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
                         <span>{faq.question}</span>
                       </AccordionTrigger>
-                      <AccordionContent className="px-6 pb-4 text-gray-600 text-base">
+                      <AccordionContent className="px-5 pb-4 text-gray-500 text-sm">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -91,14 +73,14 @@ const FAQSection = () => {
           ))}
         </div>
 
-        <AnimateOnScroll variant="scale-in">
-          <div className="w-full max-w-4xl mx-auto bg-gray-50 rounded-xl border border-gray-200 p-6 flex flex-col items-center">
-            <h3 className="text-xl font-bold mb-2 text-gray-900 text-center">Still Have Questions?</h3>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="mailto:support@mentra.ai" className="bg-mentra-blue text-white px-6 py-2 rounded-lg font-medium hover:bg-mentra-blue/90 transition text-center">
+        <AnimateOnScroll>
+          <div className="w-full max-w-3xl mx-auto bg-gray-50 rounded-xl border border-gray-100 p-6 flex flex-col items-center">
+            <h3 className="text-lg font-bold mb-3 text-gray-900 text-center">Still have questions?</h3>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="mailto:support@mentra.ai" className="bg-mentra-blue text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-mentra-blue/90 transition text-center">
                 Email Support
               </a>
-              <a href="tel:+1234567890" className="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition text-center">
+              <a href="tel:+1234567890" className="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-gray-800 transition text-center">
                 Call Us
               </a>
             </div>

@@ -30,11 +30,11 @@ const colorTextMap: Record<string, string> = {
 };
 
 const colorBgLightMap: Record<string, string> = {
-  'mentra-blue': 'bg-mentra-blue/10',
-  'curiosity-coral': 'bg-curiosity-coral/10',
-  'growth-green': 'bg-growth-green/10',
-  'grit-gold': 'bg-grit-gold/10',
-  'wisdom-purple': 'bg-wisdom-purple/10',
+  'mentra-blue': 'bg-mentra-blue/5',
+  'curiosity-coral': 'bg-mentra-blue/5',
+  'growth-green': 'bg-growth-green/5',
+  'grit-gold': 'bg-growth-green/5',
+  'wisdom-purple': 'bg-growth-green/5',
 };
 
 export default function ScrollTimeline({ steps }: ScrollTimelineProps) {
