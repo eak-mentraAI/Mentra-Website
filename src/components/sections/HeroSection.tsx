@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { Card } from '@/components/ui/card';
+import useSprigExpression from '@/hooks/useSprigExpression';
 
 const HeroSection = () => {
+  const { src: sprigSrc } = useSprigExpression();
+
   return (
     <section
       className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden"
@@ -41,70 +43,15 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Content — Conversation demo (the product) */}
+          {/* Right Content — Sprig */}
           <div className="flex justify-center lg:justify-end">
-            <Card className="p-8 bg-white shadow-2xl rounded-3xl border border-gray-100 max-w-md w-full">
-              <div className="space-y-5">
-                {/* Sprig asks */}
-                <div className="flex items-start gap-3">
-                  <img
-                    src="/images/sprig/nerd.png"
-                    alt="Sprig"
-                    width="40"
-                    height="40"
-                    className="w-10 h-10 object-contain mt-1"
-                  />
-                  <div className="bg-mentra-blue/5 border border-mentra-blue/10 rounded-2xl rounded-tl-md p-4 flex-1">
-                    <p className="text-gray-800 text-sm leading-relaxed">
-                      I notice you're working on fractions. What's one thing that's clicking, and what feels tricky?
-                    </p>
-                  </div>
-                </div>
-
-                {/* Student responds */}
-                <div className="ml-12">
-                  <div className="bg-gray-50 border border-gray-100 rounded-2xl rounded-tr-md p-4">
-                    <p className="text-gray-600 text-sm italic leading-relaxed">
-                      I get adding them when the bottom numbers match, but not when they're different...
-                    </p>
-                  </div>
-                </div>
-
-                {/* Sprig guides (not answers) */}
-                <div className="flex items-start gap-3">
-                  <img
-                    src="/images/sprig/explorer.png"
-                    alt="Sprig"
-                    width="40"
-                    height="40"
-                    className="w-10 h-10 object-contain mt-1"
-                  />
-                  <div className="bg-growth-green/5 border border-growth-green/10 rounded-2xl rounded-tl-md p-4 flex-1">
-                    <p className="text-gray-800 text-sm leading-relaxed">
-                      Great — you know exactly where you're stuck. Why do you think the "bottom numbers" need to match?
-                    </p>
-                  </div>
-                </div>
-
-                {/* Fading indicator */}
-                <div className="pt-2 border-t border-gray-100">
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1">
-                      <div className="flex justify-between text-xs text-gray-400 mb-1.5">
-                        <span>AI support this month</span>
-                        <span className="text-growth-green font-medium">Decreasing</span>
-                      </div>
-                      <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-gradient-to-r from-mentra-blue to-growth-green"
-                          style={{ width: '35%' }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <img
+              src={sprigSrc}
+              alt="Sprig, your AI learning companion"
+              width="400"
+              height="400"
+              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl transition-opacity duration-500"
+            />
           </div>
         </div>
       </div>

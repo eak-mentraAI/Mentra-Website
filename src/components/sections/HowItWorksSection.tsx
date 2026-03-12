@@ -2,6 +2,7 @@ import React from 'react';
 import { BookOpen, Sparkles, FileText, Users, BarChart3, Shield, Eye, Zap } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScrollTimeline from '@/components/sections/ScrollTimeline';
+import { Card } from '@/components/ui/card';
 
 const beliefs = [
   {
@@ -40,21 +41,21 @@ const flywheel = [
     number: 3,
     icon: Sparkles,
     title: "Humans Act",
-    color: "growth-green",
+    color: "mentra-blue",
     description: "Teachers intervene with full context. Parents see signal, not noise. Students get support matched to the moment.",
   },
   {
     number: 4,
     icon: Users,
     title: "Scaffolding Adapts",
-    color: "growth-green",
+    color: "mentra-blue",
     description: "Support increases when students struggle and pulls back as they grow. The goal is always less help next time.",
   },
   {
     number: 5,
     icon: BarChart3,
     title: "Independence Grows",
-    color: "growth-green",
+    color: "mentra-blue",
     description: "Each cycle builds capability the student owns — not engagement with a tool they depend on.",
   },
 ];
@@ -89,9 +90,10 @@ const HowItWorksSection = () => {
           ))}
         </div>
 
-        {/* Fading visual metaphor */}
+        {/* Fading visual + Chat demo side by side */}
         <AnimateOnScroll>
-          <div className="max-w-3xl mx-auto mb-24">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-24">
+            {/* Fading bars */}
             <div className="bg-white rounded-2xl border border-gray-200 p-8">
               <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">
                 Support that fades as students grow
@@ -119,6 +121,57 @@ const HowItWorksSection = () => {
                 AI scaffolding decreases as student capability increases
               </p>
             </div>
+
+            {/* Conversation demo */}
+            <Card className="p-8 bg-white rounded-2xl border border-gray-200">
+              <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">
+                What this looks like in practice
+              </h3>
+              <div className="space-y-5">
+                {/* Sprig asks */}
+                <div className="flex items-start gap-3">
+                  <img
+                    src="/images/sprig/nerd.png"
+                    alt="Sprig"
+                    width="40"
+                    height="40"
+                    className="w-10 h-10 object-contain mt-1"
+                    loading="lazy"
+                  />
+                  <div className="bg-mentra-blue/5 border border-mentra-blue/10 rounded-2xl rounded-tl-md p-4 flex-1">
+                    <p className="text-gray-800 text-sm leading-relaxed">
+                      I notice you're working on fractions. What's one thing that's clicking, and what feels tricky?
+                    </p>
+                  </div>
+                </div>
+
+                {/* Student responds */}
+                <div className="ml-12">
+                  <div className="bg-gray-50 border border-gray-100 rounded-2xl rounded-tr-md p-4">
+                    <p className="text-gray-600 text-sm italic leading-relaxed">
+                      I get adding them when the bottom numbers match, but not when they're different...
+                    </p>
+                  </div>
+                </div>
+
+                {/* Sprig guides (not answers) */}
+                <div className="flex items-start gap-3">
+                  <img
+                    src="/images/sprig/explorer.png"
+                    alt="Sprig"
+                    width="40"
+                    height="40"
+                    className="w-10 h-10 object-contain mt-1"
+                    loading="lazy"
+                  />
+                  <div className="bg-mentra-blue/5 border border-mentra-blue/10 rounded-2xl rounded-tl-md p-4 flex-1">
+                    <p className="text-gray-800 text-sm leading-relaxed">
+                      Great — you know exactly where you're stuck. Why do you think the "bottom numbers" need to match?
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
         </AnimateOnScroll>
 
