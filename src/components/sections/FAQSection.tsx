@@ -2,98 +2,69 @@ import React from 'react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
-const HighlightText = ({ text }: { text: string }) => {
-  const parts = text.split(/(\{[^}]+\})/g);
-  return (
-    <>
-      {parts.map((part, i) => {
-        if (part.startsWith('{') && part.endsWith('}')) {
-          return <span key={i} className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">{part.slice(1, -1)}</span>;
-        }
-        return <React.Fragment key={i}>{part}</React.Fragment>;
-      })}
-    </>
-  );
-};
-
 const faqSections = [
   {
     section: 'Getting Started',
-    highlight: 'Started',
     questions: [
-      { question: "How do we {begin} using Mentra?", answer: "Families sign up directly. Schools get a dedicated onboarding process with teacher training and curriculum integration support." },
-      { question: "What {training} do teachers receive?", answer: "Live sessions, video tutorials, and ongoing support — from basics to advanced features like customizing AI responses." },
-      { question: "How long does {implementation} take?", answer: "Most schools are up and running within 2–3 weeks. Families can start immediately." },
-      { question: "What {devices} and internet do we need?", answer: "Any modern device with internet access. Designed to work even on slower connections." },
+      { question: "How do we begin using Mentra?", answer: "Families sign up directly. Schools get a dedicated onboarding process with teacher training and curriculum integration support." },
+      { question: "What training do teachers receive?", answer: "Live sessions, video tutorials, and ongoing support — from basics to advanced features like customizing AI responses." },
+      { question: "How long does implementation take?", answer: "Most schools are up and running within 2–3 weeks. Families can start immediately." },
+      { question: "What devices and internet do we need?", answer: "Any modern device with internet access. Designed to work even on slower connections." },
     ],
   },
   {
     section: 'AI & Learning',
-    highlight: 'Learning',
     questions: [
-      { question: "How does Mentra's AI {differ} from other AI tools?", answer: "Mentra is designed to make itself less necessary. It uses Socratic methods — asking questions, not giving answers — and scaffolding that fades as students grow. The success metric is independence, not engagement." },
-      { question: "Will this {replace} my child's teacher?", answer: "Never. Teachers see every AI decision, override anything they disagree with, and their professional judgment is always final. The AI works for the teacher, not around them." },
-      { question: "What if my child gets {stuck} or frustrated?", answer: "The AI detects struggle and responds with guided support — not answers. It breaks problems into steps and encourages persistence. And it has hard limits: 20 messages, 10 minutes, then a required reflection." },
-      { question: "How do I know my child is actually {learning}?", answer: "Watch the scaffolding decrease. Mentra tracks how much less support your child needs over time — that's real learning. The Learner Passport captures growth, not just grades." },
+      { question: "How does Mentra's AI differ from other AI tools?", answer: "Mentra is designed to make itself less necessary. It uses Socratic methods — asking questions, not giving answers — and scaffolding that fades as students grow. The success metric is independence, not engagement." },
+      { question: "Will this replace my child's teacher?", answer: "Never. Teachers see every AI decision, override anything they disagree with, and their professional judgment is always final. The AI works for the teacher, not around them." },
+      { question: "What if my child gets stuck or frustrated?", answer: "The AI detects struggle and responds with guided support — not answers. It breaks problems into steps and encourages persistence. And it has hard limits: 20 messages, 10 minutes, then a required reflection." },
+      { question: "How do I know my child is actually learning?", answer: "Watch the scaffolding decrease. Mentra tracks how much less support your child needs over time — that's real learning. The Learner Passport captures growth, not just grades." },
     ],
   },
   {
     section: 'Safety & Privacy',
-    highlight: 'Privacy',
     questions: [
-      { question: "How do you {protect} student data?", answer: "By architecture, not policy. Fail-closed consent gating, append-only audit trails, Row-Level Security at the database layer, and 57 automated policy gates. Every access is logged. Data is never sold or used for ads." },
-      { question: "What {content} filters are in place?", answer: "A multi-layer safety pipeline runs on every interaction: input validation, age-appropriate content filtering, output scanning for PII, and a feedback safety filter that prevents the AI from ever leaking answers." },
-      { question: "Can parents {monitor} their child's AI conversations?", answer: "Parents see coaching frequency and progress — not raw conversation logs, which are the child's private learning space. You know how involved the AI is. Teachers have full visibility with override capability." },
-      { question: "What happens if the AI provides {incorrect} information?", answer: "Districts have a one-click kill switch that disables all AI in under a second. It fails closed — AI stays off until explicitly re-enabled. Teachers can override any individual adaptation immediately." },
+      { question: "How do you protect student data?", answer: "By architecture, not policy. Fail-closed consent gating, append-only audit trails, Row-Level Security at the database layer, and 57 automated policy gates. Every access is logged. Data is never sold or used for ads." },
+      { question: "What content filters are in place?", answer: "A multi-layer safety pipeline runs on every interaction: input validation, age-appropriate content filtering, output scanning for PII, and a feedback safety filter that prevents the AI from ever leaking answers." },
+      { question: "Can parents monitor their child's AI conversations?", answer: "Parents see coaching frequency and progress — not raw conversation logs, which are the child's private learning space. You know how involved the AI is. Teachers have full visibility with override capability." },
+      { question: "What happens if the AI provides incorrect information?", answer: "Districts have a one-click kill switch that disables all AI in under a second. It fails closed — AI stays off until explicitly re-enabled. Teachers can override any individual adaptation immediately." },
     ],
   },
   {
     section: 'Cost & Value',
-    highlight: 'Value',
     questions: [
-      { question: "How much does Mentra {cost}?", answer: "Family plans start at $15/month. School pricing is based on student count with volume discounts." },
-      { question: "What's the {return} on investment for schools?", answer: "Improved engagement, reduced teacher workload, better differentiation, and measurable learning gains." },
-      { question: "Are there {hidden} fees or long-term contracts?", answer: "No hidden fees. Families cancel anytime. Schools get flexible terms." },
-      { question: "Do you offer {financial} assistance?", answer: "Yes — need-based discounts for families and schools. Contact us to discuss." },
+      { question: "How much does Mentra cost?", answer: "Family plans start at $15/month. School pricing is based on student count with volume discounts." },
+      { question: "What's the return on investment for schools?", answer: "Improved engagement, reduced teacher workload, better differentiation, and measurable learning gains." },
+      { question: "Are there hidden fees or long-term contracts?", answer: "No hidden fees. Families cancel anytime. Schools get flexible terms." },
+      { question: "Do you offer financial assistance?", answer: "Yes — need-based discounts for families and schools. Contact us to discuss." },
     ],
   },
   {
     section: 'Integration & Use',
-    highlight: 'Use',
     questions: [
-      { question: "How does Mentra {integrate} with existing curriculum?", answer: "Teachers customize AI responses and align activities with current lesson plans. It enhances, not replaces." },
-      { question: "Can students use Mentra for {homework} help?", answer: "Yes — 24/7 support with explanations, practice problems, and independent problem-solving guidance." },
-      { question: "How much time should students {spend} on Mentra?", answer: "15–30 minutes per session, 3–5 times per week. Teachers and parents can set limits." },
-      { question: "What {subjects} does Mentra cover?", answer: "Core skills: critical thinking, problem-solving, and literacy. Expanding based on educator feedback." },
+      { question: "How does Mentra integrate with existing curriculum?", answer: "Teachers customize AI responses and align activities with current lesson plans. It enhances, not replaces." },
+      { question: "Can students use Mentra for homework help?", answer: "Yes — 24/7 support with explanations, practice problems, and independent problem-solving guidance." },
+      { question: "How much time should students spend on Mentra?", answer: "15–30 minutes per session, 3–5 times per week. Teachers and parents can set limits." },
+      { question: "What subjects does Mentra cover?", answer: "Core skills: critical thinking, problem-solving, and literacy. Expanding based on educator feedback." },
     ],
   },
   {
     section: 'Support & Success',
-    highlight: 'Success',
     questions: [
-      { question: "How do I get {technical} support?", answer: "Email, phone, live chat, and help center. Typical response within 2–4 hours." },
-      { question: "What if we're not seeing the expected {results}?", answer: "Our team analyzes usage patterns and adjusts the approach to meet your needs." },
-      { question: "Can we {customize} Mentra for our specific needs?", answer: "Yes — branded interfaces, custom learning paths, and system integrations available." },
-      { question: "What {success} stories can you share?", answer: "Improved critical thinking, engagement, and problem-solving across schools and families. Contact us for details." },
+      { question: "How do I get technical support?", answer: "Email, phone, live chat, and help center. Typical response within 2–4 hours." },
+      { question: "What if we're not seeing the expected results?", answer: "Our team analyzes usage patterns and adjusts the approach to meet your needs." },
+      { question: "Can we customize Mentra for our specific needs?", answer: "Yes — branded interfaces, custom learning paths, and system integrations available." },
+      { question: "What success stories can you share?", answer: "Improved critical thinking, engagement, and problem-solving across schools and families. Contact us for details." },
     ],
   },
 ];
-
-const SectionHeader = ({ section, highlight }: { section: string; highlight: string }) => {
-  const parts = section.split(highlight);
-  return (
-    <>
-      {parts[0]}<span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">{highlight}</span>{parts[1] ?? ''}
-    </>
-  );
-};
 
 const FAQSection = () => {
   return (
     <section id="faq" className="py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
-          Frequently Asked <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Questions</span>
+          Frequently Asked Questions
         </h2>
 
         <div className="space-y-12 mb-12 max-w-4xl mx-auto">
@@ -101,15 +72,15 @@ const FAQSection = () => {
             <AnimateOnScroll key={section.section}>
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
-                  <SectionHeader section={section.section} highlight={section.highlight} />
+                  {section.section}
                 </h3>
-                <Accordion type="single" collapsible className="w-full space-y-4">
+                <Accordion type="single" collapsible className="w-full space-y-3">
                   {section.questions.map((faq, idx) => (
-                    <AccordionItem key={idx} value={`faq-${sIdx}-${idx}`} className="bg-white/90 rounded-xl shadow border border-gray-200">
-                      <AccordionTrigger className="text-lg font-medium px-6 py-4 text-left text-gray-900 hover:bg-blue-50 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
-                        <span><HighlightText text={faq.question} /></span>
+                    <AccordionItem key={idx} value={`faq-${sIdx}-${idx}`} className="bg-white rounded-xl border border-gray-200">
+                      <AccordionTrigger className="text-base font-medium px-6 py-4 text-left text-gray-900 hover:bg-gray-50 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
+                        <span>{faq.question}</span>
                       </AccordionTrigger>
-                      <AccordionContent className="px-6 pb-4 text-gray-700 text-base">
+                      <AccordionContent className="px-6 pb-4 text-gray-600 text-base">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -121,13 +92,13 @@ const FAQSection = () => {
         </div>
 
         <AnimateOnScroll variant="scale-in">
-          <div className="w-full max-w-4xl mx-auto bg-white/80 rounded-xl shadow p-6 flex flex-col items-center">
+          <div className="w-full max-w-4xl mx-auto bg-gray-50 rounded-xl border border-gray-200 p-6 flex flex-col items-center">
             <h3 className="text-xl font-bold mb-2 text-gray-900 text-center">Still Have Questions?</h3>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="mailto:support@mentra.ai" className="bg-mentra-blue text-white px-6 py-2 rounded-lg font-medium shadow hover:bg-mentra-blue/90 transition text-center">
+              <a href="mailto:support@mentra.ai" className="bg-mentra-blue text-white px-6 py-2 rounded-lg font-medium hover:bg-mentra-blue/90 transition text-center">
                 Email Support
               </a>
-              <a href="tel:+1234567890" className="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium shadow hover:bg-gray-700 transition text-center">
+              <a href="tel:+1234567890" className="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition text-center">
                 Call Us
               </a>
             </div>
