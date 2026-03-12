@@ -71,7 +71,7 @@ const FAQSection = () => {
           {faqSections.map((section, sIdx) => (
             <AnimateOnScroll key={section.section}>
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
+                <h3 className="text-2xl font-bold mb-6 tracking-tight bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">
                   {section.section}
                 </h3>
                 <Accordion type="single" collapsible className="w-full space-y-3">
