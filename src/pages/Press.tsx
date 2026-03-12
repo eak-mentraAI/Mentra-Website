@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import PageTransition from '../components/layout/PageTransition';
 import '../App.css';
 
 export default function Press() {
   return (
-    <>
+    <PageTransition>
       <Header />
       <main className="bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         {/* Hero Section */}
@@ -110,6 +111,6 @@ export default function Press() {
         </section>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   );
 } 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
 const SprigActionSection = () => {
   const sprigStories = [
@@ -57,6 +58,7 @@ const SprigActionSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
+        <AnimateOnScroll>
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Sprig in <span className="text-mentra-blue">Action</span>
@@ -65,6 +67,7 @@ const SprigActionSection = () => {
             See how Sprig adapts to different learning moments, providing personalized support for every step of your educational journey.
           </p>
         </div>
+        </AnimateOnScroll>
 
         <Carousel 
           className="w-full max-w-6xl mx-auto px-2 md:px-4" 

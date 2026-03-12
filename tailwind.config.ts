@@ -98,6 +98,9 @@ export default {
 					'50%': { opacity: '0.8' }
 				}
 			},
+			transitionDuration: {
+				'600': '600ms',
+			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
@@ -106,6 +109,13 @@ export default {
 				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
 				'fade-in-up': 'fade-in-up 0.6s ease-out',
 				'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'dot-grid': 'radial-gradient(circle, rgba(58,134,255,0.03) 1px, transparent 1px)',
+			},
+			backgroundSize: {
+				'dot-grid': '24px 24px',
 			},
 			fontFamily: {
 				'rounded': ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],

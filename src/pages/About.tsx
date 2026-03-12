@@ -4,10 +4,12 @@ import Footer from '../components/layout/Footer';
 import '../App.css';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Brain, Users, Star, Heart, Laptop2 } from 'lucide-react';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import PageTransition from '../components/layout/PageTransition';
 
 export default function About() {
   return (
-    <>
+    <PageTransition>
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         {/* Hero Section */}
@@ -29,6 +31,7 @@ export default function About() {
         </section>
 
         {/* Vision & Origin Story - For Parents & Educators */}
+        <AnimateOnScroll>
         <section className="container mx-auto px-4 mb-16 text-left">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">A Vision for Growth—For Every Child</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
@@ -38,15 +41,19 @@ export default function About() {
             We believe in amplifying the human journey—using AI to deepen reflection, resilience, and individualized support, while keeping teachers and families at the center of learning.
           </p>
         </section>
+        </AnimateOnScroll>
 
         {/* Problem Space - For All Personas */}
         <section className="container mx-auto px-4 mb-16">
+          <AnimateOnScroll>
           <h2 className="text-2xl font-bold text-mentra-blue mb-8 tracking-tight text-left">The Challenge We Solve</h2>
+          </AnimateOnScroll>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8">
             {/* Institutional Adaptation Card */}
-            <Card className="bg-mentra-blue/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+            <AnimateOnScroll delay={0}>
+            <Card className="bg-mentra-blue/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[320px] flex flex-col group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Brain className="w-8 h-8 text-mentra-blue" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">Bridging the Adaptation Gap</CardTitle>
@@ -55,10 +62,12 @@ export default function About() {
                 Institutions can't keep pace with AI's rapid evolution—risking a lost generation. We map trends and release targeted features to help students, parents, and educators adapt and thrive.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
             {/* Timeless Skills Card */}
-            <Card className="bg-curiosity-coral/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+            <AnimateOnScroll delay={100}>
+            <Card className="bg-curiosity-coral/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[320px] flex flex-col group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-curiosity-coral/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-curiosity-coral/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Star className="w-8 h-8 text-curiosity-coral" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">Developing Timeless Skills</CardTitle>
@@ -67,10 +76,12 @@ export default function About() {
                 As AI reshapes the workforce, we focus on critical thinking, creative problem solving, self-regulation, and media literacy—skills that remain valuable no matter how technology changes.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
             {/* Orchestrators & Understanding Card */}
-            <Card className="bg-growth-green/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+            <AnimateOnScroll delay={200}>
+            <Card className="bg-growth-green/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[320px] flex flex-col group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Users className="w-8 h-8 text-growth-green" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">From Doers to Orchestrators</CardTitle>
@@ -79,10 +90,12 @@ export default function About() {
                 We help students become orchestrators of AI—designing workflows, not just completing tasks. Our AI is grounded in pedagogical approaches like Socratic scaffolding to ensure true understanding, not just output.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
             {/* Motivation & Citizenship Card */}
-            <Card className="bg-grit-gold/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+            <AnimateOnScroll delay={300}>
+            <Card className="bg-grit-gold/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[320px] flex flex-col group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-grit-gold/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-grit-gold/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Heart className="w-8 h-8 text-grit-gold" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">Fostering Intrinsic Motivation</CardTitle>
@@ -91,10 +104,12 @@ export default function About() {
                 As AI automates more work, we help students find purpose beyond grades—cultivating a renaissance mindset and responsible citizenship for a world where growth is self-driven.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
             {/* Deep Learning & Reflection Card */}
-            <Card className="bg-wisdom-purple/10 border-0 shadow-xl min-h-[320px] flex flex-col">
+            <AnimateOnScroll delay={400}>
+            <Card className="bg-wisdom-purple/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[320px] flex flex-col group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-wisdom-purple/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-wisdom-purple/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Laptop2 className="w-8 h-8 text-wisdom-purple" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">Grounded, Reflective Learning</CardTitle>
@@ -103,33 +118,41 @@ export default function About() {
                 Our AI never just gives answers. We use evidence-based, Socratic methods to guide students toward understanding, reflection, and lifelong learning.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
           </div>
         </section>
 
         {/* Trends + Opportunity - For Policy/Legal & Visionaries */}
+        <AnimateOnScroll>
         <section className="container mx-auto px-4 mb-16 text-left">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Why This Moment Matters</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
             AI is transforming work, learning, and society. The definition of value is shifting from what you know to how you think, adapt, and connect. This is a generational opportunity to build tools that shape emotionally intelligent, adaptable young people—not just task-completers.
           </p>
         </section>
+        </AnimateOnScroll>
 
         {/* Why Now - For All */}
+        <AnimateOnScroll>
         <section className="container mx-auto px-4 mb-16 text-left">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Why Now?</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
             If we don't act, we risk raising a generation that meets all the requirements but misses the real development needed to thrive in a post-AI world. Education is a pillar of democracy, innovation, and opportunity. Mentra is here to help you protect and evolve that pillar.
           </p>
         </section>
+        </AnimateOnScroll>
 
         {/* Unique Insight + Advantage - For All Personas */}
         <section className="container mx-auto px-4 mb-16">
+          <AnimateOnScroll>
           <h2 className="text-2xl font-bold text-mentra-blue mb-8 tracking-tight text-left">Who We Are</h2>
+          </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Parents Card */}
-            <Card className="bg-mentra-blue/10 border-0 shadow-xl">
+            <AnimateOnScroll delay={0}>
+            <Card className="bg-mentra-blue/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-mentra-blue/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Users className="w-8 h-8 text-mentra-blue" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">Parents</CardTitle>
@@ -138,10 +161,12 @@ export default function About() {
                 We feel the urgency firsthand and want to empower the next generation to thrive.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
             {/* Educators Card */}
-            <Card className="bg-growth-green/10 border-0 shadow-xl">
+            <AnimateOnScroll delay={100}>
+            <Card className="bg-growth-green/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-growth-green/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Star className="w-8 h-8 text-growth-green" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">Educators</CardTitle>
@@ -150,10 +175,12 @@ export default function About() {
                 We see the classroom as a community and champion whole-child learning.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
             {/* Technologists Card */}
-            <Card className="bg-wisdom-purple/10 border-0 shadow-xl">
+            <AnimateOnScroll delay={200}>
+            <Card className="bg-wisdom-purple/10 border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <CardHeader className="flex flex-col items-center justify-center">
-                <div className="w-14 h-14 bg-wisdom-purple/20 rounded-2xl flex items-center justify-center mb-2">
+                <div className="w-14 h-14 bg-wisdom-purple/20 rounded-2xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                   <Laptop2 className="w-8 h-8 text-wisdom-purple" />
                 </div>
                 <CardTitle className="text-center text-xl font-bold">Technologists</CardTitle>
@@ -162,10 +189,12 @@ export default function About() {
                 We design the architecture of the future—tools that serve humanity, not just efficiency.
               </CardContent>
             </Card>
+            </AnimateOnScroll>
           </div>
         </section>
 
         {/* Product + Business Trajectory - For All Personas */}
+        <AnimateOnScroll>
         <section className="container mx-auto px-4 mb-16 text-left">
           <h2 className="text-2xl font-bold text-mentra-blue mb-4 tracking-tight">Our Roadmap: Adapting for the Future, Together</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
@@ -183,6 +212,7 @@ export default function About() {
             Our roadmap is your roadmap. As the world changes, we'll keep you, your students, and your family ahead of the curve—empowered, adaptable, and ready for whatever comes next.
           </p>
         </section>
+        </AnimateOnScroll>
 
         {/* Personal Note */}
         <section className="container mx-auto px-4 mb-12 text-left">
@@ -191,6 +221,6 @@ export default function About() {
         </section>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   );
 } 

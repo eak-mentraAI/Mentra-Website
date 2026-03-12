@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
 const AboutSection = () => {
   return (
@@ -7,9 +8,10 @@ const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content - Enhanced copy */}
+          <AnimateOnScroll variant="fade-in-left">
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-balance">
                 Mentra was founded to help every child <span className="text-mentra-blue">thrive</span> in an AI-powered world.
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
@@ -49,8 +51,10 @@ const AboutSection = () => {
               </div>
             </div>
           </div>
+          </AnimateOnScroll>
 
           {/* Right Content - Sprig Interaction Demo */}
+          <AnimateOnScroll variant="fade-in-right" delay={200}>
           <div className="relative">
             <Card className="p-8 bg-white shadow-2xl rounded-3xl border-0">
               <div className="space-y-6">
@@ -98,6 +102,7 @@ const AboutSection = () => {
             <div className="absolute -top-4 -right-4 w-8 h-8 bg-curiosity-coral/20 rounded-full"></div>
             <div className="absolute -bottom-6 -left-6 w-6 h-6 bg-grit-gold/20 rounded-full"></div>
           </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

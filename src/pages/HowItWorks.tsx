@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Heart, Star, Sparkles, Shield, FileText, Users, BarChart3, Trophy, Settings2, ShieldCheck } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from '@/components/ui/card';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import ScrollTimeline from '@/components/sections/ScrollTimeline';
+import PageTransition from '@/components/layout/PageTransition';
 
 const demoFeatures = [
   {
@@ -60,62 +55,51 @@ const demoFeatures = [
 
 const flywheel = [
   {
+    number: 1,
     icon: BookOpen,
     title: "Reflective Engagement",
     color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    description: "Students reflect on learning, emotions, and progress through guided prompts."
+    description: "Students reflect on learning, emotions, and progress through guided prompts. Each interaction builds self-awareness and helps Mentra understand where they are in their learning journey.",
   },
   {
+    number: 2,
     icon: FileText,
     title: "AI Summarization",
     color: "curiosity-coral",
-    bgColor: "curiosity-coral/10",
-    description: "AI distills student input into meaningful insights and growth areas."
+    description: "AI distills student input into meaningful insights and growth areas. Patterns emerge across sessions — what's working, where struggle is productive, and where support is needed.",
   },
   {
+    number: 3,
     icon: Sparkles,
     title: "Insight Delivery",
     color: "growth-green",
-    bgColor: "growth-green/10",
-    description: "Personalized insights help students understand their learning journey."
+    description: "Personalized insights help students understand their learning journey. Teachers see classroom-wide patterns. Parents get clear, actionable updates — not data dumps.",
   },
   {
+    number: 4,
     icon: Users,
     title: "Responsive Support",
     color: "grit-gold",
-    bgColor: "grit-gold/10",
-    description: "AI, parents, and educators provide timely, tailored support."
+    description: "AI, parents, and educators provide timely, tailored support. Scaffolding adapts in real time. Interventions are suggested before students fall behind.",
   },
   {
+    number: 5,
     icon: BarChart3,
     title: "Student Growth",
     color: "wisdom-purple",
-    bgColor: "wisdom-purple/10",
-    description: "Students build confidence and skills for future challenges."
+    description: "Students build confidence and skills for future challenges. The cycle repeats — each loop strengthens understanding, metacognition, and intrinsic motivation.",
   },
 ];
 
 export default function HowItWorks() {
-  const [current, setCurrent] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [emblaApi, setEmblaApi] = useState<any>(null);
-
-  React.useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setCurrent(emblaApi.selectedScrollSnap());
-    emblaApi.on('select', onSelect);
-    onSelect();
-    return () => emblaApi.off('select', onSelect);
-  }, [emblaApi]);
-
   return (
+    <PageTransition>
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
-      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
+      <main className="flex-1 flex flex-col items-center py-12 px-4">
         <section className="container mx-auto px-4 flex flex-col items-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
-            See Mentra <span className="text-mentra-blue">Transform</span> Learning
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center text-balance">
+            See Mentra <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Transform</span> Learning
           </h1>
           <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl">
             Watch how students thrive with AI-powered, human-centered learning that builds lasting growth.
@@ -131,86 +115,53 @@ export default function HowItWorks() {
             ></iframe>
           </div>
 
-          {/* What You'll See in the Demo */}
-          <div className="mb-12 w-full container mx-auto px-4">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center">
-              What <span className="text-mentra-blue">You'll Discover</span> in the Demo
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {demoFeatures.map((feature) => (
-                <div className="flex flex-col items-center text-center" key={feature.title}>
-                  <div className={`w-16 h-16 flex items-center justify-center rounded-full bg-${feature.bgColor} mb-4`}>
-                    <feature.icon className={`w-8 h-8 text-${feature.color}`} />
-                  </div>
-                  <div className="font-bold text-lg text-gray-900 mb-2">{feature.title}</div>
-                  <div className="text-gray-600 text-sm">{feature.description}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* The Mentra Flywheel of Growth */}
-          <section className="container mx-auto px-4 mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
-              The Mentra Flywheel of <span className="text-mentra-blue">Growth</span>
-            </h2>
-            <Carousel className="w-full max-w-6xl mx-auto" setApi={setEmblaApi} aria-label="Flywheel carousel" opts={{ loop: true }}>
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {flywheel.map((step, index) => (
-                  <CarouselItem
-                    key={step.title}
-                    className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-                  >
-                    <Card
-                      className={`group transition-all duration-300 border-0 bg-${step.bgColor} h-full shadow-lg xl:hover:shadow-3xl focus-within:ring-2 focus-within:ring-mentra-blue focus-within:ring-offset-2`}
-                    >
-                      <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
-                        <div className="space-y-6">
-                          <div className={`w-16 h-16 mx-auto rounded-2xl flex items-center justify-center bg-${step.color}/20`}>
-                            <span className={`w-12 h-12 flex items-center justify-center rounded-full bg-${step.color} text-white text-2xl font-bold shadow-lg`} aria-label={`Step ${index + 1}`}>{index + 1}</span>
-                          </div>
-                          <div className="space-y-3">
-                            <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
-                            <p className="text-gray-600 leading-relaxed text-sm">{step.description}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
+          {/* What You'll Discover */}
+          <AnimateOnScroll>
+            <div className="mb-12 w-full container mx-auto px-4">
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center text-balance">
+                What <span className="text-mentra-blue">You'll Discover</span> in the Demo
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {demoFeatures.map((feature, i) => (
+                  <AnimateOnScroll key={feature.title} delay={i * 100}>
+                    <div className="flex flex-col items-center text-center">
+                      <div className={`w-16 h-16 flex items-center justify-center rounded-full bg-${feature.bgColor} mb-4`}>
+                        <feature.icon className={`w-8 h-8 text-${feature.color}`} />
+                      </div>
+                      <div className="font-bold text-lg text-gray-900 mb-2">{feature.title}</div>
+                      <div className="text-gray-600 text-sm">{feature.description}</div>
+                    </div>
+                  </AnimateOnScroll>
                 ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
-            {/* Dots indicator for mobile */}
-            <div className="flex justify-center mt-4 md:hidden" role="tablist" aria-label="Flywheel navigation">
-              {flywheel.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => emblaApi?.scrollTo(idx)}
-                  className={`mx-1 w-2 h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 ${
-                    current === idx ? 'bg-mentra-blue' : 'bg-gray-300'
-                  }`}
-                  role="tab"
-                  aria-selected={current === idx}
-                  aria-label={`Go to flywheel step ${idx + 1} of ${flywheel.length}`}
-                />
-              ))}
+              </div>
             </div>
+          </AnimateOnScroll>
+
+          {/* The Mentra Flywheel of Growth — Scroll Timeline */}
+          <section className="w-full container mx-auto px-4 mb-16">
+            <AnimateOnScroll>
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center text-balance">
+                The Mentra Flywheel of <span className="bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent">Growth</span>
+              </h2>
+            </AnimateOnScroll>
+            <ScrollTimeline steps={flywheel} />
           </section>
 
-          <blockquote className="italic text-center text-mentra-blue mb-8 max-w-2xl mx-auto">
-            "Mentra helps me understand myself and learn in a way that feels fun and real."<br />
-            <span className="text-sm text-gray-500">— 7th Grade Student</span>
-          </blockquote>
-          <div className="flex justify-center">
-            <Button size="lg" className="bg-mentra-blue text-white px-8 py-4 rounded-full font-bold shadow hover:bg-mentra-blue/90 transition" asChild>
-              <Link to="/pricing">Start Your Journey</Link>
-            </Button>
-          </div>
+          <AnimateOnScroll>
+            <blockquote className="italic text-center text-mentra-blue mb-8 max-w-2xl mx-auto">
+              "Mentra helps me understand myself and learn in a way that feels fun and real."<br />
+              <span className="text-sm text-gray-500">— 7th Grade Student</span>
+            </blockquote>
+            <div className="flex justify-center">
+              <Button size="lg" className="bg-gradient-to-r from-mentra-blue to-mentra-blue/85 text-white px-8 py-4 rounded-full font-bold shadow hover:shadow-lg hover:shadow-mentra-blue/25 active:scale-[0.98] transition-all duration-200" asChild>
+                <Link to="/pricing">Start Your Journey</Link>
+              </Button>
+            </div>
+          </AnimateOnScroll>
         </section>
       </main>
       <Footer />
     </div>
+    </PageTransition>
   );
-} 
+}

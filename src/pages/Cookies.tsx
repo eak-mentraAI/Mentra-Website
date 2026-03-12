@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import PageTransition from '../components/layout/PageTransition';
 import '../App.css';
 
 export default function Cookies() {
   return (
+    <PageTransition>
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
       <main className="min-h-screen flex flex-col items-center py-12 px-4 font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10">
@@ -196,5 +198,6 @@ export default function Cookies() {
       </main>
       <Footer />
     </div>
+    </PageTransition>
   );
 } 

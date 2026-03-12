@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from 'framer-motion';
 import ErrorBoundary from "./components/layout/ErrorBoundary";
 import Index from "./pages/Index";
 import CookieConsent from "./components/sections/CookieConsent";
@@ -28,30 +29,39 @@ const PageLoader = () => (
   </div>
 );
 
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/teachers" element={<Teachers />} />
+        <Route path="/students" element={<Students />} />
+        <Route path="/parents" element={<Parents />} />
+        <Route path="/institutions" element={<Institutions />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/cookies" element={<Cookies />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/press" element={<Press />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 const App = () => (
   <ErrorBoundary>
     <TooltipProvider>
       <Toaster />
       <BrowserRouter>
         <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/teachers" element={<Teachers />} />
-            <Route path="/students" element={<Students />} />
-            <Route path="/parents" element={<Parents />} />
-            <Route path="/institutions" element={<Institutions />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/cookies" element={<Cookies />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/press" element={<Press />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </Suspense>
         <CookieConsent />
       </BrowserRouter>

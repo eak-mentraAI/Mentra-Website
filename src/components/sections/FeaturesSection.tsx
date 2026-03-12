@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { BookOpen, Heart, Brain, Star, Users, Wrench, Target, Map, Compass } from 'lucide-react';
 import type { CarouselApi } from '@/components/ui/carousel';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
 const colorGradientMap: Record<string, string> = {
   'mentra-blue': 'from-mentra-blue to-mentra-blue/50',
@@ -94,10 +95,11 @@ const FeaturesSection = () => {
       aria-labelledby="features-heading"
     >
       <div className="container mx-auto px-4">
+        <AnimateOnScroll>
         <div className="text-center mb-16">
-          <h2 
+          <h2
             id="features-heading"
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-balance"
           >
             How Sprig Helps You <span className="text-mentra-blue">Grow</span>
           </h2>
@@ -105,6 +107,7 @@ const FeaturesSection = () => {
             Discover the features that make learning with Mentra a transformative experience for students, parents, and educators.
           </p>
         </div>
+        </AnimateOnScroll>
 
         <Carousel 
           className="w-full max-w-6xl mx-auto px-2 md:px-4" 
@@ -117,9 +120,9 @@ const FeaturesSection = () => {
                 key={feature.title}
                 className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 overflow-visible"
               >
-                <Card 
-                  className={`group transition-all duration-300 border-0 bg-${feature.bgColor} cursor-pointer h-full 
-                    hover:shadow-2xl 
+                <Card
+                  className={`group transition-all duration-300 border-0 bg-${feature.bgColor} cursor-pointer h-full
+                    hover:shadow-2xl hover:-translate-y-1
                     xl:hover:shadow-3xl`}
                   tabIndex={0}
                   role="button"
@@ -127,7 +130,7 @@ const FeaturesSection = () => {
                 >
                   <CardContent className="p-4 sm:p-8 text-center space-y-6 h-full flex flex-col justify-between">
                     <div className="space-y-6">
-                      <div className={`w-16 h-16 mx-auto bg-${feature.color}/20 rounded-2xl flex items-center justify-center`}>
+                      <div className={`w-16 h-16 mx-auto bg-${feature.color}/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                         <feature.icon 
                           className={`w-8 h-8 text-${feature.color}`} 
                           aria-hidden="true"

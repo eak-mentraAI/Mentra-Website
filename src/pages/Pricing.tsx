@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { CheckCircle2 } from 'lucide-react';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import PageTransition from '@/components/layout/PageTransition';
 
 const basePlans = [
   {
@@ -91,7 +93,7 @@ const Pricing = () => {
   const [billing, setBilling] = useState<'annual' | 'monthly'>('annual');
 
   return (
-    <>
+    <PageTransition>
       <Header />
       <main className="bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         <section className="container mx-auto px-4 mb-4">
@@ -118,7 +120,7 @@ const Pricing = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {basePlans.map((plan, idx) => {
+            {basePlans.map((plan) => {
               let displayPrice = plan.price;
               let priceLabel = '';
               if (plan.isFree) {
@@ -135,8 +137,8 @@ const Pricing = () => {
                 priceLabel = `$${displayPrice} / user / month`;
               }
               return (
+                <AnimateOnScroll key={plan.name} delay={basePlans.indexOf(plan) * 100}>
                 <div
-                  key={plan.name}
                   className={`flex flex-col rounded-2xl border ${plan.border} ${plan.bg} ${plan.highlight ? 'shadow-2xl ring-2 ring-mentra-blue z-10 scale-110' : 'shadow-lg'} p-6 relative`}
                 >
                   {plan.highlight && (
@@ -156,6 +158,7 @@ const Pricing = () => {
                     ))}
                   </ul>
                 </div>
+                </AnimateOnScroll>
               );
             })}
           </div>
@@ -166,7 +169,7 @@ const Pricing = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </PageTransition>
   );
 };
 

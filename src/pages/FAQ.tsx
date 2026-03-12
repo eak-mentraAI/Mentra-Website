@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import PageTransition from '@/components/layout/PageTransition';
 
 // Highlight text helper: wraps words in {curly braces} with a styled span
 const HighlightText = ({ text }: { text: string }) => {
@@ -164,6 +166,7 @@ const SectionHeader = ({ section, highlight }: { section: string; highlight: str
 
 const FAQ = () => {
   return (
+    <PageTransition>
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
@@ -184,7 +187,8 @@ const FAQ = () => {
         <section className="container mx-auto px-4">
           <div className="space-y-12 mb-12">
             {faqSections.map((section, sIdx) => (
-              <div key={section.section} className="mb-8">
+              <AnimateOnScroll key={section.section}>
+              <div className="mb-8">
                 <h2 className="text-2xl font-bold text-mentra-blue mb-6 tracking-tight">
                   <SectionHeader section={section.section} highlight={section.highlight} />
                 </h2>
@@ -201,8 +205,10 @@ const FAQ = () => {
                   ))}
                 </Accordion>
               </div>
+              </AnimateOnScroll>
             ))}
           </div>
+          <AnimateOnScroll variant="scale-in">
           <div className="w-full bg-white/80 rounded-xl shadow p-6 flex flex-col items-center">
             <h2 className="text-xl font-bold mb-2 text-gray-900 text-center">Still Have Questions?</h2>
             <p className="text-gray-700 mb-4 text-center">We're here to help address any concerns about AI-powered learning.</p>
@@ -215,10 +221,12 @@ const FAQ = () => {
               </a>
             </div>
           </div>
+          </AnimateOnScroll>
         </section>
       </main>
       <Footer />
     </div>
+    </PageTransition>
   );
 };
 

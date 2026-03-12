@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import PageTransition from '@/components/layout/PageTransition';
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,6 +13,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
+    <PageTransition>
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 font-rounded">
       <div className="text-center max-w-md mx-auto px-4">
         <div className="mb-8">
@@ -46,6 +48,7 @@ const NotFound = () => {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 };
 

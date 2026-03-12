@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search, Calendar, Tag, ArrowUpDown, Clock } from 'lucide-react';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import PageTransition from '../components/layout/PageTransition';
 import '../App.css';
 
 interface BlogPost {
@@ -152,6 +154,7 @@ const Blog = () => {
   };
 
   return (
+    <PageTransition>
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 py-12 px-4 font-rounded flex flex-col items-center">
@@ -211,6 +214,7 @@ const Blog = () => {
 
           {/* Featured Post */}
           {featuredPost && (
+            <AnimateOnScroll>
             <section className="mb-16">
               <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured Article</h2>
               <article className="bg-white rounded-3xl shadow-xl overflow-hidden">
@@ -270,6 +274,7 @@ const Blog = () => {
                 </div>
               </article>
             </section>
+            </AnimateOnScroll>
           )}
 
           {/* Regular Posts Grid */}
@@ -356,6 +361,7 @@ const Blog = () => {
       </main>
       <Footer />
     </div>
+    </PageTransition>
   );
 };
 

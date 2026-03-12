@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Users, Sparkles } from 'lucide-react';
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-mentra-blue via-mentra-blue/90 to-growth-green/20 relative overflow-hidden">
+    <section data-sprig-cta className="py-20 bg-gradient-to-br from-mentra-blue via-mentra-blue/90 to-growth-green/20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
@@ -15,9 +16,10 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main CTA Content - Enhanced copy */}
+          <AnimateOnScroll variant="scale-in">
           <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Ready to Learn <span>With Purpose</span>?
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 leading-snug text-balance" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+              Ready to Learn <span className="bg-gradient-to-r from-white to-grit-gold bg-clip-text text-transparent">With Purpose</span>?
             </h2>
             
             <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">
@@ -41,7 +43,10 @@ const CTASection = () => {
             </div>
           </div>
 
+          </AnimateOnScroll>
+
           {/* Trust Indicators - Enhanced copy */}
+          <AnimateOnScroll delay={200}>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="flex flex-col items-center space-y-4">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
@@ -68,7 +73,10 @@ const CTASection = () => {
             </div>
           </div>
 
+          </AnimateOnScroll>
+
           {/* Final Message - Enhanced */}
+          <AnimateOnScroll delay={400}>
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
             <p className="text-white/90 text-lg leading-relaxed mb-4">
               "Every student deserves learning that honors their humanity while preparing them for an AI-powered world. 
@@ -86,6 +94,7 @@ const CTASection = () => {
               <span className="text-white font-medium">— The Mentra Team</span>
             </div>
           </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>
