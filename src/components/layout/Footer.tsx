@@ -96,7 +96,7 @@ const Footer = () => {
             </div>
 
             <p className="text-gray-300 leading-relaxed">
-              Empowering students to grow through AI-powered learning and emotional intelligence with Sprig, your trusted companion.
+              AI that builds independent thinkers — not dependent users. Students grow, teachers lead, parents control, and every claim is provable.
             </p>
           </div>
 

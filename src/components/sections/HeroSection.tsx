@@ -34,10 +34,10 @@ const HeroSection = () => {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-snug text-balance"
                 style={{ textShadow: '0 2px 4px rgba(0,0,0,0.06)' }}
               >
-                Mentra: Human <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Growth</span>, Powered by AI
+                AI That Teaches Students to <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Think Without It</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                Personalized journaling, guided discovery, and emotional growth—powered by Sprig, your AI learning companion.
+                Mentra builds independent thinkers — not AI-dependent ones. Support that adapts in real time and fades as students grow.
               </p>
             </div>
 

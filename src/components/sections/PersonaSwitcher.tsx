@@ -10,7 +10,7 @@ const PersonaSwitcher = () => {
     <section id="personas" className="py-16 bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 text-center text-balance">
-          Built for <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Everyone</span> in Education
+          Humans in <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Control</span> at Every Level
         </h2>
 
         {/* Tab row */}

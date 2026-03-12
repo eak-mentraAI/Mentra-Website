@@ -12,10 +12,10 @@ const AboutSection = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-balance">
-                Mentra was founded to help every child <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">thrive</span> in an AI-powered world.
+                The AI that's designed to make itself <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">less necessary</span> over time.
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                We believe in nurturing critical thinking, emotional intelligence, and lifelong learning—so students don't just keep up, they grow.
+                Most ed-tech adds dependency. Mentra builds capability — scaffolding that fades, support that steps back, and humans who stay in control at every level.
               </p>
             </div>
 
@@ -25,8 +25,8 @@ const AboutSection = () => {
                   <div className="w-6 h-6 bg-mentra-blue rounded-full"></div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Pedagogically Grounded</h3>
-                  <p className="text-gray-600">Every interaction is designed by educators using Socratic questioning and metacognition.</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">AI That Fades as Students Grow</h3>
+                  <p className="text-gray-600">Scaffolding reduces as mastery increases. The success metric is how much less a student needs the AI compared to last month.</p>
                 </div>
               </div>
 
@@ -35,8 +35,8 @@ const AboutSection = () => {
                   <div className="w-6 h-6 bg-growth-green rounded-full"></div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Human Skills First</h3>
-                  <p className="text-gray-600">Critical thinking, emotional intelligence, and ethical reasoning — skills no AI can replace.</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Teachers, Parents, and Students in Control</h3>
+                  <p className="text-gray-600">Teachers override any AI decision. Parents gate all data. Districts kill-switch instantly. No black boxes, ever.</p>
                 </div>
               </div>
 
@@ -45,8 +45,8 @@ const AboutSection = () => {
                   <div className="w-6 h-6 bg-grit-gold rounded-full"></div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Safe & Values-Driven</h3>
-                  <p className="text-gray-600">Privacy-first, COPPA/FERPA compliant. Your data stays secure, your values stay central.</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Trust Built into the Architecture</h3>
+                  <p className="text-gray-600">Fail-closed consent, append-only audit trails, and 57 automated policy gates. Every claim is provable — not promised.</p>
                 </div>
               </div>
             </div>

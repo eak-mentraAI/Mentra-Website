@@ -95,10 +95,10 @@ const PricingSection = () => {
       <div className="container mx-auto px-4">
         <AnimateOnScroll>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center text-balance">
-            Choose Your <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Growth</span> Path
+            Choose Your <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Path</span> to Independence
           </h2>
           <p className="text-lg text-gray-600 mb-8 text-center max-w-2xl mx-auto">
-            All plans include secure AI-powered growth and support.
+            Every plan builds capability — not dependency. Full privacy, full control, at every tier.
           </p>
         </AnimateOnScroll>
         <div className="flex justify-center mb-10">

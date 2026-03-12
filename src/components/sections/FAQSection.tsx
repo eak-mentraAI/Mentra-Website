@@ -31,20 +31,20 @@ const faqSections = [
     section: 'AI & Learning',
     highlight: 'Learning',
     questions: [
-      { question: "How does Mentra's AI {differ} from other AI tools?", answer: "Mentra uses Socratic methods — asking questions rather than giving answers. Students become orchestrators of AI, not just consumers." },
-      { question: "Will this {replace} my child's teacher?", answer: "No. Teachers remain in control. Mentra amplifies their expertise with personalized student support." },
-      { question: "What if my child gets {stuck} or frustrated?", answer: "The AI adapts its approach — providing scaffolding, breaking problems into steps, and encouraging persistence." },
-      { question: "How do I know my child is actually {learning}?", answer: "Detailed progress tracking and a Learner Passport show skills, achievements, and growth over time." },
+      { question: "How does Mentra's AI {differ} from other AI tools?", answer: "Mentra is designed to make itself less necessary. It uses Socratic methods — asking questions, not giving answers — and scaffolding that fades as students grow. The success metric is independence, not engagement." },
+      { question: "Will this {replace} my child's teacher?", answer: "Never. Teachers see every AI decision, override anything they disagree with, and their professional judgment is always final. The AI works for the teacher, not around them." },
+      { question: "What if my child gets {stuck} or frustrated?", answer: "The AI detects struggle and responds with guided support — not answers. It breaks problems into steps and encourages persistence. And it has hard limits: 20 messages, 10 minutes, then a required reflection." },
+      { question: "How do I know my child is actually {learning}?", answer: "Watch the scaffolding decrease. Mentra tracks how much less support your child needs over time — that's real learning. The Learner Passport captures growth, not just grades." },
     ],
   },
   {
     section: 'Safety & Privacy',
     highlight: 'Privacy',
     questions: [
-      { question: "How do you {protect} student data?", answer: "Industry-leading encryption, FERPA/COPPA compliance, and strict access controls. Data is never sold or used for ads." },
-      { question: "What {content} filters are in place?", answer: "Advanced filtering ensures all interactions are age-appropriate and educational." },
-      { question: "Can parents {monitor} their child's AI conversations?", answer: "Yes — full access to transcripts, progress reports, and learning updates." },
-      { question: "What happens if the AI provides {incorrect} information?", answer: "We encourage reporting issues. The system is continuously monitored and improved." },
+      { question: "How do you {protect} student data?", answer: "By architecture, not policy. Fail-closed consent gating, append-only audit trails, Row-Level Security at the database layer, and 57 automated policy gates. Every access is logged. Data is never sold or used for ads." },
+      { question: "What {content} filters are in place?", answer: "A multi-layer safety pipeline runs on every interaction: input validation, age-appropriate content filtering, output scanning for PII, and a feedback safety filter that prevents the AI from ever leaking answers." },
+      { question: "Can parents {monitor} their child's AI conversations?", answer: "Parents see coaching frequency and progress — not raw conversation logs, which are the child's private learning space. You know how involved the AI is. Teachers have full visibility with override capability." },
+      { question: "What happens if the AI provides {incorrect} information?", answer: "Districts have a one-click kill switch that disables all AI in under a second. It fails closed — AI stays off until explicitly re-enabled. Teachers can override any individual adaptation immediately." },
     ],
   },
   {

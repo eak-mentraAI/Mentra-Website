@@ -11,28 +11,28 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "My students used to rush through assignments just to finish. Now they stop and ask themselves why they got something wrong. That shift didn't come from me — it came from how Mentra taught them to reflect.",
+    quote: "Three months in, my students need less scaffolding than they did at the start. They're catching their own mistakes before the AI even flags them. That's the shift — they're becoming better learners, not better AI users.",
     author: "Sarah Chen",
     role: "5th Grade Teacher",
     color: "curiosity-coral",
     avatar: "/images/logos/mentra-logo-alt.png",
   },
   {
-    quote: "I finally stopped muting the school app. Mentra only pings me when something actually matters — and when it does, I know exactly what to do about it.",
+    quote: "I finally stopped muting the school app. Mentra only pings me when something actually matters — and when it does, I know exactly what to do. My attention isn't wasted, so I actually trust it.",
     author: "Michael Rodriguez",
     role: "Parent of 8-year-old",
     color: "growth-green",
     avatar: "/images/sprig/sprig-wave.png",
   },
   {
-    quote: "When I get stuck now, I don't just guess. I ask myself what I actually know and what's confusing me. Sprig taught me how to do that.",
+    quote: "When I get stuck now, I don't just guess. I ask myself what I actually know and what's confusing me. Sprig taught me how to do that — and now I do it even without Sprig.",
     author: "Emma, Age 10",
     role: "Student",
     color: "grit-gold",
     avatar: "/images/sprig/sprig-thinking.png",
   },
   {
-    quote: "We evaluated a dozen AI platforms. Mentra was the only one our data governance team approved on the first review — FERPA controls, explainability, kill switch, all built in.",
+    quote: "We evaluated a dozen AI platforms. Mentra was the only one where every claim was provable — not promised in a contract, but demonstrable in the architecture. Our governance team approved it on the first review.",
     author: "Dr. Amanda Foster",
     role: "School Principal",
     color: "mentra-blue",
@@ -99,7 +99,7 @@ const TestimonialsSection = () => {
               id="testimonials-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
             >
-              Why Mentra <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Works</span>
+              What <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Independence</span> Looks Like
             </h2>
           </div>
         </AnimateOnScroll>

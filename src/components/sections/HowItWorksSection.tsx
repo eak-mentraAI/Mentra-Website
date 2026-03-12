@@ -7,37 +7,37 @@ const flywheel = [
   {
     number: 1,
     icon: BookOpen,
-    title: "Reflective Engagement",
+    title: "Students Reflect",
     color: "mentra-blue",
-    description: "Students reflect on learning and emotions through guided prompts that build self-awareness.",
+    description: "Guided prompts build self-awareness — students learn to recognize what they know and where they're stuck.",
   },
   {
     number: 2,
     icon: FileText,
-    title: "AI Summarization",
+    title: "AI Surfaces Patterns",
     color: "curiosity-coral",
-    description: "AI distills input into growth insights — surfacing what's working and where support is needed.",
+    description: "The system identifies what's working and what needs support — then delivers insights to the humans who decide what to do.",
   },
   {
     number: 3,
     icon: Sparkles,
-    title: "Insight Delivery",
+    title: "Humans Act",
     color: "growth-green",
-    description: "Students, teachers, and parents each get clear, actionable updates — not data dumps.",
+    description: "Teachers intervene with full context. Parents see signal, not noise. Students get support matched to the moment.",
   },
   {
     number: 4,
     icon: Users,
-    title: "Responsive Support",
+    title: "Scaffolding Adapts",
     color: "grit-gold",
-    description: "Scaffolding adapts in real time. Interventions are suggested before students fall behind.",
+    description: "Support increases when students struggle and pulls back as they grow. The goal is always less help next time.",
   },
   {
     number: 5,
     icon: BarChart3,
-    title: "Student Growth",
+    title: "Independence Grows",
     color: "wisdom-purple",
-    description: "Each loop strengthens understanding, metacognition, and intrinsic motivation.",
+    description: "Each cycle builds capability the student owns — not engagement with a tool they depend on.",
   },
 ];
 
@@ -64,7 +64,7 @@ const HowItWorksSection = () => {
         <div className="w-full container mx-auto px-4">
           <AnimateOnScroll>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center text-balance">
-              The Mentra Flywheel of <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Growth</span>
+              The Mentra Flywheel of <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Independence</span>
             </h3>
           </AnimateOnScroll>
           <ScrollTimeline steps={flywheel} />

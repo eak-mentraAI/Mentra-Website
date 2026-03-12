@@ -2,10 +2,10 @@ import React from 'react';
 import { ShieldCheck, GraduationCap, Lock, Heart } from 'lucide-react';
 
 const trustItems = [
-  { icon: ShieldCheck, text: 'COPPA & FERPA Compliant', color: 'text-mentra-blue' },
-  { icon: GraduationCap, text: 'Built for K-12', color: 'text-growth-green' },
-  { icon: Lock, text: 'SOC 2 Type II Ready', color: 'text-wisdom-purple' },
-  { icon: Heart, text: 'Student-Centered Design', color: 'text-curiosity-coral' },
+  { icon: ShieldCheck, text: 'COPPA & FERPA by Architecture', color: 'text-mentra-blue' },
+  { icon: GraduationCap, text: 'Built for K-12 Independence', color: 'text-growth-green' },
+  { icon: Lock, text: 'Fail-Closed by Default', color: 'text-wisdom-purple' },
+  { icon: Heart, text: 'Humans Always in Control', color: 'text-curiosity-coral' },
 ];
 
 const SocialProofBar = () => {

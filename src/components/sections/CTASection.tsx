@@ -23,11 +23,11 @@ const CTASection = () => {
           <AnimateOnScroll variant="scale-in">
           <div className="mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 leading-snug text-balance" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-              Ready to Learn <span className="bg-gradient-to-r from-white to-grit-gold bg-clip-text text-transparent">With Purpose</span>?
+              Ready for AI That <span className="bg-gradient-to-r from-white to-grit-gold bg-clip-text text-transparent">Steps Back</span>?
             </h2>
 
             <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
-              AI designed for growth, not shortcuts. Your learning companion is waiting.
+              Support that builds capability, not dependency. Humans in control at every level.
             </p>
 
             <div className="flex justify-center">
@@ -46,7 +46,7 @@ const CTASection = () => {
           <AnimateOnScroll delay={200}>
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
             <p className="text-white/90 text-lg leading-relaxed mb-4">
-              "Every student deserves learning that honors their humanity while preparing them for an AI-powered world."
+              "The AI is training wheels, not a motor. Every feature is designed to transfer capability to the student — not create a crutch they can't walk without."
             </p>
             <div className="flex items-center justify-center gap-3">
               <img
