@@ -33,10 +33,10 @@ const faqSections = [
   {
     section: 'Cost & Value',
     questions: [
-      { question: "How much does Mentra cost?", answer: "Family plans start at $15/month. School pricing is based on student count with volume discounts." },
-      { question: "What's the return on investment for schools?", answer: "Improved engagement, reduced teacher workload, better differentiation, and measurable learning gains." },
-      { question: "Are there hidden fees or long-term contracts?", answer: "No hidden fees. Families cancel anytime. Schools get flexible terms." },
-      { question: "Do you offer financial assistance?", answer: "Yes — need-based discounts for families and schools. Contact us to discuss." },
+      { question: "How does Mentra pricing work?", answer: "Mentra uses a hybrid model: per-student licensing (volume-tiered, starting at $9–18/student/month depending on scale and commitment) plus an institutional platform fee that covers analytics, integrations, and administrative intelligence. Families access Mentra free through their school's plan." },
+      { question: "What's the return on investment for schools?", answer: "You're investing in learner intelligence infrastructure — measurable improvement in writing scores, assignment completion, student engagement, and early intervention. Schools also see reduced teacher workload through the Mentes AI Copilot and better differentiation across diverse learners." },
+      { question: "What contract terms are available?", answer: "We offer month-to-month, 1-year, and 3-year agreements — with meaningful discounts for longer commitments. Contracts are designed around school budgeting cycles: pilot pricing in year one, full rollout in year two, expansion in year three." },
+      { question: "Do you offer need-based pricing?", answer: "Yes — qualifying institutions can access adjusted pricing. Contact our team to discuss. We also offer data-sharing partnerships and other arrangements that reduce cost while expanding impact." },
     ],
   },
 ];
