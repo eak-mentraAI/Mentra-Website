@@ -57,9 +57,9 @@ export default {
 				'mentra-blue': '#3A86FF',
 				'growth-green': '#06D6A0',
 				'curiosity-coral': '#FF6B6B',
-				'journal-sand': '#FFF9F3',
+				'journal-sand': '#F8FAFC',
 				'grit-gold': '#FFD166',
-				'charcoal': '#333333',
+				'charcoal': '#111827',
 				'off-white': '#FAFAFA',
 				'wisdom-purple': '#8b5cf6'
 			},
@@ -118,8 +118,8 @@ export default {
 				'dot-grid': '24px 24px',
 			},
 			fontFamily: {
-				'rounded': ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
-				'display': ['Poppins', 'DM Sans', 'Inter', 'system-ui', 'sans-serif']
+				'rounded': ['Inter', 'DM Sans', 'system-ui', 'sans-serif'],
+				'display': ['Poppins', 'Inter', 'DM Sans', 'system-ui', 'sans-serif']
 			}
 		}
 	},

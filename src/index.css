@@ -21,10 +21,10 @@
 
 /* Font family */
 .font-rounded {
-  font-family: 'DM Sans', 'Inter', 'system-ui', 'sans-serif';
+  font-family: 'Inter', 'DM Sans', 'system-ui', 'sans-serif';
 }
 .font-display {
-  font-family: 'Poppins', 'DM Sans', 'Inter', 'system-ui', 'sans-serif';
+  font-family: 'Poppins', 'Inter', 'DM Sans', 'system-ui', 'sans-serif';
 }
 
 /* Smooth scrolling */
