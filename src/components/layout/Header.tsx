@@ -67,26 +67,23 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
-  const handleFeaturesClick = (e: React.MouseEvent) => {
+  const handleAnchorClick = (sectionId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === '/') {
-      const el = document.getElementById('features');
+      const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate('/#features');
+      navigate(`/#${sectionId}`);
     }
     setIsMenuOpen(false);
   };
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Features', href: '/#features' },
-    { name: 'How it Works', href: '/how-it-works' },
-    { name: 'Teachers', href: '/teachers' },
-    { name: 'Students', href: '/students' },
-    { name: 'Parents', href: '/parents' },
-    { name: 'Institutions', href: '/institutions' },
-    { name: 'About', href: '/about' },
+    { name: 'How It Works', href: '/#how-it-works', anchor: 'how-it-works' },
+    { name: 'For You', href: '/#personas', anchor: 'personas' },
+    { name: 'Features', href: '/#features', anchor: 'features' },
+    { name: 'Pricing', href: '/#pricing', anchor: 'pricing' },
+    { name: 'About', href: '/about', anchor: null },
   ];
 
   const linkClass = (isActive: boolean) =>
@@ -125,15 +122,13 @@ const Header = () => {
           aria-label="Main navigation"
         >
           {navItems.map((item) => {
-            const isActive = location.pathname === item.href ||
-              (item.name === 'Features' && location.pathname === '/' && location.hash === '#features');
-
-            if (item.name === 'Features') {
+            if (item.anchor) {
+              const isActive = location.pathname === '/' && location.hash === `#${item.anchor}`;
               return (
                 <a
                   key={item.name}
-                  href="/#features"
-                  onClick={handleFeaturesClick}
+                  href={item.href}
+                  onClick={handleAnchorClick(item.anchor)}
                   className={linkClass(isActive)}
                   aria-current={isActive ? 'page' : undefined}
                 >
@@ -141,6 +136,7 @@ const Header = () => {
                 </a>
               );
             }
+            const isActive = location.pathname === item.href;
             return (
               <Link
                 key={item.name}
@@ -159,11 +155,9 @@ const Header = () => {
           <Button
             className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl hover:animate-glow focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
             aria-label="Start your journey with Mentra"
-            asChild
+            onClick={handleAnchorClick('pricing')}
           >
-            <Link to="/pricing">
-              Start Journey
-            </Link>
+            Start Journey
           </Button>
         </div>
 
@@ -191,20 +185,19 @@ const Header = () => {
         >
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => {
-              const isActive = location.pathname === item.href;
-              if (item.name === 'Features') {
+              if (item.anchor) {
                 return (
                   <a
                     key={item.name}
-                    href="/#features"
-                    onClick={handleFeaturesClick}
+                    href={item.href}
+                    onClick={handleAnchorClick(item.anchor)}
                     className="text-gray-700 hover:text-mentra-blue transition-colors duration-200 font-medium px-4 py-2 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md"
-                    aria-current={location.pathname === '/' && location.hash === '#features' ? 'page' : undefined}
                   >
                     {item.name}
                   </a>
                 );
               }
+              const isActive = location.pathname === item.href;
               return (
                 <Link
                   key={item.name}
@@ -221,12 +214,9 @@ const Header = () => {
               <Button
                 className="w-full bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                 aria-label="Start your journey with Mentra"
-                onClick={() => setIsMenuOpen(false)}
-                asChild
+                onClick={handleAnchorClick('pricing')}
               >
-                <Link to="/pricing">
-                  Start Journey
-                </Link>
+                Start Journey
               </Button>
             </div>
           </nav>

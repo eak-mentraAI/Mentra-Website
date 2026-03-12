@@ -1,7 +1,7 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
 import ErrorBoundary from "./components/layout/ErrorBoundary";
 import Index from "./pages/Index";
@@ -10,13 +10,6 @@ import CookieConsent from "./components/sections/CookieConsent";
 // Lazy-loaded pages — only Index is eager (landing page, must be fast)
 const NotFound = lazy(() => import("./pages/NotFound"));
 const About = lazy(() => import("./pages/About"));
-const HowItWorks = lazy(() => import("./pages/HowItWorks"));
-const Teachers = lazy(() => import("./pages/Teachers"));
-const Students = lazy(() => import("./pages/Students"));
-const Parents = lazy(() => import("./pages/Parents"));
-const Institutions = lazy(() => import("./pages/Institutions"));
-const FAQ = lazy(() => import("./pages/FAQ"));
-const Pricing = lazy(() => import("./pages/Pricing"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Cookies = lazy(() => import("./pages/Cookies"));
@@ -29,6 +22,15 @@ const PageLoader = () => (
   </div>
 );
 
+// Redirect old routes to homepage anchor sections
+const RedirectToHash = ({ hash }: { hash: string }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate(`/#${hash}`, { replace: true });
+  }, [navigate, hash]);
+  return null;
+};
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (
@@ -36,18 +38,19 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
-        <Route path="/teachers" element={<Teachers />} />
-        <Route path="/students" element={<Students />} />
-        <Route path="/parents" element={<Parents />} />
-        <Route path="/institutions" element={<Institutions />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/press" element={<Press />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/press" element={<Press />} />
+        {/* Redirects for old routes */}
+        <Route path="/how-it-works" element={<RedirectToHash hash="how-it-works" />} />
+        <Route path="/students" element={<RedirectToHash hash="personas" />} />
+        <Route path="/teachers" element={<RedirectToHash hash="personas" />} />
+        <Route path="/parents" element={<RedirectToHash hash="personas" />} />
+        <Route path="/institutions" element={<RedirectToHash hash="personas" />} />
+        <Route path="/pricing" element={<RedirectToHash hash="pricing" />} />
+        <Route path="/faq" element={<RedirectToHash hash="faq" />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

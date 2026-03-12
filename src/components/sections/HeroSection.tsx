@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import useSprigExpression from '@/hooks/useSprigExpression';
@@ -70,24 +69,20 @@ const HeroSection = () => {
                 size="lg"
                 className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-xl hover:shadow-2xl hover:animate-glow group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                 aria-label="Begin your learning journey with Mentra"
-                asChild
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <Link to="/pricing">
-                  Start Your Journey
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-                </Link>
+                Start Your Journey
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className="border-2 border-mentra-blue text-mentra-blue hover:bg-mentra-blue hover:text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                 aria-label="Watch a demonstration of how Mentra works"
-                asChild
+                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <Link to="/how-it-works">
-                  <Play className="mr-2 h-5 w-5" aria-hidden="true" />
-                  See How It Works
-                </Link>
+                <Play className="mr-2 h-5 w-5" aria-hidden="true" />
+                See How It Works
               </Button>
             </div>
           </div>

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { CheckCircle2 } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import PageTransition from '@/components/layout/PageTransition';
 
 const basePlans = [
   {
@@ -59,7 +56,7 @@ const basePlans = [
   },
   {
     name: 'Institutional',
-    price: null,
+    price: null as number | null,
     period: '',
     cta: 'Contact Sales',
     features: [
@@ -77,74 +74,65 @@ const basePlans = [
   },
 ];
 
-function getAnnualPrice(monthly) {
+function getAnnualPrice(monthly: number) {
   if (!monthly) return 0;
-  // 16% discount, rounded up to nearest dollar
   return Math.ceil(monthly * 12 * 0.84 / 12);
 }
 
-function getMonthlyPrice(monthly) {
+function getMonthlyPrice(monthly: number) {
   if (!monthly) return 0;
-  // Round up to nearest dollar
   return Math.ceil(monthly);
 }
 
-const Pricing = () => {
+const PricingSection = () => {
   const [billing, setBilling] = useState<'annual' | 'monthly'>('annual');
 
   return (
-    <PageTransition>
-      <Header />
-      <main className="bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
-        <section className="container mx-auto px-4 mb-4">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
-            Choose Your <span className="text-mentra-blue">Growth</span> Path
-          </h1>
-          <p className="text-lg text-gray-600 mb-8 text-center max-w-2xl mx-auto">
-            Select the plan that fits your learning journey. All plans include secure AI-powered growth and support.
-          </p>
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden">
-              <button
-                className={`px-6 py-2 font-semibold text-sm transition ${billing === 'annual' ? 'bg-mentra-blue text-white' : 'text-gray-700 hover:bg-gray-100'}`}
-                onClick={() => setBilling('annual')}
-              >
-                Annual <span className="ml-1 text-xs font-normal">(Save 16%)</span>
-              </button>
-              <button
-                className={`px-6 py-2 font-semibold text-sm transition ${billing === 'monthly' ? 'bg-mentra-blue text-white' : 'text-gray-700 hover:bg-gray-100'}`}
-                onClick={() => setBilling('monthly')}
-              >
-                Monthly
-              </button>
-            </div>
+    <section id="pricing" className="py-16">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
+          Choose Your <span className="text-mentra-blue">Growth</span> Path
+        </h2>
+        <p className="text-lg text-gray-600 mb-8 text-center max-w-2xl mx-auto">
+          Select the plan that fits your learning journey. All plans include secure AI-powered growth and support.
+        </p>
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <button
+              className={`px-6 py-2 font-semibold text-sm transition ${billing === 'annual' ? 'bg-mentra-blue text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+              onClick={() => setBilling('annual')}
+            >
+              Annual <span className="ml-1 text-xs font-normal">(Save 16%)</span>
+            </button>
+            <button
+              className={`px-6 py-2 font-semibold text-sm transition ${billing === 'monthly' ? 'bg-mentra-blue text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+              onClick={() => setBilling('monthly')}
+            >
+              Monthly
+            </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {basePlans.map((plan) => {
-              let displayPrice = plan.price;
-              let priceLabel = '';
-              if (plan.isFree) {
-                displayPrice = 0;
-                priceLabel = 'Free';
-              } else if (plan.isEnterprise) {
-                displayPrice = '';
-                priceLabel = "Let's talk";
-              } else if (billing === 'annual') {
-                displayPrice = getAnnualPrice(plan.price);
-                priceLabel = `$${displayPrice} / user / month`;
-              } else {
-                displayPrice = getMonthlyPrice(plan.price);
-                priceLabel = `$${displayPrice} / user / month`;
-              }
-              return (
-                <AnimateOnScroll key={plan.name} delay={basePlans.indexOf(plan) * 100}>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {basePlans.map((plan) => {
+            let priceLabel = '';
+            if (plan.isFree) {
+              priceLabel = 'Free';
+            } else if (plan.isEnterprise) {
+              priceLabel = "Let's talk";
+            } else if (billing === 'annual') {
+              priceLabel = `$${getAnnualPrice(plan.price!)} / user / month`;
+            } else {
+              priceLabel = `$${getMonthlyPrice(plan.price!)} / user / month`;
+            }
+            return (
+              <AnimateOnScroll key={plan.name} delay={basePlans.indexOf(plan) * 100}>
                 <div
                   className={`flex flex-col rounded-2xl border ${plan.border} ${plan.bg} ${plan.highlight ? 'shadow-2xl ring-2 ring-mentra-blue z-10 scale-110' : 'shadow-lg'} p-6 relative`}
                 >
                   {plan.highlight && (
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mentra-blue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">Most Popular</span>
                   )}
-                  <h2 className="text-xl font-bold text-gray-900 mb-1 text-center">{plan.name}</h2>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1 text-center">{plan.name}</h3>
                   <div className="text-center mb-4">
                     <span className="text-3xl font-extrabold text-gray-900">{priceLabel}</span>
                   </div>
@@ -158,19 +146,17 @@ const Pricing = () => {
                     ))}
                   </ul>
                 </div>
-                </AnimateOnScroll>
-              );
-            })}
-          </div>
-          <hr className="my-6 border-gray-200" />
-          <p className="text-sm text-gray-500 text-center max-w-2xl mx-auto mb-4">
-            All plans billed monthly or annually. Contact us for custom institutional solutions or educational discounts.
-          </p>
-        </section>
-      </main>
-      <Footer />
-    </PageTransition>
+              </AnimateOnScroll>
+            );
+          })}
+        </div>
+        <hr className="my-6 border-gray-200" />
+        <p className="text-sm text-gray-500 text-center max-w-2xl mx-auto">
+          All plans billed monthly or annually. Contact us for custom institutional solutions or educational discounts.
+        </p>
+      </div>
+    </section>
   );
 };
 
-export default Pricing; 
+export default PricingSection;

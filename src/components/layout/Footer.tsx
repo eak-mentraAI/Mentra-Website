@@ -5,32 +5,29 @@ import { Heart, Mail, MapPin } from 'lucide-react';
 const Footer = () => {
   const navigate = useNavigate();
 
-  const handleFeaturesClick = (e: React.MouseEvent) => {
+  const handleAnchorClick = (sectionId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.location.pathname === '/') {
-      const el = document.getElementById('features');
+      const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate('/#features');
+      navigate(`/#${sectionId}`);
     }
   };
 
   const footerLinks = {
     product: [
-      { name: 'Features', href: '#features' },
-      { name: 'How it Works', href: '/how-it-works' },
-      { name: 'Teachers', href: '/teachers' },
-      { name: 'Students', href: '/students' },
-      { name: 'Parents', href: '/parents' },
-      { name: 'Institutions', href: '/institutions' },
-      { name: 'Pricing', href: '/pricing' },
+      { name: 'Features', anchor: 'features' },
+      { name: 'How it Works', anchor: 'how-it-works' },
+      { name: 'For You', anchor: 'personas' },
+      { name: 'Pricing', anchor: 'pricing' },
     ],
     resources: [
       { name: 'Blog', href: '/blog' },
       { name: 'Help Center', href: '#help' },
       { name: 'Parent Guide', href: '#parent-guide' },
       { name: 'Educator Resources', href: '#educators' },
-      { name: 'FAQ', href: '/faq' },
+      { name: 'FAQ', anchor: 'faq' },
     ],
     company: [
       { name: 'About Us', href: '/about' },
@@ -40,8 +37,40 @@ const Footer = () => {
     ]
   };
 
+  const renderLink = (link: { name: string; href?: string; anchor?: string }, hoverColor: string) => {
+    if (link.anchor) {
+      return (
+        <a
+          href={`/#${link.anchor}`}
+          onClick={handleAnchorClick(link.anchor)}
+          className={`text-gray-300 hover:text-${hoverColor} transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-${hoverColor} focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1`}
+        >
+          {link.name}
+        </a>
+      );
+    }
+    if (link.href?.startsWith('/')) {
+      return (
+        <Link
+          to={link.href}
+          className={`text-gray-300 hover:text-${hoverColor} transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-${hoverColor} focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1`}
+        >
+          {link.name}
+        </Link>
+      );
+    }
+    return (
+      <a
+        href={link.href}
+        className={`text-gray-300 hover:text-${hoverColor} transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-${hoverColor} focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1`}
+      >
+        {link.name}
+      </a>
+    );
+  };
+
   return (
-    <footer 
+    <footer
       className="bg-gray-900 text-white relative overflow-hidden"
       role="contentinfo"
       aria-labelledby="footer-heading"
@@ -66,7 +95,7 @@ const Footer = () => {
                 loading="lazy"
               />
             </div>
-            
+
             <p className="text-gray-300 leading-relaxed">
               Empowering students to grow through AI-powered learning and emotional intelligence with Sprig, your trusted companion.
             </p>
@@ -77,24 +106,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 text-white">Product</h3>
             <ul className="space-y-3" role="list">
               {footerLinks.product.map((link) => (
-                <li key={link.name}>
-                  {link.name === 'Features' ? (
-                    <a
-                      href="/#features"
-                      onClick={handleFeaturesClick}
-                      className="text-gray-300 hover:text-mentra-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link
-                      to={link.href}
-                      className="text-gray-300 hover:text-mentra-blue transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </li>
+                <li key={link.name}>{renderLink(link, 'mentra-blue')}</li>
               ))}
             </ul>
           </div>
@@ -104,23 +116,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 text-white">Resources</h3>
             <ul className="space-y-3" role="list">
               {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  {link.href.startsWith('/') ? (
-                    <Link
-                      to={link.href}
-                      className="text-gray-300 hover:text-growth-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-growth-green focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-growth-green transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-growth-green focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
-                    >
-                      {link.name}
-                    </a>
-                  )}
-                </li>
+                <li key={link.name}>{renderLink(link, 'growth-green')}</li>
               ))}
             </ul>
           </div>
@@ -130,23 +126,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 text-white">Company</h3>
             <ul className="space-y-3" role="list">
               {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  {link.href.startsWith('/') ? (
-                    <Link
-                      to={link.href}
-                      className="text-gray-300 hover:text-curiosity-coral transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-curiosity-coral focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-curiosity-coral transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-curiosity-coral focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-1"
-                    >
-                      {link.name}
-                    </a>
-                  )}
-                </li>
+                <li key={link.name}>{renderLink(link, 'curiosity-coral')}</li>
               ))}
             </ul>
           </div>
@@ -198,45 +178,43 @@ const Footer = () => {
         </div>
 
         {/* Social Links (desktop only) */}
-        <div 
+        <div
           className="hidden md:flex items-center space-x-4 mt-4"
           role="navigation"
           aria-label="Social media links"
         >
-          <a 
-            href="https://github.com/your-org" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://github.com/your-org"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Visit our GitHub page"
             className="focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md p-1"
           >
             <svg width="24" height="24" fill="currentColor" className="text-gray-400 hover:text-mentra-blue transition-colors" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"/></svg>
           </a>
-          <a 
-            href="https://twitter.com/yourhandle" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://twitter.com/yourhandle"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Follow us on X (Twitter)"
             className="focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md p-1"
           >
-            {/* X (Twitter) Logo SVG */}
             <svg width="24" height="24" fill="currentColor" className="text-gray-400 hover:text-mentra-blue transition-colors" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 2.47A6.5 6.5 0 0 0 12 0a6.5 6.5 0 0 0-5.53 2.47A6.5 6.5 0 0 0 0 12a6.5 6.5 0 0 0 2.47 5.53A6.5 6.5 0 0 0 12 24a6.5 6.5 0 0 0 5.53-2.47A6.5 6.5 0 0 0 24 12a6.5 6.5 0 0 0-2.47-5.53zM19.07 19.07A8.5 8.5 0 1 1 4.93 4.93a8.5 8.5 0 0 1 14.14 14.14zm-9.07-3.07h2.5l2.5-3.5-2.5-3.5h-2.5l2.5 3.5-2.5 3.5z"/>
             </svg>
           </a>
-          <a 
-            href="https://instagram.com/yourhandle" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://instagram.com/yourhandle"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Follow us on Instagram"
             className="focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md p-1"
           >
-            {/* Instagram Logo SVG */}
             <svg width="24" height="24" fill="currentColor" className="text-gray-400 hover:text-pink-500 transition-colors" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.775.13 4.602.402 3.635 1.37 2.668 2.337 2.396 3.51 2.338 4.788.013 8.332 0 8.741 0 12c0 3.259.013 3.668.072 4.948.058 1.277.33 2.45 1.297 3.417.967.967 2.14 1.239 3.417 1.297C8.332 23.987 8.741 24 12 24c3.259 0 3.668-.013 4.948-.072 1.277-.058 2.45-.33 3.417-1.297.967-.967 1.239-2.14 1.297-3.417.059-1.28.072-1.689.072-4.948 0-3.259-.013-3.668-.072-4.948-.058-1.277-.33-2.45-1.297-3.417-.967-.967-2.14-1.239-3.417-1.297C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
           </a>
-          <a 
-            href="https://linkedin.com/company/yourcompany" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://linkedin.com/company/yourcompany"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Connect with us on LinkedIn"
             className="focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md p-1"
           >
