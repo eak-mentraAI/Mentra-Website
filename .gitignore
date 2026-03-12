@@ -12,11 +12,24 @@ dist
 dist-ssr
 *.local
 
+# Environment variables (secrets)
+.env
+.env.*
+.env.local
+!.env.example
+
+# OS files
+**/.DS_Store
+
+# Lock files for unused package managers
+bun.lockb
+yarn.lock
+pnpm-lock.yaml
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj

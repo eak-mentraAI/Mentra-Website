@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Link } from 'react-router-dom';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Heart, Star, Sparkles, Shield, FileText, Users, BarChart3, Trophy, Settings2, ShieldCheck } from 'lucide-react';
 import {
@@ -97,6 +98,7 @@ const flywheel = [
 
 export default function HowItWorks() {
   const [current, setCurrent] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [emblaApi, setEmblaApi] = useState<any>(null);
 
   React.useEffect(() => {
@@ -203,7 +205,7 @@ export default function HowItWorks() {
           </blockquote>
           <div className="flex justify-center">
             <Button size="lg" className="bg-mentra-blue text-white px-8 py-4 rounded-full font-bold shadow hover:bg-mentra-blue/90 transition" asChild>
-              <a href="/signup">Start Your Journey</a>
+              <Link to="/pricing">Start Your Journey</Link>
             </Button>
           </div>
         </section>

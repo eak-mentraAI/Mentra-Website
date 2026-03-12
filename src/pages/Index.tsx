@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import Header from '../components/Header';
-import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
-import FeaturesSection from '../components/FeaturesSection';
-import TestimonialsSection from '../components/TestimonialsSection';
-import SprigActionSection from '../components/SprigActionSection';
-import CTASection from '../components/CTASection';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import HeroSection from '../components/sections/HeroSection';
+import AboutSection from '../components/sections/AboutSection';
+import FeaturesSection from '../components/sections/FeaturesSection';
+import TestimonialsSection from '../components/sections/TestimonialsSection';
+import SprigActionSection from '../components/sections/SprigActionSection';
+import CTASection from '../components/sections/CTASection';
+import Footer from '../components/layout/Footer';
 
 const Index = () => {
   useEffect(() => {

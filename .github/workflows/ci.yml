@@ -1,18 +1,14 @@
-name: Deploy to GitHub Pages
+name: CI
 
 on:
+  pull_request:
+    branches: [main]
   push:
-    branches:
-      - main
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+    branches: [main]
 
 jobs:
-  deploy:
-    name: Build & Deploy
+  quality:
+    name: Lint, Typecheck & Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -33,11 +29,9 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
+      - name: Security audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
       - name: Build
         run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist

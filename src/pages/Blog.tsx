@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -113,7 +113,7 @@ const Blog = () => {
 
   // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
-    let filtered = blogPosts.filter(post => {
+    const filtered = blogPosts.filter(post => {
       const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -158,7 +158,7 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           {/* Header Section */}
           <section className="container mx-auto max-w-7xl px-4 flex flex-col items-center justify-center text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Mentra <span className="text-mentra-blue">Insights</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-0">
@@ -219,7 +219,10 @@ const Blog = () => {
                     <img
                       src={featuredPost.image}
                       alt={featuredPost.title}
+                      width="600"
+                      height="400"
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-mentra-blue text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -281,14 +284,17 @@ const Blog = () => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularPosts.map(post => (
                 <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="relative h-48">
                     <img
                       src={post.image}
                       alt={post.title}
+                      width="400"
+                      height="200"
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-sm font-medium">

@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import '../App.css';
 
 export default function Press() {
@@ -21,7 +21,7 @@ export default function Press() {
           </div>
           {/* Right: Large Sprig Icon */}
           <div className="flex-shrink-0 flex items-center justify-center mt-6 md:mt-0">
-            <img src="/images/other/press.png" alt="Sprig Press Icon" className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl" />
+            <img src="/images/other/press.png" alt="Sprig Press Icon" width="400" height="400" className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl" loading="lazy" />
           </div>
         </section>
 
@@ -56,9 +56,9 @@ export default function Press() {
             </div>
             {/* Logo with Words (Color) */}
             <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm border">
-              <img src="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" alt="Mentra Logo with Words (Color)" className="h-16 mb-3" />
+              <img src="/images/logos/mentra-logo-color.png" alt="Mentra Logo with Words (Color)" className="h-16 mb-3" />
               <span className="text-sm text-gray-600 mb-2">Logo with Words (Color)</span>
-              <a href="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
+              <a href="/images/logos/mentra-logo-color.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
             {/* Logo Icon Only (White) */}
             <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-sm border">
@@ -89,7 +89,7 @@ export default function Press() {
           <div className="text-center mt-8">
             <p className="text-gray-600 mb-4">Need all assets? Download our complete media kit:</p>
             <a 
-              href="/images/logos/f05d5e11-f8b1-4798-ba3d-a85133efccfd.png" 
+              href="/images/logos/mentra-logo-color.png" 
               download 
               className="inline-flex items-center px-6 py-3 bg-mentra-blue text-white rounded-full font-semibold hover:bg-mentra-blue/90 transition-colors"
             >

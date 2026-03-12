@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import '../App.css';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
 import { Brain, Users, Star, Heart, Laptop2 } from 'lucide-react';
@@ -18,7 +18,7 @@ export default function About() {
             className="w-64 h-64 object-cover rounded-2xl shadow-lg border-4 border-journal-sand"
           />
           <div className="flex-1 text-left">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why We Built Mentra</h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why We Built Mentra</h1>
             <p className="text-xl text-gray-700 mb-2">
               Hi, I'm Edward Kerr—technologist, father, and founder. Mentra is my response to a world where AI is changing everything, including what it means to learn and succeed.
             </p>
