@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import '../App.css';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '../components/layout/PageTransition';
 import { ArrowRight, Package, BarChart3, Smartphone, Globe, Sparkles } from 'lucide-react';
@@ -10,33 +9,21 @@ const beliefs = [
   {
     title: 'AI should make itself less necessary',
     description: 'Every feature we build is measured by one question: does the student need us less than they did last month? Scaffolding fades. Coaching has hard limits. Independence is the product.',
-    color: 'mentra-blue',
   },
   {
     title: 'Humans stay in control at every level',
     description: 'Teachers override any AI decision. Parents gate all data. Districts kill-switch instantly. We built the architecture so that no one has to trust a black box.',
-    color: 'growth-green',
   },
   {
     title: 'Trust is earned by architecture, not promises',
     description: 'Fail-closed consent. Append-only audit trails. 57 automated policy gates. Every claim we make is demonstrable by inspecting the system — not by reading a policy document.',
-    color: 'grit-gold',
   },
 ];
-
-const colorMap: Record<string, { border: string; bg: string; text: string }> = {
-  'mentra-blue': { border: 'border-t-mentra-blue', bg: 'bg-mentra-blue/10', text: 'text-mentra-blue' },
-  'growth-green': { border: 'border-t-growth-green', bg: 'bg-growth-green/10', text: 'text-growth-green' },
-  'grit-gold': { border: 'border-t-grit-gold', bg: 'bg-grit-gold/10', text: 'text-grit-gold' },
-  'curiosity-coral': { border: 'border-t-curiosity-coral', bg: 'bg-curiosity-coral/10', text: 'text-curiosity-coral' },
-  'wisdom-purple': { border: 'border-t-wisdom-purple', bg: 'bg-wisdom-purple/10', text: 'text-wisdom-purple' },
-};
 
 const roadmapPhases = [
   {
     phase: 'Now',
     label: 'Building the Foundation',
-    color: 'mentra-blue',
     icon: Sparkles,
     items: [
       'Socratic AI tutoring that guides thinking, never gives answers',
@@ -49,7 +36,6 @@ const roadmapPhases = [
   {
     phase: 'Next',
     label: 'Beyond the Screen',
-    color: 'growth-green',
     icon: Package,
     items: [
       'Physical engineering kits shipped to schools — hands-on challenges with in-app assignments students complete',
@@ -61,7 +47,6 @@ const roadmapPhases = [
   {
     phase: 'Soon',
     label: 'Measuring What Actually Matters',
-    color: 'grit-gold',
     icon: BarChart3,
     items: [
       'New ways to measure human growth — not just grades, but resilience, curiosity, and how students approach problems they\'ve never seen',
@@ -73,7 +58,6 @@ const roadmapPhases = [
   {
     phase: 'Ahead',
     label: 'Meeting Students Where They Are',
-    color: 'curiosity-coral',
     icon: Smartphone,
     items: [
       'Native mobile experiences for learning on the go',
@@ -85,7 +69,6 @@ const roadmapPhases = [
   {
     phase: 'Vision',
     label: 'A New Standard for Learning',
-    color: 'wisdom-purple',
     icon: Globe,
     items: [
       'Open learner data standards so students own their growth story',
@@ -100,21 +83,21 @@ export default function About() {
   return (
     <PageTransition>
       <Header />
-      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center font-rounded">
+      <main className="min-h-screen bg-white flex flex-col items-center font-rounded">
 
         {/* Founder Story */}
-        <section className="container mx-auto px-4 pt-16 pb-20">
-          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+        <section className="container mx-auto px-4 pt-24 pb-24">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
             <img
               src="/images/other/edward-kerr.jpg"
               alt="Edward Kerr, Founder of Mentra"
-              className="w-52 h-52 md:w-64 md:h-64 object-cover rounded-2xl shadow-lg border-4 border-journal-sand flex-shrink-0"
+              className="w-52 h-52 md:w-64 md:h-64 object-cover rounded-2xl flex-shrink-0"
             />
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                Why We Built <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Mentra</span>
+                Why we built Mentra
               </h1>
-              <p className="text-xl text-gray-700 mb-3 leading-relaxed">
+              <p className="text-xl text-gray-600 mb-3 leading-relaxed">
                 I'm Edward Kerr — technologist, father, and founder. As a dad to Grace, Hope, and Joy, I watched AI change everything about what it means to learn and succeed.
               </p>
               <p className="text-lg text-gray-500 leading-relaxed">
@@ -124,26 +107,29 @@ export default function About() {
           </div>
         </section>
 
-        {/* What We Believe — 3 pillars matching homepage */}
-        <section className="w-full bg-white py-20">
+        {/* What We Believe */}
+        <section className="w-full bg-gray-50 py-24">
           <div className="container mx-auto px-4">
             <AnimateOnScroll>
-              <div className="max-w-4xl mx-auto text-center mb-12">
+              <div className="max-w-4xl mx-auto text-center mb-16">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                  Three Beliefs That <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Shape Everything</span> We Build
+                  Three beliefs that shape everything we build
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-500 leading-relaxed">
                   These aren't marketing lines. They're architectural decisions. Every feature, every policy gate, every design choice traces back to one of these.
                 </p>
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {beliefs.map((belief, i) => (
                 <AnimateOnScroll key={belief.title} delay={i * 100}>
-                  <div className={`bg-white rounded-2xl border border-gray-200 border-t-4 ${colorMap[belief.color].border} p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full`}>
+                  <div className="bg-white rounded-2xl border border-gray-200 p-6 h-full">
+                    <div className="w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-mentra-blue font-bold text-sm">{i + 1}</span>
+                    </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-3">{belief.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{belief.description}</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">{belief.description}</p>
                   </div>
                 </AnimateOnScroll>
               ))}
@@ -152,57 +138,54 @@ export default function About() {
         </section>
 
         {/* Roadmap */}
-        <section className="w-full py-20">
+        <section className="w-full py-24 bg-white">
           <div className="container mx-auto px-4">
             <AnimateOnScroll>
-              <div className="max-w-4xl mx-auto text-center mb-12">
+              <div className="max-w-4xl mx-auto text-center mb-16">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                  Where We're <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Going</span>
+                  Where we're going
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-500 leading-relaxed">
                   Mentra today is the foundation. What comes next pushes learning beyond the screen, beyond grades, and beyond what traditional ed-tech has attempted.
                 </p>
               </div>
             </AnimateOnScroll>
 
             {/* Timeline */}
-            <div className="max-w-4xl mx-auto">
-              <div className="relative pl-8 md:pl-12">
+            <div className="max-w-3xl mx-auto">
+              <div className="relative pl-10 md:pl-14">
                 {/* Vertical line */}
                 <div className="absolute left-[15px] md:left-[23px] top-0 w-0.5 h-full bg-gray-200 rounded-full" />
 
-                <div className="space-y-10">
-                  {roadmapPhases.map((phase, i) => {
-                    const colors = colorMap[phase.color];
-                    return (
-                      <AnimateOnScroll key={phase.phase} delay={i * 80}>
-                        <div className="relative">
-                          {/* Node */}
-                          <div className={`absolute -left-8 md:-left-12 top-1 w-[31px] h-[31px] rounded-full ${colors.bg} border-2 border-transparent flex items-center justify-center`}>
-                            <phase.icon className={`w-4 h-4 ${colors.text}`} />
-                          </div>
-
-                          {/* Content */}
-                          <div className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
-                            <div className="flex items-center gap-3 mb-3">
-                              <span className={`text-xs font-bold uppercase tracking-wider ${colors.text} ${colors.bg} px-2.5 py-1 rounded-full`}>
-                                {phase.phase}
-                              </span>
-                              <h3 className="text-lg font-bold text-gray-900">{phase.label}</h3>
-                            </div>
-                            <ul className="space-y-2">
-                              {phase.items.map((item, j) => (
-                                <li key={j} className="flex items-start gap-2.5 text-gray-600 text-sm leading-relaxed">
-                                  <ArrowRight className={`w-3.5 h-3.5 ${colors.text} flex-shrink-0 mt-1`} />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                <div className="space-y-8">
+                  {roadmapPhases.map((phase, i) => (
+                    <AnimateOnScroll key={phase.phase} delay={i * 80}>
+                      <div className="relative">
+                        {/* Node */}
+                        <div className="absolute -left-10 md:-left-14 top-1 w-[31px] h-[31px] rounded-full bg-mentra-blue/10 flex items-center justify-center">
+                          <phase.icon className="w-4 h-4 text-mentra-blue" />
                         </div>
-                      </AnimateOnScroll>
-                    );
-                  })}
+
+                        {/* Content */}
+                        <div className="bg-gray-50 rounded-2xl border border-gray-100 p-6">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="text-xs font-bold uppercase tracking-wider text-mentra-blue bg-mentra-blue/10 px-2.5 py-1 rounded-full">
+                              {phase.phase}
+                            </span>
+                            <h3 className="text-lg font-bold text-gray-900">{phase.label}</h3>
+                          </div>
+                          <ul className="space-y-2">
+                            {phase.items.map((item, j) => (
+                              <li key={j} className="flex items-start gap-2.5 text-gray-500 text-sm leading-relaxed">
+                                <ArrowRight className="w-3.5 h-3.5 text-mentra-blue flex-shrink-0 mt-1" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </AnimateOnScroll>
+                  ))}
                 </div>
               </div>
             </div>
@@ -210,15 +193,15 @@ export default function About() {
         </section>
 
         {/* Sign-off */}
-        <section className="w-full bg-white py-16">
+        <section className="w-full bg-gray-50 py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <AnimateOnScroll>
-                <p className="text-lg text-gray-600 italic mb-4 leading-relaxed">
+                <p className="text-lg text-gray-500 italic mb-4 leading-relaxed">
                   "The AI is training wheels, not a motor. Every feature is designed to transfer capability to the student — not create a crutch they can't walk without."
                 </p>
                 <p className="font-bold text-gray-900">Edward Kerr</p>
-                <p className="text-sm text-gray-500">Founder, Mentra</p>
+                <p className="text-sm text-gray-400">Founder, Mentra</p>
               </AnimateOnScroll>
             </div>
           </div>
