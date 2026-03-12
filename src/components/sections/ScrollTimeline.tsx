@@ -114,12 +114,12 @@ export default function ScrollTimeline({ steps }: ScrollTimelineProps) {
         </nav>
 
         {/* Right: scrollable step content */}
-        <div className="lg:col-span-3 space-y-8">
+        <div className="lg:col-span-3 space-y-4">
           {steps.map((step, i) => (
             <div
               key={step.number}
               ref={(el) => { stepRefs.current[i] = el; }}
-              className={`min-h-[40vh] flex items-center transition-all duration-500 ${
+              className={`min-h-[20vh] flex items-center transition-all duration-500 ${
                 prefersReducedMotion
                   ? 'opacity-100'
                   : i === activeStep

@@ -11,28 +11,28 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "My students now reflect on their learning journey instead of just completing assignments. The shift in how they talk about their own thinking has been remarkable.",
+    quote: "My students used to rush through assignments just to finish. Now they stop and ask themselves why they got something wrong. That shift didn't come from me — it came from how Mentra taught them to reflect.",
     author: "Sarah Chen",
     role: "5th Grade Teacher",
     color: "curiosity-coral",
     avatar: "/images/logos/mentra-logo-alt.png",
   },
   {
-    quote: "I can see my child's emotional growth alongside their academic progress.",
+    quote: "I finally stopped muting the school app. Mentra only pings me when something actually matters — and when it does, I know exactly what to do about it.",
     author: "Michael Rodriguez",
     role: "Parent of 8-year-old",
     color: "growth-green",
     avatar: "/images/sprig/sprig-wave.png",
   },
   {
-    quote: "I learned to ask better questions and think through problems step by step.",
+    quote: "When I get stuck now, I don't just guess. I ask myself what I actually know and what's confusing me. Sprig taught me how to do that.",
     author: "Emma, Age 10",
     role: "Student",
     color: "grit-gold",
     avatar: "/images/sprig/sprig-thinking.png",
   },
   {
-    quote: "Students develop metacognitive skills that transfer to all subjects.",
+    quote: "We evaluated a dozen AI platforms. Mentra was the only one our data governance team approved on the first review — FERPA controls, explainability, kill switch, all built in.",
     author: "Dr. Amanda Foster",
     role: "School Principal",
     color: "mentra-blue",
@@ -48,13 +48,11 @@ const colorTextMap: Record<string, string> = {
   'wisdom-purple': 'text-wisdom-purple',
 };
 
-function TestimonialCard({ t, featured = false }: { t: Testimonial; featured?: boolean }) {
+function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <div className={`bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 ${featured ? 'p-8 sm:p-10' : 'p-6'} relative`}>
-      {featured && (
-        <span className="absolute -top-2 -left-1 text-8xl leading-none text-mentra-blue/10 font-serif pointer-events-none select-none" aria-hidden="true">"</span>
-      )}
-      <blockquote className={`${featured ? 'text-xl lg:text-2xl' : 'text-base'} text-gray-800 leading-relaxed mb-6 font-medium relative z-10`}>
+    <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-8 relative h-full flex flex-col">
+      <span className="absolute -top-2 -left-1 text-6xl leading-none text-mentra-blue/10 font-serif pointer-events-none select-none" aria-hidden="true">"</span>
+      <blockquote className="text-base lg:text-lg text-gray-800 leading-relaxed mb-6 font-medium relative z-10 flex-1">
         "{t.quote}"
       </blockquote>
       <div className="flex items-center gap-3">
@@ -63,12 +61,12 @@ function TestimonialCard({ t, featured = false }: { t: Testimonial; featured?: b
           alt=""
           width="48"
           height="48"
-          className={`${featured ? 'w-12 h-12' : 'w-10 h-10'} object-contain rounded-full`}
+          className="w-10 h-10 object-contain rounded-full"
           loading="lazy"
         />
         <div>
-          <p className={`${featured ? 'text-base' : 'text-sm'} font-bold text-gray-900`}>{t.author}</p>
-          <p className={`${featured ? 'text-sm' : 'text-xs'} font-medium ${colorTextMap[t.color] || 'text-mentra-blue'}`}>{t.role}</p>
+          <p className="text-sm font-bold text-gray-900">{t.author}</p>
+          <p className={`text-xs font-medium ${colorTextMap[t.color] || 'text-mentra-blue'}`}>{t.role}</p>
         </div>
       </div>
     </div>
@@ -82,9 +80,8 @@ const TestimonialsSection = () => {
     setMobileIndex((prev) => (prev + 1) % testimonials.length);
   }, []);
 
-  // Auto-rotate on mobile only — no interval on desktop since all cards are visible
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1024px)');
+    const mq = window.matchMedia('(min-width: 768px)');
     if (mq.matches) return;
     const timer = setInterval(nextMobile, 6000);
     return () => clearInterval(timer);
@@ -97,48 +94,21 @@ const TestimonialsSection = () => {
     >
       <div className="container mx-auto px-4">
         <AnimateOnScroll>
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2
               id="testimonials-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-balance"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
             >
               Why Mentra <span className="text-mentra-blue">Works</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Hear from the families, educators, and students who have experienced the transformative power of learning with Sprig.
-            </p>
           </div>
         </AnimateOnScroll>
 
-        {/* Desktop: featured + 2 supporting */}
-        <div className="hidden lg:grid lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
-          <AnimateOnScroll className="lg:col-span-3 flex" variant="fade-in-left">
-            <TestimonialCard t={testimonials[0]} featured />
-          </AnimateOnScroll>
-          <div className="lg:col-span-2 flex flex-col gap-6">
-            <AnimateOnScroll variant="fade-in-right" delay={100} className="flex-1 flex">
-              <TestimonialCard t={testimonials[1]} />
-            </AnimateOnScroll>
-            <AnimateOnScroll variant="fade-in-right" delay={200} className="flex-1 flex">
-              <TestimonialCard t={testimonials[2]} />
-            </AnimateOnScroll>
-          </div>
-        </div>
-
-        {/* Additional card below on desktop */}
-        <div className="hidden lg:block max-w-6xl mx-auto mt-6">
-          <AnimateOnScroll delay={300}>
-            <div className="max-w-md mx-auto">
-              <TestimonialCard t={testimonials[3]} />
-            </div>
-          </AnimateOnScroll>
-        </div>
-
-        {/* Tablet: 2-column grid */}
-        <div className="hidden md:grid lg:hidden md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {testimonials.slice(0, 4).map((t, i) => (
+        {/* Desktop & Tablet: uniform 2x2 grid */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {testimonials.map((t, i) => (
             <AnimateOnScroll key={t.author} delay={i * 100}>
-              <TestimonialCard t={t} featured={i === 0} />
+              <TestimonialCard t={t} />
             </AnimateOnScroll>
           ))}
         </div>
@@ -146,7 +116,7 @@ const TestimonialsSection = () => {
         {/* Mobile: single card with dots */}
         <div className="md:hidden max-w-lg mx-auto">
           <AnimateOnScroll variant="scale-in">
-            <TestimonialCard t={testimonials[mobileIndex]} featured />
+            <TestimonialCard t={testimonials[mobileIndex]} />
           </AnimateOnScroll>
           <div className="flex justify-center gap-2 mt-6" role="tablist" aria-label="Testimonial navigation">
             {testimonials.map((_, idx) => (

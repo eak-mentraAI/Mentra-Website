@@ -3,12 +3,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import useSprigExpression from '@/hooks/useSprigExpression';
 
-const pills = [
-  { text: 'Adaptive Learning', color: 'mentra-blue', position: 'top-28 left-8 lg:left-16', delay: '0s' },
-  { text: 'AI-Powered', color: 'growth-green', position: 'top-16 right-8 lg:right-24', delay: '0.5s' },
-  { text: 'FERPA Compliant', color: 'wisdom-purple', position: 'bottom-36 left-12 lg:left-24', delay: '1s' },
-];
-
 const HeroSection = () => {
   const { src: sprigSrc } = useSprigExpression();
 
@@ -29,19 +23,6 @@ const HeroSection = () => {
 
       {/* Radial glow behind Sprig area */}
       <div className="hidden lg:block absolute right-[10%] top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-mentra-blue/15 via-wisdom-purple/8 to-transparent rounded-full blur-3xl pointer-events-none z-0" aria-hidden="true" />
-
-      {/* Floating pill badges — desktop only */}
-      {pills.map((pill) => (
-        <div
-          key={pill.text}
-          className={`hidden lg:flex absolute ${pill.position} items-center gap-1.5 px-3 py-1.5 rounded-full bg-${pill.color}/10 border border-${pill.color}/20 text-${pill.color} text-xs font-medium animate-float pointer-events-none z-10`}
-          style={{ animationDelay: pill.delay }}
-          aria-hidden="true"
-        >
-          <div className={`w-1.5 h-1.5 rounded-full bg-${pill.color}`} />
-          {pill.text}
-        </div>
-      ))}
 
       <div className="mx-auto max-w-screen-xl px-4 py-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center justify-between">
