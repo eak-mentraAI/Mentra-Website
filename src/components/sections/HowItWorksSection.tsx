@@ -1,52 +1,7 @@
 import React from 'react';
-import { BookOpen, Heart, Star, Sparkles, Shield, FileText, Users, BarChart3, Trophy, Settings2, ShieldCheck } from 'lucide-react';
+import { BookOpen, Sparkles, FileText, Users, BarChart3 } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScrollTimeline from '@/components/sections/ScrollTimeline';
-
-const demoFeatures = [
-  {
-    icon: Trophy,
-    color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    title: "Personalized Dashboards",
-    description: "See how students track their progress with motivating challenges and celebrations.",
-  },
-  {
-    icon: Heart,
-    color: "curiosity-coral",
-    bgColor: "curiosity-coral/10",
-    title: "Emotional Intelligence",
-    description: "Watch guided journaling that builds self-awareness and emotional growth.",
-  },
-  {
-    icon: Settings2,
-    color: "growth-green",
-    bgColor: "growth-green/10",
-    title: "AI Skills Development",
-    description: "See students master agent orchestration and prompt engineering skills.",
-  },
-  {
-    icon: Sparkles,
-    color: "grit-gold",
-    bgColor: "grit-gold/10",
-    title: "Pedagogical AI",
-    description: "Watch AI trained in educational frameworks guide deeper understanding.",
-  },
-  {
-    icon: ShieldCheck,
-    color: "wisdom-purple",
-    bgColor: "wisdom-purple/10",
-    title: "Safe Learning Environment",
-    description: "See how our architecture supports individualized learning safely.",
-  },
-  {
-    icon: Users,
-    color: "mentra-blue",
-    bgColor: "mentra-blue/10",
-    title: "Educator Insights",
-    description: "Watch how teachers and parents get meaningful insights to support growth.",
-  },
-];
 
 const flywheel = [
   {
@@ -107,28 +62,6 @@ const HowItWorksSection = () => {
             className="w-full h-full rounded-2xl"
           ></iframe>
         </div>
-
-        {/* What You'll Discover */}
-        <AnimateOnScroll>
-          <div className="mb-12 w-full container mx-auto px-4">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center text-balance">
-              What <span className="text-mentra-blue">You'll Discover</span> in the Demo
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {demoFeatures.map((feature, i) => (
-                <AnimateOnScroll key={feature.title} delay={i * 100}>
-                  <div className="flex flex-col items-center text-center">
-                    <div className={`w-16 h-16 flex items-center justify-center rounded-full bg-${feature.bgColor} mb-4`}>
-                      <feature.icon className={`w-8 h-8 text-${feature.color}`} />
-                    </div>
-                    <div className="font-bold text-lg text-gray-900 mb-2">{feature.title}</div>
-                    <div className="text-gray-600 text-sm">{feature.description}</div>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </div>
-        </AnimateOnScroll>
 
         {/* The Mentra Flywheel of Growth */}
         <div className="w-full container mx-auto px-4">

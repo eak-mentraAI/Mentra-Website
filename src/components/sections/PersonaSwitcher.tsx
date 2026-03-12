@@ -6,12 +6,6 @@ const PersonaSwitcher = () => {
   const [activeId, setActiveId] = useState('students');
   const active = personas.find((p) => p.id === activeId)!;
 
-  const handleScrollToPricing = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const el = document.getElementById('pricing');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="personas" className="py-16 bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10">
       <div className="container mx-auto px-4">
@@ -72,7 +66,7 @@ const PersonaSwitcher = () => {
           )}
 
           {/* Blurb grid */}
-          <div className="max-w-6xl mx-auto mb-12">
+          <div className="max-w-6xl mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {active.blurbs.map((b, i) => (
                 <AnimateOnScroll key={b.title} delay={i * 100}>
@@ -86,68 +80,6 @@ const PersonaSwitcher = () => {
                 </AnimateOnScroll>
               ))}
             </div>
-          </div>
-
-          {/* Trust section */}
-          {active.trustSection && (
-            <div className="max-w-3xl mx-auto mb-12">
-              <div className={`${active.id === 'students' ? 'bg-mentra-blue/5' : 'bg-journal-sand/50'} rounded-2xl p-6 sm:p-8 text-center`}>
-                <h4 className="text-xl font-bold text-gray-900 mb-3">{active.trustSection.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed max-w-2xl mx-auto">
-                  {active.trustSection.text}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Institutions quote (no trustSection but has a quote) */}
-          {active.id === 'institutions' && (
-            <div className="max-w-3xl mx-auto mb-12">
-              <div className="bg-journal-sand/50 rounded-2xl p-6 sm:p-8 text-center">
-                <p className="text-gray-700 text-sm leading-relaxed italic">
-                  "Mentra builds durable learner intelligence — not just assignment completion. It's a human development platform that happens to have the strongest compliance architecture in K-12 ed-tech."
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* CTA */}
-          <div className="max-w-xl mx-auto text-center">
-            {active.cta.type === 'button' ? (
-              <button
-                onClick={handleScrollToPricing}
-                className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all duration-200"
-              >
-                {active.cta.buttonLabel}
-              </button>
-            ) : (
-              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
-                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  {active.cta.heading}
-                </h4>
-                <p className="text-gray-600 mb-6">{active.cta.subtext}</p>
-                <form action="https://formspree.io/f/meokybnp" method="POST" className="space-y-3">
-                  {active.cta.fields?.map((f) => (
-                    <input
-                      key={f.name}
-                      type={f.type}
-                      name={f.name}
-                      required={f.required}
-                      placeholder={f.placeholder}
-                      className="w-full px-4 py-3 rounded-lg bg-journal-sand/30 border border-gray-200 focus:border-mentra-blue focus:ring-2 focus:ring-mentra-blue/20 focus:shadow-[0_0_0_4px_rgba(58,134,255,0.08)] focus:bg-white transition-all duration-200 text-base placeholder:text-gray-400"
-                      aria-label={f.placeholder}
-                    />
-                  ))}
-                  <input type="hidden" name="context" value={active.cta.formContext} />
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-mentra-blue to-mentra-blue/85 text-white font-semibold py-3 rounded-full hover:from-mentra-blue/95 hover:to-mentra-blue/80 hover:shadow-lg hover:shadow-mentra-blue/25 active:scale-[0.98] transition-all duration-200 text-base"
-                  >
-                    {active.cta.buttonLabel}
-                  </button>
-                </form>
-              </div>
-            )}
           </div>
         </div>
       </div>

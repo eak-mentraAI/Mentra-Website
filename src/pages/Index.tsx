@@ -8,7 +8,6 @@ import HowItWorksSection from '../components/sections/HowItWorksSection';
 import PersonaSwitcher from '../components/sections/PersonaSwitcher';
 import FeaturesSection from '../components/sections/FeaturesSection';
 import TestimonialsSection from '../components/sections/TestimonialsSection';
-import SprigActionSection from '../components/sections/SprigActionSection';
 import PricingSection from '../components/sections/PricingSection';
 import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
@@ -43,12 +42,10 @@ const Index = () => {
       <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-grit-gold/40 to-curiosity-coral/40" />
       <TestimonialsSection />
       <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-curiosity-coral/40 to-mentra-blue/40" />
-      <SprigActionSection />
-      <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-mentra-blue/40 to-growth-green/40" />
       <PricingSection />
-      <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-growth-green/40 to-wisdom-purple/40" />
+      <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-mentra-blue/40 to-growth-green/40" />
       <FAQSection />
-      <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-wisdom-purple/40 to-grit-gold/40" />
+      <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-growth-green/40 to-wisdom-purple/40" />
       <CTASection />
       <Footer />
     </div>
