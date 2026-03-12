@@ -60,7 +60,7 @@ const AboutSection = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <img
-                    src="/images/sprig/sprig-wave.png"
+                    src="/images/sprig/nerd.png"
                     alt="Sprig mascot"
                     width="64"
                     height="64"
@@ -82,8 +82,8 @@ const AboutSection = () => {
 
                 <div className="flex items-center gap-4">
                   <img
-                    src="/images/sprig/sprig-thinking.png"
-                    alt="Sprig with star"
+                    src="/images/sprig/explorer.png"
+                    alt="Sprig explorer"
                     width="64"
                     height="64"
                     className="w-16 h-16 object-contain animate-float"

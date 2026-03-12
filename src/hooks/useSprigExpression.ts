@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 type SprigExpression = 'wave' | 'thinking' | 'happy';
 
 const expressionImageMap: Record<SprigExpression, string> = {
-  wave: '/images/sprig/sprig-wave.png',
-  thinking: '/images/sprig/sprig-thinking.png',
-  happy: '/images/sprig/sprig-happy.png',
+  wave: '/images/sprig/happy-sprig.png',
+  thinking: '/images/sprig/nerd.png',
+  happy: '/images/sprig/superfan.png',
 };
 
 export default function useSprigExpression(): { expression: SprigExpression; src: string } {

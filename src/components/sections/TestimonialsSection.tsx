@@ -15,28 +15,28 @@ const testimonials: Testimonial[] = [
     author: "Sarah Chen",
     role: "5th Grade Teacher",
     color: "curiosity-coral",
-    avatar: "/images/logos/mentra-logo-alt.png",
+    avatar: "/images/sprig/fem-teacher.png",
   },
   {
     quote: "I finally stopped muting the school app. Mentra only pings me when something actually matters — and when it does, I know exactly what to do. My attention isn't wasted, so I actually trust it.",
     author: "Michael Rodriguez",
     role: "Parent of 8-year-old",
     color: "growth-green",
-    avatar: "/images/sprig/sprig-wave.png",
+    avatar: "/images/sprig/superfan.png",
   },
   {
     quote: "When I get stuck now, I don't just guess. I ask myself what I actually know and what's confusing me. Sprig taught me how to do that — and now I do it even without Sprig.",
     author: "Emma, Age 10",
     role: "Student",
     color: "grit-gold",
-    avatar: "/images/sprig/sprig-thinking.png",
+    avatar: "/images/sprig/football.png",
   },
   {
     quote: "We evaluated a dozen AI platforms. Mentra was the only one where every claim was provable — not promised in a contract, but demonstrable in the architecture. Our governance team approved it on the first review.",
     author: "Dr. Amanda Foster",
     role: "School Principal",
     color: "mentra-blue",
-    avatar: "/images/sprig/sprig-hero.png",
+    avatar: "/images/sprig/spy.png",
   },
 ];
 

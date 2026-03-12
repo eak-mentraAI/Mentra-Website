@@ -28,7 +28,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 px-4">
           <div className="text-center max-w-md">
             <img
-              src="/images/sprig/sprig-hero.png"
+              src="/images/sprig/sleepy.png"
               alt="Sprig"
               width="96"
               height="96"

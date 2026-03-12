@@ -50,7 +50,7 @@ const CTASection = () => {
             </p>
             <div className="flex items-center justify-center gap-3">
               <img
-                src="/images/sprig/sprig-wave.png"
+                src="/images/sprig/happy-sprig.png"
                 alt="Sprig"
                 width="32"
                 height="32"

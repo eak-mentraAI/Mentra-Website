@@ -6,28 +6,28 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 const SprigActionSection = () => {
   const sprigStories = [
     {
-      image: "/images/sprig/sprig-hero.png",
+      image: "/images/sprig/idea.png",
       title: "Eureka Moments",
       description: "When understanding clicks, Sprig celebrates your breakthrough with encouraging insights and next-step guidance.",
       bgColor: "grit-gold/10",
       accentColor: "grit-gold"
     },
     {
-      image: "/images/sprig/sprig-thinking.png",
+      image: "/images/sprig/football.png",
       title: "Achievement Unlocked",
       description: "Every milestone matters. Sprig helps you recognize progress and builds confidence for bigger challenges ahead.",
       bgColor: "curiosity-coral/10",
       accentColor: "curiosity-coral"
     },
     {
-      image: "/images/sprig/sprig-happy.png",
+      image: "/images/sprig/nerd.png",
       title: "Thoughtful Reflection",
       description: "Dive deep into learning through guided journaling that connects emotions with academic growth.",
       bgColor: "mentra-blue/10",
       accentColor: "mentra-blue"
     },
     {
-      image: "/images/sprig/MENTRA_SPRIG_HEART.png",
+      image: "/images/sprig/happy-sprig.png",
       title: "Gentle Encouragement",
       description: "On challenging days, Sprig provides emotional support and adaptive learning strategies.",
       bgColor: "growth-green/10",
