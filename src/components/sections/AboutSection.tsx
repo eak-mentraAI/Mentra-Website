@@ -12,7 +12,7 @@ const AboutSection = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-balance">
-                Mentra was founded to help every child <span className="text-mentra-blue">thrive</span> in an AI-powered world.
+                Mentra was founded to help every child <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">thrive</span> in an AI-powered world.
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
                 We believe in nurturing critical thinking, emotional intelligence, and lifelong learning—so students don't just keep up, they grow.

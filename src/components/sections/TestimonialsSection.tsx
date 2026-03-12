@@ -99,7 +99,7 @@ const TestimonialsSection = () => {
               id="testimonials-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
             >
-              Why Mentra <span className="text-mentra-blue">Works</span>
+              Why Mentra <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Works</span>
             </h2>
           </div>
         </AnimateOnScroll>

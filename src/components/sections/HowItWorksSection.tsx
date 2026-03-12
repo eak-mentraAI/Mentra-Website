@@ -64,7 +64,7 @@ const HowItWorksSection = () => {
         <div className="w-full container mx-auto px-4">
           <AnimateOnScroll>
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center text-balance">
-              The Mentra Flywheel of <span className="bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent">Growth</span>
+              The Mentra Flywheel of <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Growth</span>
             </h3>
           </AnimateOnScroll>
           <ScrollTimeline steps={flywheel} />

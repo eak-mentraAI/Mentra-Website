@@ -8,7 +8,7 @@ const HighlightText = ({ text }: { text: string }) => {
     <>
       {parts.map((part, i) => {
         if (part.startsWith('{') && part.endsWith('}')) {
-          return <span key={i} className="text-mentra-blue">{part.slice(1, -1)}</span>;
+          return <span key={i} className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">{part.slice(1, -1)}</span>;
         }
         return <React.Fragment key={i}>{part}</React.Fragment>;
       })}
@@ -83,7 +83,7 @@ const SectionHeader = ({ section, highlight }: { section: string; highlight: str
   const parts = section.split(highlight);
   return (
     <>
-      {parts[0]}<span className="text-mentra-blue">{highlight}</span>{parts[1] ?? ''}
+      {parts[0]}<span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">{highlight}</span>{parts[1] ?? ''}
     </>
   );
 };
@@ -93,14 +93,14 @@ const FAQSection = () => {
     <section id="faq" className="py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center">
-          Frequently Asked <span className="text-mentra-blue">Questions</span>
+          Frequently Asked <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Questions</span>
         </h2>
 
         <div className="space-y-12 mb-12 max-w-4xl mx-auto">
           {faqSections.map((section, sIdx) => (
             <AnimateOnScroll key={section.section}>
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-mentra-blue mb-6 tracking-tight">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
                   <SectionHeader section={section.section} highlight={section.highlight} />
                 </h3>
                 <Accordion type="single" collapsible className="w-full space-y-4">
