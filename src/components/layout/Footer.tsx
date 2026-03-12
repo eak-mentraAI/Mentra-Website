@@ -17,7 +17,6 @@ const Footer = () => {
 
   const footerLinks = {
     product: [
-      { name: 'Features', anchor: 'features' },
       { name: 'How it Works', anchor: 'how-it-works' },
       { name: 'For You', anchor: 'personas' },
       { name: 'Pricing', anchor: 'pricing' },
