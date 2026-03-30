@@ -149,8 +149,17 @@ const Header = () => {
           })}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block flex-shrink-0">
+        {/* CTA Buttons */}
+        <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+          <a href="https://app.mymentra.ai/login" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="outline"
+              className="px-6 py-2 rounded-full font-medium transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+              aria-label="Login to Mentra"
+            >
+              Login
+            </Button>
+          </a>
           <Button
             className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow-md focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
             aria-label="Start your journey with Mentra"
@@ -209,7 +218,16 @@ const Header = () => {
                 </Link>
               );
             })}
-            <div className="px-4 pt-2">
+            <div className="px-4 pt-2 flex flex-col gap-3">
+              <a href="https://app.mymentra.ai/login" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  className="w-full px-6 py-2 rounded-full font-medium focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                  aria-label="Login to Mentra"
+                >
+                  Login
+                </Button>
+              </a>
               <Button
                 className="w-full bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                 aria-label="Start your journey with Mentra"
