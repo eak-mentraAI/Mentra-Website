@@ -2,7 +2,135 @@ import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import PageTransition from '../components/layout/PageTransition';
+import LegalSection, { type LegalSectionItem } from '../components/shared/LegalSection';
+import LegalTableOfContents from '../components/shared/LegalTableOfContents';
 import '../App.css';
+
+const sections: LegalSectionItem[] = [
+  {
+    id: 'introduction',
+    title: 'Introduction',
+    content: (
+      <p className="text-gray-700">
+        Welcome to Mentra! These terms help us <span className="text-mentra-blue">protect</span> your learning experience while ensuring our platform remains safe and effective for everyone. By using Mentra, you agree to these terms.
+      </p>
+    ),
+  },
+  {
+    id: 'what-mentra-provides',
+    title: 'What Mentra Provides',
+    content: (
+      <>
+        <p className="text-gray-700 mb-4">
+          Mentra is an AI-powered learning platform that supports students, educators, and parents through:
+        </p>
+        <ul className="list-disc list-inside text-gray-700 ml-4">
+          <li>Personalized AI learning experiences</li>
+          <li>Educational content and progress tracking</li>
+          <li>Communication tools for learning communities</li>
+          <li>Mobile and web access to learning materials</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: 'account-security',
+    title: 'Your Account Security',
+    content: (
+      <p className="text-gray-700">
+        You're responsible for keeping your account secure. Please provide accurate information and notify us immediately of any unauthorized access. Users under 13 need parental consent, and users 13-18 may need consent depending on local laws.
+      </p>
+    ),
+  },
+  {
+    id: 'responsible-use',
+    title: 'How to Use Mentra Responsibly',
+    content: (
+      <>
+        <p className="text-gray-700 mb-4">Please don't:</p>
+        <ul className="list-disc list-inside text-gray-700 ml-4">
+          <li>Share your account with others</li>
+          <li>Upload harmful or inappropriate content</li>
+          <li>Try to access our systems without permission</li>
+          <li>Use automated tools to access our platform</li>
+          <li>Use Mentra for commercial purposes without our permission</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: 'content-ownership',
+    title: 'Content and Ownership',
+    content: (
+      <p className="text-gray-700">
+        You own your content. We own our platform. When you share content with us, you give us permission to use it to provide and improve our services. Our AI generates insights based on your content to help your learning journey.
+      </p>
+    ),
+  },
+  {
+    id: 'privacy',
+    title: 'Your Privacy Matters',
+    content: (
+      <p className="text-gray-700">
+        We protect your data as outlined in our Privacy Policy. While we implement strong security measures, no internet transmission is 100% secure. We're committed to keeping your information safe.
+      </p>
+    ),
+  },
+  {
+    id: 'service-availability',
+    title: 'Service Availability',
+    content: (
+      <p className="text-gray-700">
+        We work hard to keep Mentra running smoothly, but we can't guarantee uninterrupted access. We may update our services or these terms occasionally. Continued use means you accept any changes.
+      </p>
+    ),
+  },
+  {
+    id: 'limitations',
+    title: 'Important Limitations',
+    content: (
+      <p className="text-gray-700">
+        Mentra is provided "as is" without warranties. While we support learning, we can't guarantee specific educational outcomes — success depends on many factors. We're not liable for indirect damages from using our platform.
+      </p>
+    ),
+  },
+  {
+    id: 'termination',
+    title: 'Account Termination',
+    content: (
+      <p className="text-gray-700">
+        We may suspend or terminate accounts that violate these terms. Upon termination, your access ends immediately, but certain terms survive to protect both parties.
+      </p>
+    ),
+  },
+  {
+    id: 'legal-matters',
+    title: 'Legal Matters',
+    content: (
+      <p className="text-gray-700">
+        These terms are governed by California law. Any disputes will be resolved through arbitration in San Francisco. If any part of these terms is invalid, the rest remains enforceable.
+      </p>
+    ),
+  },
+  {
+    id: 'contact-us',
+    title: 'Contact Us',
+    content: (
+      <>
+        <p className="text-gray-700 mb-4">
+          We're here to help! Reach out with any questions about these terms:
+        </p>
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <p className="text-gray-700 mb-2"><strong>Email:</strong> legal@mentra.ai</p>
+          <p className="text-gray-700 mb-2"><strong>Address:</strong> San Francisco, CA</p>
+          <p className="text-gray-700">
+            <strong>Legal Contact:</strong> Edward Kerr, Founder
+          </p>
+        </div>
+      </>
+    ),
+  },
+];
 
 export default function Terms() {
   return (
@@ -21,100 +149,11 @@ export default function Terms() {
           </div>
         </section>
         <section className="container mx-auto px-4">
-          <div className="prose prose-lg max-w-none text-left">
-            <section className="mb-8">
-              <p className="text-gray-700 mb-4">
-                Welcome to Mentra! These terms help us <span className="text-mentra-blue">protect</span> your learning experience while ensuring our platform remains safe and effective for everyone. By using Mentra, you agree to these terms.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">What Mentra <span className="text-mentra-blue">Provides</span></h2>
-              <p className="text-gray-700 mb-4">
-                Mentra is an AI-powered learning platform that supports students, educators, and parents through:
-              </p>
-              <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
-                <li>Personalized AI learning experiences</li>
-                <li>Educational content and progress tracking</li>
-                <li>Communication tools for learning communities</li>
-                <li>Mobile and web access to learning materials</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Your Account <span className="text-mentra-blue">Security</span></h2>
-              <p className="text-gray-700 mb-4">
-                You're responsible for keeping your account secure. Please provide accurate information and notify us immediately of any unauthorized access. Users under 13 need parental consent, and users 13-18 may need consent depending on local laws.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">How to <span className="text-mentra-blue">Use</span> Mentra Responsibly</h2>
-              <p className="text-gray-700 mb-4">Please don't:</p>
-              <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
-                <li>Share your account with others</li>
-                <li>Upload harmful or inappropriate content</li>
-                <li>Try to access our systems without permission</li>
-                <li>Use automated tools to access our platform</li>
-                <li>Use Mentra for commercial purposes without our permission</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Content and <span className="text-mentra-blue">Ownership</span></h2>
-              <p className="text-gray-700 mb-4">
-                You own your content. We own our platform. When you share content with us, you give us permission to use it to provide and improve our services. Our AI generates insights based on your content to help your learning journey.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Your <span className="text-mentra-blue">Privacy</span> Matters</h2>
-              <p className="text-gray-700 mb-4">
-                We protect your data as outlined in our Privacy Policy. While we implement strong security measures, no internet transmission is 100% secure. We're committed to keeping your information safe.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Service <span className="text-mentra-blue">Availability</span></h2>
-              <p className="text-gray-700 mb-4">
-                We work hard to keep Mentra running smoothly, but we can't guarantee uninterrupted access. We may update our services or these terms occasionally. Continued use means you accept any changes.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Important <span className="text-mentra-blue">Limitations</span></h2>
-              <p className="text-gray-700 mb-4">
-                Mentra is provided "as is" without warranties. While we support learning, we can't guarantee specific educational outcomes—success depends on many factors. We're not liable for indirect damages from using our platform.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Account <span className="text-mentra-blue">Termination</span></h2>
-              <p className="text-gray-700 mb-4">
-                We may suspend or terminate accounts that violate these terms. Upon termination, your access ends immediately, but certain terms survive to protect both parties.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Legal <span className="text-mentra-blue">Matters</span></h2>
-              <p className="text-gray-700 mb-4">
-                These terms are governed by California law. Any disputes will be resolved through arbitration in San Francisco. If any part of these terms is invalid, the rest remains enforceable.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-mentra-blue mb-4">Questions? <span className="text-mentra-blue">Contact</span> Us</h2>
-              <p className="text-gray-700 mb-4">
-                We're here to help! Reach out with any questions about these terms:
-              </p>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-gray-700 mb-2"><strong>Email:</strong> legal@mentra.ai</p>
-                <p className="text-gray-700 mb-2"><strong>Address:</strong> San Francisco, CA</p>
-                <p className="text-gray-700">
-                  <strong>Legal Contact:</strong> Edward Kerr, Founder
-                </p>
-              </div>
-            </section>
+          <div className="flex gap-10 max-w-5xl mx-auto">
+            <LegalTableOfContents sections={sections} />
+            <div className="flex-1 min-w-0">
+              <LegalSection sections={sections} storageKey="terms" />
+            </div>
           </div>
         </section>
       </main>
@@ -122,4 +161,4 @@ export default function Terms() {
     </div>
     </PageTransition>
   );
-} 
+}

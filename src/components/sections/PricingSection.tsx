@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { CheckCircle2, ArrowRight, Users, Building2, Landmark, GraduationCap } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 
 const tiers = [
   {
@@ -165,26 +172,34 @@ const PricingSection = () => {
           })}
         </div>
 
-        {/* Toggle for detailed pricing */}
+        {/* View Detailed Pricing Button */}
         <AnimateOnScroll>
           <div className="text-center mb-10">
             <button
-              onClick={() => setShowDetails(!showDetails)}
+              onClick={() => setShowDetails(true)}
               className="inline-flex items-center gap-2 text-mentra-blue font-semibold text-sm hover:underline transition-all"
             >
-              {showDetails ? 'Hide detailed pricing' : 'View detailed pricing'}
-              <ArrowRight className={`w-4 h-4 transition-transform duration-200 ${showDetails ? 'rotate-90' : ''}`} />
+              View Detailed Pricing
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </AnimateOnScroll>
 
-        {showDetails && (
-          <div className="max-w-5xl mx-auto space-y-12 mb-16">
-            {/* Per-Student Pricing Table */}
-            <AnimateOnScroll>
+        {/* Pricing Detail Modal */}
+        <Dialog open={showDetails} onOpenChange={setShowDetails}>
+          <DialogContent className="sm:max-w-3xl max-h-[85vh] overflow-y-auto rounded-2xl bg-white">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold text-gray-900">Detailed Pricing</DialogTitle>
+              <DialogDescription className="text-gray-500">
+                Per-student licensing, platform fees, and optional add-ons.
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="space-y-10 mt-4">
+              {/* Per-Student Pricing Table */}
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Per-Student Licensing</h3>
-                <p className="text-sm text-gray-500 mb-6">
+                <p className="text-sm text-gray-500 mb-4">
                   Volume-tiered pricing with discounts for longer commitments. Families access Mentra free through their school's plan.
                 </p>
                 <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -211,13 +226,11 @@ const PricingSection = () => {
                 </div>
                 <p className="text-xs text-gray-400 mt-3">Per student, per month. Billed annually or as agreed in contract terms.</p>
               </div>
-            </AnimateOnScroll>
 
-            {/* Platform Fee Table */}
-            <AnimateOnScroll>
+              {/* Platform Fee Table */}
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Institutional Platform Fee</h3>
-                <p className="text-sm text-gray-500 mb-6">
+                <p className="text-sm text-gray-500 mb-4">
                   Covers analytics dashboards, longitudinal learner graphs, administrative AI insights, and integration infrastructure.
                 </p>
                 <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -241,13 +254,11 @@ const PricingSection = () => {
                   </table>
                 </div>
               </div>
-            </AnimateOnScroll>
 
-            {/* Add-Ons */}
-            <AnimateOnScroll>
+              {/* Add-Ons */}
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Optional Add-Ons</h3>
-                <p className="text-sm text-gray-500 mb-6">
+                <p className="text-sm text-gray-500 mb-4">
                   High-value expansion modules available at any tier.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -260,9 +271,9 @@ const PricingSection = () => {
                   ))}
                 </div>
               </div>
-            </AnimateOnScroll>
-          </div>
-        )}
+            </div>
+          </DialogContent>
+        </Dialog>
 
         {/* Contract note */}
         <AnimateOnScroll>
