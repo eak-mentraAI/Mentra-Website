@@ -12,7 +12,7 @@ const sections: LegalSectionItem[] = [
     title: 'Introduction',
     content: (
       <p className="text-gray-700">
-        At Mentra, we use cookies to make your experience smoother, safer, and more personal. Cookies help us remember your preferences, keep you secure, and improve our site. This policy explains what cookies are, how we use them, and how you can control your choices.
+        This cookie policy applies to the Mentra marketing website (mymentra.ai). We use cookies to make your browsing experience smoother, safer, and more useful. This policy explains what cookies are, how we use them, and how you can control your choices.
       </p>
     ),
   },
@@ -229,7 +229,11 @@ export default function Cookies() {
           </div>
         </section>
         <section className="container mx-auto px-4">
-          <div className="flex gap-10 max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto mb-6 rounded-xl border border-mentra-blue/20 bg-mentra-blue/5 px-4 py-3 text-sm text-gray-600">
+            This cookie policy applies to our marketing website (mymentra.ai). For the cookie policy governing the Mentra learning platform, please visit{' '}
+            <a href="https://app.mymentra.ai/cookies" className="text-mentra-blue hover:underline font-medium">app.mymentra.ai/cookies</a>.
+          </div>
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-5xl mx-auto">
             <LegalTableOfContents sections={sections} />
             <div className="flex-1 min-w-0">
               <LegalSection sections={sections} storageKey="cookies" />

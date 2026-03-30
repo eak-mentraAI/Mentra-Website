@@ -203,22 +203,22 @@ const PricingSection = () => {
                   Volume-tiered pricing with discounts for longer commitments. Families access Mentra free through their school's plan.
                 </p>
                 <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-                  <table className="w-full text-sm">
+                  <table className="w-full text-xs sm:text-sm">
                     <thead>
                       <tr className="border-b border-gray-100 bg-gray-50">
-                        <th className="text-left py-3 px-5 font-semibold text-gray-700">Student Count</th>
-                        <th className="text-center py-3 px-5 font-semibold text-gray-700">Month-to-Month</th>
-                        <th className="text-center py-3 px-5 font-semibold text-gray-700">1-Year Contract</th>
-                        <th className="text-center py-3 px-5 font-semibold text-mentra-blue">3-Year Contract</th>
+                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Student Count</th>
+                        <th className="text-center py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Month-to-Month</th>
+                        <th className="text-center py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">1-Year Contract</th>
+                        <th className="text-center py-2 sm:py-3 px-2 sm:px-5 font-semibold text-mentra-blue">3-Year Contract</th>
                       </tr>
                     </thead>
                     <tbody>
                       {studentPricing.map((row, i) => (
                         <tr key={i} className={`border-b border-gray-50 ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
-                          <td className="py-3 px-5 font-medium text-gray-900">{row.range}</td>
-                          <td className="py-3 px-5 text-center text-gray-600">{row.monthly}/mo</td>
-                          <td className="py-3 px-5 text-center text-gray-600">{row.annual}/mo</td>
-                          <td className="py-3 px-5 text-center font-semibold text-mentra-blue">{row.multiYear}/mo</td>
+                          <td className="py-2 sm:py-3 px-2 sm:px-5 font-medium text-gray-900">{row.range}</td>
+                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-center text-gray-600">{row.monthly}/mo</td>
+                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-center text-gray-600">{row.annual}/mo</td>
+                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-center font-semibold text-mentra-blue">{row.multiYear}/mo</td>
                         </tr>
                       ))}
                     </tbody>
@@ -234,20 +234,20 @@ const PricingSection = () => {
                   Covers analytics dashboards, longitudinal learner graphs, administrative AI insights, and integration infrastructure.
                 </p>
                 <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-                  <table className="w-full text-sm">
+                  <table className="w-full text-xs sm:text-sm">
                     <thead>
                       <tr className="border-b border-gray-100 bg-gray-50">
-                        <th className="text-left py-3 px-5 font-semibold text-gray-700">Institution Size</th>
-                        <th className="text-left py-3 px-5 font-semibold text-gray-700">Students</th>
-                        <th className="text-left py-3 px-5 font-semibold text-gray-700">Annual Platform Fee</th>
+                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Institution Size</th>
+                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Students</th>
+                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Annual Platform Fee</th>
                       </tr>
                     </thead>
                     <tbody>
                       {platformFees.map((row, i) => (
                         <tr key={i} className={`border-b border-gray-50 ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
-                          <td className="py-3 px-5 font-medium text-gray-900">{row.size}</td>
-                          <td className="py-3 px-5 text-gray-600">{row.students}</td>
-                          <td className="py-3 px-5 text-gray-900 font-semibold">{row.fee}</td>
+                          <td className="py-2 sm:py-3 px-2 sm:px-5 font-medium text-gray-900">{row.size}</td>
+                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-gray-600">{row.students}</td>
+                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-gray-900 font-semibold">{row.fee}</td>
                         </tr>
                       ))}
                     </tbody>

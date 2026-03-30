@@ -12,7 +12,7 @@ const sections: LegalSectionItem[] = [
     title: 'Introduction',
     content: (
       <p className="text-gray-700">
-        At Mentra, we <span className="text-mentra-blue">protect</span> your privacy because we believe learning should be safe and secure. This policy explains how we handle your information to provide personalized learning experiences while keeping your data safe.
+        At Mentra, we <span className="text-mentra-blue">protect</span> your privacy. This policy explains how we handle your information when you visit and browse the Mentra marketing website (mymentra.ai), and how we keep your data safe.
       </p>
     ),
   },
@@ -21,16 +21,14 @@ const sections: LegalSectionItem[] = [
     title: 'Information We Collect',
     content: (
       <>
-        <p className="text-gray-700 mb-4">We collect information to provide better learning experiences:</p>
-        <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
-          <li><strong>Account information:</strong> Name, email, educational institution</li>
-          <li><strong>Learning data:</strong> Journal entries, progress, performance</li>
-          <li><strong>Usage patterns:</strong> How you interact with our platform</li>
-          <li><strong>Device information:</strong> Browser type, IP address for security</li>
+        <p className="text-gray-700 mb-4">When you visit our website, we may collect the following information:</p>
+        <ul className="list-disc list-inside text-gray-700 ml-4">
+          <li><strong>Device information:</strong> Browser type, operating system, screen resolution</li>
+          <li><strong>Usage data:</strong> Pages visited, time on site, referring URLs</li>
+          <li><strong>Network data:</strong> IP address and approximate location</li>
+          <li><strong>Cookie data:</strong> As described in our Cookie Policy</li>
+          <li><strong>Contact information:</strong> Name and email, if you submit a form on our site</li>
         </ul>
-        <p className="text-gray-700">
-          Our AI processes your learning content to provide personalized insights and recommendations.
-        </p>
       </>
     ),
   },
@@ -39,13 +37,13 @@ const sections: LegalSectionItem[] = [
     title: 'How We Use Your Information',
     content: (
       <>
-        <p className="text-gray-700 mb-4">Your information helps us:</p>
+        <p className="text-gray-700 mb-4">We use the information we collect to:</p>
         <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li>Create personalized learning experiences</li>
-          <li>Generate AI-powered insights and recommendations</li>
-          <li>Improve our platform and develop new features</li>
-          <li>Keep your account secure and prevent fraud</li>
-          <li>Communicate important updates about your learning</li>
+          <li>Improve website performance and user experience</li>
+          <li>Analyze site traffic and usage patterns</li>
+          <li>Ensure website security and prevent abuse</li>
+          <li>Send marketing communications (with your consent)</li>
+          <li>Respond to inquiries submitted through the website</li>
         </ul>
       </>
     ),
@@ -59,9 +57,9 @@ const sections: LegalSectionItem[] = [
           We don't sell your personal information. We may share data in these situations:
         </p>
         <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li><strong>With your consent:</strong> Sharing progress with educators or parents</li>
-          <li><strong>Service providers:</strong> Trusted partners who help us operate securely</li>
+          <li><strong>Service providers:</strong> Hosting, analytics, and security partners who help us operate the website</li>
           <li><strong>Legal requirements:</strong> When required by law or to protect safety</li>
+          <li><strong>Business transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
         </ul>
       </>
     ),
@@ -90,23 +88,13 @@ const sections: LegalSectionItem[] = [
       <>
         <p className="text-gray-700 mb-4">You control your data. You can:</p>
         <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li>Access and download your personal information</li>
-          <li>Correct or update inaccurate data</li>
-          <li>Request deletion of your account and data</li>
-          <li>Transfer your data to another service</li>
+          <li>Request access to personal information we hold about you</li>
+          <li>Correct inaccurate information</li>
           <li>Opt out of marketing communications</li>
           <li>Withdraw consent for data processing</li>
+          <li>Request information about how your data is used</li>
         </ul>
       </>
-    ),
-  },
-  {
-    id: 'protecting-children',
-    title: 'Protecting Children',
-    content: (
-      <p className="text-gray-700">
-        We're committed to protecting young learners. For students under 13, we comply with COPPA and require parental consent before collecting personal information. Parents can review, delete, or refuse further collection of their child's data.
-      </p>
     ),
   },
   {
@@ -164,7 +152,11 @@ export default function Privacy() {
           </div>
         </section>
         <section className="container mx-auto px-4">
-          <div className="flex gap-10 max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto mb-6 rounded-xl border border-mentra-blue/20 bg-mentra-blue/5 px-4 py-3 text-sm text-gray-600">
+            This privacy policy applies to our marketing website (mymentra.ai). For the privacy policy governing the Mentra learning platform, please visit{' '}
+            <a href="https://app.mymentra.ai/privacy" className="text-mentra-blue hover:underline font-medium">app.mymentra.ai/privacy</a>.
+          </div>
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-5xl mx-auto">
             <LegalTableOfContents sections={sections} />
             <div className="flex-1 min-w-0">
               <LegalSection sections={sections} storageKey="privacy" />

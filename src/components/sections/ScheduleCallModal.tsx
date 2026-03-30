@@ -47,7 +47,7 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-md rounded-2xl bg-white">
+      <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-md rounded-2xl bg-white">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold text-gray-900">
             Schedule a Call

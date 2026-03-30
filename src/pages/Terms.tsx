@@ -12,48 +12,23 @@ const sections: LegalSectionItem[] = [
     title: 'Introduction',
     content: (
       <p className="text-gray-700">
-        Welcome to Mentra! These terms help us <span className="text-mentra-blue">protect</span> your learning experience while ensuring our platform remains safe and effective for everyone. By using Mentra, you agree to these terms.
-      </p>
-    ),
-  },
-  {
-    id: 'what-mentra-provides',
-    title: 'What Mentra Provides',
-    content: (
-      <>
-        <p className="text-gray-700 mb-4">
-          Mentra is an AI-powered learning platform that supports students, educators, and parents through:
-        </p>
-        <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li>Personalized AI learning experiences</li>
-          <li>Educational content and progress tracking</li>
-          <li>Communication tools for learning communities</li>
-          <li>Mobile and web access to learning materials</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: 'account-security',
-    title: 'Your Account Security',
-    content: (
-      <p className="text-gray-700">
-        You're responsible for keeping your account secure. Please provide accurate information and notify us immediately of any unauthorized access. Users under 13 need parental consent, and users 13-18 may need consent depending on local laws.
+        Welcome to Mentra! These terms govern your use of the Mentra marketing website (mymentra.ai). By accessing or browsing this website, you agree to these terms. For terms governing the Mentra learning platform, please visit{' '}
+        <a href="https://app.mymentra.ai/terms" className="text-mentra-blue hover:underline">app.mymentra.ai/terms</a>.
       </p>
     ),
   },
   {
     id: 'responsible-use',
-    title: 'How to Use Mentra Responsibly',
+    title: 'Acceptable Use',
     content: (
       <>
-        <p className="text-gray-700 mb-4">Please don't:</p>
+        <p className="text-gray-700 mb-4">When using this website, please don't:</p>
         <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li>Share your account with others</li>
-          <li>Upload harmful or inappropriate content</li>
-          <li>Try to access our systems without permission</li>
-          <li>Use automated tools to access our platform</li>
-          <li>Use Mentra for commercial purposes without our permission</li>
+          <li>Use automated tools or bots to scrape or access the website</li>
+          <li>Upload or transmit harmful, abusive, or inappropriate content</li>
+          <li>Attempt to gain unauthorized access to our systems or infrastructure</li>
+          <li>Interfere with or disrupt the website's functionality</li>
+          <li>Copy or redistribute website content without permission</li>
         </ul>
       </>
     ),
@@ -63,25 +38,26 @@ const sections: LegalSectionItem[] = [
     title: 'Content and Ownership',
     content: (
       <p className="text-gray-700">
-        You own your content. We own our platform. When you share content with us, you give us permission to use it to provide and improve our services. Our AI generates insights based on your content to help your learning journey.
+        All content on this website — including text, graphics, logos, images, and software — is the property of Mentra or its licensors and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works from our website content without prior written permission.
       </p>
     ),
   },
   {
     id: 'privacy',
-    title: 'Your Privacy Matters',
+    title: 'Your Privacy',
     content: (
       <p className="text-gray-700">
-        We protect your data as outlined in our Privacy Policy. While we implement strong security measures, no internet transmission is 100% secure. We're committed to keeping your information safe.
+        Your use of this website is also governed by our{' '}
+        <a href="/privacy" className="text-mentra-blue hover:underline">Privacy Policy</a>, which describes how we collect and use information when you visit mymentra.ai.
       </p>
     ),
   },
   {
     id: 'service-availability',
-    title: 'Service Availability',
+    title: 'Website Availability',
     content: (
       <p className="text-gray-700">
-        We work hard to keep Mentra running smoothly, but we can't guarantee uninterrupted access. We may update our services or these terms occasionally. Continued use means you accept any changes.
+        We strive to keep our website accessible, but we do not guarantee uninterrupted availability. We may update, modify, or temporarily take down the website for maintenance at any time without notice.
       </p>
     ),
   },
@@ -90,16 +66,7 @@ const sections: LegalSectionItem[] = [
     title: 'Important Limitations',
     content: (
       <p className="text-gray-700">
-        Mentra is provided "as is" without warranties. While we support learning, we can't guarantee specific educational outcomes — success depends on many factors. We're not liable for indirect damages from using our platform.
-      </p>
-    ),
-  },
-  {
-    id: 'termination',
-    title: 'Account Termination',
-    content: (
-      <p className="text-gray-700">
-        We may suspend or terminate accounts that violate these terms. Upon termination, your access ends immediately, but certain terms survive to protect both parties.
+        This website and its content are provided "as is" without warranties of any kind. Mentra is not liable for any indirect, incidental, or consequential damages arising from your use of or inability to access this website.
       </p>
     ),
   },
@@ -149,7 +116,11 @@ export default function Terms() {
           </div>
         </section>
         <section className="container mx-auto px-4">
-          <div className="flex gap-10 max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto mb-6 rounded-xl border border-mentra-blue/20 bg-mentra-blue/5 px-4 py-3 text-sm text-gray-600">
+            These terms of use apply to our marketing website (mymentra.ai). For product terms governing the Mentra learning platform, please visit{' '}
+            <a href="https://app.mymentra.ai/terms" className="text-mentra-blue hover:underline font-medium">app.mymentra.ai/terms</a>.
+          </div>
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-5xl mx-auto">
             <LegalTableOfContents sections={sections} />
             <div className="flex-1 min-w-0">
               <LegalSection sections={sections} storageKey="terms" />

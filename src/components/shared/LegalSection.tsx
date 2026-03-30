@@ -53,7 +53,7 @@ export default function LegalSection({ sections, storageKey }: LegalSectionProps
           id={section.id}
           className="bg-white rounded-xl border border-gray-100 px-6 shadow-sm"
         >
-          <AccordionTrigger className="text-xl font-bold text-mentra-blue hover:no-underline py-5">
+          <AccordionTrigger className="text-lg sm:text-xl font-bold text-mentra-blue hover:no-underline py-5">
             {section.title}
           </AccordionTrigger>
           <AccordionContent className="text-gray-700 leading-relaxed pb-5">
