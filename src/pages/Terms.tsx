@@ -75,7 +75,7 @@ const sections: LegalSectionItem[] = [
     title: 'Legal Matters',
     content: (
       <p className="text-gray-700">
-        These terms are governed by California law. Any disputes will be resolved through arbitration in San Francisco. If any part of these terms is invalid, the rest remains enforceable.
+        These terms are governed by Texas law. Any disputes will be resolved through arbitration in Texas. If any part of these terms is invalid, the rest remains enforceable.
       </p>
     ),
   },
@@ -106,14 +106,9 @@ export default function Terms() {
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         {/* Hero Section */}
-        <section className="container mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center justify-center gap-8 mb-16 relative">
-          <div className="flex-1 min-w-0 flex flex-col items-center md:items-center justify-center text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-            <p className="text-gray-600 mb-0 text-center">Last updated: {new Date().toLocaleDateString()}</p>
-          </div>
-          <div className="flex-shrink-0 flex items-center justify-center mt-6 md:mt-0">
-            <img src="/images/other/judge.png" alt="Judge Icon" className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl" />
-          </div>
+        <section className="container mx-auto max-w-7xl px-4 flex flex-col items-center justify-center gap-4 mb-16 relative">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">Terms of Use</h1>
+          <p className="text-gray-600 mb-0 text-center">Last updated: {new Date().toLocaleDateString()}</p>
         </section>
         <section className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto mb-6 rounded-xl border border-mentra-blue/20 bg-mentra-blue/5 px-4 py-3 text-sm text-gray-600">
