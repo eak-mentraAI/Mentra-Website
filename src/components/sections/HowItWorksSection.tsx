@@ -183,7 +183,7 @@ const HowItWorksSection = () => {
         </AnimateOnScroll>
         <div className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-24">
           <iframe
-            src="https://www.youtube.com/embed/CWTHgahgStQ"
+            src="https://www.youtube.com/embed/Q84vfTtvGMA"
             title="Mentra Demo"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
