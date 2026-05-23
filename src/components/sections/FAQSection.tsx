@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const faqSections = [
   {
@@ -50,6 +53,27 @@ const faqSections = [
 ];
 
 const FAQSection = () => {
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    sectionRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveIdx(i);
+        },
+        { threshold: 0, rootMargin: '-20% 0px -60% 0px' },
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   return (
     <section id="faq" className="py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -57,28 +81,71 @@ const FAQSection = () => {
           Frequently asked questions
         </h2>
 
-        <div className="space-y-10 max-w-3xl mx-auto">
-          {faqSections.map((section) => (
-            <AnimateOnScroll key={section.section}>
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">
-                  {section.section}
-                </h3>
-                <Accordion type="single" collapsible className="w-full space-y-1.5">
-                  {section.questions.map((faq, idx) => (
-                    <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className="bg-gray-50 rounded-xl border border-gray-100">
-                      <AccordionTrigger className="text-sm font-medium px-5 py-4 text-left text-gray-900 hover:bg-gray-100 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
-                        <span>{faq.question}</span>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-5 pb-4 text-gray-500 text-sm">
-                        {faq.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            </AnimateOnScroll>
-          ))}
+        <div className="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-12 max-w-5xl mx-auto">
+          {/* Sticky section nav — desktop only; mobile relies on accordion */}
+          <nav className="hidden lg:block sticky top-24 self-start" aria-label="FAQ sections">
+            <ul className="space-y-1 border-l border-gray-200">
+              {faqSections.map((section, i) => {
+                const slug = slugify(section.section);
+                const isActive = activeIdx === i;
+                return (
+                  <li key={section.section}>
+                    <a
+                      href={`#faq-${slug}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        sectionRefs.current[i]?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start',
+                        });
+                      }}
+                      className={`block -ml-px pl-4 py-1.5 text-sm font-medium border-l-2 transition-colors duration-200 ${
+                        isActive
+                          ? 'text-mentra-blue border-mentra-blue'
+                          : 'text-gray-500 hover:text-gray-900 border-transparent'
+                      }`}
+                    >
+                      {section.section}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          {/* Accordion content */}
+          <div className="space-y-10 max-w-3xl mx-auto w-full lg:mx-0 lg:max-w-none">
+            {faqSections.map((section, i) => {
+              const slug = slugify(section.section);
+              return (
+                <AnimateOnScroll key={section.section}>
+                  <div
+                    id={`faq-${slug}`}
+                    ref={(el) => {
+                      sectionRefs.current[i] = el;
+                    }}
+                    className="scroll-mt-24"
+                  >
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">
+                      {section.section}
+                    </h3>
+                    <Accordion type="single" collapsible className="w-full space-y-1.5">
+                      {section.questions.map((faq, idx) => (
+                        <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className="bg-gray-50 rounded-xl border border-gray-100">
+                          <AccordionTrigger className="text-sm font-medium px-5 py-4 text-left text-gray-900 hover:bg-gray-100 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
+                            <span>{faq.question}</span>
+                          </AccordionTrigger>
+                          <AccordionContent className="px-5 pb-4 text-gray-500 text-sm">
+                            {faq.answer}
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </div>
+                </AnimateOnScroll>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
