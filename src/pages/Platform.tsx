@@ -17,7 +17,6 @@ import {
   Shield,
   CheckCircle2,
   XCircle,
-  Layers,
 } from 'lucide-react';
 
 type VendorChip = {
@@ -276,13 +275,9 @@ const Platform = () => {
               {/* Left: text */}
               <div className="text-center lg:text-left space-y-8">
                 <div className="space-y-6">
-                  <div className="inline-flex items-center gap-2 bg-mentra-blue/10 text-mentra-blue text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full">
-                    <Layers className="w-4 h-4" />
-                    PLATFORM ARCHITECTURE
-                  </div>
                   <h1
                     id="platform-hero-heading"
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
                   >
                     The{' '}
                     <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">
