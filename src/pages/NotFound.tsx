@@ -17,7 +17,7 @@ const NotFound = () => {
       <div className="min-h-screen flex items-center justify-center bg-white font-rounded">
         <div className="text-center max-w-md mx-auto px-4">
           <img
-            src="/images/sprig/sleepy.png"
+            src="/images/sprig/sprig-lost.png"
             alt=""
             width="120"
             height="120"

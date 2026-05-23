@@ -27,6 +27,7 @@ const flywheel = [
   {
     number: 1,
     icon: BookOpen,
+    image: "/images/sprig/flywheel-01-reflect.png",
     title: "Students Reflect",
     color: "mentra-blue",
     description: "Guided prompts build self-awareness — students learn to recognize what they know and where they're stuck.",
@@ -34,6 +35,7 @@ const flywheel = [
   {
     number: 2,
     icon: FileText,
+    image: "/images/sprig/flywheel-02-patterns.png",
     title: "AI Surfaces Patterns",
     color: "mentra-blue",
     description: "The system identifies what's working and what needs support — then delivers insights to the humans who decide what to do.",
@@ -41,6 +43,7 @@ const flywheel = [
   {
     number: 3,
     icon: Sparkles,
+    image: "/images/sprig/flywheel-03-act.png",
     title: "Humans Act",
     color: "mentra-blue",
     description: "Teachers intervene with full context. Parents see signal, not noise. Students get support matched to the moment.",
@@ -48,6 +51,7 @@ const flywheel = [
   {
     number: 4,
     icon: Users,
+    image: "/images/sprig/flywheel-04-adapts.png",
     title: "Scaffolding Adapts",
     color: "mentra-blue",
     description: "Support increases when students struggle and pulls back as they grow. The goal is always less help next time.",
@@ -55,6 +59,7 @@ const flywheel = [
   {
     number: 5,
     icon: BarChart3,
+    image: "/images/sprig/flywheel-05-independence.png",
     title: "Independence Grows",
     color: "mentra-blue",
     description: "Each cycle builds capability the student owns — not engagement with a tool they depend on.",
@@ -75,9 +80,22 @@ const HowItWorksSection = () => {
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <PulledQuote className="mb-20">
+          <PulledQuote className="mb-16">
             Most ed-tech adds dependency. Mentra builds capability — scaffolding that fades, support that steps back, and humans who stay in control.
           </PulledQuote>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll>
+          <div className="max-w-4xl mx-auto mb-24">
+            <img
+              src="/images/scenes/scaffolding-fades.png"
+              alt="A student grows more independent as Sprig steps back. The visible scaffolding — ladders, guide rails, helping hands — fades from left to right."
+              width="1774"
+              height="887"
+              className="w-full h-auto rounded-2xl"
+              loading="lazy"
+            />
+          </div>
         </AnimateOnScroll>
 
         <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto mb-24">

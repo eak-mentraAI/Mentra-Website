@@ -66,8 +66,8 @@ const HeroSection = () => {
           <div className="flex justify-center lg:justify-end">
             <SprigOrb size="lg">
               <img
-                src="/images/sprig/happy-sprig.png"
-                alt="Sprig, your AI learning companion"
+                src="/images/sprig/sprig-trio.png"
+                alt="Sprig with peers — your AI learning companions"
                 width="400"
                 height="400"
                 className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl animate-breathe motion-reduce:animate-none"

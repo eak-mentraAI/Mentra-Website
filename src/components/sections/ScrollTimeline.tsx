@@ -7,6 +7,7 @@ interface Step {
   description: string;
   icon: LucideIcon;
   color: string;
+  image?: string;
 }
 
 interface ScrollTimelineProps {
@@ -128,9 +129,21 @@ export default function ScrollTimeline({ steps }: ScrollTimelineProps) {
               }`}
             >
               <div className={`${colorBgLightMap[step.color]} rounded-2xl p-8 w-full`}>
-                <div className={`w-14 h-14 ${colorBgMap[step.color]}/20 rounded-xl flex items-center justify-center mb-5`}>
-                  <step.icon className={`w-7 h-7 ${colorTextMap[step.color]}`} />
-                </div>
+                {step.image ? (
+                  <img
+                    src={step.image}
+                    alt=""
+                    width="112"
+                    height="112"
+                    className="w-28 h-28 mb-5"
+                    loading="lazy"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <div className={`w-14 h-14 ${colorBgMap[step.color]}/20 rounded-xl flex items-center justify-center mb-5`}>
+                    <step.icon className={`w-7 h-7 ${colorTextMap[step.color]}`} />
+                  </div>
+                )}
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{step.description}</p>
               </div>
@@ -172,7 +185,19 @@ export default function ScrollTimeline({ steps }: ScrollTimelineProps) {
                 {/* Content */}
                 <div className={`${colorBgLightMap[step.color]} rounded-2xl p-6`}>
                   <div className="flex items-center gap-3 mb-3">
-                    <step.icon className={`w-6 h-6 ${colorTextMap[step.color]}`} />
+                    {step.image ? (
+                      <img
+                        src={step.image}
+                        alt=""
+                        width="48"
+                        height="48"
+                        className="w-12 h-12 flex-shrink-0"
+                        loading="lazy"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <step.icon className={`w-6 h-6 ${colorTextMap[step.color]}`} />
+                    )}
                     <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
