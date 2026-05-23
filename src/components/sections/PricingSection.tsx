@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CheckCircle2, ArrowRight, Users, Building2, Landmark, GraduationCap } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
 
 const tiers = [
   {
@@ -33,7 +26,7 @@ const tiers = [
     features: [
       'Everything in Core',
       'Learner Passport with growth tracking',
-      'Teacher AI Copilot (Mentes)',
+      'Teacher AI Copilot',
       'Custom learning paths',
       'Engagement & progress analytics',
       'Family sharing (up to 4)',
@@ -72,42 +65,7 @@ const tiers = [
   },
 ];
 
-const studentPricing = [
-  { range: '1–500 students', monthly: '$18', annual: '$17', multiYear: '$16' },
-  { range: '501–2,000', monthly: '$16', annual: '$15', multiYear: '$14' },
-  { range: '2,001–5,000', monthly: '$15', annual: '$13', multiYear: '$12' },
-  { range: '5,001–25,000', monthly: '$14', annual: '$12', multiYear: '$11' },
-  { range: '25,000+', monthly: '$13', annual: '$10', multiYear: '$9' },
-];
-
-const platformFees = [
-  { size: 'Small School', students: 'Under 1,000', fee: '$15K/year' },
-  { size: 'Mid School', students: '1,000–5,000', fee: '$25K–$50K/year' },
-  { size: 'District', students: '5,000–25,000', fee: '$75K–$150K/year' },
-  { size: 'Large District / State', students: '25,000+', fee: '$200K–$500K/year' },
-];
-
-const addOns = [
-  {
-    name: 'Parent Intelligence Portal',
-    description: 'Growth dashboards, emotional learning insights, and college readiness tracking for families.',
-    price: '$5/month per family',
-  },
-  {
-    name: 'Advanced AI Model Tier',
-    description: 'Higher-accuracy models, extended context, and advanced tutoring for premium districts.',
-    price: '+$1–3/student/month',
-  },
-  {
-    name: 'SIS/LMS Integration',
-    description: 'Seamless connection to your existing student information and learning management systems.',
-    price: 'Starting at $10K',
-  },
-];
-
 const PricingSection = () => {
-  const [showDetails, setShowDetails] = useState(false);
-
   return (
     <section id="pricing" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -171,109 +129,6 @@ const PricingSection = () => {
             );
           })}
         </div>
-
-        {/* View Detailed Pricing Button */}
-        <AnimateOnScroll>
-          <div className="text-center mb-10">
-            <button
-              onClick={() => setShowDetails(true)}
-              className="inline-flex items-center gap-2 text-mentra-blue font-semibold text-sm hover:underline transition-all"
-            >
-              View Detailed Pricing
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </AnimateOnScroll>
-
-        {/* Pricing Detail Modal */}
-        <Dialog open={showDetails} onOpenChange={setShowDetails}>
-          <DialogContent className="sm:max-w-3xl max-h-[85vh] overflow-y-auto rounded-2xl bg-white">
-            <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-gray-900">Detailed Pricing</DialogTitle>
-              <DialogDescription className="text-gray-500">
-                Per-student licensing, platform fees, and optional add-ons.
-              </DialogDescription>
-            </DialogHeader>
-
-            <div className="space-y-10 mt-4">
-              {/* Per-Student Pricing Table */}
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Per-Student Licensing</h3>
-                <p className="text-sm text-gray-500 mb-4">
-                  Volume-tiered pricing with discounts for longer commitments. Families access Mentra free through their school's plan.
-                </p>
-                <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-                  <table className="w-full text-xs sm:text-sm">
-                    <thead>
-                      <tr className="border-b border-gray-100 bg-gray-50">
-                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Student Count</th>
-                        <th className="text-center py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Month-to-Month</th>
-                        <th className="text-center py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">1-Year Contract</th>
-                        <th className="text-center py-2 sm:py-3 px-2 sm:px-5 font-semibold text-mentra-blue">3-Year Contract</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {studentPricing.map((row, i) => (
-                        <tr key={i} className={`border-b border-gray-50 ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
-                          <td className="py-2 sm:py-3 px-2 sm:px-5 font-medium text-gray-900">{row.range}</td>
-                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-center text-gray-600">{row.monthly}/mo</td>
-                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-center text-gray-600">{row.annual}/mo</td>
-                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-center font-semibold text-mentra-blue">{row.multiYear}/mo</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="text-xs text-gray-400 mt-3">Per student, per month. Billed annually or as agreed in contract terms.</p>
-              </div>
-
-              {/* Platform Fee Table */}
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Institutional Platform Fee</h3>
-                <p className="text-sm text-gray-500 mb-4">
-                  Covers analytics dashboards, longitudinal learner graphs, administrative AI insights, and integration infrastructure.
-                </p>
-                <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-                  <table className="w-full text-xs sm:text-sm">
-                    <thead>
-                      <tr className="border-b border-gray-100 bg-gray-50">
-                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Institution Size</th>
-                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Students</th>
-                        <th className="text-left py-2 sm:py-3 px-2 sm:px-5 font-semibold text-gray-700">Annual Platform Fee</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {platformFees.map((row, i) => (
-                        <tr key={i} className={`border-b border-gray-50 ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
-                          <td className="py-2 sm:py-3 px-2 sm:px-5 font-medium text-gray-900">{row.size}</td>
-                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-gray-600">{row.students}</td>
-                          <td className="py-2 sm:py-3 px-2 sm:px-5 text-gray-900 font-semibold">{row.fee}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Add-Ons */}
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Optional Add-Ons</h3>
-                <p className="text-sm text-gray-500 mb-4">
-                  High-value expansion modules available at any tier.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {addOns.map((addOn, i) => (
-                    <div key={i} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                      <h4 className="font-bold text-gray-900 text-sm mb-1">{addOn.name}</h4>
-                      <p className="text-xs text-gray-400 mb-3 leading-relaxed">{addOn.description}</p>
-                      <span className="text-sm font-semibold text-mentra-blue">{addOn.price}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
 
         {/* Contract note */}
         <AnimateOnScroll>
