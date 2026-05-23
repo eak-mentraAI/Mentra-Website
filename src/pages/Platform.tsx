@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import TrustStrip from '@/components/sections/TrustStrip';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
 import ScheduleCallModal from '@/components/sections/ScheduleCallModal';
@@ -320,7 +321,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               {stackLayers.map((layer, i) => (
                 <AnimateOnScroll key={layer.title} delay={i * 60}>
                   <StackLayer
@@ -350,7 +351,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-6xl mx-auto">
               {mentraInternals.map((item, i) => (
                 <AnimateOnScroll key={item.title} delay={i * 80}>
                   <div className="h-full bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-mentra-blue/40 hover:shadow-md transition-all">
@@ -388,7 +389,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-6xl mx-auto">
               <AnimateOnScroll>
                 <div className="h-full bg-white border border-gray-200 rounded-2xl p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-5">
@@ -456,7 +457,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto">
               {standards.map((s, i) => (
                 <AnimateOnScroll key={s.name} delay={i * 50}>
                   <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 sm:p-6 hover:border-mentra-blue/40 transition-colors">
@@ -495,6 +496,7 @@ const Platform = () => {
           </div>
         </section>
 
+        <TrustStrip />
         <Footer />
         <ScheduleCallModal open={showModal} onOpenChange={setShowModal} />
       </div>
