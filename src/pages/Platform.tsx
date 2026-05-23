@@ -44,7 +44,7 @@ const stackLayers: StackLayerProps[] = [
     icon: Database,
     vendors: [
       { name: 'PowerSchool', logo: `${LOGO_BASE}/powerschool.svg` },
-      { name: 'Infinite Campus' },
+      { name: 'Infinite Campus', logo: `${LOGO_BASE}/infinite-campus.png` },
       { name: 'Skyward', logo: `${LOGO_BASE}/skyward.png` },
       { name: 'Aeries', logo: `${LOGO_BASE}/aeries.png` },
     ],
@@ -59,7 +59,7 @@ const stackLayers: StackLayerProps[] = [
       { name: 'Clever', logo: `${LOGO_BASE}/clever.png` },
       { name: 'ClassLink', logo: `${LOGO_BASE}/classlink.webp` },
       { name: 'Google Workspace', logo: `${LOGO_BASE}/google-workspace.svg` },
-      { name: 'Microsoft 365' },
+      { name: 'Microsoft 365', logo: `${LOGO_BASE}/microsoft-365.png` },
     ],
     role: 'SSO and rostering services provision accounts, manage classroom membership, and broker single sign-on across tools.',
     protocol: 'OIDC / SSO',
@@ -70,7 +70,7 @@ const stackLayers: StackLayerProps[] = [
     icon: BookOpen,
     vendors: [
       { name: 'Canvas', logo: `${LOGO_BASE}/canvas.svg` },
-      { name: 'Schoology' },
+      { name: 'Schoology', logo: `${LOGO_BASE}/schoology.webp` },
       { name: 'Google Classroom', logo: `${LOGO_BASE}/google-classroom.png` },
       { name: 'Blackboard', logo: `${LOGO_BASE}/blackboard.png` },
     ],
