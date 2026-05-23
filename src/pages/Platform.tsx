@@ -301,12 +301,14 @@ const Platform = () => {
                       Talk to our integrations team
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     </Button>
-                    <a
-                      href="#stack"
-                      className="inline-flex items-center justify-center border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      onClick={() => document.getElementById('stack')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                     >
                       See the stack
-                    </a>
+                    </Button>
                   </div>
                 </div>
               </div>
