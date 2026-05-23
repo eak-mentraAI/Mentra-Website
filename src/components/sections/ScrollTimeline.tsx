@@ -115,37 +115,39 @@ export default function ScrollTimeline({ steps }: ScrollTimelineProps) {
         </nav>
 
         {/* Right: scrollable step content */}
-        <div className="lg:col-span-3 space-y-4">
+        <div className="lg:col-span-3 space-y-3">
           {steps.map((step, i) => (
             <div
               key={step.number}
               ref={(el) => { stepRefs.current[i] = el; }}
-              className={`min-h-[20vh] flex items-center transition-all duration-500 ${
+              className={`transition-all duration-500 ${
                 prefersReducedMotion
                   ? 'opacity-100'
                   : i === activeStep
                     ? 'opacity-100 translate-y-0'
-                    : 'opacity-30 translate-y-4'
+                    : 'opacity-40 translate-y-2'
               }`}
             >
-              <div className={`${colorBgLightMap[step.color]} rounded-2xl p-8 w-full`}>
+              <div className={`${colorBgLightMap[step.color]} rounded-2xl p-6 w-full flex items-center gap-5`}>
                 {step.image ? (
                   <img
                     src={step.image}
                     alt=""
-                    width="112"
-                    height="112"
-                    className="w-28 h-28 mb-5"
+                    width="96"
+                    height="96"
+                    className="w-24 h-24 flex-shrink-0"
                     loading="lazy"
                     aria-hidden="true"
                   />
                 ) : (
-                  <div className={`w-14 h-14 ${colorBgMap[step.color]}/20 rounded-xl flex items-center justify-center mb-5`}>
+                  <div className={`w-14 h-14 ${colorBgMap[step.color]}/20 rounded-xl flex items-center justify-center flex-shrink-0`}>
                     <step.icon className={`w-7 h-7 ${colorTextMap[step.color]}`} />
                   </div>
                 )}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -162,7 +164,7 @@ export default function ScrollTimeline({ steps }: ScrollTimelineProps) {
             style={{ height: `${progressPercent}%` }}
           />
 
-          <div className="space-y-10">
+          <div className="space-y-6">
             {steps.map((step, i) => (
               <div
                 key={step.number}
