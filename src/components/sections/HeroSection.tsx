@@ -1,10 +1,16 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, PlayCircle } from 'lucide-react';
 import useSprigExpression from '@/hooks/useSprigExpression';
+import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 
 const HeroSection = () => {
   const { src: sprigSrc } = useSprigExpression();
+  const { open: openScheduleCall } = useScheduleCall();
+
+  const scrollToDemo = () => {
+    document.getElementById('see-it')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section
@@ -31,15 +37,27 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col items-center lg:items-start gap-4">
-              <Button
-                size="lg"
-                className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-                aria-label="See pricing plans"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Start Your Journey
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  size="lg"
+                  className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                  aria-label="Book a walkthrough with the Mentra team"
+                  onClick={openScheduleCall}
+                >
+                  Book a walkthrough
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                  aria-label="Watch the 90-second product demo"
+                  onClick={scrollToDemo}
+                >
+                  <PlayCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+                  See it in 90 seconds
+                </Button>
+              </div>
               <p className="text-sm text-gray-400 tracking-tight">
                 57 automated policy gates. Every claim provable.
               </p>

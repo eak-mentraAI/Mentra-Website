@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, ArrowRight, Users, Building2, Landmark, GraduationCap } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 
 const tiers = [
   {
@@ -66,6 +67,8 @@ const tiers = [
 ];
 
 const PricingSection = () => {
+  const { open: openScheduleCall } = useScheduleCall();
+
   return (
     <section id="pricing" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -118,12 +121,13 @@ const PricingSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href="#cta"
+                  <button
+                    type="button"
+                    onClick={openScheduleCall}
                     className={`w-full py-2.5 rounded-full font-semibold text-sm transition-all duration-200 text-center block ${tier.highlight ? 'bg-mentra-blue text-white hover:bg-mentra-blue/90' : 'border border-gray-200 text-gray-700 hover:bg-gray-50'}`}
                   >
-                    Request a Quote
-                  </a>
+                    Request a quote
+                  </button>
                 </div>
               </AnimateOnScroll>
             );

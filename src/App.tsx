@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import ErrorBoundary from "./components/layout/ErrorBoundary";
 import Index from "./pages/Index";
 import CookieConsent from "./components/sections/CookieConsent";
+import { ScheduleCallProvider } from "./contexts/ScheduleCallContext";
 
 // Lazy-loaded pages — only Index is eager (landing page, must be fast)
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -73,10 +74,12 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <AnimatedRoutes />
-        </Suspense>
-        <CookieConsent />
+        <ScheduleCallProvider>
+          <Suspense fallback={<PageLoader />}>
+            <AnimatedRoutes />
+          </Suspense>
+          <CookieConsent />
+        </ScheduleCallProvider>
       </BrowserRouter>
     </TooltipProvider>
   </ErrorBoundary>

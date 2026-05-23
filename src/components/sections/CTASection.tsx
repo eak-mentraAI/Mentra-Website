@@ -1,20 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 
 const CTASection = () => {
-  const navigate = useNavigate();
-
-  const handleScrollToPricing = () => {
-    if (window.location.pathname === '/') {
-      const el = document.getElementById('pricing');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/#pricing');
-    }
-  };
+  const { open: openScheduleCall } = useScheduleCall();
 
   return (
     <section data-sprig-cta className="py-24 bg-gray-900 relative overflow-hidden">
@@ -34,9 +25,10 @@ const CTASection = () => {
               <Button
                 size="lg"
                 className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group"
-                onClick={handleScrollToPricing}
+                aria-label="Book a walkthrough with the Mentra team"
+                onClick={openScheduleCall}
               >
-                Begin Your Journey
+                Book a walkthrough
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

@@ -185,7 +185,7 @@ const HowItWorksSection = () => {
             See it in action
           </h3>
         </AnimateOnScroll>
-        <div className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-24">
+        <div id="see-it" className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-24 scroll-mt-24">
           <iframe
             src="https://www.youtube.com/embed/Q84vfTtvGMA"
             title="Mentra Demo"

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
-import ScheduleCallModal from '@/components/sections/ScheduleCallModal';
+import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import { Button } from '@/components/ui/button';
 import {
   Database,
@@ -257,7 +257,7 @@ const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: bool
 };
 
 const Platform = () => {
-  const [showModal, setShowModal] = useState(false);
+  const { open: openScheduleCall } = useScheduleCall();
 
   return (
     <PageTransition>
@@ -287,7 +287,7 @@ const Platform = () => {
                 </p>
                 <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
                   <Button
-                    onClick={() => setShowModal(true)}
+                    onClick={openScheduleCall}
                     className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-7 py-6 rounded-full font-medium text-base shadow-sm hover:shadow-md"
                   >
                     Talk to our integrations team
@@ -484,7 +484,7 @@ const Platform = () => {
                   what cognition signal could unlock for your teachers, parents, and partners.
                 </p>
                 <Button
-                  onClick={() => setShowModal(true)}
+                  onClick={openScheduleCall}
                   className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-6 rounded-full font-medium text-base shadow-lg"
                 >
                   Talk to our integrations team
@@ -496,7 +496,6 @@ const Platform = () => {
         </section>
 
         <Footer />
-        <ScheduleCallModal open={showModal} onOpenChange={setShowModal} />
       </div>
     </PageTransition>
   );
