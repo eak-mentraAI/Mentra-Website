@@ -93,7 +93,7 @@ const HowItWorksSection = () => {
                 alt="A student grows more independent as Sprig steps back. The visible scaffolding — ladders, guide rails, helping hands — fades from left to right."
                 width="1774"
                 height="887"
-                className="w-full h-full object-cover object-[center_55%]"
+                className="w-full h-full object-cover object-[center_60%]"
                 loading="lazy"
               />
             </div>
