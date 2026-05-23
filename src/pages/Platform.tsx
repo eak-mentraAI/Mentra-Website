@@ -5,6 +5,7 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import { Button } from '@/components/ui/button';
+import SprigOrb from '@/components/ui/SprigOrb';
 import {
   Database,
   Users,
@@ -265,43 +266,68 @@ const Platform = () => {
         <Header />
 
         {/* HERO */}
-        <section className="relative pt-16 pb-20 sm:pt-20 sm:pb-24 bg-gradient-to-b from-mentra-blue/5 via-white to-white overflow-hidden">
+        <section className="relative bg-gradient-to-b from-mentra-blue/5 via-white to-white overflow-hidden" aria-labelledby="platform-hero-heading">
           <div
             className="absolute inset-0 bg-dot-grid opacity-50 pointer-events-none"
             aria-hidden="true"
           />
-          <div className="container mx-auto px-4 relative">
-            <AnimateOnScroll>
-              <div className="max-w-3xl mx-auto text-center">
-                <div className="inline-flex items-center gap-2 bg-mentra-blue/10 text-mentra-blue text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-                  <Layers className="w-4 h-4" />
-                  PLATFORM ARCHITECTURE
+          <div className="mx-auto max-w-screen-xl px-4 py-24 sm:py-32 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left: text */}
+              <div className="text-center lg:text-left space-y-8">
+                <div className="space-y-6">
+                  <div className="inline-flex items-center gap-2 bg-mentra-blue/10 text-mentra-blue text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full">
+                    <Layers className="w-4 h-4" />
+                    PLATFORM ARCHITECTURE
+                  </div>
+                  <h1
+                    id="platform-hero-heading"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
+                  >
+                    The{' '}
+                    <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">
+                      Cognition
+                    </span>{' '}
+                    Infrastructure Layer for K–12
+                  </h1>
+                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Mentra sits downstream of the LMS as a learning tool, and upstream of partners
+                    as a cognition platform — capturing how students think and making that signal
+                    available, safely, to the systems districts already use.
+                  </p>
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-balance leading-tight">
-                  The Cognition Infrastructure Layer for K–12
-                </h1>
-                <p className="text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                  Mentra sits downstream of the LMS as a learning tool, and upstream of partners
-                  as a cognition platform — capturing how students think and making that signal
-                  available, safely, to the systems districts already use.
-                </p>
-                <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button
-                    onClick={openScheduleCall}
-                    className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-7 py-6 rounded-full font-medium text-base shadow-sm hover:shadow-md"
-                  >
-                    Talk to our integrations team
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                  <a
-                    href="#stack"
-                    className="inline-flex items-center justify-center bg-white border border-gray-200 hover:border-mentra-blue/40 text-gray-900 px-7 py-3 rounded-full font-medium text-base transition-colors"
-                  >
-                    See the stack
-                  </a>
+                <div className="flex flex-col items-center lg:items-start gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button
+                      size="lg"
+                      onClick={openScheduleCall}
+                      className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                    >
+                      Talk to our integrations team
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    </Button>
+                    <a
+                      href="#stack"
+                      className="inline-flex items-center justify-center border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                    >
+                      See the stack
+                    </a>
+                  </div>
                 </div>
               </div>
-            </AnimateOnScroll>
+              {/* Right: Sprig pair at the stack */}
+              <div className="flex justify-center lg:justify-end">
+                <SprigOrb size="lg">
+                  <img
+                    src="/images/sprig/platform-hero.png"
+                    alt="Two Sprigs at the Mentra stack — architecting cognition infrastructure"
+                    width="400"
+                    height="400"
+                    className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl animate-breathe motion-reduce:animate-none"
+                  />
+                </SprigOrb>
+              </div>
+            </div>
           </div>
         </section>
 

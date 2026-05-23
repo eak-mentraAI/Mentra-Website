@@ -5,9 +5,10 @@ import Footer from '../components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search, Calendar, ArrowUpDown, Clock } from 'lucide-react';
+import { Search, Calendar, ArrowUpDown, Clock, ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '../components/layout/PageTransition';
+import SprigOrb from '@/components/ui/SprigOrb';
 import { getAllPosts } from '@/lib/blog';
 import '../App.css';
 
@@ -67,18 +68,65 @@ const Blog = () => {
     <PageTransition>
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">
       <Header />
-      <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 py-12 px-4 font-rounded flex flex-col items-center">
-        <div className="container mx-auto px-4">
-          {/* Header Section */}
-          <section className="container mx-auto max-w-3xl px-4 flex flex-col items-center justify-center text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Mentra <span className="text-mentra-blue">Insights</span>
-            </h1>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-0">
-              Leading the conversation on the future of learning, AI, and human growth. Explore bold ideas, research, and real stories from the front lines of education innovation.
-            </p>
-          </section>
+      <main className="font-rounded flex-1">
+        {/* HERO */}
+        <section className="relative overflow-hidden" aria-labelledby="blog-hero-heading">
+          <div className="mx-auto max-w-screen-xl px-4 py-24 sm:py-32 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left: text */}
+              <div className="text-center lg:text-left space-y-8">
+                <div className="space-y-6">
+                  <h1
+                    id="blog-hero-heading"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
+                  >
+                    Where learning gets{' '}
+                    <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">
+                      curious.
+                    </span>
+                  </h1>
+                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Bold ideas, research, and real stories from the front lines of education innovation.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center lg:items-start gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button
+                      size="lg"
+                      onClick={() => document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                    >
+                      Browse articles
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                    >
+                      Read featured
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              {/* Right: Sprig pair sharing a journal */}
+              <div className="flex justify-center lg:justify-end">
+                <SprigOrb size="lg">
+                  <img
+                    src="/images/sprig/blog-hero.png"
+                    alt="Two Sprigs sharing a journal — ideas in exchange"
+                    width="400"
+                    height="400"
+                    className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl animate-breathe motion-reduce:animate-none"
+                  />
+                </SprigOrb>
+              </div>
+            </div>
+          </div>
+        </section>
 
+        <div className="container mx-auto px-4 pb-12">
           {/* Search and Filter Section */}
           <div className="bg-white rounded-2xl shadow-lg p-6 mb-12">
             <div className="grid md:grid-cols-3 gap-4">
@@ -125,7 +173,7 @@ const Blog = () => {
           {/* Featured Post */}
           {featuredPost && (
             <AnimateOnScroll>
-            <section className="mb-16">
+            <section id="featured" className="mb-16 scroll-mt-24">
               <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured Article</h2>
               <article className="bg-white rounded-3xl shadow-xl overflow-hidden">
                 <div className="grid lg:grid-cols-2 gap-0">
@@ -185,7 +233,7 @@ const Blog = () => {
           )}
 
           {/* Regular Posts Grid */}
-          <section>
+          <section id="articles" className="scroll-mt-24">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-gray-900">
                 Latest Articles
