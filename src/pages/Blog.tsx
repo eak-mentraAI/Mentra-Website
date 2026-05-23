@@ -1,119 +1,25 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Search, Calendar, Tag, ArrowUpDown, Clock } from 'lucide-react';
+import { Search, Calendar, ArrowUpDown, Clock } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '../components/layout/PageTransition';
+import { getAllPosts } from '@/lib/blog';
 import '../App.css';
-
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  date: string;
-  category: string;
-  tags: string[];
-  image: string;
-  featured: boolean;
-  readTime: number;
-}
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
 
-  // Sample blog data - replace with your actual blog posts
-  const blogPosts: BlogPost[] = [
-    {
-      id: '1',
-      title: 'How AI is Transforming Student Learning: A Deep Dive into Personalized Education',
-      excerpt: 'Discover how artificial intelligence is revolutionizing the way students learn, from personalized tutoring to adaptive assessments that grow with each student.',
-      content: 'Full blog content would go here...',
-      author: 'Edward Kerr',
-      date: '2024-01-15',
-      category: 'AI & Education',
-      tags: ['AI', 'Personalization', 'Learning'],
-      image: '/images/other/edtech_2.jpg.webp',
-      featured: true,
-      readTime: 8
-    },
-    {
-      id: '2',
-      title: 'Building Emotional Intelligence Through AI-Powered Journaling',
-      excerpt: 'Learn how our AI companion Sprig helps students develop crucial emotional intelligence skills through guided reflection and self-discovery.',
-      content: 'Full blog content would go here...',
-      author: 'Dr. Sarah Chen',
-      date: '2024-01-10',
-      category: 'Emotional Intelligence',
-      tags: ['Emotional Intelligence', 'Journaling', 'Self-Reflection'],
-      image: '/images/other/edtech_3.jpg.avif',
-      featured: false,
-      readTime: 6
-    },
-    {
-      id: '3',
-      title: 'The Future of Assessment: Moving Beyond Traditional Testing',
-      excerpt: 'Explore innovative assessment methods that measure true learning and growth rather than just memorization.',
-      content: 'Full blog content would go here...',
-      author: 'Prof. Michael Rodriguez',
-      date: '2024-01-05',
-      category: 'Assessment',
-      tags: ['Assessment', 'Innovation', 'Learning Outcomes'],
-      image: '/images/other/edtech_4.jpg',
-      featured: false,
-      readTime: 7
-    },
-    {
-      id: '4',
-      title: 'Parent-Teacher Collaboration in the Digital Age',
-      excerpt: 'How technology is bridging the gap between home and school, creating stronger partnerships for student success.',
-      content: 'Full blog content would go here...',
-      author: 'Lisa Thompson',
-      date: '2024-01-01',
-      category: 'Parent Engagement',
-      tags: ['Parent Engagement', 'Technology', 'Collaboration'],
-      image: '/images/other/teacher_power.jpg',
-      featured: false,
-      readTime: 5
-    },
-    {
-      id: '5',
-      title: 'The Science Behind Effective Learning: What Research Tells Us',
-      excerpt: 'Dive into the latest research on how students learn best and how we can apply these findings in modern education.',
-      content: 'Full blog content would go here...',
-      author: 'Dr. James Wilson',
-      date: '2023-12-28',
-      category: 'Research',
-      tags: ['Research', 'Learning Science', 'Evidence-Based'],
-      image: '/images/other/edtech_5.jpg',
-      featured: false,
-      readTime: 9
-    },
-    {
-      id: '6',
-      title: 'Preparing Students for an AI-Powered Workforce',
-      excerpt: 'How educators can help students develop the skills they\'ll need to thrive in a world where AI is ubiquitous.',
-      content: 'Full blog content would go here...',
-      author: 'Emma Davis',
-      date: '2023-12-20',
-      category: 'Future Skills',
-      tags: ['Future Skills', 'AI', 'Workforce Preparation'],
-      image: '/images/other/edtech_social.jpg',
-      featured: false,
-      readTime: 6
-    }
-  ];
+  const blogPosts = useMemo(() => getAllPosts(), []);
 
-  // Get unique categories
   const categories = ['all', ...Array.from(new Set(blogPosts.map(post => post.category)))];
 
-  // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
     const filtered = blogPosts.filter(post => {
       const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -123,7 +29,6 @@ const Blog = () => {
       return matchesSearch && matchesCategory;
     });
 
-    // Sort posts
     switch (sortBy) {
       case 'newest':
         filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -151,6 +56,11 @@ const Blog = () => {
       month: 'long',
       day: 'numeric'
     });
+  };
+
+  const authorInitials = (author: string) => {
+    const parts = author.split(' ');
+    return parts[0][0] + parts[parts.length - 1][0];
   };
 
   return (
@@ -258,16 +168,13 @@ const Blog = () => {
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-mentra-blue/10 rounded-full flex items-center justify-center">
                           <span className="text-mentra-blue font-semibold text-sm">
-                            {(() => {
-                              const parts = featuredPost.author.split(' ');
-                              return parts[0][0] + parts[parts.length - 1][0];
-                            })()}
+                            {authorInitials(featuredPost.author)}
                           </span>
                         </div>
                         <span className="text-gray-700 font-medium">{featuredPost.author}</span>
                       </div>
-                      <Button className="bg-mentra-blue hover:bg-mentra-blue/90">
-                        Read Article
+                      <Button asChild className="bg-mentra-blue hover:bg-mentra-blue/90">
+                        <Link to={`/blog/${featuredPost.slug}`}>Read Article</Link>
                       </Button>
                     </div>
                   </div>
@@ -291,22 +198,24 @@ const Blog = () => {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularPosts.map(post => (
-                <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="relative h-48">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      width="400"
-                      height="200"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
-                        {post.category}
-                      </span>
+                <article key={post.slug} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <Link to={`/blog/${post.slug}`} className="block">
+                    <div className="relative h-48">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        width="400"
+                        height="200"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                          {post.category}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
@@ -319,7 +228,9 @@ const Blog = () => {
                       </div>
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">
-                      {post.title}
+                      <Link to={`/blog/${post.slug}`} className="hover:text-mentra-blue transition-colors">
+                        {post.title}
+                      </Link>
                     </h3>
                     <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
                       {post.excerpt}
@@ -328,16 +239,13 @@ const Blog = () => {
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 bg-mentra-blue/10 rounded-full flex items-center justify-center">
                           <span className="text-mentra-blue font-semibold text-xs">
-                            {(() => {
-                              const parts = post.author.split(' ');
-                              return parts[0][0] + parts[parts.length - 1][0];
-                            })()}
+                            {authorInitials(post.author)}
                           </span>
                         </div>
                         <span className="text-gray-700 font-medium text-sm">{post.author}</span>
                       </div>
-                      <Button variant="outline" size="sm">
-                        Read More
+                      <Button asChild variant="outline" size="sm">
+                        <Link to={`/blog/${post.slug}`}>Read More</Link>
                       </Button>
                     </div>
                   </div>
@@ -365,4 +273,4 @@ const Blog = () => {
   );
 };
 
-export default Blog; 
+export default Blog;

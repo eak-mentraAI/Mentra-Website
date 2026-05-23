@@ -15,6 +15,7 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Cookies = lazy(() => import("./pages/Cookies"));
 const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Press = lazy(() => import("./pages/Press"));
 const Platform = lazy(() => import("./pages/Platform"));
 
@@ -49,6 +50,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/press" element={<Press />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/privacy" element={<Privacy />} />
