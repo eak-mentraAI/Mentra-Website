@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Layers } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import { personas, colorBorderMap } from '@/data/personas';
 
@@ -84,6 +86,39 @@ const PersonaSwitcher = () => {
               ))}
             </div>
           </div>
+
+          {/* Persona-specific deep dive link */}
+          {active.deepDive && (
+            <AnimateOnScroll>
+              <div className="max-w-4xl mx-auto mt-12">
+                <Link
+                  to={active.deepDive.href}
+                  className="group block bg-gradient-to-br from-mentra-blue to-mentra-blue/85 rounded-2xl p-6 sm:p-8 text-left hover:shadow-xl hover:shadow-mentra-blue/20 transition-all duration-200"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+                    <div className="flex-shrink-0 w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center">
+                      <Layers className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-1">
+                        {active.deepDive.eyebrow}
+                      </div>
+                      <h4 className="text-lg sm:text-xl font-bold text-white mb-1">
+                        {active.deepDive.title}
+                      </h4>
+                      <p className="text-sm text-white/80 leading-relaxed">
+                        {active.deepDive.description}
+                      </p>
+                    </div>
+                    <div className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-mentra-blue px-5 py-2.5 rounded-full font-semibold text-sm group-hover:gap-3 transition-all whitespace-nowrap self-start sm:self-auto">
+                      {active.deepDive.ctaLabel}
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </AnimateOnScroll>
+          )}
         </div>
       </div>
     </section>

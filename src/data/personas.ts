@@ -24,6 +24,14 @@ export interface Stat {
   label: string;
 }
 
+export interface DeepDiveLink {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  href: string;
+}
+
 export interface Persona {
   id: string;
   tabLabel: string;
@@ -33,6 +41,7 @@ export interface Persona {
   problemBorderColor: string;
   blurbs: Blurb[];
   stats?: Stat[];
+  deepDive?: DeepDiveLink;
 }
 
 export const personas: Persona[] = [
@@ -138,5 +147,12 @@ export const personas: Persona[] = [
       { value: '20', label: 'Export data domains' },
       { value: '<1s', label: 'AI kill switch response' },
     ],
+    deepDive: {
+      eyebrow: 'For IT & Curriculum Teams',
+      title: 'See how Mentra fits with your existing stack',
+      description: 'Architecture, standards, and integration details — SIS, SSO, LMS, and the partner API for cognition data.',
+      ctaLabel: 'Explore the Platform',
+      href: '/platform',
+    },
   },
 ];

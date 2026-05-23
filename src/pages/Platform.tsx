@@ -81,12 +81,7 @@ const stackLayers: StackLayerProps[] = [
     step: '04',
     title: 'Mentra — The Cognition Layer',
     icon: Brain,
-    vendors: [
-      { name: 'Student Learning Experience' },
-      { name: 'Cognition Substrate' },
-      { name: 'LTI 1.3 Advantage Platform' },
-      { name: 'Partner API + OAuth2' },
-    ],
+    vendors: [],
     role: 'Mentra captures HOW students think while they learn — calibration confidence, scaffold reliance, productive struggle, reasoning quality — and turns it into actionable signal for teachers and partner systems.',
     protocol: 'OAuth2 / Partner API',
     isMentra: true,
@@ -146,11 +141,9 @@ const mentraMetrics = [
 
 const standards = [
   { name: 'OneRoster', description: 'Nightly roster sync from the SIS' },
-  { name: 'LTI 1.3 Advantage', description: 'Deep Linking, OIDC, NRPS, AGS' },
-  { name: 'Clever', description: 'SSO + rostering' },
-  { name: 'ClassLink', description: 'SSO + rostering' },
+  { name: 'LTI 1.3 Advantage', description: 'Deep Linking, OIDC, NRPS roster, AGS grade passback' },
+  { name: 'Rostering & SSO', description: 'Clever, ClassLink, Google, Microsoft' },
   { name: 'OAuth 2.0 + PKCE', description: 'Scoped partner API access' },
-  { name: 'OIDC', description: 'Single sign-on across providers' },
 ];
 
 const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: boolean }> = ({
@@ -209,6 +202,7 @@ const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: bool
             >
               {layer.role}
             </p>
+            {layer.vendors.length > 0 && (
             <div className="flex flex-wrap gap-2 items-center">
               {layer.vendors.map((v) => {
                 if (v.logo && !layer.isMentra) {
@@ -241,6 +235,7 @@ const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: bool
                 );
               })}
             </div>
+            )}
           </div>
         </div>
       </div>
@@ -337,12 +332,6 @@ const Platform = () => {
               ))}
             </div>
 
-            <AnimateOnScroll>
-              <p className="text-center text-sm text-gray-400 mt-12 max-w-2xl mx-auto">
-                The LMS distributes Mentra. The cognition substrate differentiates Mentra.
-                The partner API ecosystem compounds switching costs.
-              </p>
-            </AnimateOnScroll>
           </div>
         </section>
 
@@ -391,11 +380,10 @@ const Platform = () => {
             <AnimateOnScroll>
               <div className="max-w-3xl mx-auto text-center mb-14">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                  A new layer in the stack
+                  What Mentra measures
                 </h2>
                 <p className="text-lg text-gray-500">
-                  Existing tools measure outcomes. Mentra measures the cognition that produced
-                  them — and makes that signal usable.
+                  Existing tools measure outcomes. Mentra measures the cognition behind them.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -468,7 +456,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
               {standards.map((s, i) => (
                 <AnimateOnScroll key={s.name} delay={i * 50}>
                   <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 sm:p-6 hover:border-mentra-blue/40 transition-colors">
