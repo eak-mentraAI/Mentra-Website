@@ -85,24 +85,40 @@ export default function About() {
       <Header />
       <main className="min-h-screen bg-white flex flex-col items-center font-rounded">
 
-        {/* Founder Story */}
-        <section className="container mx-auto px-4 pt-24 pb-24">
-          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <img
-              src="/images/other/edward-kerr.jpg"
-              alt="Edward Kerr, Founder of Mentra"
-              className="w-52 h-52 md:w-64 md:h-64 object-cover rounded-2xl flex-shrink-0"
-            />
-            <div className="flex-1 text-center md:text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                Why we built Mentra
-              </h1>
-              <p className="text-xl text-gray-600 mb-3 leading-relaxed">
-                I'm Edward Kerr — technologist, father, and founder. As a dad to Grace, Hope, and Joy, I watched AI change everything about what it means to learn and succeed.
-              </p>
-              <p className="text-lg text-gray-500 leading-relaxed">
-                Most ed-tech responded by giving kids more AI. We asked a different question: what if AI's job was to make itself unnecessary? What if every interaction made the student stronger, not more dependent?
-              </p>
+        {/* Founder Story — hero mirrors home page structure */}
+        <section className="relative overflow-hidden" aria-labelledby="about-hero-heading">
+          <div className="mx-auto max-w-screen-xl px-4 py-24 sm:py-32 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left: founder photo */}
+              <div className="flex justify-center lg:justify-start">
+                <img
+                  src="/images/other/edward-kerr.jpg"
+                  alt="Edward Kerr, Founder of Mentra"
+                  width="400"
+                  height="400"
+                  className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-cover rounded-2xl shadow-xl"
+                />
+              </div>
+              {/* Right: text */}
+              <div className="text-center lg:text-left space-y-8">
+                <div className="space-y-6">
+                  <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-mentra-blue">
+                    A founder's note
+                  </div>
+                  <h1
+                    id="about-hero-heading"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
+                  >
+                    Why we built Mentra
+                  </h1>
+                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    I'm Edward Kerr — technologist, father, and founder. As a dad to Grace, Hope, and Joy, I watched AI change everything about what it means to learn and succeed.
+                  </p>
+                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Most ed-tech responded by giving kids more AI. We asked a different question: what if AI's job was to make itself unnecessary? What if every interaction made the student stronger, not more dependent?
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
