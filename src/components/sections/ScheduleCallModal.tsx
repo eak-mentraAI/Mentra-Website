@@ -50,10 +50,10 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
       <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-md rounded-2xl bg-white">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold text-gray-900">
-            Schedule a Call
+            Schedule a call
           </DialogTitle>
           <DialogDescription className="text-gray-600">
-            Leave your details and our team will reach out to schedule a time.
+            Two fields. We'll reach out within one business day to find a time that works.
           </DialogDescription>
         </DialogHeader>
 
@@ -64,8 +64,8 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <p className="text-gray-900 font-semibold mb-1">Thank you!</p>
-            <p className="text-gray-600 text-sm">We'll be in touch soon.</p>
+            <p className="text-gray-900 font-semibold mb-1">Got it.</p>
+            <p className="text-gray-600 text-sm">We'll be in touch within one business day.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-3">
@@ -95,7 +95,7 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
 
             {status === 'error' && (
               <p className="text-curiosity-coral text-sm">
-                Something went wrong. Please try again.
+                Something interrupted that. Try again, or email <a href="mailto:hello@mentra.ai" className="underline hover:no-underline">hello@mentra.ai</a> directly.
               </p>
             )}
 
@@ -104,7 +104,7 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
               disabled={status === 'submitting'}
               className="w-full bg-gradient-to-r from-mentra-blue to-mentra-blue/85 text-white font-semibold py-3 rounded-full hover:from-mentra-blue/95 hover:to-mentra-blue/80 hover:shadow-lg hover:shadow-mentra-blue/25 active:scale-[0.98] transition-all duration-200 text-base disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {status === 'submitting' ? 'Sending...' : 'Schedule Call'}
+              {status === 'submitting' ? 'Sending' : 'Book the walkthrough'}
             </button>
           </form>
         )}

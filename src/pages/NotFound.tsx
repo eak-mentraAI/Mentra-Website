@@ -14,40 +14,35 @@ const NotFound = () => {
 
   return (
     <PageTransition>
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 font-rounded">
-      <div className="text-center max-w-md mx-auto px-4">
-        <div className="mb-8">
+      <div className="min-h-screen flex items-center justify-center bg-white font-rounded">
+        <div className="text-center max-w-md mx-auto px-4">
           <img
-            src="/images/sprig/explorer.png"
-            alt="Sprig looking curious"
-            width="96"
-            height="96"
-            className="w-24 h-24 mx-auto mb-4 animate-bounce-gentle"
+            src="/images/sprig/sleepy.png"
+            alt=""
+            width="120"
+            height="120"
+            className="w-28 h-28 mx-auto mb-8 drop-shadow-md"
+            aria-hidden="true"
           />
-        </div>
 
-        <h1 className="text-6xl font-bold mb-4 text-mentra-blue">Oops!</h1>
-        <h2 className="text-2xl font-bold mb-4 text-gray-900">Page Not Found</h2>
+          <p className="text-sm uppercase tracking-[0.18em] text-gray-400 mb-3">
+            404
+          </p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+            Sprig wandered off.
+          </h1>
+          <p className="text-base text-gray-500 leading-relaxed mb-8">
+            The page you were looking for isn't here. Let's get you back.
+          </p>
 
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-          Looks like this page took a learning detour! Don't worry—even the best explorers get lost sometimes.
-          Let's get you back to discovering amazing things with Sprig.
-        </p>
-
-        <div className="space-y-4">
           <Link
             to="/"
-            className="inline-block bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-3 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="inline-block bg-mentra-blue hover:bg-mentra-blue/90 text-white px-7 py-3 rounded-full font-medium text-sm transition-all duration-200 shadow-md hover:shadow-lg"
           >
-            Back to Home
+            Back to home
           </Link>
-
-          <p className="text-sm text-gray-500">
-            Or explore our <Link to="/#features" className="text-mentra-blue hover:underline">features</Link> to see what Sprig can do!
-          </p>
         </div>
       </div>
-    </div>
     </PageTransition>
   );
 };

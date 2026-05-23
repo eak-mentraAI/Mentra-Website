@@ -64,7 +64,7 @@ const AboutSection = () => {
                     alt="Sprig mascot"
                     width="64"
                     height="64"
-                    className="w-16 h-16 object-contain animate-bounce-gentle"
+                    className="w-16 h-16 object-contain"
                     loading="lazy"
                   />
                   <div className="bg-mentra-blue/10 rounded-2xl p-4 flex-1">
@@ -86,7 +86,7 @@ const AboutSection = () => {
                     alt="Sprig explorer"
                     width="64"
                     height="64"
-                    className="w-16 h-16 object-contain animate-float"
+                    className="w-16 h-16 object-contain"
                     loading="lazy"
                   />
                   <div className="bg-growth-green/10 rounded-2xl p-4 flex-1">

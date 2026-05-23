@@ -18,8 +18,16 @@ const Press = lazy(() => import("./pages/Press"));
 const Platform = lazy(() => import("./pages/Platform"));
 
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="w-8 h-8 border-4 border-mentra-blue border-t-transparent rounded-full animate-spin" />
+  <div className="min-h-screen flex items-center justify-center bg-white">
+    <img
+      src="/images/logos/logo_watermark.png"
+      alt=""
+      width="64"
+      height="64"
+      className="w-16 h-16 animate-pulse-slow"
+      aria-hidden="true"
+    />
+    <span className="sr-only">Loading</span>
   </div>
 );
 

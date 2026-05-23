@@ -53,7 +53,7 @@ const HeroSection = () => {
               alt="Sprig, your AI learning companion"
               width="400"
               height="400"
-              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl transition-opacity duration-500"
+              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl transition-opacity duration-500 animate-breathe motion-reduce:animate-none"
             />
           </div>
         </div>
