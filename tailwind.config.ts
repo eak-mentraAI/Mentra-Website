@@ -119,8 +119,7 @@ export default {
 			},
 			fontFamily: {
 				'rounded': ['Inter', 'DM Sans', 'system-ui', 'sans-serif'],
-				'display': ['Poppins', 'Inter', 'DM Sans', 'system-ui', 'sans-serif'],
-				'editorial': ['Newsreader', 'Georgia', 'Cambria', 'serif']
+				'display': ['Poppins', 'Inter', 'DM Sans', 'system-ui', 'sans-serif']
 			}
 		}
 	},

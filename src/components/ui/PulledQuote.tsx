@@ -11,7 +11,7 @@ const PulledQuote = ({ children, attribution, className = '' }: PulledQuoteProps
   return (
     <figure className={`max-w-3xl mx-auto text-center space-y-6 ${className}`}>
       <HairlineDivider width="sm" />
-      <blockquote className="font-editorial italic text-2xl sm:text-3xl lg:text-4xl text-gray-800 leading-snug tracking-tight">
+      <blockquote className="text-xl sm:text-2xl lg:text-3xl text-gray-700 font-medium leading-snug tracking-tight">
         {children}
       </blockquote>
       {attribution ? (
