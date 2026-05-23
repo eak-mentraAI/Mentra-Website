@@ -1,4 +1,4 @@
-import{c as s}from"./index-C9_PlUEH.js";/**
+import{c as s}from"./index-CViJcS3m.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
@@ -12,7 +12,7 @@ import{c as s}from"./index-C9_PlUEH.js";/**
 title: Education Needs More Humanity, Not Less
 excerpt: The most common fear about AI in education is that learning will become colder and more transactional. The long-term outcome may be the opposite — and it depends entirely on how we choose to design it.
 author: Edward Kerr
-date: 2026-03-03
+date: 2026-04-08
 category: AI & Education
 tags: [AI, Teachers, Humanity, Emotional Learning, Future of Learning]
 image: /images/blog/education-needs-more-humanity-not-less.jpg
@@ -253,7 +253,7 @@ More.
 title: School Was Built for Information Scarcity
 excerpt: Classrooms still operate as though knowledge is rare — but our children are growing up in a world where information is effectively infinite. The mismatch is bigger than most people realize.
 author: Edward Kerr
-date: 2026-02-03
+date: 2025-12-17
 category: AI & Education
 tags: [AI, Education, Information, Critical Thinking, Future of Learning]
 image: /images/blog/school-was-built-for-information-scarcity.jpg
@@ -1454,7 +1454,7 @@ That goal matters now more than ever.
 title: The Students Falling Behind May Not Be the Ones We Think
 excerpt: The biggest educational divide emerging right now isn't between students who use AI and students who don't — it's between those who learn to direct it and those who become quietly dependent on it.
 author: Edward Kerr
-date: 2026-02-17
+date: 2025-11-15
 category: AI & Education
 tags: [AI, Critical Thinking, Agency, Workforce, Future of Learning]
 image: /images/blog/the-students-falling-behind-may-not-be-the-ones-we-think.jpg
