@@ -90,7 +90,7 @@ export default function Teachers() {
         </AnimateOnScroll>
 
         {/* Blurbs */}
-        <section className="container mx-auto max-w-6xl px-4 pb-16">
+        <section className="container mx-auto max-w-5xl px-4 pb-16">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {blurbs.map((b, i) => (
               <AnimateOnScroll key={b.title} delay={i * 100}>

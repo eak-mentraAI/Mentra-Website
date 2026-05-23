@@ -350,7 +350,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
               {mentraInternals.map((item, i) => (
                 <AnimateOnScroll key={item.title} delay={i * 80}>
                   <div className="h-full bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-mentra-blue/40 hover:shadow-md transition-all">
@@ -388,7 +388,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
               <AnimateOnScroll>
                 <div className="h-full bg-white border border-gray-200 rounded-2xl p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-5">
