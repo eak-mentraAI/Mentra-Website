@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -14,6 +15,9 @@ interface ScheduleCallModalProps {
 
 export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallModalProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [preferredContact, setPreferredContact] = useState<'email' | 'phone'>('email');
+  const location = useLocation();
+  const source = `${location.pathname}${location.hash}` || '/';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +45,10 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
   };
 
   const handleOpenChange = (next: boolean) => {
-    if (!next) setStatus('idle');
+    if (!next) {
+      setStatus('idle');
+      setPreferredContact('email');
+    }
     onOpenChange(next);
   };
 
@@ -69,7 +76,7 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-3">
-            <input type="hidden" name="context" value="Sent from the teachers page" />
+            <input type="hidden" name="source" value={source} />
             <div>
               <label htmlFor="schedule-name" className="sr-only">Name</label>
               <input
@@ -92,6 +99,46 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
                 className="w-full px-4 py-3 rounded-lg bg-journal-sand/30 border border-gray-200 focus:border-mentra-blue focus:ring-2 focus:ring-mentra-blue/20 focus:shadow-[0_0_0_4px_rgba(58,134,255,0.08)] focus:bg-white transition-all duration-200 text-base placeholder:text-gray-400"
               />
             </div>
+            <div>
+              <label htmlFor="schedule-phone" className="sr-only">Phone (optional)</label>
+              <input
+                id="schedule-phone"
+                type="tel"
+                name="phone"
+                required={preferredContact === 'phone'}
+                placeholder={preferredContact === 'phone' ? 'Phone' : 'Phone (optional)'}
+                className="w-full px-4 py-3 rounded-lg bg-journal-sand/30 border border-gray-200 focus:border-mentra-blue focus:ring-2 focus:ring-mentra-blue/20 focus:shadow-[0_0_0_4px_rgba(58,134,255,0.08)] focus:bg-white transition-all duration-200 text-base placeholder:text-gray-400"
+              />
+            </div>
+
+            <fieldset>
+              <legend className="text-sm text-gray-600 mb-2">Preferred contact method</legend>
+              <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Preferred contact method">
+                {(['email', 'phone'] as const).map((option) => {
+                  const selected = preferredContact === option;
+                  return (
+                    <label
+                      key={option}
+                      className={`flex items-center justify-center px-4 py-2.5 rounded-lg border cursor-pointer text-sm font-medium transition-all duration-200 ${
+                        selected
+                          ? 'bg-mentra-blue/10 border-mentra-blue text-mentra-blue'
+                          : 'bg-journal-sand/30 border-gray-200 text-gray-600 hover:bg-journal-sand/50'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="preferred_contact"
+                        value={option}
+                        checked={selected}
+                        onChange={() => setPreferredContact(option)}
+                        className="sr-only"
+                      />
+                      {option === 'email' ? 'Email' : 'Phone'}
+                    </label>
+                  );
+                })}
+              </div>
+            </fieldset>
 
             {status === 'error' && (
               <p className="text-curiosity-coral text-sm">
