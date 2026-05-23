@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import useSprigExpression from '@/hooks/useSprigExpression';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
+import HeroHelperHint from '@/components/HeroHelperHint';
 
 const HeroSection = () => {
   const { src: sprigSrc } = useSprigExpression();
@@ -61,6 +62,7 @@ const HeroSection = () => {
               <p className="text-sm text-gray-400 tracking-tight">
                 57 automated policy gates. Every claim provable.
               </p>
+              <HeroHelperHint />
             </div>
           </div>
 

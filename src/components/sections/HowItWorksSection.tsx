@@ -2,8 +2,8 @@ import React from 'react';
 import { BookOpen, Sparkles, FileText, Users, BarChart3, Shield, Eye, Zap } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScrollTimeline from '@/components/sections/ScrollTimeline';
-import { Card } from '@/components/ui/card';
 import PulledQuote from '@/components/ui/PulledQuote';
+import FadingDemo from '@/components/sections/FadingDemo';
 
 const beliefs = [
   {
@@ -94,88 +94,10 @@ const HowItWorksSection = () => {
           ))}
         </div>
 
-        {/* Fading visual + Chat demo side by side */}
+        {/* Interactive fading demo */}
         <AnimateOnScroll>
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-24">
-            {/* Fading bars */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">
-                Support that fades as students grow
-              </h3>
-              <div className="space-y-4">
-                {[
-                  { label: 'Month 1', width: '85%', opacity: 1 },
-                  { label: 'Month 2', width: '62%', opacity: 0.8 },
-                  { label: 'Month 3', width: '40%', opacity: 0.6 },
-                  { label: 'Month 4', width: '22%', opacity: 0.4 },
-                  { label: 'Month 5', width: '10%', opacity: 0.25 },
-                ].map((row) => (
-                  <div key={row.label} className="flex items-center gap-4">
-                    <span className="text-sm text-gray-400 w-20 text-right font-medium">{row.label}</span>
-                    <div className="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-mentra-blue transition-all duration-700"
-                        style={{ width: row.width, opacity: row.opacity }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center text-sm text-gray-400 mt-6">
-                AI scaffolding decreases as student capability increases
-              </p>
-            </div>
-
-            {/* Conversation demo */}
-            <Card className="p-8 bg-white rounded-2xl border border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">
-                What this looks like in practice
-              </h3>
-              <div className="space-y-5">
-                {/* Sprig asks */}
-                <div className="flex items-start gap-3">
-                  <img
-                    src="/images/sprig/nerd.png"
-                    alt="Sprig"
-                    width="40"
-                    height="40"
-                    className="w-10 h-10 object-contain mt-1"
-                    loading="lazy"
-                  />
-                  <div className="bg-mentra-blue/5 border border-mentra-blue/10 rounded-2xl rounded-tl-md p-4 flex-1">
-                    <p className="text-gray-800 text-sm leading-relaxed">
-                      I notice you're working on fractions. What's one thing that's clicking, and what feels tricky?
-                    </p>
-                  </div>
-                </div>
-
-                {/* Student responds */}
-                <div className="ml-12">
-                  <div className="bg-gray-50 border border-gray-100 rounded-2xl rounded-tr-md p-4">
-                    <p className="text-gray-600 text-sm italic leading-relaxed">
-                      I get adding them when the bottom numbers match, but not when they're different...
-                    </p>
-                  </div>
-                </div>
-
-                {/* Sprig guides (not answers) */}
-                <div className="flex items-start gap-3">
-                  <img
-                    src="/images/sprig/explorer.png"
-                    alt="Sprig"
-                    width="40"
-                    height="40"
-                    className="w-10 h-10 object-contain mt-1"
-                    loading="lazy"
-                  />
-                  <div className="bg-mentra-blue/5 border border-mentra-blue/10 rounded-2xl rounded-tl-md p-4 flex-1">
-                    <p className="text-gray-800 text-sm leading-relaxed">
-                      Great — you know exactly where you're stuck. Why do you think the "bottom numbers" need to match?
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
+          <div className="max-w-3xl mx-auto mb-24">
+            <FadingDemo />
           </div>
         </AnimateOnScroll>
 
