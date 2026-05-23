@@ -42,6 +42,20 @@ const RedirectToHash = ({ hash }: { hash: string }) => {
   return null;
 };
 
+// Reset scroll to top on every route change so footer/header links don't
+// land users mid-page on the new route. Skips when a hash is present so
+// in-page anchor scrolling (handled by Index.tsx and scroll-mt-* margins)
+// still works.
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  return null;
+};
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (
@@ -76,6 +90,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <BrowserRouter>
+        <ScrollToTop />
         <ScheduleCallProvider>
           <Suspense fallback={<PageLoader />}>
             <AnimatedRoutes />
