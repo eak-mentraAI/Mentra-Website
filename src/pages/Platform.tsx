@@ -209,13 +209,13 @@ const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: bool
                   return (
                     <div
                       key={v.name}
-                      className="h-10 sm:h-11 px-3 sm:px-4 rounded-lg bg-white border border-gray-200 flex items-center justify-center"
+                      className="w-32 h-14 sm:w-36 sm:h-16 p-2 rounded-lg bg-white border border-gray-200 flex items-center justify-center"
                       title={v.name}
                     >
                       <img
                         src={v.logo}
                         alt={v.name}
-                        className="max-h-6 sm:max-h-7 w-auto object-contain"
+                        className="max-h-full max-w-full object-contain"
                         loading="lazy"
                       />
                     </div>
@@ -224,7 +224,7 @@ const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: bool
                 return (
                   <span
                     key={v.name}
-                    className={`text-xs sm:text-sm h-10 sm:h-11 px-3 sm:px-4 rounded-lg font-medium inline-flex items-center ${
+                    className={`text-xs sm:text-sm min-h-14 sm:min-h-16 px-3 sm:px-4 py-2 rounded-lg font-medium inline-flex items-center text-center ${
                       layer.isMentra
                         ? 'bg-white/15 text-white border border-white/20'
                         : 'bg-gray-50 text-gray-700 border border-gray-200'
