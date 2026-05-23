@@ -86,27 +86,17 @@ const HowItWorksSection = () => {
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <div className="relative max-w-4xl mx-auto mb-16">
-            <img
-              src="/images/scenes/scaffolding-fades.png"
-              alt="A student grows more independent as Sprig steps back. The visible scaffolding — ladders, guide rails, helping hands — fades from left to right."
-              width="1774"
-              height="887"
-              className="w-full h-auto"
-              style={{
-                WebkitMaskImage:
-                  'radial-gradient(ellipse 96% 94% at center, black 70%, transparent 100%)',
-                maskImage:
-                  'radial-gradient(ellipse 96% 94% at center, black 70%, transparent 100%)',
-              }}
-              loading="lazy"
-            />
-            <span className="absolute left-[7%] top-[6%] text-[11px] sm:text-sm italic text-stone-600/90 border-b border-dashed border-stone-400/70 pb-0.5 tracking-wide pointer-events-none">
-              early on
-            </span>
-            <span className="absolute right-[7%] top-[6%] text-[11px] sm:text-sm italic text-stone-600/90 border-b border-dashed border-stone-400/70 pb-0.5 tracking-wide pointer-events-none">
-              over time
-            </span>
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="relative aspect-[2.5/1] w-full rounded-2xl overflow-hidden">
+              <img
+                src="/images/scenes/scaffolding-fades.png"
+                alt="A student grows more independent as Sprig steps back. The visible scaffolding — ladders, guide rails, helping hands — fades from left to right."
+                width="1774"
+                height="887"
+                className="w-full h-full object-cover object-bottom"
+                loading="lazy"
+              />
+            </div>
           </div>
         </AnimateOnScroll>
 
