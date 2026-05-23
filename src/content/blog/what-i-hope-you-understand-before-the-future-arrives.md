@@ -6,7 +6,7 @@ date: 2026-04-30
 category: Future Skills
 tags: [Future, Discernment, Parenting, AI, Adaptability]
 image: /images/blog/what-i-hope-you-understand-before-the-future-arrives.jpg
-featured: false
+featured: true
 readTime: 4
 canonicalUrl: https://designforimpact.io/what-i-hope-you-understand-before-the-future-arrives/
 ---

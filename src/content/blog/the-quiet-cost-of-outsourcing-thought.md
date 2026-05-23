@@ -6,7 +6,7 @@ date: 2026-01-20
 category: AI & Education
 tags: [AI, Critical Thinking, Cognition, Future of Learning]
 image: /images/blog/the-quiet-cost-of-outsourcing-thought.jpg
-featured: true
+featured: false
 readTime: 7
 ---
 
