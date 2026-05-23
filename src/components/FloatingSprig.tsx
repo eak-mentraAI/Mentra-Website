@@ -52,7 +52,7 @@ const FloatingSprig = () => {
   return (
     <motion.div
       aria-hidden="true"
-      className="hidden md:block pointer-events-none fixed bottom-6 right-6 z-40 w-24 h-24"
+      className="hidden md:block pointer-events-none fixed bottom-6 left-6 z-40 w-24 h-24"
       style={{ opacity: containerOpacity }}
     >
       {layers.map((layer) => (
