@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 /**
- * Sprig follows the visitor down the page, shrinking and quieting as they scroll —
- * the brand thesis ("scaffolding that fades") made visible.
+ * Sprig follows the visitor down the page, quietly shifting expression as
+ * scroll progresses — the brand thesis ("scaffolding that fades") made visible.
  */
 const FloatingSprig = () => {
   const { scrollYProgress } = useScroll();
-  const [src, setSrc] = useState('/images/sprig/nerd.png');
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -18,44 +17,55 @@ const FloatingSprig = () => {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  // Hidden over the hero, visible through the body, fading toward the end.
-  const opacity = useTransform(
+  // Container fades in once past the hero, holds through the page, fades out near the end.
+  const containerOpacity = useTransform(
     scrollYProgress,
-    [0, 0.12, 0.18, 0.7, 0.95],
-    [0, 0, 0.85, 0.55, 0.25],
-  );
-  const scale = useTransform(
-    scrollYProgress,
-    [0.15, 0.3, 0.7, 1],
-    [0.55, 0.65, 0.45, 0.3],
+    [0, 0.12, 0.2, 0.85, 0.97],
+    [0, 0, 0.9, 0.9, 0],
   );
 
-  useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    if (v < 0.18) return;
-    if (v < 0.55) {
-      setSrc((prev) => (prev !== '/images/sprig/nerd.png' ? '/images/sprig/nerd.png' : prev));
-    } else if (v < 0.85) {
-      setSrc((prev) => (prev !== '/images/sprig/explorer.png' ? '/images/sprig/explorer.png' : prev));
-    } else {
-      setSrc((prev) => (prev !== '/images/sprig/sleepy.png' ? '/images/sprig/sleepy.png' : prev));
-    }
-  });
+  // Each expression's opacity peaks in its own zone; overlapping ramps create a cross-fade.
+  const nerdOpacity = useTransform(
+    scrollYProgress,
+    [0.18, 0.25, 0.5, 0.6],
+    [1, 1, 1, 0],
+  );
+  const explorerOpacity = useTransform(
+    scrollYProgress,
+    [0.5, 0.6, 0.75, 0.85],
+    [0, 1, 1, 0],
+  );
+  const sleepyOpacity = useTransform(
+    scrollYProgress,
+    [0.75, 0.85, 1],
+    [0, 1, 1],
+  );
 
   if (reducedMotion) return null;
+
+  const layers: Array<{ src: string; opacity: typeof nerdOpacity }> = [
+    { src: '/images/sprig/nerd.png', opacity: nerdOpacity },
+    { src: '/images/sprig/explorer.png', opacity: explorerOpacity },
+    { src: '/images/sprig/sleepy.png', opacity: sleepyOpacity },
+  ];
 
   return (
     <motion.div
       aria-hidden="true"
-      className="hidden md:block pointer-events-none fixed bottom-6 right-6 z-40"
-      style={{ opacity, scale, transformOrigin: 'bottom right' }}
+      className="hidden md:block pointer-events-none fixed bottom-6 right-6 z-40 w-24 h-24"
+      style={{ opacity: containerOpacity }}
     >
-      <img
-        src={src}
-        alt=""
-        width="160"
-        height="160"
-        className="w-40 h-40 drop-shadow-xl transition-[filter] duration-500"
-      />
+      {layers.map((layer) => (
+        <motion.img
+          key={layer.src}
+          src={layer.src}
+          alt=""
+          width="96"
+          height="96"
+          className="absolute inset-0 w-full h-full drop-shadow-xl"
+          style={{ opacity: layer.opacity }}
+        />
+      ))}
     </motion.div>
   );
 };
