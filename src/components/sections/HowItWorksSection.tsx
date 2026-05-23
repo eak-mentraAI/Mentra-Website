@@ -96,9 +96,11 @@ const HowItWorksSection = () => {
                 className="w-full h-full object-cover object-[center_60%]"
                 style={{
                   WebkitMaskImage:
-                    'radial-gradient(ellipse 98% 92% at center, black 72%, transparent 100%)',
+                    'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)',
+                  WebkitMaskComposite: 'source-in',
                   maskImage:
-                    'radial-gradient(ellipse 98% 92% at center, black 72%, transparent 100%)',
+                    'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)',
+                  maskComposite: 'intersect',
                 }}
                 loading="lazy"
               />
