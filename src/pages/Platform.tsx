@@ -272,7 +272,7 @@ const Platform = () => {
           />
           <div className="container mx-auto px-4 relative">
             <AnimateOnScroll>
-              <div className="max-w-4xl mx-auto text-center">
+              <div className="max-w-3xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 bg-mentra-blue/10 text-mentra-blue text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
                   <Layers className="w-4 h-4" />
                   PLATFORM ARCHITECTURE

@@ -68,7 +68,7 @@ export default function Teachers() {
       <Header />
       <main className="flex-1">
         {/* Hook */}
-        <section className="container mx-auto max-w-4xl px-4 pt-16 sm:pt-24 pb-12 text-center">
+        <section className="container mx-auto max-w-3xl px-4 pt-16 sm:pt-24 pb-12 text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-snug text-balance" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.06)' }}>
             See every student clearly.<br />
             <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">Reach them before they fall behind.</span>
@@ -80,7 +80,7 @@ export default function Teachers() {
 
         {/* Problem */}
         <AnimateOnScroll>
-        <section className="container mx-auto max-w-3xl px-4 pb-16">
+        <section className="container mx-auto max-w-4xl px-4 pb-16">
           <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border-l-4 border-mentra-blue">
             <p className="text-gray-700 leading-relaxed">
               You know something is off with a student days before the data confirms it — but by then, you've lost the moment. The "data-driven" tools show dashboards full of numbers but nothing you can act on. <strong className="text-gray-900">Mentra puts actionable intelligence in your hands — not more dashboards to stare at.</strong>

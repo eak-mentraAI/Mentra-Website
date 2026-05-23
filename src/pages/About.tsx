@@ -111,7 +111,7 @@ export default function About() {
         <section className="w-full bg-gray-50 py-24">
           <div className="container mx-auto px-4">
             <AnimateOnScroll>
-              <div className="max-w-4xl mx-auto text-center mb-16">
+              <div className="max-w-3xl mx-auto text-center mb-16">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
                   Three beliefs that shape everything we build
                 </h2>
@@ -141,7 +141,7 @@ export default function About() {
         <section className="w-full py-24 bg-white">
           <div className="container mx-auto px-4">
             <AnimateOnScroll>
-              <div className="max-w-4xl mx-auto text-center mb-16">
+              <div className="max-w-3xl mx-auto text-center mb-16">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
                   Where we're going
                 </h2>
