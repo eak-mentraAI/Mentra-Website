@@ -70,7 +70,7 @@ const HeroSection = () => {
                 alt="Sprig with peers — your AI learning companions"
                 width="400"
                 height="400"
-                className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl animate-breathe motion-reduce:animate-none"
+                className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl animate-breathe motion-reduce:animate-none"
               />
             </SprigOrb>
           </div>
