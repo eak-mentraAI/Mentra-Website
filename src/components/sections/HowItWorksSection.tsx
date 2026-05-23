@@ -72,7 +72,7 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4">
         {/* Beliefs row */}
         <AnimateOnScroll>
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
               How Mentra works
             </h2>
@@ -126,7 +126,7 @@ const HowItWorksSection = () => {
 
         {/* Interactive fading demo */}
         <AnimateOnScroll>
-          <div className="max-w-3xl mx-auto mb-20">
+          <div className="max-w-4xl mx-auto mb-20">
             <FadingDemo />
           </div>
         </AnimateOnScroll>
@@ -137,7 +137,7 @@ const HowItWorksSection = () => {
             See it in action
           </h3>
         </AnimateOnScroll>
-        <div id="see-it" className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-16 scroll-mt-24">
+        <div id="see-it" className="aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-16 scroll-mt-24">
           <iframe
             src="https://www.youtube.com/embed/Q84vfTtvGMA"
             title="Mentra Demo"

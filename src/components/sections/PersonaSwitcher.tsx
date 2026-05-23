@@ -38,7 +38,7 @@ const PersonaSwitcher = () => {
         {/* Content area */}
         <div key={activeId} className="animate-fade-in-up">
           {/* Headline */}
-          <div className="max-w-4xl mx-auto text-center mb-8">
+          <div className="max-w-3xl mx-auto text-center mb-8">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-snug text-balance">
               {active.headline}
             </h3>
@@ -48,7 +48,7 @@ const PersonaSwitcher = () => {
           </div>
 
           {/* Problem card */}
-          <div className="max-w-3xl mx-auto mb-12">
+          <div className="max-w-4xl mx-auto mb-12">
             <div className={`bg-gray-50 rounded-2xl p-6 sm:p-8 border-l-4 ${active.problemBorderColor}`}>
               {active.problemStatement}
             </div>
@@ -71,7 +71,7 @@ const PersonaSwitcher = () => {
           )}
 
           {/* Blurb grid */}
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {active.blurbs.map((b, i) => (
                 <AnimateOnScroll key={b.title} delay={i * 100}>
