@@ -101,10 +101,10 @@ const HowItWorksSection = () => {
               }}
               loading="lazy"
             />
-            <span className="absolute left-[7%] bottom-[7%] text-[11px] sm:text-sm italic text-stone-600/90 border-b border-dashed border-stone-400/70 pb-0.5 tracking-wide pointer-events-none">
+            <span className="absolute left-[7%] top-[6%] text-[11px] sm:text-sm italic text-stone-600/90 border-b border-dashed border-stone-400/70 pb-0.5 tracking-wide pointer-events-none">
               early on
             </span>
-            <span className="absolute right-[7%] bottom-[7%] text-[11px] sm:text-sm italic text-stone-600/90 border-b border-dashed border-stone-400/70 pb-0.5 tracking-wide pointer-events-none">
+            <span className="absolute right-[7%] top-[6%] text-[11px] sm:text-sm italic text-stone-600/90 border-b border-dashed border-stone-400/70 pb-0.5 tracking-wide pointer-events-none">
               over time
             </span>
           </div>
