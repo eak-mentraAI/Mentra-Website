@@ -1,12 +1,10 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
-import useSprigExpression from '@/hooks/useSprigExpression';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import HeroHelperHint from '@/components/HeroHelperHint';
 
 const HeroSection = () => {
-  const { src: sprigSrc } = useSprigExpression();
   const { open: openScheduleCall } = useScheduleCall();
 
   const scrollToDemo = () => {
@@ -59,9 +57,6 @@ const HeroSection = () => {
                   See it in 90 seconds
                 </Button>
               </div>
-              <p className="text-sm text-gray-400 tracking-tight">
-                57 automated policy gates. Every claim provable.
-              </p>
               <HeroHelperHint />
             </div>
           </div>
@@ -69,11 +64,11 @@ const HeroSection = () => {
           {/* Right Content — Sprig */}
           <div className="flex justify-center lg:justify-end">
             <img
-              src={sprigSrc}
+              src="/images/sprig/happy-sprig.png"
               alt="Sprig, your AI learning companion"
               width="400"
               height="400"
-              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl transition-opacity duration-500 animate-breathe motion-reduce:animate-none"
+              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl animate-breathe motion-reduce:animate-none"
             />
           </div>
         </div>
