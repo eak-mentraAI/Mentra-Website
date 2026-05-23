@@ -177,9 +177,11 @@ export default function About() {
                   {roadmapPhases.map((phase, i) => (
                     <AnimateOnScroll key={phase.phase} delay={i * 80}>
                       <div className="relative">
-                        {/* Node */}
-                        <div className="absolute -left-10 md:-left-14 top-1 w-[31px] h-[31px] rounded-full bg-mentra-blue/10 flex items-center justify-center">
-                          <phase.icon className="w-4 h-4 text-mentra-blue" />
+                        {/* Node — solid white underlay so the timeline line
+                            doesn't show through the semi-transparent tint */}
+                        <div className="absolute -left-10 md:-left-14 top-1 w-[31px] h-[31px] rounded-full bg-white flex items-center justify-center">
+                          <span className="absolute inset-0 rounded-full bg-mentra-blue/10" aria-hidden="true" />
+                          <phase.icon className="w-4 h-4 text-mentra-blue relative" />
                         </div>
 
                         {/* Content */}
