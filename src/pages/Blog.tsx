@@ -70,7 +70,7 @@ const Blog = () => {
       <main className="min-h-screen bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 py-12 px-4 font-rounded flex flex-col items-center">
         <div className="container mx-auto px-4">
           {/* Header Section */}
-          <section className="container mx-auto max-w-7xl px-4 flex flex-col items-center justify-center text-center mb-12">
+          <section className="container mx-auto max-w-3xl px-4 flex flex-col items-center justify-center text-center mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Mentra <span className="text-mentra-blue">Insights</span>
             </h1>

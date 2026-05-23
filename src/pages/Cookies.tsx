@@ -219,7 +219,7 @@ export default function Cookies() {
       <Header />
       <main className="min-h-screen flex flex-col items-center py-12 px-4 font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10">
         {/* Hero Section */}
-        <section className="container mx-auto max-w-7xl px-4 flex flex-col items-center justify-center gap-4 mb-16 relative">
+        <section className="container mx-auto max-w-3xl px-4 flex flex-col items-center justify-center gap-4 mb-16 relative">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">Cookie Policy</h1>
           <p className="text-gray-600 mb-0 text-center">Last updated: {new Date().toLocaleDateString()}</p>
         </section>
