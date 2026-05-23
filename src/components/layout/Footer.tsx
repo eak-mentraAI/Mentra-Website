@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, MapPin } from 'lucide-react';
 import TrustStrip from '@/components/sections/TrustStrip';
+import CTASection from '@/components/sections/CTASection';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Footer = () => {
       role="contentinfo"
       aria-labelledby="footer-heading"
     >
+      <CTASection />
       <TrustStrip />
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
