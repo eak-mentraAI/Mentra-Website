@@ -3,6 +3,7 @@ import { BookOpen, Sparkles, FileText, Users, BarChart3, Shield, Eye, Zap } from
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScrollTimeline from '@/components/sections/ScrollTimeline';
 import { Card } from '@/components/ui/card';
+import PulledQuote from '@/components/ui/PulledQuote';
 
 const beliefs = [
   {
@@ -66,14 +67,17 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4">
         {/* Beliefs row */}
         <AnimateOnScroll>
-          <div className="max-w-4xl mx-auto text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
               How Mentra works
             </h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              Most ed-tech adds dependency. Mentra builds capability — scaffolding that fades, support that steps back, and humans who stay in control.
-            </p>
           </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll>
+          <PulledQuote className="mb-20">
+            Most ed-tech adds dependency. Mentra builds capability — scaffolding that fades, support that steps back, and humans who stay in control.
+          </PulledQuote>
         </AnimateOnScroll>
 
         <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto mb-24">

@@ -30,7 +30,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex flex-col items-center lg:items-start gap-4">
               <Button
                 size="lg"
                 className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
@@ -40,6 +40,9 @@ const HeroSection = () => {
                 Start Your Journey
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
+              <p className="text-sm text-gray-400 tracking-tight">
+                57 automated policy gates. Every claim provable.
+              </p>
             </div>
           </div>
 
