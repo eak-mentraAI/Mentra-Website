@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import HeroHelperHint from '@/components/HeroHelperHint';
+import SprigOrb from '@/components/ui/SprigOrb';
 
 const HeroSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
@@ -63,13 +64,15 @@ const HeroSection = () => {
 
           {/* Right Content — Sprig */}
           <div className="flex justify-center lg:justify-end">
-            <img
-              src="/images/sprig/happy-sprig.png"
-              alt="Sprig, your AI learning companion"
-              width="400"
-              height="400"
-              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl animate-breathe motion-reduce:animate-none"
-            />
+            <SprigOrb size="lg">
+              <img
+                src="/images/sprig/happy-sprig.png"
+                alt="Sprig, your AI learning companion"
+                width="400"
+                height="400"
+                className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 drop-shadow-2xl animate-breathe motion-reduce:animate-none"
+              />
+            </SprigOrb>
           </div>
         </div>
       </div>

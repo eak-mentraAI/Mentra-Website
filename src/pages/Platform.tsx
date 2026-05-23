@@ -471,30 +471,6 @@ const Platform = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-24 bg-gradient-to-b from-white to-mentra-blue/5">
-          <div className="container mx-auto px-4">
-            <AnimateOnScroll>
-              <div className="max-w-3xl mx-auto bg-gray-900 rounded-3xl p-6 sm:p-10 lg:p-14 text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 text-balance">
-                  Ready to put cognition data to work in your district?
-                </h2>
-                <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                  We'll walk through how Mentra fits with your existing SIS, SSO, and LMS — and
-                  what cognition signal could unlock for your teachers, parents, and partners.
-                </p>
-                <Button
-                  onClick={openScheduleCall}
-                  className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-6 rounded-full font-medium text-base shadow-lg"
-                >
-                  Talk to our integrations team
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </AnimateOnScroll>
-          </div>
-        </section>
-
         <Footer />
       </div>
     </PageTransition>

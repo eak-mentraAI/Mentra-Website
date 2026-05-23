@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, ArrowRight, Users, Building2, Landmark, GraduationCap } from 'lucide-react';
+import { CheckCircle2, Users, Building2, Landmark, GraduationCap } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 
@@ -88,7 +88,7 @@ const PricingSection = () => {
         </AnimateOnScroll>
 
         {/* Tier Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {tiers.map((tier, idx) => {
             const Icon = tier.icon;
             return (
@@ -134,24 +134,6 @@ const PricingSection = () => {
           })}
         </div>
 
-        {/* Contract note */}
-        <AnimateOnScroll>
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">Aligned with how schools buy</h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                Flexible contract terms designed around school budgeting cycles. Pilot pricing in year one, full rollout in year two, expansion in year three. Need-based pricing available for qualifying institutions.
-              </p>
-              <a
-                href="mailto:sales@mentra.ai"
-                className="inline-flex items-center gap-2 bg-mentra-blue text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-mentra-blue/90 transition-all shadow-md hover:shadow-lg"
-              >
-                Talk to Our Team
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );

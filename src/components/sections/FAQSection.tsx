@@ -57,7 +57,7 @@ const FAQSection = () => {
           Frequently asked questions
         </h2>
 
-        <div className="space-y-12 mb-12 max-w-3xl mx-auto">
+        <div className="space-y-12 max-w-3xl mx-auto">
           {faqSections.map((section) => (
             <AnimateOnScroll key={section.section}>
               <div>
@@ -80,20 +80,6 @@ const FAQSection = () => {
             </AnimateOnScroll>
           ))}
         </div>
-
-        <AnimateOnScroll>
-          <div className="w-full max-w-3xl mx-auto bg-gray-50 rounded-xl border border-gray-100 p-6 flex flex-col items-center">
-            <h3 className="text-lg font-bold mb-3 text-gray-900 text-center">Still have questions?</h3>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a href="mailto:support@mentra.ai" className="bg-mentra-blue text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-mentra-blue/90 transition text-center">
-                Email Support
-              </a>
-              <a href="tel:+1234567890" className="bg-gray-900 text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-gray-800 transition text-center">
-                Call Us
-              </a>
-            </div>
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );
