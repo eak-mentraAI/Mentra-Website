@@ -2,7 +2,7 @@
 title: Education Needs More Humanity, Not Less
 excerpt: The most common fear about AI in education is that learning will become colder and more transactional. The long-term outcome may be the opposite — and it depends entirely on how we choose to design it.
 author: Edward Kerr
-date: 2026-03-03
+date: 2026-04-08
 category: AI & Education
 tags: [AI, Teachers, Humanity, Emotional Learning, Future of Learning]
 image: /images/blog/education-needs-more-humanity-not-less.jpg

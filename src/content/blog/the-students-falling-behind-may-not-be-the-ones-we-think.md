@@ -2,7 +2,7 @@
 title: The Students Falling Behind May Not Be the Ones We Think
 excerpt: The biggest educational divide emerging right now isn't between students who use AI and students who don't — it's between those who learn to direct it and those who become quietly dependent on it.
 author: Edward Kerr
-date: 2026-02-17
+date: 2025-11-15
 category: AI & Education
 tags: [AI, Critical Thinking, Agency, Workforce, Future of Learning]
 image: /images/blog/the-students-falling-behind-may-not-be-the-ones-we-think.jpg

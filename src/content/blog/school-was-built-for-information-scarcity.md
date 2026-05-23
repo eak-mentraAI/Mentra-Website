@@ -2,7 +2,7 @@
 title: School Was Built for Information Scarcity
 excerpt: Classrooms still operate as though knowledge is rare — but our children are growing up in a world where information is effectively infinite. The mismatch is bigger than most people realize.
 author: Edward Kerr
-date: 2026-02-03
+date: 2025-12-17
 category: AI & Education
 tags: [AI, Education, Information, Critical Thinking, Future of Learning]
 image: /images/blog/school-was-built-for-information-scarcity.jpg
