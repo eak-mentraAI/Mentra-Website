@@ -87,13 +87,19 @@ const HowItWorksSection = () => {
 
         <AnimateOnScroll>
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="relative aspect-[3/1] w-full rounded-2xl overflow-hidden">
+            <div className="relative aspect-[3/1] w-full">
               <img
                 src="/images/scenes/scaffolding-fades.png"
                 alt="A student grows more independent as Sprig steps back. The visible scaffolding — ladders, guide rails, helping hands — fades from left to right."
                 width="1774"
                 height="887"
                 className="w-full h-full object-cover object-[center_60%]"
+                style={{
+                  WebkitMaskImage:
+                    'radial-gradient(ellipse 98% 92% at center, black 72%, transparent 100%)',
+                  maskImage:
+                    'radial-gradient(ellipse 98% 92% at center, black 72%, transparent 100%)',
+                }}
                 loading="lazy"
               />
             </div>
