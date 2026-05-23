@@ -80,13 +80,13 @@ const HowItWorksSection = () => {
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <PulledQuote className="mb-16">
+          <PulledQuote className="mb-12">
             Most ed-tech adds dependency. Mentra builds capability — scaffolding that fades, support that steps back, and humans who stay in control.
           </PulledQuote>
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <div className="max-w-4xl mx-auto mb-24">
+          <div className="max-w-4xl mx-auto mb-16">
             <img
               src="/images/scenes/scaffolding-fades.png"
               alt="A student grows more independent as Sprig steps back. The visible scaffolding — ladders, guide rails, helping hands — fades from left to right."
@@ -98,7 +98,7 @@ const HowItWorksSection = () => {
           </div>
         </AnimateOnScroll>
 
-        <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto mb-24">
+        <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20">
           {beliefs.map((b, i) => (
             <AnimateOnScroll key={b.title} delay={i * 100}>
               <div className="text-center space-y-4">
@@ -114,7 +114,7 @@ const HowItWorksSection = () => {
 
         {/* Interactive fading demo */}
         <AnimateOnScroll>
-          <div className="max-w-3xl mx-auto mb-24">
+          <div className="max-w-3xl mx-auto mb-20">
             <FadingDemo />
           </div>
         </AnimateOnScroll>
@@ -125,7 +125,7 @@ const HowItWorksSection = () => {
             See it in action
           </h3>
         </AnimateOnScroll>
-        <div id="see-it" className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-24 scroll-mt-24">
+        <div id="see-it" className="aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-16 scroll-mt-24">
           <iframe
             src="https://www.youtube.com/embed/Q84vfTtvGMA"
             title="Mentra Demo"

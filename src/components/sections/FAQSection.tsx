@@ -57,14 +57,14 @@ const FAQSection = () => {
           Frequently asked questions
         </h2>
 
-        <div className="space-y-12 max-w-3xl mx-auto">
+        <div className="space-y-10 max-w-3xl mx-auto">
           {faqSections.map((section) => (
             <AnimateOnScroll key={section.section}>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-4">
                   {section.section}
                 </h3>
-                <Accordion type="single" collapsible className="w-full space-y-2">
+                <Accordion type="single" collapsible className="w-full space-y-1.5">
                   {section.questions.map((faq, idx) => (
                     <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className="bg-gray-50 rounded-xl border border-gray-100">
                       <AccordionTrigger className="text-sm font-medium px-5 py-4 text-left text-gray-900 hover:bg-gray-100 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">

@@ -112,7 +112,7 @@ const Header = () => {
               alt="Mentra Logo"
               width="200"
               height="80"
-              className="h-12 w-auto sm:h-16 md:h-20 flex-shrink-0"
+              className="h-10 w-auto sm:h-11 md:h-12 flex-shrink-0"
             />
           </Link>
         </div>
