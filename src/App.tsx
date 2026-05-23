@@ -15,6 +15,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 const Cookies = lazy(() => import("./pages/Cookies"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Press = lazy(() => import("./pages/Press"));
+const Platform = lazy(() => import("./pages/Platform"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -40,6 +41,7 @@ function AnimatedRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/press" element={<Press />} />
+        <Route path="/platform" element={<Platform />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />

@@ -31,6 +31,14 @@ const faqSections = [
     ],
   },
   {
+    section: 'Integrations & Architecture',
+    questions: [
+      { question: "How does Mentra fit with our existing SIS, SSO, and LMS?", answer: "Mentra sits as a layer on top of the systems your district already uses. We roster from your SIS via OneRoster, single-sign-on through Clever, ClassLink, Google, or Microsoft, and embed inside Canvas, Schoology, Google Classroom, or Blackboard via LTI 1.3 Advantage. See the full architecture on our Platform page." },
+      { question: "Do you support LTI 1.3 Advantage, OneRoster, Clever, and ClassLink?", answer: "Yes — all of them. Mentra is a certified LTI 1.3 Advantage platform with Deep Linking, OIDC Launch, NRPS roster sync, and AGS grade passback (cognitive comments attach to grades returned to the LMS). OneRoster handles nightly SIS sync, and we support Clever, ClassLink, Google, and Microsoft for SSO and rostering." },
+      { question: "Can third-party tools read Mentra's cognition data?", answer: "Yes, under district control. Mentra exposes a versioned partner API with OAuth 2.0 + PKCE, scoped access (e.g. cognition.read), and per-district governance. Parent platforms, assessment vendors, and research partners can consume cognition metadata only with the permissions your district grants — every access is logged." },
+    ],
+  },
+  {
     section: 'Cost & Value',
     questions: [
       { question: "How does Mentra pricing work?", answer: "Mentra uses a hybrid model: per-student licensing (volume-tiered, starting at $9–18/student/month depending on scale and commitment) plus an institutional platform fee that covers analytics, integrations, and administrative intelligence. Families access Mentra free through their school's plan." },

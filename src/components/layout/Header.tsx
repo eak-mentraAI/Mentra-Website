@@ -80,6 +80,7 @@ const Header = () => {
 
   const navItems = [
     { name: 'How It Works', href: '/#how-it-works', anchor: 'how-it-works' },
+    { name: 'Platform', href: '/platform', anchor: null },
     { name: 'For You', href: '/#personas', anchor: 'personas' },
     { name: 'Pricing', href: '/#pricing', anchor: 'pricing' },
     { name: 'About', href: '/about', anchor: null },

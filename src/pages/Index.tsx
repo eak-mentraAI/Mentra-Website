@@ -4,6 +4,7 @@ import Header from '../components/layout/Header';
 import HeroSection from '../components/sections/HeroSection';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
 import PersonaSwitcher from '../components/sections/PersonaSwitcher';
+import StackExplorer from '../components/sections/StackExplorer';
 import PricingSection from '../components/sections/PricingSection';
 import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
@@ -29,6 +30,7 @@ const Index = () => {
       <HeroSection />
       <HowItWorksSection />
       <PersonaSwitcher />
+      <StackExplorer />
       <PricingSection />
       <FAQSection />
       <CTASection />
