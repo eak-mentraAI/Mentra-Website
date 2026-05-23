@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import TrustStrip from '@/components/sections/TrustStrip';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
 import ScheduleCallModal from '@/components/sections/ScheduleCallModal';
@@ -496,7 +495,6 @@ const Platform = () => {
           </div>
         </section>
 
-        <TrustStrip />
         <Footer />
         <ScheduleCallModal open={showModal} onOpenChange={setShowModal} />
       </div>

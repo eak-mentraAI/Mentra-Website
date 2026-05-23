@@ -7,7 +7,6 @@ import PersonaSwitcher from '../components/sections/PersonaSwitcher';
 import PricingSection from '../components/sections/PricingSection';
 import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
-import TrustStrip from '../components/sections/TrustStrip';
 import Footer from '../components/layout/Footer';
 import FloatingSprig from '../components/FloatingSprig';
 import HairlineDivider from '../components/ui/HairlineDivider';
@@ -37,7 +36,6 @@ const Index = () => {
       <div className="bg-white py-10"><HairlineDivider width="md" /></div>
       <FAQSection />
       <CTASection />
-      <TrustStrip />
       <Footer />
       <FloatingSprig />
     </div>
