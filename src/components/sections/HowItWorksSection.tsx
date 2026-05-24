@@ -14,12 +14,12 @@ const beliefs = [
   {
     icon: Eye,
     title: 'Humans in Control',
-    description: 'Teachers override any AI decision. Parents gate all data. Districts kill-switch instantly. No black boxes.',
+    description: 'Teachers override any AI decision. Parents gate all data. Admins kill-switch all AI in under a second — fails closed. No black boxes.',
   },
   {
     icon: Shield,
     title: 'Trust by Architecture',
-    description: 'Fail-closed consent, append-only audit trails, 57 automated policy gates. Every claim is provable.',
+    description: 'Fail-closed consent, append-only audit trails, automated policy gates on every commit. Every claim is provable.',
   },
 ];
 

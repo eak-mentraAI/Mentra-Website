@@ -105,3 +105,17 @@ export function LearnerIdentity({ className }: IconProps) {
     </svg>
   );
 }
+
+/** Upward sparkline with arrow — Independence Trajectory */
+export function IndependenceTrajectory({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="3" width="20" height="18" rx="2.5" fill="currentColor" opacity="0.15" />
+      <rect x="2" y="3" width="20" height="18" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M5 16l3.5-3 3 2 4-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12.5 10l3-.5.5 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="8.5" cy="13" r="1" fill="currentColor" opacity="0.6" />
+      <circle cx="11.5" cy="15" r="1" fill="currentColor" opacity="0.6" />
+    </svg>
+  );
+}

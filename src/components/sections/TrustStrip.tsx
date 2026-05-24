@@ -2,7 +2,7 @@ import React from 'react';
 import { ShieldCheck, FileCheck2, Lock, UserCog, Users } from 'lucide-react';
 
 const items = [
-  { icon: ShieldCheck, label: '57 policy gates' },
+  { icon: ShieldCheck, label: 'Automated policy gates' },
   { icon: FileCheck2, label: 'Append-only audit' },
   { icon: Lock, label: 'FERPA aligned' },
   { icon: UserCog, label: 'Teacher override' },

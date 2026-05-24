@@ -88,3 +88,16 @@ export function SmartGrading({ className }: IconProps) {
     </svg>
   );
 }
+
+/** Downward sparkline framed by axes — Fading Trend */
+export function FadingTrend({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="3" width="20" height="18" rx="2.5" fill="currentColor" opacity="0.15" />
+      <rect x="2" y="3" width="20" height="18" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M5 18V7M5 18h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+      <path d="M6.5 9.5l2.5 2 2-1.5 2.5 2 2-1.5 3 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M18.5 14.5l.5 3-3-.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}

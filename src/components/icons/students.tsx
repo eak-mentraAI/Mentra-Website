@@ -87,3 +87,18 @@ export function ReflectJournal({ className }: IconProps) {
     </svg>
   );
 }
+
+/** Clock face with a soft stop accent — Bounded Session */
+export function BoundedSession({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="13" r="8.5" fill="currentColor" opacity="0.15" />
+      <circle cx="12" cy="13" r="8.5" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M12 8.5V13l3 2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9.5 3h5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M12 3v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M18.5 6l1.5-1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+      <path d="M5.5 6L4 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+    </svg>
+  );
+}

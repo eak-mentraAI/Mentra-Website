@@ -12,11 +12,11 @@ const beliefs = [
   },
   {
     title: 'Humans stay in control at every level',
-    description: 'Teachers override any AI decision. Parents gate all data. Districts kill-switch instantly. We built the architecture so that no one has to trust a black box.',
+    description: 'Teachers override any AI decision. Parents gate all data. Admins kill-switch all AI in under a second — fails closed. We built the architecture so that no one has to trust a black box.',
   },
   {
     title: 'Trust is earned by architecture, not promises',
-    description: 'Fail-closed consent. Append-only audit trails. 57 automated policy gates. Every claim we make is demonstrable by inspecting the system — not by reading a policy document.',
+    description: 'Fail-closed consent. Append-only audit trails. Automated policy gates on every commit. Every claim we make is demonstrable by inspecting the system — not by reading a policy document.',
   },
 ];
 

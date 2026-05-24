@@ -41,8 +41,8 @@ const blurbs = [
   },
   {
     icon: AIControl,
-    title: 'AI Under Your Control',
-    text: 'Every AI adaptation is visible with a clear explanation. Disagree? Override it. Your professional judgment always wins. There is no black box.',
+    title: 'Every AI Decision Shows Its Work',
+    text: 'Every adaptation comes with a one-sentence rationale you can read in three seconds: "Reduced scaffolding — hint reliance dropped to 0.18 over the last week." Disagree? One click overrides it. Every override is logged with your name and reason and lives in the audit trail forever.',
     color: 'wisdom-purple',
   },
   {
