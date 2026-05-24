@@ -9,7 +9,7 @@ const faqSections = [
   {
     section: 'Getting Started',
     questions: [
-      { question: "How do we begin using Mentra?", answer: "Families sign up directly. Schools get a dedicated onboarding process with teacher training and curriculum integration support." },
+      { question: "How do we begin using Mentra?", answer: "Schools start with a dedicated onboarding process — teacher training, curriculum integration, and a deployment plan that fits your calendar. Families join through an invite from their school once it's up and running." },
       { question: "What training do teachers receive?", answer: "Live sessions, video tutorials, and ongoing support — from basics to advanced features like customizing AI responses." },
       { question: "How long does implementation take?", answer: "Designed for 2–3 week pilot onboarding. We're working closely with early partner schools right now — talk to us about a deployment plan that fits your calendar." },
       { question: "What devices and internet do we need?", answer: "Any modern device with internet access. Designed to work even on slower connections." },
