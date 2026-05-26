@@ -10,7 +10,7 @@ const CTASection = () => {
   return (
     <section data-sprig-cta className="py-24 bg-gray-900 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <AnimateOnScroll variant="scale-in">
           <div className="space-y-8">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-snug text-balance">

@@ -86,7 +86,7 @@ const HowItWorksSection = () => {
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <div className="max-w-4xl mx-auto mb-16">
+          <div className="max-w-5xl mx-auto mb-16">
             <div className="relative aspect-[3/1] w-full">
               <img
                 src="/images/scenes/scaffolding-fades.png"
@@ -124,7 +124,7 @@ const HowItWorksSection = () => {
 
         {/* Interactive fading demo */}
         <AnimateOnScroll>
-          <div className="max-w-4xl mx-auto mb-20">
+          <div className="max-w-5xl mx-auto mb-20">
             <FadingDemo />
           </div>
         </AnimateOnScroll>
@@ -135,7 +135,7 @@ const HowItWorksSection = () => {
             See it in action
           </h3>
         </AnimateOnScroll>
-        <div id="see-it" className="aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-16 scroll-mt-24">
+        <div id="see-it" className="aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-16 scroll-mt-24">
           <iframe
             src="https://www.youtube.com/embed/Q84vfTtvGMA"
             title="Mentra Demo"

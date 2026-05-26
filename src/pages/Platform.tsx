@@ -343,7 +343,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               {stackLayers.map((layer, i) => (
                 <AnimateOnScroll key={layer.title} delay={i * 60}>
                   <StackLayer
@@ -479,7 +479,7 @@ const Platform = () => {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
               {standards.map((s, i) => (
                 <AnimateOnScroll key={s.name} delay={i * 50}>
                   <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 sm:p-6 hover:border-mentra-blue/40 transition-colors">

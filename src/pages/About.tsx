@@ -168,7 +168,7 @@ export default function About() {
             </AnimateOnScroll>
 
             {/* Timeline */}
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="relative pl-10 md:pl-14">
                 {/* Vertical line */}
                 <div className="absolute left-[15px] md:left-[23px] top-0 w-0.5 h-full bg-gray-200 rounded-full" />
@@ -213,7 +213,7 @@ export default function About() {
         {/* Sign-off */}
         <section className="w-full bg-gray-50 py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-5xl mx-auto text-center">
               <AnimateOnScroll>
                 <p className="text-lg text-gray-500 italic mb-4 leading-relaxed">
                   "The AI is training wheels, not a motor. Every feature is designed to transfer capability to the student — not create a crutch they can't walk without."

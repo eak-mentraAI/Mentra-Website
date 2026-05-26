@@ -48,7 +48,7 @@ const PersonaSwitcher = () => {
           </div>
 
           {/* Problem card */}
-          <div className="max-w-4xl mx-auto mb-12">
+          <div className="max-w-5xl mx-auto mb-12">
             <div className={`bg-gray-50 rounded-2xl p-6 sm:p-8 border-l-4 ${active.problemBorderColor}`}>
               {active.problemStatement}
             </div>
@@ -56,7 +56,7 @@ const PersonaSwitcher = () => {
 
           {/* Stats bar (institutions only) */}
           {active.stats && (
-            <div className="max-w-4xl mx-auto mb-12">
+            <div className="max-w-5xl mx-auto mb-12">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {active.stats.map((s, i) => (
                   <AnimateOnScroll key={s.label} variant="scale-in" delay={i * 100}>
@@ -90,7 +90,7 @@ const PersonaSwitcher = () => {
           {/* Persona-specific deep dive link */}
           {active.deepDive && (
             <AnimateOnScroll>
-              <div className="max-w-4xl mx-auto mt-12">
+              <div className="max-w-5xl mx-auto mt-12">
                 <Link
                   to={active.deepDive.href}
                   className="group block bg-gradient-to-br from-mentra-blue to-mentra-blue/85 rounded-2xl p-6 sm:p-8 text-left hover:shadow-xl hover:shadow-mentra-blue/20 transition-all duration-200"

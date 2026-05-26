@@ -68,7 +68,7 @@ export default function ScrollTimeline({ steps }: ScrollTimelineProps) {
   return (
     <>
       {/* Desktop: sticky sidebar + scrollable content */}
-      <div className="hidden lg:grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+      <div className="hidden lg:grid lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
         {/* Left: sticky timeline nav */}
         <nav className="lg:col-span-2 sticky top-24 self-start" aria-label="Flywheel steps">
           <div className="relative pl-8">

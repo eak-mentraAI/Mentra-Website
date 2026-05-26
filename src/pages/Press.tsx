@@ -10,7 +10,7 @@ export default function Press() {
       <Header />
       <main className="bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col items-center py-12 px-4 font-rounded">
         {/* Hero Section */}
-        <section className="container mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-center gap-8 mb-16 relative">
+        <section className="container mx-auto max-w-5xl px-4 flex flex-col md:flex-row items-center justify-center gap-8 mb-16 relative">
           {/* Left: Header and intro */}
           <div className="flex-1 min-w-0 flex flex-col items-center md:items-center justify-center text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -27,7 +27,7 @@ export default function Press() {
         </section>
 
         {/* Fast Facts Section */}
-        <section className="container mx-auto max-w-6xl px-4 mb-12 text-left">
+        <section className="container mx-auto max-w-5xl px-4 mb-12 text-left">
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
             Mentra Fast <span className="text-mentra-blue">Facts</span>
           </h2>
@@ -41,14 +41,14 @@ export default function Press() {
         </section>
 
         {/* Media Kit Section */}
-        <section className="container mx-auto max-w-6xl px-4 mb-12 text-left">
+        <section className="container mx-auto max-w-5xl px-4 mb-12 text-left">
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
             <span className="text-mentra-blue">Download</span> Our Media Kit
           </h2>
           <p className="text-gray-700 mb-4 max-w-3xl">
             Download our brand assets for press coverage. All assets updated as of July 13, 2024. For additional requests, email <a href="mailto:hello@mentra.ai" className="text-mentra-blue underline">hello@mentra.ai</a>.
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Logo with Words (White) */}
             <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-sm border">
               <img src="/images/logos/logo_with_words_white.png" alt="Mentra Logo with Words (White)" className="h-16 mb-3" />
@@ -100,7 +100,7 @@ export default function Press() {
         </section>
 
         {/* Contact Section */}
-        <section className="container mx-auto max-w-6xl px-4 mb-12 text-left">
+        <section className="container mx-auto max-w-5xl px-4 mb-12 text-left">
           <div className="bg-white/80 rounded-2xl shadow-lg p-8 border-l-8 border-mentra-blue">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
               <span className="text-mentra-blue">Contact</span> for Media Inquiries
