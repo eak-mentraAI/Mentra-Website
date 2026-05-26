@@ -22,7 +22,7 @@ export default function Press() {
           </div>
           {/* Right: Large Sprig Icon */}
           <div className="flex-shrink-0 flex items-center justify-center mt-6 md:mt-0">
-            <img src="/images/other/press.png" alt="Sprig Press Icon" width="400" height="400" className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl" loading="lazy" />
+            <img src="/images/sprig/press.png" alt="Sprig Press Icon" width="400" height="400" className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl" loading="lazy" />
           </div>
         </section>
 
