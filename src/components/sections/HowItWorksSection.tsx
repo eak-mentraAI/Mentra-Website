@@ -132,13 +132,13 @@ const HowItWorksSection = () => {
         {/* Video */}
         <AnimateOnScroll>
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center text-balance">
-            See it in action
+            Why we built Mentra
           </h3>
         </AnimateOnScroll>
         <div id="see-it" className="aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-16 scroll-mt-24">
           <iframe
             src="https://www.youtube.com/embed/Q84vfTtvGMA"
-            title="Mentra Demo"
+            title="Why we built Mentra"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

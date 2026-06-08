@@ -51,11 +51,11 @@ const HeroSection = () => {
                   size="lg"
                   variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-                  aria-label="Watch the 90-second product demo"
+                  aria-label="Watch our 90-second story"
                   onClick={scrollToDemo}
                 >
                   <PlayCircle className="mr-2 h-5 w-5" aria-hidden="true" />
-                  See it in 90 seconds
+                  Our story in 90 seconds
                 </Button>
               </div>
               <HeroHelperHint />
