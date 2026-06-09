@@ -1,9 +1,22 @@
 import React, { useEffect } from 'react';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import PageTransition from '../components/layout/PageTransition';
-import { Heart, GraduationCap, Users, Sparkles, ShieldCheck, ArrowRight } from 'lucide-react';
+import PageTransition from '@/components/layout/PageTransition';
+import SprigOrb from '@/components/ui/SprigOrb';
+import { Button } from '@/components/ui/button';
+import {
+  Heart,
+  ArrowRight,
+  Server,
+  Cpu,
+  Gift,
+  Wrench,
+  LifeBuoy,
+  GraduationCap,
+  ShieldCheck,
+  Users,
+} from 'lucide-react';
 
 /* ──────────────────────────────────────────────────────────────────────────
  * GIVEBUTTER CAMPAIGN CONFIG
@@ -31,13 +44,13 @@ const GIVEBUTTER_WIDGET_ID = ''; // e.g. 'XyZ987'
  * not a specific school is named yet. Leave schoolName as '' to keep it
  * generic until the partnership is public. */
 const CAMPAIGN = {
-  schoolName: '',                 // e.g. 'Lincoln Middle School'
-  location: 'an area of need',    // e.g. 'rural Mississippi'
+  schoolName: '',                // e.g. 'Lincoln Middle School'
+  location: 'a community where families can\'t cover the cost themselves',
   term: 'a full school year',
 };
 
 const isLive = Boolean(GIVEBUTTER_ACCOUNT && GIVEBUTTER_WIDGET_ID);
-const schoolLabel = CAMPAIGN.schoolName || 'a school in an area of need';
+const schoolLabel = CAMPAIGN.schoolName || 'the school';
 
 /** Loads the Givebutter widget script once and renders the campaign widget.
  *  Falls back to a placeholder card until the campaign is connected. */
@@ -51,13 +64,15 @@ const GivebutterWidget = () => {
     script.async = true;
     document.body.appendChild(script);
     // Intentionally left mounted: Givebutter registers a global custom element,
-    // and re-adding the script on remount/return causes duplicate registration.
+    // and re-adding the script on remount causes duplicate registration.
   }, []);
 
   if (!isLive) {
     return (
       <div className="rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 p-8 text-center">
-        <Heart className="w-8 h-8 text-growth-green mx-auto mb-4" aria-hidden="true" />
+        <div className="w-12 h-12 bg-mentra-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <Heart className="w-6 h-6 text-mentra-blue" aria-hidden="true" />
+        </div>
         <p className="font-bold text-gray-900 mb-1">Live donation widget appears here</p>
         <p className="text-sm text-gray-500 leading-relaxed">
           Once the Givebutter campaign is connected, this becomes the donation
@@ -72,116 +87,232 @@ const GivebutterWidget = () => {
   return React.createElement('givebutter-widget', { id: GIVEBUTTER_WIDGET_ID });
 };
 
-const fundsImpact = [
+const coverage = [
+  {
+    heading: 'Your gift covers the running costs',
+    subhead: 'The part that genuinely costs money to keep on.',
+    highlight: false,
+    items: [
+      { icon: Server, label: 'Cloud hosting & infrastructure', text: 'The servers that run Mentra for every student at the school, every day.' },
+      { icon: Cpu, label: 'AI model & API usage', text: 'The real compute cost behind every tutoring session, reflection, and piece of feedback.' },
+    ],
+    footer: 'These are the only costs that scale with each student — so this is exactly where your dollars go.',
+  },
+  {
+    heading: 'Mentra donates everything else',
+    subhead: 'No part of this is a discounted sale. The product is given.',
+    highlight: true,
+    items: [
+      { icon: Gift, label: 'The full platform & its IP', text: 'Years of product, research, and engineering — contributed at no cost.' },
+      { icon: Wrench, label: 'Onboarding & teacher training', text: 'Setup, integration with the school\'s existing systems, and hands-on training labor.' },
+      { icon: LifeBuoy, label: 'Support for the whole year', text: 'Ongoing help for teachers, families, and admins — included.' },
+    ],
+    footer: 'Because Mentra absorbs the product, people, and support, your donation isn\'t buying software — it\'s keeping the lights on for kids who couldn\'t otherwise reach it.',
+  },
+];
+
+const unlocks = [
   {
     icon: GraduationCap,
-    title: 'A full year of Mentra, free',
-    description: `Every student at ${schoolLabel} gets ${CAMPAIGN.term} of Socratic AI tutoring, struggle detection, and growth tracking — at no cost to the school or families.`,
+    title: 'A mentor for every student',
+    description: `Socratic tutoring that guides thinking instead of handing over answers — ${CAMPAIGN.term} of it, for everyone at ${schoolLabel}.`,
   },
   {
     icon: Users,
-    title: 'Teachers, fully equipped',
-    description: 'The teacher intelligence hub, override controls, and assignment tools — so educators lead with AI, not around it.',
+    title: 'Teachers in command',
+    description: 'The teacher intelligence hub, full override on every AI decision, and tools that show how students actually think.',
   },
   {
     icon: ShieldCheck,
     title: 'Safe by architecture',
-    description: 'COPPA/FERPA-compliant, parent-gated data, and fail-closed consent come standard. Funding never compromises safety.',
+    description: 'COPPA/FERPA compliance, parent-gated data, and fail-closed consent are built in — funding never trades away safety.',
   },
 ];
 
 export default function SponsorASchool() {
+  const scrollTo = (id: string) => () =>
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
   return (
     <PageTransition>
-      <Header />
-      <main className="min-h-screen bg-white flex flex-col items-center font-rounded">
+      <div className="min-h-screen font-rounded bg-white">
+        <Header />
 
-        {/* Hero */}
-        <section className="relative overflow-hidden w-full" aria-labelledby="sponsor-hero-heading">
+        {/* HERO */}
+        <section
+          className="relative bg-gradient-to-b from-mentra-blue/5 via-white to-white overflow-hidden"
+          aria-labelledby="sponsor-hero-heading"
+        >
+          <div
+            className="absolute inset-0 bg-dot-grid opacity-50 pointer-events-none"
+            aria-hidden="true"
+          />
           <div className="mx-auto max-w-screen-xl px-4 py-24 sm:py-32 relative z-10">
-            <div className="max-w-3xl mx-auto text-center space-y-8">
-              <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-growth-green">
-                <Heart className="w-4 h-4" aria-hidden="true" />
-                Sponsor a school
-              </div>
-              <h1
-                id="sponsor-hero-heading"
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
-              >
-                Education should be free and equal for those in need
-              </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-                We're raising the cost of {CAMPAIGN.term} of Mentra for {schoolLabel} in{' '}
-                {CAMPAIGN.location} — so every student there gets an AI mentor that builds
-                independent thinkers, regardless of what their family can afford.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Campaign: story + live widget */}
-        <section className="w-full bg-gray-50 py-24" aria-labelledby="campaign-heading">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-5xl mx-auto">
-              {/* Story */}
-              <AnimateOnScroll>
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left: text */}
+              <div className="text-center lg:text-left space-y-8">
                 <div className="space-y-6">
-                  <h2 id="campaign-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance">
-                    Why this school, why now
-                  </h2>
-                  <p className="text-lg text-gray-500 leading-relaxed">
-                    The students who stand to gain the most from a thoughtful AI mentor are
-                    too often the ones least able to access one. We want to change that — one
-                    school at a time, starting here.
+                  <div className="inline-flex items-center gap-2 bg-mentra-blue/10 text-mentra-blue text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full">
+                    <Heart className="w-4 h-4" aria-hidden="true" />
+                    Sponsor a school
+                  </div>
+                  <h1
+                    id="sponsor-hero-heading"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
+                  >
+                    A new divide is forming.{' '}
+                    <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">
+                      Help us close it.
+                    </span>
+                  </h1>
+                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    We're funding {CAMPAIGN.term} of Mentra for a school that can't pay for one.
+                    You cover the cost of running it — Mentra donates the rest.
                   </p>
-                  <p className="text-lg text-gray-500 leading-relaxed">
-                    Your gift doesn't buy a subscription. It removes a barrier: it gives an
-                    entire school {CAMPAIGN.term} of Mentra at no cost, so the question stops
-                    being "can we afford this?" and starts being "what can these students do?"
-                  </p>
-                  <div className="pt-2">
-                    <a
-                      href="/about"
-                      className="inline-flex items-center gap-2 text-mentra-blue font-semibold hover:gap-3 transition-all"
+                </div>
+                <div className="flex flex-col items-center lg:items-start gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button
+                      size="lg"
+                      onClick={scrollTo('give')}
+                      className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                      aria-label="Go to the donation form"
                     >
-                      Read what we believe
-                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                    </a>
+                      Sponsor this school
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      onClick={scrollTo('coverage')}
+                      className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                      aria-label="See where your money goes"
+                    >
+                      Where your money goes
+                    </Button>
                   </div>
                 </div>
-              </AnimateOnScroll>
-
-              {/* Live widget */}
-              <AnimateOnScroll delay={100}>
-                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-                  <GivebutterWidget />
-                </div>
-              </AnimateOnScroll>
+              </div>
+              {/* Right: Sprig with heart */}
+              <div className="flex justify-center lg:justify-end">
+                <SprigOrb size="lg">
+                  <img
+                    src="/images/sprig/MENTRA_SPRIG_GIVE.webp"
+                    alt="One Sprig handing a heart to a smaller Sprig — the gift of equal access to learning"
+                    width="400"
+                    height="400"
+                    className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl animate-breathe motion-reduce:animate-none"
+                  />
+                </SprigOrb>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* What your gift funds */}
-        <section className="w-full py-24 bg-white" aria-labelledby="impact-heading">
+        {/* WHAT'S AT STAKE */}
+        <section className="py-24 bg-gray-50" aria-labelledby="stakes-heading">
           <div className="container mx-auto px-4">
             <AnimateOnScroll>
-              <div className="max-w-3xl mx-auto text-center mb-16">
-                <h2 id="impact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                  What your gift funds
+              <div className="max-w-3xl mx-auto text-center mb-10">
+                <h2 id="stakes-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
+                  What's at stake
                 </h2>
-                <p className="text-lg text-gray-500 leading-relaxed">
-                  Every dollar goes toward putting the full Mentra platform in students' hands —
-                  with nothing held back.
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={80}>
+              <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-600 leading-relaxed">
+                <p>
+                  Well-resourced schools and families are already buying their kids AI tutors,
+                  coaches, and writing partners. Under-resourced schools are getting device bans
+                  and worksheets. The same technology that could level the field is, right now,
+                  tilting it further.
+                </p>
+                <p>
+                  If that holds, the gap stops being about who owns the newest laptop and becomes
+                  something deeper — a divide in who gets to <span className="font-semibold text-gray-900">learn how to think</span>{' '}
+                  with the tools of their era. That advantage compounds for a lifetime.
+                </p>
+                <p>
+                  Mentra was built to be the exception: AI that makes itself less necessary, that
+                  builds independent thinkers instead of dependent users. The students who need
+                  that most should be the first to have it — not the last. Cost is the only thing
+                  standing in the way. So we're removing it.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </section>
+
+        {/* WHERE YOUR MONEY GOES */}
+        <section id="coverage" className="py-24 bg-white scroll-mt-20" aria-labelledby="coverage-heading">
+          <div className="container mx-auto px-4">
+            <AnimateOnScroll>
+              <div className="max-w-3xl mx-auto text-center mb-14">
+                <h2 id="coverage-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
+                  Where your money goes
+                </h2>
+                <p className="text-lg text-gray-500">
+                  This isn't a discount or a free trial. Mentra gives the product away — your gift
+                  covers only what it actually costs to run.
                 </p>
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {fundsImpact.map((item, i) => (
+            <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
+              {coverage.map((col, i) => (
+                <AnimateOnScroll key={col.heading} delay={i * 100}>
+                  <div
+                    className={`h-full rounded-2xl p-6 sm:p-8 ${
+                      col.highlight
+                        ? 'bg-white border-2 border-mentra-blue/30 shadow-md'
+                        : 'bg-gray-50 border border-gray-200'
+                    }`}
+                  >
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">{col.heading}</h3>
+                    <p className="text-sm text-gray-500 mb-6">{col.subhead}</p>
+                    <ul className="space-y-5">
+                      {col.items.map((item) => (
+                        <li key={item.label} className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center">
+                            <item.icon className="w-5 h-5 text-mentra-blue" aria-hidden="true" />
+                          </div>
+                          <div>
+                            <div className="font-semibold text-gray-900 text-sm sm:text-base">{item.label}</div>
+                            <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-sm text-gray-500 leading-relaxed mt-6 pt-6 border-t border-gray-200">
+                      {col.footer}
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* WHAT IT UNLOCKS */}
+        <section className="py-24 bg-gray-50" aria-labelledby="unlocks-heading">
+          <div className="container mx-auto px-4">
+            <AnimateOnScroll>
+              <div className="max-w-3xl mx-auto text-center mb-14">
+                <h2 id="unlocks-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
+                  What it unlocks for the school
+                </h2>
+                <p className="text-lg text-gray-500">
+                  Not a stripped-down version. The full platform, in every student's hands.
+                </p>
+              </div>
+            </AnimateOnScroll>
+
+            <div className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
+              {unlocks.map((item, i) => (
                 <AnimateOnScroll key={item.title} delay={i * 100}>
-                  <div className="bg-gray-50 rounded-2xl border border-gray-100 p-6 h-full">
-                    <div className="w-10 h-10 bg-growth-green/10 rounded-lg flex items-center justify-center mb-4">
-                      <item.icon className="w-5 h-5 text-growth-green" aria-hidden="true" />
+                  <div className="h-full bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 hover:border-mentra-blue/40 hover:shadow-md transition-all">
+                    <div className="w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center mb-4">
+                      <item.icon className="w-5 h-5 text-mentra-blue" aria-hidden="true" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
@@ -192,17 +323,52 @@ export default function SponsorASchool() {
           </div>
         </section>
 
-        {/* Belief sign-off */}
-        <section className="w-full bg-gray-50 py-20" aria-labelledby="belief-heading">
+        {/* GIVE — story + live widget */}
+        <section id="give" className="py-24 bg-white scroll-mt-20" aria-labelledby="give-heading">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-5xl mx-auto">
+              <AnimateOnScroll>
+                <div className="space-y-6">
+                  <h2 id="give-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance">
+                    Sponsor the school
+                  </h2>
+                  <p className="text-lg text-gray-500 leading-relaxed">
+                    We've chosen a school in {CAMPAIGN.location}. Every dollar moves the goal
+                    closer to {CAMPAIGN.term} of fully-funded Mentra for the students there.
+                  </p>
+                  <p className="text-lg text-gray-500 leading-relaxed">
+                    Give once or set up a recurring gift. You'll get a tax-deductible receipt, and
+                    you can watch the progress bar fill in real time as the community rallies.
+                  </p>
+                  <a
+                    href="/about"
+                    className="inline-flex items-center gap-2 text-mentra-blue font-semibold hover:gap-3 transition-all"
+                  >
+                    Read what we believe
+                    <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </AnimateOnScroll>
+
+              <AnimateOnScroll delay={100}>
+                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+                  <GivebutterWidget />
+                </div>
+              </AnimateOnScroll>
+            </div>
+          </div>
+        </section>
+
+        {/* BELIEF SIGN-OFF */}
+        <section className="py-20 bg-gray-50" aria-labelledby="belief-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center">
               <AnimateOnScroll>
-                <Sparkles className="w-8 h-8 text-growth-green mx-auto mb-6" aria-hidden="true" />
                 <h2 id="belief-heading" className="sr-only">Our belief</h2>
                 <p className="text-xl sm:text-2xl text-gray-700 italic mb-4 leading-relaxed max-w-3xl mx-auto">
-                  "The students who could gain the most from a great teacher shouldn't lose out
-                  because of a zip code. If we believe AI can help kids think for themselves, then
-                  the kids who need it most should be the first to have it — not the last."
+                  "If AI is going to reshape how a generation learns, it can't only reshape it for
+                  the kids who can pay. The ones who need a great mentor most are the ones we should
+                  reach first."
                 </p>
                 <p className="font-bold text-gray-900">The Mentra team</p>
               </AnimateOnScroll>
@@ -210,8 +376,8 @@ export default function SponsorASchool() {
           </div>
         </section>
 
-      </main>
-      <Footer />
+        <Footer />
+      </div>
     </PageTransition>
   );
 }
