@@ -40,17 +40,18 @@ import {
 const GIVEBUTTER_ACCOUNT = '';   // e.g. 'ABC123'
 const GIVEBUTTER_WIDGET_ID = ''; // e.g. 'XyZ987'
 
-/* Story details — safe to edit freely. Copy below reads naturally whether or
- * not a specific school is named yet. Leave schoolName as '' to keep it
- * generic until the partnership is public. */
+/* Story details — safe to edit freely. We'll sponsor a Title I–eligible
+ * school (a federal designation for schools serving a high share of
+ * low-income families). Fill in schoolName once it's announced; the copy
+ * reads naturally both before and after. */
 const CAMPAIGN = {
-  schoolName: '',                // e.g. 'Lincoln Middle School'
-  location: 'a community where families can\'t cover the cost themselves',
+  schoolName: '',                // e.g. 'Lincoln Middle School' — leave '' until announced
   term: 'a full school year',
 };
 
 const isLive = Boolean(GIVEBUTTER_ACCOUNT && GIVEBUTTER_WIDGET_ID);
-const schoolLabel = CAMPAIGN.schoolName || 'the school';
+// A noun phrase usable mid-sentence whether or not the school is named yet.
+const schoolPhrase = CAMPAIGN.schoolName || 'the Title I school we choose';
 
 /** Loads the Givebutter widget script once and renders the campaign widget.
  *  Falls back to a placeholder card until the campaign is connected. */
@@ -115,7 +116,7 @@ const unlocks = [
   {
     icon: GraduationCap,
     title: 'A mentor for every student',
-    description: `Socratic tutoring that guides thinking instead of handing over answers — ${CAMPAIGN.term} of it, for everyone at ${schoolLabel}.`,
+    description: `Socratic tutoring that guides thinking instead of handing over answers — ${CAMPAIGN.term} of it, for every student at ${schoolPhrase}.`,
   },
   {
     icon: Users,
@@ -166,8 +167,9 @@ export default function SponsorASchool() {
                     </span>
                   </h1>
                   <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    We're funding {CAMPAIGN.term} of Mentra for a school that can't pay for one.
-                    You cover the cost of running it — Mentra donates the rest.
+                    We're funding {CAMPAIGN.term} of Mentra for a Title I school — one serving a
+                    community that couldn't pay for it on its own. You cover the cost of running it;
+                    Mentra donates the rest.
                   </p>
                 </div>
                 <div className="flex flex-col items-center lg:items-start gap-4">
@@ -178,7 +180,7 @@ export default function SponsorASchool() {
                       className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-lg hover:shadow-xl group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
                       aria-label="Go to the donation form"
                     >
-                      Sponsor this school
+                      Become a sponsor
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     </Button>
                     <Button
@@ -299,7 +301,7 @@ export default function SponsorASchool() {
             <AnimateOnScroll>
               <div className="max-w-3xl mx-auto text-center mb-14">
                 <h2 id="unlocks-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                  What it unlocks for the school
+                  What the funding unlocks
                 </h2>
                 <p className="text-lg text-gray-500">
                   Not a stripped-down version. The full platform, in every student's hands.
@@ -333,8 +335,10 @@ export default function SponsorASchool() {
                     Sponsor the school
                   </h2>
                   <p className="text-lg text-gray-500 leading-relaxed">
-                    We've chosen a school in {CAMPAIGN.location}. Every dollar moves the goal
-                    closer to {CAMPAIGN.term} of fully-funded Mentra for the students there.
+                    We're partnering with a Title I&ndash;eligible school &mdash; a federal
+                    designation for schools serving a high share of low-income families &mdash; and
+                    we'll announce it here. Every dollar moves the goal closer to {CAMPAIGN.term} of
+                    fully-funded Mentra for its students.
                   </p>
                   <p className="text-lg text-gray-500 leading-relaxed">
                     Give once or set up a recurring gift. You'll get a tax-deductible receipt, and
@@ -366,11 +370,12 @@ export default function SponsorASchool() {
               <AnimateOnScroll>
                 <h2 id="belief-heading" className="sr-only">Our belief</h2>
                 <p className="text-xl sm:text-2xl text-gray-700 italic mb-4 leading-relaxed max-w-3xl mx-auto">
-                  "If AI is going to reshape how a generation learns, it can't only reshape it for
-                  the kids who can pay. The ones who need a great mentor most are the ones we should
-                  reach first."
+                  "I don't want my kids growing up in a world where the best version of help is
+                  reserved for the families who can afford it. If AI can teach a child to think,
+                  that can't be a privilege — it has to be a starting line everyone shares."
                 </p>
-                <p className="font-bold text-gray-900">The Mentra team</p>
+                <p className="font-bold text-gray-900">Edward Kerr</p>
+                <p className="text-sm text-gray-400">Founder &amp; CEO, Mentra</p>
               </AnimateOnScroll>
             </div>
           </div>
