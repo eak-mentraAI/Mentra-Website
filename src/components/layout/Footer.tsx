@@ -79,6 +79,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/sponsor-a-school" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Sponsor a school
+                </Link>
+              </li>
+              <li>
                 <a href="mailto:hello@mentra.ai" className="text-gray-300 hover:text-white transition-colors text-sm">
                   Contact
                 </a>

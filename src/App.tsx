@@ -18,6 +18,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Press = lazy(() => import("./pages/Press"));
 const Platform = lazy(() => import("./pages/Platform"));
+const SponsorASchool = lazy(() => import("./pages/SponsorASchool"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-white">
@@ -67,6 +68,7 @@ function AnimatedRoutes() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/press" element={<Press />} />
         <Route path="/platform" element={<Platform />} />
+        <Route path="/sponsor-a-school" element={<SponsorASchool />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />
