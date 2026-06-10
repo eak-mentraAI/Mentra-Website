@@ -186,7 +186,7 @@ const sections: LegalSectionItem[] = [
         </p>
         <div className="bg-gray-50 p-4 rounded-lg">
           <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@mentra.ai</p>
-          <p className="text-gray-700 mb-2"><strong>Address:</strong> San Francisco, CA</p>
+          <p className="text-gray-700 mb-2"><strong>Entity:</strong> Mentra AI, Inc., a Delaware corporation</p>
           <p className="text-gray-700">
             <strong>Data Protection Officer:</strong> Edward Kerr, Founder
           </p>

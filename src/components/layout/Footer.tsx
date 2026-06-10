@@ -101,7 +101,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-gray-500" aria-hidden="true" />
-                <span className="text-gray-300 text-sm">San Francisco, CA</span>
+                <span className="text-gray-300 text-sm">Delaware, USA</span>
               </li>
             </ul>
           </div>
@@ -138,7 +138,7 @@ const Footer = () => {
 
         <div className="mt-6 text-center md:text-left">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Mentra. All rights reserved.
+            &copy; {new Date().getFullYear()} Mentra AI, Inc. All rights reserved.
           </p>
         </div>
       </div>

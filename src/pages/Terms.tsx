@@ -71,11 +71,11 @@ const sections: LegalSectionItem[] = [
     ),
   },
   {
-    id: 'legal-matters',
-    title: 'Legal Matters',
+    id: 'governing-law',
+    title: 'Governing Law',
     content: (
       <p className="text-gray-700">
-        These terms are governed by Texas law. Any disputes will be resolved through arbitration in Texas. If any part of these terms is invalid, the rest remains enforceable.
+        These terms are governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict of laws principles. Any disputes arising out of or relating to these terms or your use of this website will be resolved through binding arbitration seated in Delaware. If any part of these terms is invalid, the rest remains enforceable.
       </p>
     ),
   },
@@ -89,7 +89,7 @@ const sections: LegalSectionItem[] = [
         </p>
         <div className="bg-gray-50 p-4 rounded-lg">
           <p className="text-gray-700 mb-2"><strong>Email:</strong> legal@mentra.ai</p>
-          <p className="text-gray-700 mb-2"><strong>Address:</strong> San Francisco, CA</p>
+          <p className="text-gray-700 mb-2"><strong>Entity:</strong> Mentra AI, Inc., a Delaware corporation</p>
           <p className="text-gray-700">
             <strong>Legal Contact:</strong> Edward Kerr, Founder
           </p>
