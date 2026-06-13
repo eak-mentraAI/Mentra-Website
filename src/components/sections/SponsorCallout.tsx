@@ -25,7 +25,7 @@ const SponsorCallout = () => {
                 <p className="text-gray-600 leading-relaxed max-w-xl">
                   AI is widening the gap between students who can pay for it and those who can't.
                   We're closing it one school at a time — donors cover the running costs, Mentra
-                  donates the rest. Follow the campaign and chip in.
+                  donates the rest. Sponsor a year of learning for a child who'd otherwise go without.
                 </p>
               </div>
               <div className="flex-shrink-0">

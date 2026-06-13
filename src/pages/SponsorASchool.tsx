@@ -16,6 +16,9 @@ import {
   GraduationCap,
   ShieldCheck,
   Users,
+  XCircle,
+  Scale,
+  Building2,
 } from 'lucide-react';
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -52,6 +55,56 @@ const CAMPAIGN = {
 const isLive = Boolean(GIVEBUTTER_ACCOUNT && GIVEBUTTER_WIDGET_ID);
 // A noun phrase usable mid-sentence whether or not the school is named yet.
 const schoolPhrase = CAMPAIGN.schoolName || 'the Title I school we choose';
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * FISCAL SPONSOR CONFIG  —  the legal source of truth for this page
+ *
+ * Donations are made to a 501(c)(3) fiscal sponsor that holds the Mentra
+ * Access Fund — NOT to Mentra Inc., which is not itself a charity. Until the
+ * sponsor is live, leave `name` empty: the page shows the honest "we're
+ * finalizing the charitable structure" language and makes NO tax-deductible
+ * promise anywhere. The moment you fill in the sponsor's legal name, every
+ * disclosure below AND the donation receipt line flip to the live wording.
+ *
+ * This is intentionally separate from `isLive` (the Givebutter widget switch)
+ * — the charity can go live before or after the widget is connected.
+ * ────────────────────────────────────────────────────────────────────────── */
+const FISCAL_SPONSOR = { name: '' }; // e.g. 'Hack Club Bank' — leave '' until live
+const charityLive = Boolean(FISCAL_SPONSOR.name);
+const sponsorName = FISCAL_SPONSOR.name || 'our charitable partner';
+
+/* All donor-facing legal copy, derived from charity status so it flips in one
+ * place. Wording tracks counsel's before/after guidance verbatim. */
+const legal = {
+  // Short line shown right at the donation widget.
+  statusShort: charityLive
+    ? `Donations are processed by ${sponsorName}, a 501(c)(3) public charity, restricted to the Mentra Access Fund.`
+    : 'Mentra Inc. is not itself a tax-exempt charity. Once the program is live, donations will be processed through a qualified charitable partner.',
+  // Full disclosure shown in the "How this works" section.
+  statusFull: charityLive
+    ? `Donations are processed by ${sponsorName}, a 501(c)(3) public charity, restricted to the Mentra Access Fund. ${sponsorName} retains legal discretion and control over donated funds and will use them to support eligible under-resourced schools consistent with the fund's charitable educational purpose.`
+    : 'We are finalizing the charitable structure for this campaign. Mentra Inc. is not itself a tax-exempt charity. Once the program is live, donations will be processed through a qualified charitable partner, and eligible donors will receive a receipt from that organization.',
+  funds: charityLive
+    ? 'Mentra Inc. donates the platform license, onboarding, and ordinary support for sponsored schools. Donor funds cover documented operating costs required to run the program, such as cloud hosting, AI usage, payment processing, and charitable program administration. Mentra Inc. does not charge a software license fee for sponsored schools.'
+    : 'Mentra donates the platform license, onboarding, and ordinary support for sponsored schools, and does not charge a software license fee for sponsored schools. Donor funds are intended to cover the documented operating costs required to run Mentra for eligible under-resourced schools, such as cloud hosting, AI usage, payment processing, and charitable program administration.',
+  variance:
+    'If the named school is fully funded, unable to participate, no longer eligible, or cannot implement the program, funds may be used to support another eligible under-resourced school through the Mentra Access Fund.',
+  corporate:
+    'Corporate sponsors may be acknowledged as supporters of the Mentra Access Fund. Recognition may include name or logo placement in a supporter list, but sponsorship does not imply endorsement, advertising, or access to student data.',
+};
+
+// The receipt promise must NOT claim deductibility before the charity is live.
+const receiptLine = charityLive
+  ? `Give once or set up a recurring gift. Eligible donors receive a tax-deductible receipt from ${sponsorName}, and you can watch the progress bar fill in real time as the community rallies.`
+  : 'Give once or set up a recurring gift, and watch the progress bar fill in real time as the community rallies.';
+
+/* The reassurance counterpart to "Where your money goes." */
+const doesNotBuy = [
+  { label: 'Student data', text: 'We never sell, share, or hand over student information — not to you, not to anyone.' },
+  { label: 'Advertising access', text: 'No ads and no marketing reach into the classroom come with a gift.' },
+  { label: 'A say in school selection', text: 'You fund the mission; the program — not donors — determines which schools are eligible.' },
+  { label: 'A commercial obligation', text: 'The sponsored school owes Mentra nothing after the funded year.' },
+];
 
 /** Loads the Givebutter widget script once and renders the campaign widget.
  *  Falls back to a placeholder card until the campaign is connected. */
@@ -108,7 +161,7 @@ const coverage = [
       { icon: Wrench, label: 'Onboarding & teacher training', text: 'Setup, integration with the school\'s existing systems, and hands-on training labor.' },
       { icon: LifeBuoy, label: 'Support for the whole year', text: 'Ongoing help for teachers, families, and admins — included.' },
     ],
-    footer: 'Because Mentra absorbs the product, people, and support, your donation isn\'t buying software — it\'s keeping the lights on for kids who couldn\'t otherwise reach it.',
+    footer: 'Because Mentra absorbs the product, people, and support, your gift isn\'t buying software — it\'s keeping the lights on for kids who couldn\'t otherwise reach it.',
   },
 ];
 
@@ -260,6 +313,14 @@ export default function SponsorASchool() {
               </div>
             </AnimateOnScroll>
 
+            <AnimateOnScroll delay={60}>
+              <p className="max-w-3xl mx-auto text-center text-lg sm:text-xl font-semibold text-gray-900 mb-12 text-balance">
+                Mentra makes no money on this. We give the software away and absorb the staff time —
+                your gift goes to the bare cost of keeping it running for kids who'd otherwise be
+                priced out.
+              </p>
+            </AnimateOnScroll>
+
             <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
               {coverage.map((col, i) => (
                 <AnimateOnScroll key={col.heading} delay={i * 100}>
@@ -325,8 +386,26 @@ export default function SponsorASchool() {
           </div>
         </section>
 
+        {/* BELIEF — the emotional beat right before the ask */}
+        <section className="py-20 bg-white" aria-labelledby="belief-heading">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto text-center">
+              <AnimateOnScroll>
+                <h2 id="belief-heading" className="sr-only">Our belief</h2>
+                <p className="text-xl sm:text-2xl text-gray-700 italic mb-4 leading-relaxed max-w-3xl mx-auto">
+                  "I don't want my kids growing up in a world where the best version of help is
+                  reserved for the families who can afford it. If AI can teach a child to think,
+                  that can't be a privilege — it has to be a starting line everyone shares."
+                </p>
+                <p className="font-bold text-gray-900">Edward Kerr</p>
+                <p className="text-sm text-gray-400">Founder &amp; CEO, Mentra</p>
+              </AnimateOnScroll>
+            </div>
+          </div>
+        </section>
+
         {/* GIVE — story + live widget */}
-        <section id="give" className="py-24 bg-white scroll-mt-20" aria-labelledby="give-heading">
+        <section id="give" className="py-24 bg-gray-50 scroll-mt-20" aria-labelledby="give-heading">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-5xl mx-auto">
               <AnimateOnScroll>
@@ -341,16 +420,8 @@ export default function SponsorASchool() {
                     fully-funded Mentra for its students.
                   </p>
                   <p className="text-lg text-gray-500 leading-relaxed">
-                    Give once or set up a recurring gift. You'll get a tax-deductible receipt, and
-                    you can watch the progress bar fill in real time as the community rallies.
+                    {receiptLine}
                   </p>
-                  <a
-                    href="/about"
-                    className="inline-flex items-center gap-2 text-mentra-blue font-semibold hover:gap-3 transition-all"
-                  >
-                    Read what we believe
-                    <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                  </a>
                 </div>
               </AnimateOnScroll>
 
@@ -358,26 +429,113 @@ export default function SponsorASchool() {
                 <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
                   <GivebutterWidget />
                 </div>
+                <p className="mt-4 text-xs text-gray-400 leading-relaxed">
+                  {legal.statusShort}{' '}
+                  <button
+                    type="button"
+                    onClick={scrollTo('how-it-works')}
+                    className="text-mentra-blue/80 hover:text-mentra-blue underline underline-offset-2"
+                  >
+                    See how this works
+                  </button>
+                  .
+                </p>
               </AnimateOnScroll>
             </div>
           </div>
         </section>
 
-        {/* BELIEF SIGN-OFF */}
-        <section className="py-20 bg-gray-50" aria-labelledby="belief-heading">
+        {/* WHAT YOUR GIFT DOESN'T BUY */}
+        <section className="py-24 bg-white" aria-labelledby="notbuy-heading">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto text-center">
-              <AnimateOnScroll>
-                <h2 id="belief-heading" className="sr-only">Our belief</h2>
-                <p className="text-xl sm:text-2xl text-gray-700 italic mb-4 leading-relaxed max-w-3xl mx-auto">
-                  "I don't want my kids growing up in a world where the best version of help is
-                  reserved for the families who can afford it. If AI can teach a child to think,
-                  that can't be a privilege — it has to be a starting line everyone shares."
+            <AnimateOnScroll>
+              <div className="max-w-3xl mx-auto text-center mb-14">
+                <h2 id="notbuy-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
+                  What your gift doesn't buy
+                </h2>
+                <p className="text-lg text-gray-500">
+                  A contribution to the program, not a commercial transaction. Here's what it never
+                  includes.
                 </p>
-                <p className="font-bold text-gray-900">Edward Kerr</p>
-                <p className="text-sm text-gray-400">Founder &amp; CEO, Mentra</p>
-              </AnimateOnScroll>
-            </div>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll delay={80}>
+              <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8">
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+                  {doesNotBuy.map((item) => (
+                    <li key={item.label} className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gray-200/70 rounded-lg flex items-center justify-center">
+                        <XCircle className="w-5 h-5 text-gray-500" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900 text-sm sm:text-base">{item.label}</div>
+                        <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm text-gray-500 leading-relaxed mt-6 pt-6 border-t border-gray-200">
+                  Sponsored schools are not required to become paying Mentra customers after the
+                  funded period. Any later relationship with Mentra would be separate from the
+                  charitable program.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </section>
+
+        {/* HOW THIS WORKS — consolidated donation status, variance & recognition */}
+        <section id="how-it-works" className="py-24 bg-gray-50 border-t border-gray-100 scroll-mt-20" aria-labelledby="how-heading">
+          <div className="container mx-auto px-4">
+            <AnimateOnScroll>
+              <div className="max-w-3xl mx-auto">
+                <div className="text-center mb-12">
+                  <div className="w-12 h-12 bg-mentra-blue/10 rounded-xl flex items-center justify-center mx-auto mb-5">
+                    <Scale className="w-6 h-6 text-mentra-blue" aria-hidden="true" />
+                  </div>
+                  <h2 id="how-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-balance">
+                    How this works
+                  </h2>
+                  <p className="text-lg text-gray-500">
+                    The honest details on where your money goes and who handles it.
+                  </p>
+                </div>
+
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">
+                      Donation status
+                    </h3>
+                    <div className="space-y-4 text-gray-600 leading-relaxed">
+                      <p>{legal.statusFull}</p>
+                      <p>{legal.funds}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">
+                      If plans change
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">{legal.variance}</p>
+                  </div>
+
+                  <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center">
+                        <Building2 className="w-5 h-5 text-mentra-blue" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">
+                          Corporate sponsors
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{legal.corporate}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimateOnScroll>
           </div>
         </section>
 
