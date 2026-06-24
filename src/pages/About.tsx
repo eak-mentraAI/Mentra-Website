@@ -23,13 +23,14 @@ const beliefs = [
 const roadmapPhases = [
   {
     phase: 'Now',
-    label: 'Building the Foundation',
+    label: 'The Learner Intelligence Layer',
     icon: Sparkles,
     items: [
-      'Socratic AI tutoring that guides thinking, never gives answers',
-      'Real-time struggle detection with scaffolding that fades',
+      'Honest measurement: 26 signal types and a deterministic insight engine that refuses to score a child parroting an answer as mastery — it says "we don\'t know yet" instead',
+      'An independence-quality signal that tells real thinking apart from mimicry',
+      'Socratic AI tutoring that guides thinking, never gives answers, with scaffolding that fades',
       'Teacher intelligence hub with full override on every AI decision',
-      'Parent dashboard — signal, not noise — with consent controls on everything',
+      'Parent insights — signal, not noise — with consent controls on everything',
       'COPPA/FERPA compliance built into the architecture, not bolted on',
     ],
   },
@@ -38,32 +39,31 @@ const roadmapPhases = [
     label: 'Beyond the Screen',
     icon: Package,
     items: [
-      'Physical engineering kits shipped to schools — hands-on challenges with in-app assignments students complete',
-      'Maker projects that connect digital learning to real-world building',
+      'Physical engineering kits and maker projects that connect digital learning to real-world building — in development with partners',
+      'Hands-on challenges with in-app assignments students complete',
       'Collaborative classroom experiences where AI supports the group, not just the individual',
       'Teacher-designed assignment templates shared across the Mentra community',
     ],
   },
   {
     phase: 'Soon',
-    label: 'Measuring What Actually Matters',
+    label: 'A Portrait of Every Learner',
     icon: BarChart3,
     items: [
-      'New ways to measure human growth — not just grades, but resilience, curiosity, and how students approach problems they\'ve never seen',
-      'Learner Passport that travels with the student and tells the real story of who they are',
-      'Growth trajectories that show rate of independence, not just test scores',
-      'Parent-facing insights that answer "is my child becoming a better thinker?" — not just "did they pass?"',
+      'A portable cognitive credential students own — an open standard the field adopts, not a Mentra export',
+      'The first honest metric for rate of independence — the number the whole sector starts measuring against',
+      'AI that supports a group, not just one learner at a time',
+      'Community templates that let teachers build on each other\'s work',
     ],
   },
   {
     phase: 'Ahead',
-    label: 'Meeting Students Where They Are',
+    label: 'Learning That Follows the Child',
     icon: Smartphone,
     items: [
-      'Native mobile experiences for learning on the go',
-      'Offline-capable modes for schools with limited connectivity',
-      'Accessibility-first design for every type of learner',
-      'Multilingual support so language is never a barrier to growth',
+      'Ambient learning intelligence — capture how a child thinks wherever they work, online or off',
+      'Cognition that transfers across language — measure thinking itself, independent of the language it\'s expressed in',
+      'Accessible by design for every kind of learner, no retrofit required',
     ],
   },
   {
@@ -71,9 +71,9 @@ const roadmapPhases = [
     label: 'A New Standard for Learning',
     icon: Globe,
     items: [
-      'Open learner data standards so students own their growth story',
-      'District-wide analytics that measure what matters — independence, critical thinking, self-awareness',
-      'AI literacy curriculum embedded in every experience',
+      'Open learner-data standards so students own their growth story',
+      'Proof that a district is graduating thinkers, not test-passers — an outcome no incumbent can claim',
+      'AI literacy embedded in every experience',
       'A generation of students who know how to learn, not just how to be taught',
     ],
   },
@@ -162,7 +162,7 @@ export default function About() {
                   Where we're going
                 </h2>
                 <p className="text-lg text-gray-500 leading-relaxed">
-                  Mentra today is the foundation. What comes next pushes learning beyond the screen, beyond grades, and beyond what traditional ed-tech has attempted.
+                  The Learner Intelligence Layer is built and measured today — verified in simulation and honesty-gated before it ever reaches a real student. What comes next isn't a checklist of features that ship and are done; it's the harder, generational work of setting the standards and metrics the whole field can measure against.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -170,8 +170,9 @@ export default function About() {
             {/* Timeline */}
             <div className="max-w-5xl mx-auto">
               <div className="relative pl-10 md:pl-14">
-                {/* Vertical line */}
-                <div className="absolute left-[15px] md:left-[23px] top-0 w-0.5 h-full bg-gray-200 rounded-full" />
+                {/* Vertical line — centered on the nodes (which stay anchored to the
+                    container's left edge), so it stays aligned at every breakpoint */}
+                <div className="absolute left-[15px] top-0 w-0.5 h-full bg-gray-200 rounded-full" />
 
                 <div className="space-y-8">
                   {roadmapPhases.map((phase, i) => (
@@ -179,7 +180,7 @@ export default function About() {
                       <div className="relative">
                         {/* Node — solid white underlay so the timeline line
                             doesn't show through the semi-transparent tint */}
-                        <div className="absolute -left-10 md:-left-14 top-1 w-[31px] h-[31px] rounded-full bg-white flex items-center justify-center">
+                        <div className="absolute -left-10 md:-left-14 top-1 w-8 h-8 rounded-full bg-white flex items-center justify-center">
                           <span className="absolute inset-0 rounded-full bg-mentra-blue/10" aria-hidden="true" />
                           <phase.icon className="w-4 h-4 text-mentra-blue relative" />
                         </div>
