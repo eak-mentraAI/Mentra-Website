@@ -104,33 +104,33 @@ const stackLayers: StackLayerProps[] = [
 
 const mentraInternals = [
   {
-    title: '1 · Capture — the invisible work becomes signal',
+    title: 'The Capture Layer',
     description: 'Students work naturally inside modules — Guided QA, Writing & Reflection, Coding, Investigations, Assignments, Prompt Labs. Every attempt, revision, and reflection emits learning signal: dozens of distinct signal types across cognition, metacognition, engagement, and emotion. Not answers. Not grades. The texture of thinking.',
     badge: null,
   },
   {
-    title: '2 · Ontology — signal becomes shared language',
+    title: 'The Ontology',
     description: 'The curated semantic layer — the same idea that powers Palantir — that gives every signal a precise, governed meaning: what it is, where it comes from, how sensitive it is, and whether AI is even allowed to reason on it. For a product serving children, that governance is the safety boundary.',
     badge: 'The Moat',
   },
   {
-    title: '3 · Knowledge Graph — meaning becomes a living map',
-    description: 'A per-child model of one mind. Concepts connect to the concepts they unlock; struggles connect to their root causes; mastery on one skill propagates to readiness on the next — a map that grows richer and more current with every session.',
+    title: 'The Knowledge Graph',
+    description: 'A living model of one mind. Concepts connect to the concepts they unlock; struggles connect to their root causes; mastery on one skill propagates to readiness on the next — a map that grows richer and more current with every session.',
     badge: null,
   },
   {
-    title: '4 · Traversal — engine decides, AI explains, human approves',
-    description: 'Deterministic engines decide what a child has truly demonstrated — provable, auditable, the same every time. AI translates the decision into warm, human prose. The adult approves. The machine never acts on a child unsupervised. That ordering is the whole trust model.',
+    title: 'Engine, AI, Human',
+    description: 'Two kinds of intelligence read the graph. Deterministic engines decide what a child has truly demonstrated — provable, auditable, the same every time. AI translates the decision into warm, human prose. The adult approves. The machine never acts on a child unsupervised.',
     badge: null,
   },
   {
-    title: '5 · Delivery rails — LTI 1.3 Advantage',
-    description: 'Deep Linking, OIDC Launch, NRPS roster sync, AGS grade passback — with cognitive comments attached to grades returned to the LMS. No one ever sees raw signal; everyone sees insight tuned to what they can do about it.',
+    title: 'Delivery — into the LMS',
+    description: 'LTI 1.3 Advantage moves Mentra inside Canvas, Schoology, or Google Classroom: Deep Linking, OIDC Launch, NRPS roster sync, and AGS grade passback — with cognitive comments attached to grades. No one ever sees raw signal; everyone sees insight tuned to what they can do about it.',
     badge: null,
   },
   {
-    title: '6 · Delivery rails — Partner API + OAuth2',
-    description: 'Versioned JSON schema contracts, scoped access, OAuth2 + PKCE, district-safe governance and permissions — so governed cognition insight flows safely to the systems that need it.',
+    title: 'Delivery — out to partners',
+    description: 'A versioned Partner API with OAuth2 + PKCE, scoped access, and district-safe governance — so governed cognition insight flows safely to the parent platforms, assessment vendors, and research partners that need it.',
     badge: null,
   },
 ];
@@ -377,9 +377,9 @@ const Platform = () => {
                   How the machine works
                 </h2>
                 <p className="text-lg text-gray-500">
-                  Raw signal becomes shared meaning becomes a living map — read by deterministic
-                  engines and AI together, with a human always approving. Capture, ontology,
-                  knowledge graph, traversal, and the rails that deliver insight in and out.
+                  It starts with how a child actually thinks and ends with insight a teacher,
+                  parent, or student can act on. In between: a governed language for every signal,
+                  a living map of one mind, and decisions a human always approves.
                 </p>
               </div>
             </AnimateOnScroll>
