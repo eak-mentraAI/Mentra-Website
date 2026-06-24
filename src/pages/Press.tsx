@@ -17,7 +17,7 @@ export default function Press() {
               <span className="text-mentra-blue">For</span> the Media
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mb-2">
-              Mentra is pioneering AI-powered learning and emotional intelligence for the next generation. Below you'll find fast facts, our media kit, and direct contact for press inquiries.
+              Mentra measures how every child actually thinks — not just what they did — and turns it into insight teachers, parents, and students can act on. Below you'll find fast facts, our media kit, and direct contact for press inquiries.
             </p>
           </div>
           {/* Right: Large Sprig Icon */}
@@ -34,8 +34,8 @@ export default function Press() {
           <ul className="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2 max-w-3xl">
             <li><b>Founded:</b> 2023 by Edward Kerr (technologist, educator, parent)</li>
             <li><b>Mission:</b> Empower every child to thrive in an AI-powered world</li>
-            <li><b>What We Do:</b> AI-native journaling and learning platform for students, parents, and educators</li>
-            <li><b>Approach:</b> Evidence-based, human-centered, privacy-first, and pedagogically aligned</li>
+            <li><b>What We Do:</b> A learning platform that captures how students think, maps it to a per-child knowledge graph, and delivers insight to students, parents, and educators</li>
+            <li><b>Approach:</b> Engine decides, AI explains, human approves — provable, human-centered, privacy-first, and pedagogically aligned</li>
             <li><b>Contact:</b> <a href="mailto:hello@mentra.ai" className="text-mentra-blue underline">hello@mentra.ai</a></li>
           </ul>
         </section>

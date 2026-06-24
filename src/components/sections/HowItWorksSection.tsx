@@ -18,8 +18,8 @@ const beliefs = [
   },
   {
     icon: Shield,
-    title: 'Trust by Architecture',
-    description: 'Fail-closed consent, append-only audit trails, automated policy gates on every commit. Every claim is provable.',
+    title: 'Honesty by Architecture',
+    description: 'Fail-closed consent, append-only audit trails, automated policy gates on every commit — and a system built to say "we don\'t know yet" instead of inventing a score. Every claim is provable.',
   },
 ];
 
@@ -28,25 +28,25 @@ const flywheel = [
     number: 1,
     icon: BookOpen,
     image: "/images/sprig/flywheel-01-reflect.png",
-    title: "Students Reflect",
+    title: "Students Work, Mentra Captures",
     color: "mentra-blue",
-    description: "Guided prompts build self-awareness — students learn to recognize what they know and where they're stuck.",
+    description: "Every attempt, revision, and reflection becomes signal — the texture of how a student thinks, not just what they answered.",
   },
   {
     number: 2,
     icon: FileText,
     image: "/images/sprig/flywheel-02-patterns.png",
-    title: "AI Surfaces Patterns",
+    title: "The Engine Decides",
     color: "mentra-blue",
-    description: "The system identifies what's working and what needs support — then delivers insights to the humans who decide what to do.",
+    description: "Deterministic rules — not a guessing model — judge what's mastered, what's fragile, and who needs a teacher. Provable, auditable, the same every time.",
   },
   {
     number: 3,
     icon: Sparkles,
     image: "/images/sprig/flywheel-03-act.png",
-    title: "Humans Act",
+    title: "AI Explains, Humans Act",
     color: "mentra-blue",
-    description: "Teachers intervene with full context. Parents see signal, not noise. Students get support matched to the moment.",
+    description: "AI translates each decision into plain language. The teacher, parent, or student decides what to do — the machine never acts on a child unsupervised.",
   },
   {
     number: 4,
@@ -62,7 +62,7 @@ const flywheel = [
     image: "/images/sprig/flywheel-05-independence.png",
     title: "Independence Grows",
     color: "mentra-blue",
-    description: "Each cycle builds capability the student owns — not engagement with a tool they depend on.",
+    description: "Each cycle captures richer signal, sharpens the map, and produces better insight — capability the student owns, not engagement with a tool they depend on.",
   },
 ];
 

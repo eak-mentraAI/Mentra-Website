@@ -15,8 +15,8 @@ const beliefs = [
     description: 'Teachers override any AI decision. Parents gate all data. Admins kill-switch all AI in under a second — fails closed. We built the architecture so that no one has to trust a black box.',
   },
   {
-    title: 'Trust is earned by architecture, not promises',
-    description: 'Fail-closed consent. Append-only audit trails. Automated policy gates on every commit. Every claim we make is demonstrable by inspecting the system — not by reading a policy document.',
+    title: 'Honesty is built into the architecture',
+    description: 'Fail-closed consent. Append-only audit trails. Automated policy gates on every commit. And a system built to refuse to lie — it says "we don\'t know yet" instead of inventing a score, and never mistakes a child parroting an answer for genuine mastery. Every claim is demonstrable by inspecting the system, not reading a policy document.',
   },
 ];
 

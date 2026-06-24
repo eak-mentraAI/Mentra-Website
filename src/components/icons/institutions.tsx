@@ -77,6 +77,18 @@ export function ITObservability({ className }: IconProps) {
   );
 }
 
+/** Layered map / aggregate altitude — District Altitude View */
+export function AltitudeView({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z" fill="currentColor" opacity="0.15" />
+      <path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M3 12l9 4.5 9-4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 16.5L12 21l9-4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 /** Lock with wall — Tenant Isolation */
 export function TenantIsolation({ className }: IconProps) {
   return (

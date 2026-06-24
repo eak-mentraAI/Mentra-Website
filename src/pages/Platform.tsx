@@ -82,7 +82,7 @@ const stackLayers: StackLayerProps[] = [
     title: 'Mentra — The Cognition Layer',
     icon: Brain,
     vendors: [],
-    role: 'Mentra captures HOW students think while they learn — calibration confidence, scaffold reliance, productive struggle, reasoning quality — and turns it into actionable signal for teachers and partner systems.',
+    role: 'Mentra captures HOW students think while they learn, gives every signal governed meaning through its ontology, and maps it to a living per-child knowledge graph — turning raw signal into insight for teachers and partner systems.',
     protocol: 'OAuth2 / Partner API',
     isMentra: true,
     highlight: 'The Moat',
@@ -104,23 +104,33 @@ const stackLayers: StackLayerProps[] = [
 
 const mentraInternals = [
   {
-    title: 'Student Learning Experience',
-    description: 'Students work naturally inside modules — Guided QA, Writing & Reflection, Coding, Investigations, Assignments, Prompt Labs.',
+    title: '1 · Capture — the invisible work becomes signal',
+    description: 'Students work naturally inside modules — Guided QA, Writing & Reflection, Coding, Investigations, Assignments, Prompt Labs. Every attempt, revision, and reflection emits learning signal: dozens of distinct signal types across cognition, metacognition, engagement, and emotion. Not answers. Not grades. The texture of thinking.',
     badge: null,
   },
   {
-    title: 'Cognition Substrate',
-    description: 'Captures the signals no other tool measures: calibration confidence, scaffold reliance, productive struggle, reasoning quality, intervention responsiveness, evidence usage, cognitive persistence.',
+    title: '2 · Ontology — signal becomes shared language',
+    description: 'The curated semantic layer — the same idea that powers Palantir — that gives every signal a precise, governed meaning: what it is, where it comes from, how sensitive it is, and whether AI is even allowed to reason on it. For a product serving children, that governance is the safety boundary.',
     badge: 'The Moat',
   },
   {
-    title: 'LTI 1.3 Advantage Platform',
-    description: 'Deep Linking, OIDC Launch, NRPS roster sync, AGS grade passback — with cognitive comments attached to grades returned to the LMS.',
+    title: '3 · Knowledge Graph — meaning becomes a living map',
+    description: 'A per-child model of one mind. Concepts connect to the concepts they unlock; struggles connect to their root causes; mastery on one skill propagates to readiness on the next — a map that grows richer and more current with every session.',
     badge: null,
   },
   {
-    title: 'Partner API + OAuth2 Layer',
-    description: 'Versioned JSON schema contracts, scoped access, OAuth2 + PKCE, district-safe governance and permissions — so cognition data flows safely to the systems that need it.',
+    title: '4 · Traversal — engine decides, AI explains, human approves',
+    description: 'Deterministic engines decide what a child has truly demonstrated — provable, auditable, the same every time. AI translates the decision into warm, human prose. The adult approves. The machine never acts on a child unsupervised. That ordering is the whole trust model.',
+    badge: null,
+  },
+  {
+    title: '5 · Delivery rails — LTI 1.3 Advantage',
+    description: 'Deep Linking, OIDC Launch, NRPS roster sync, AGS grade passback — with cognitive comments attached to grades returned to the LMS. No one ever sees raw signal; everyone sees insight tuned to what they can do about it.',
+    badge: null,
+  },
+  {
+    title: '6 · Delivery rails — Partner API + OAuth2',
+    description: 'Versioned JSON schema contracts, scoped access, OAuth2 + PKCE, district-safe governance and permissions — so governed cognition insight flows safely to the systems that need it.',
     badge: null,
   },
 ];
@@ -364,11 +374,12 @@ const Platform = () => {
             <AnimateOnScroll>
               <div className="max-w-3xl mx-auto text-center mb-14">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                  What's inside Mentra
+                  How the machine works
                 </h2>
                 <p className="text-lg text-gray-500">
-                  Four interlocking layers — a learning surface, the cognition substrate that
-                  makes it valuable, and the integration rails that move signal in and out.
+                  Raw signal becomes shared meaning becomes a living map — read by deterministic
+                  engines and AI together, with a human always approving. Capture, ontology,
+                  knowledge graph, traversal, and the rails that deliver insight in and out.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -406,7 +417,9 @@ const Platform = () => {
                   What Mentra measures
                 </h2>
                 <p className="text-lg text-gray-500">
-                  Existing tools measure outcomes. Mentra measures the cognition behind them.
+                  Existing tools measure what a student did — clicks, scores, time-on-task. Mentra
+                  measures how a student thinks, across dozens of signal types spanning cognition,
+                  metacognition, engagement, and emotion.
                 </p>
               </div>
             </AnimateOnScroll>
