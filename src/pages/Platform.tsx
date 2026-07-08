@@ -17,6 +17,9 @@ import {
   Shield,
   CheckCircle2,
   XCircle,
+  Eye,
+  Lock,
+  RefreshCw,
 } from 'lucide-react';
 
 type VendorChip = {
@@ -147,6 +150,24 @@ const mentraMetrics = [
   'How they responded to intervention',
   'How confidently and accurately they think',
   'How learning behaviors evolve over time',
+];
+
+const proofPoints = [
+  {
+    icon: Eye,
+    title: 'We track the help, not just the answer',
+    description: 'Every hint, worked example, and nudge a student gets is recorded — what kind, who gave it, how much it reduced the difficulty. That\'s what lets Mentra tell the difference between a student who solved it and a student who was walked through it.',
+  },
+  {
+    icon: Lock,
+    title: 'A parent\'s access is checked, not remembered',
+    description: 'Every time a parent views their child\'s data, the system re-checks consent in that moment. It isn\'t cached, and it isn\'t a flag set once at signup.',
+  },
+  {
+    icon: RefreshCw,
+    title: 'Mentra checks its own blind spots',
+    description: 'A recurring scan looks for places where the system\'s own model of a student might be drifting or incomplete — and routes anything it finds to a person to review. It never fixes itself silently.',
+  },
 ];
 
 const standards = [
@@ -469,6 +490,36 @@ const Platform = () => {
                   </ul>
                 </div>
               </AnimateOnScroll>
+            </div>
+          </div>
+        </section>
+
+        {/* PROOF, NOT PROMISES */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-4">
+            <AnimateOnScroll>
+              <div className="max-w-3xl mx-auto text-center mb-14">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
+                  Proof, not promises
+                </h2>
+                <p className="text-lg text-gray-500">
+                  These aren't policy statements. They're behaviors you can check against the running product.
+                </p>
+              </div>
+            </AnimateOnScroll>
+
+            <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {proofPoints.map((p, i) => (
+                <AnimateOnScroll key={p.title} delay={i * 100}>
+                  <div className="text-center space-y-4">
+                    <div className="w-12 h-12 bg-mentra-blue/10 rounded-xl flex items-center justify-center mx-auto">
+                      <p.icon className="w-6 h-6 text-mentra-blue" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900">{p.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{p.description}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
             </div>
           </div>
         </section>

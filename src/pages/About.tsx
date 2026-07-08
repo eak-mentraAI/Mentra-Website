@@ -16,7 +16,7 @@ const beliefs = [
   },
   {
     title: 'Honesty is built into the architecture',
-    description: 'Fail-closed consent. Append-only audit trails. Automated policy gates on every commit. And a system built to refuse to lie — it says "we don\'t know yet" instead of inventing a score, and never mistakes a child parroting an answer for genuine mastery. Every claim is demonstrable by inspecting the system, not reading a policy document.',
+    description: 'Fail-closed consent. Append-only audit trails. Automated policy gates that block any AI-written decision before it ships — no override, no exceptions. And a system built to refuse to lie — it says "we don\'t know yet" instead of inventing a score, even for a student with no history at all, and never mistakes a child parroting an answer for genuine mastery. Every claim is demonstrable by inspecting the system, not reading a policy document.',
   },
 ];
 

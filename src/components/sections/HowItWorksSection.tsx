@@ -19,7 +19,7 @@ const beliefs = [
   {
     icon: Shield,
     title: 'Honesty by Architecture',
-    description: 'Fail-closed consent, append-only audit trails, automated policy gates on every commit — and a system built to say "we don\'t know yet" instead of inventing a score. Every claim is provable.',
+    description: 'Fail-closed consent, append-only audit trails, automated policy gates on every commit — and a system built to say "we don\'t know yet" instead of inventing a score. Every claim is provable, and we test that against the live product, not just the code review.',
   },
 ];
 
