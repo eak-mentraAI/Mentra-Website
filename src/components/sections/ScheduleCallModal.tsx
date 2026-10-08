@@ -142,7 +142,7 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
 
             {status === 'error' && (
               <p className="text-curiosity-coral text-sm">
-                Something interrupted that. Try again, or email <a href="mailto:hello@mentra.ai" className="underline hover:no-underline">hello@mentra.ai</a> directly.
+                Something interrupted that. Try again, or email <a href="mailto:hello@mymentra.ai" className="underline hover:no-underline">hello@mymentra.ai</a> directly.
               </p>
             )}
 

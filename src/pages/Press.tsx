@@ -36,7 +36,7 @@ export default function Press() {
             <li><b>Mission:</b> Empower every child to thrive in an AI-powered world</li>
             <li><b>What We Do:</b> A learning platform that captures how students think, maps it to a per-child knowledge graph, and delivers insight to students, parents, and educators</li>
             <li><b>Approach:</b> Engine decides, AI explains, human approves — provable, human-centered, privacy-first, and pedagogically aligned</li>
-            <li><b>Contact:</b> <a href="mailto:hello@mentra.ai" className="text-mentra-blue underline">hello@mentra.ai</a></li>
+            <li><b>Contact:</b> <a href="mailto:hello@mymentra.ai" className="text-mentra-blue underline">hello@mymentra.ai</a></li>
           </ul>
         </section>
 
@@ -46,7 +46,7 @@ export default function Press() {
             <span className="text-mentra-blue">Download</span> Our Media Kit
           </h2>
           <p className="text-gray-700 mb-4 max-w-3xl">
-            Download our brand assets for press coverage. All assets updated as of July 13, 2024. For additional requests, email <a href="mailto:hello@mentra.ai" className="text-mentra-blue underline">hello@mentra.ai</a>.
+            Download our brand assets for press coverage. All assets updated as of July 13, 2024. For additional requests, email <a href="mailto:hello@mymentra.ai" className="text-mentra-blue underline">hello@mymentra.ai</a>.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Logo with Words (White) */}
@@ -106,7 +106,7 @@ export default function Press() {
               <span className="text-mentra-blue">Contact</span> for Media Inquiries
             </h2>
             <p className="text-gray-700 mb-2">For interviews, press requests, or more information, contact:</p>
-            <a href="mailto:hello@mentra.ai" className="text-lg text-mentra-blue underline font-semibold">hello@mentra.ai</a>
+            <a href="mailto:hello@mymentra.ai" className="text-lg text-mentra-blue underline font-semibold">hello@mymentra.ai</a>
           </div>
         </section>
       </main>
