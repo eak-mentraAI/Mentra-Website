@@ -60,7 +60,7 @@ const schoolPhrase = CAMPAIGN.schoolName || 'the Title I school we choose';
  * FISCAL SPONSOR CONFIG  —  the legal source of truth for this page
  *
  * Donations are made to a 501(c)(3) fiscal sponsor that holds the Mentra
- * Access Fund — NOT to Mentra Inc., which is not itself a charity. Until the
+ * Access Fund — NOT to Mentra AI, Inc., which is not itself a charity. Until the
  * sponsor is live, leave `name` empty: the page shows the honest "we're
  * finalizing the charitable structure" language and makes NO tax-deductible
  * promise anywhere. The moment you fill in the sponsor's legal name, every
@@ -79,13 +79,13 @@ const legal = {
   // Short line shown right at the donation widget.
   statusShort: charityLive
     ? `Donations are processed by ${sponsorName}, a 501(c)(3) public charity, restricted to the Mentra Access Fund.`
-    : 'Mentra Inc. is not itself a tax-exempt charity. Once the program is live, donations will be processed through a qualified charitable partner.',
+    : 'Mentra AI, Inc. is not itself a tax-exempt charity. Once the program is live, donations will be processed through a qualified charitable partner.',
   // Full disclosure shown in the "How this works" section.
   statusFull: charityLive
     ? `Donations are processed by ${sponsorName}, a 501(c)(3) public charity, restricted to the Mentra Access Fund. ${sponsorName} retains legal discretion and control over donated funds and will use them to support eligible under-resourced schools consistent with the fund's charitable educational purpose.`
-    : 'We are finalizing the charitable structure for this campaign. Mentra Inc. is not itself a tax-exempt charity. Once the program is live, donations will be processed through a qualified charitable partner, and eligible donors will receive a receipt from that organization.',
+    : 'We are finalizing the charitable structure for this campaign. Mentra AI, Inc. is not itself a tax-exempt charity. Once the program is live, donations will be processed through a qualified charitable partner, and eligible donors will receive a receipt from that organization.',
   funds: charityLive
-    ? 'Mentra Inc. donates the platform license, onboarding, and ordinary support for sponsored schools. Donor funds cover documented operating costs required to run the program, such as cloud hosting, AI usage, payment processing, and charitable program administration. Mentra Inc. does not charge a software license fee for sponsored schools.'
+    ? 'Mentra AI, Inc. donates the platform license, onboarding, and ordinary support for sponsored schools. Donor funds cover documented operating costs required to run the program, such as cloud hosting, AI usage, payment processing, and charitable program administration. Mentra AI, Inc. does not charge a software license fee for sponsored schools.'
     : 'Mentra donates the platform license, onboarding, and ordinary support for sponsored schools, and does not charge a software license fee for sponsored schools. Donor funds are intended to cover the documented operating costs required to run Mentra for eligible under-resourced schools, such as cloud hosting, AI usage, payment processing, and charitable program administration.',
   variance:
     'If the named school is fully funded, unable to participate, no longer eligible, or cannot implement the program, funds may be used to support another eligible under-resourced school through the Mentra Access Fund.',
@@ -96,7 +96,7 @@ const legal = {
 // The receipt promise must NOT claim deductibility before the charity is live.
 const receiptLine = charityLive
   ? `Give once or set up a recurring gift. Eligible donors receive a tax-deductible receipt from ${sponsorName}, and you can watch the progress bar fill in real time as the community rallies.`
-  : 'Give once or set up a recurring gift, and watch the progress bar fill in real time as the community rallies.';
+  : 'Once donations open, you\'ll be able to give once or set up a recurring gift and watch the progress bar fill in real time.';
 
 /* The reassurance counterpart to "Where your money goes." */
 const doesNotBuy = [
@@ -127,11 +127,14 @@ const GivebutterWidget = () => {
         <div className="w-12 h-12 bg-mentra-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
           <Heart className="w-6 h-6 text-mentra-blue" aria-hidden="true" />
         </div>
-        <p className="font-bold text-gray-900 mb-1">Live donation widget appears here</p>
+        <p className="font-bold text-gray-900 mb-1">Donations open soon</p>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Once the Givebutter campaign is connected, this becomes the donation
-          form with a self-updating progress thermometer. See the setup notes at
-          the top of <code className="text-xs bg-gray-200 px-1 py-0.5 rounded">SponsorASchool.tsx</code>.
+          We're finalizing the charitable structure for this campaign. Want to
+          pledge support or sponsor as an organization? Email{' '}
+          <a href="mailto:hello@mymentra.ai" className="text-mentra-blue hover:underline">
+            hello@mymentra.ai
+          </a>
+          .
         </p>
       </div>
     );

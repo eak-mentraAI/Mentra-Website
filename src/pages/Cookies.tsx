@@ -185,7 +185,7 @@ const sections: LegalSectionItem[] = [
           If you have any questions about our use of cookies or this Cookie Policy, please contact us:
         </p>
         <div className="bg-gray-50 p-4 rounded-lg">
-          <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@mentra.ai</p>
+          <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@mymentra.ai</p>
           <p className="text-gray-700 mb-2"><strong>Entity:</strong> Mentra AI, Inc., a Delaware corporation</p>
           <p className="text-gray-700">
             <strong>Data Protection Officer:</strong> Edward Kerr, Founder
@@ -221,7 +221,7 @@ export default function Cookies() {
         {/* Hero Section */}
         <section className="container mx-auto max-w-3xl px-4 flex flex-col items-center justify-center gap-4 mb-16 relative">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">Cookie Policy</h1>
-          <p className="text-gray-600 mb-0 text-center">Last updated: {new Date().toLocaleDateString()}</p>
+          <p className="text-gray-600 mb-0 text-center">Last updated: June 10, 2026</p>
         </section>
         <section className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto mb-6 rounded-xl border border-mentra-blue/20 bg-mentra-blue/5 px-4 py-3 text-sm text-gray-600">
