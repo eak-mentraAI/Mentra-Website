@@ -84,7 +84,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="mailto:hello@mentra.ai" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <a href="mailto:hello@mymentra.ai" className="text-gray-300 hover:text-white transition-colors text-sm">
                   Contact
                 </a>
               </li>
@@ -97,7 +97,7 @@ const Footer = () => {
             <ul className="space-y-3" role="list">
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-gray-500" aria-hidden="true" />
-                <span className="text-gray-300 text-sm">hello@mentra.ai</span>
+                <span className="text-gray-300 text-sm">hello@mymentra.ai</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-gray-500" aria-hidden="true" />
