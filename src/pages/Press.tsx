@@ -32,7 +32,7 @@ export default function Press() {
             Mentra Fast <span className="text-mentra-blue">Facts</span>
           </h2>
           <ul className="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2 max-w-3xl">
-            <li><b>Founded:</b> 2023 by Edward Kerr (technologist, educator, parent)</li>
+            <li><b>Founded:</b> 2025 by Edward Kerr (technologist, educator, parent)</li>
             <li><b>Mission:</b> Empower every child to thrive in an AI-powered world</li>
             <li><b>What We Do:</b> A learning platform that captures how students think, maps it to a per-child knowledge graph, and delivers insight to students, parents, and educators</li>
             <li><b>Approach:</b> Engine decides, AI explains, human approves — provable, human-centered, privacy-first, and pedagogically aligned</li>
@@ -46,7 +46,7 @@ export default function Press() {
             <span className="text-mentra-blue">Download</span> Our Media Kit
           </h2>
           <p className="text-gray-700 mb-4 max-w-3xl">
-            Download our brand assets for press coverage. All assets updated as of July 13, 2024. For additional requests, email <a href="mailto:hello@mymentra.ai" className="text-mentra-blue underline">hello@mymentra.ai</a>.
+            Download our brand assets for press coverage. For additional assets or requests, email <a href="mailto:hello@mymentra.ai" className="text-mentra-blue underline">hello@mymentra.ai</a>.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Logo with Words (White) */}
@@ -85,17 +85,6 @@ export default function Press() {
               <span className="text-sm text-gray-300 mb-2">Logo Watermark (White)</span>
               <a href="/images/logos/logo_watermark_white.png" download className="text-mentra-blue underline text-sm">Download PNG</a>
             </div>
-          </div>
-          {/* Download All Button */}
-          <div className="text-center mt-8">
-            <p className="text-gray-600 mb-4">Need all assets? Download our complete media kit:</p>
-            <a 
-              href="/images/logos/mentra-logo-color.png" 
-              download 
-              className="inline-flex items-center px-6 py-3 bg-mentra-blue text-white rounded-full font-semibold hover:bg-mentra-blue/90 transition-colors"
-            >
-              Download Complete Media Kit
-            </a>
           </div>
         </section>
 

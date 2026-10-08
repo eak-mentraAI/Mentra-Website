@@ -16,6 +16,7 @@ const formatDate = (dateString: string) =>
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 
 const authorInitials = (author: string) => {
