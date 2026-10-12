@@ -9,17 +9,17 @@ const flywheel = [
     number: 1,
     icon: BookOpen,
     image: "/images/sprig/flywheel-01-reflect.png",
-    title: "Students Work, Mentra Captures",
+    title: "A Reply Becomes Signals",
     color: "mentra-blue",
-    description: "Every attempt, revision, and reflection becomes signal — the texture of how a student thinks, not just what they answered.",
+    description: "In tutoring, investigations, coding, the Signal & Noise game, open exploration and journaling, a student's work is recorded as typed signals: whether they tried it unaided, how deep their reasoning went, which hints they needed, how their confidence moved.",
   },
   {
     number: 2,
     icon: FileText,
     image: "/images/sprig/flywheel-02-patterns.png",
-    title: "The Engine Decides",
+    title: "Signals Build a Learner Graph",
     color: "mentra-blue",
-    description: "Deterministic rules — not a guessing model — judge what's mastered, what's fragile, and who needs a teacher. Provable, auditable, the same every time.",
+    description: "Each signal lands in that student's learner graph with its full history. Fixed rules, not a chatbot, read the graph to decide what adults see, and below an evidence floor the answer is \"not enough evidence yet.\"",
   },
   {
     number: 3,
@@ -27,7 +27,7 @@ const flywheel = [
     image: "/images/sprig/flywheel-03-act.png",
     title: "AI Explains, Humans Act",
     color: "mentra-blue",
-    description: "AI translates each decision into plain language. The teacher, parent, or student decides what to do — the machine never acts on a child unsupervised.",
+    description: "The read is written up in plain language for each adult. The teacher, parent or student decides what to do, and recommendations wait for a teacher's approval.",
   },
   {
     number: 4,
@@ -35,7 +35,7 @@ const flywheel = [
     image: "/images/sprig/flywheel-04-adapts.png",
     title: "Scaffolding Adapts",
     color: "mentra-blue",
-    description: "Support increases when students struggle and pulls back as they grow. The goal is always less help next time.",
+    description: "Sprig checks the student's record before it replies. Once they've shown a skill, it pulls back: a harder open question instead of another hint. The goal is less help next time.",
   },
   {
     number: 5,
@@ -43,7 +43,7 @@ const flywheel = [
     image: "/images/sprig/flywheel-05-independence.png",
     title: "Independence Grows",
     color: "mentra-blue",
-    description: "Each cycle captures richer signal, sharpens the map, and produces better insight — capability the student owns, not engagement with a tool they depend on.",
+    description: "Over weeks, Mentra looks for one trend: help fading while independent work holds up. That trend, not time on the app, is what it reports to teachers and parents, and until there's enough evidence it says so.",
   },
 ];
 
@@ -113,7 +113,7 @@ const HowItWorksSection = () => {
         <div className="w-full">
           <AnimateOnScroll>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center text-balance">
-              The flywheel of independence
+              From one reply to the long-term picture
             </h3>
           </AnimateOnScroll>
           <ScrollTimeline steps={flywheel} />
