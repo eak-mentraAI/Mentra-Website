@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Layers } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import { personas, colorBorderMap } from '@/data/personas';
+import ProductScreen from '@/components/ui/ProductScreen';
+import { personas } from '@/data/personas';
 
 const PersonaSwitcher = () => {
   const [activeId, setActiveId] = useState('students');
@@ -47,11 +48,9 @@ const PersonaSwitcher = () => {
             </p>
           </div>
 
-          {/* Problem card */}
-          <div className="max-w-5xl mx-auto mb-12">
-            <div className={`bg-gray-50 rounded-2xl p-6 sm:p-8 border-l-4 ${active.problemBorderColor}`}>
-              {active.problemStatement}
-            </div>
+          {/* Real product screen */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <ProductScreen screen={active.screen} caption={active.screenCaption} />
           </div>
 
           {/* Stats bar (institutions only) */}

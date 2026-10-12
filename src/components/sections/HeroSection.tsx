@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, MessageSquareText } from 'lucide-react';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import HeroHelperHint from '@/components/HeroHelperHint';
 import SprigOrb from '@/components/ui/SprigOrb';
@@ -8,8 +9,8 @@ import SprigOrb from '@/components/ui/SprigOrb';
 const HeroSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
 
-  const scrollToDemo = () => {
-    document.getElementById('see-it')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToStory = () => {
+    document.getElementById('see-it-in-action')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -32,7 +33,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Support that adapts in real time and fades as students grow. Independence, not dependency.
+                Mentra coaches students through their own reasoning instead of handing over answers, shows teachers how each student thinks, and gives families one thing to try at home.
               </p>
             </div>
 
@@ -51,13 +52,20 @@ const HeroSection = () => {
                   size="lg"
                   variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-                  aria-label="Watch our 90-second story"
-                  onClick={scrollToDemo}
+                  onClick={scrollToStory}
                 >
-                  <PlayCircle className="mr-2 h-5 w-5" aria-hidden="true" />
-                  Our story in 90 seconds
+                  <MessageSquareText className="mr-2 h-5 w-5" aria-hidden="true" />
+                  See it in action
                 </Button>
               </div>
+              <nav aria-label="Mentra for you" className="flex flex-wrap justify-center lg:justify-start gap-x-2 gap-y-1 text-sm text-gray-500">
+                <span>Mentra for</span>
+                <Link to="/teachers" className="font-semibold text-gray-700 hover:text-mentra-blue underline-offset-4 hover:underline">teachers</Link>
+                <span aria-hidden="true">·</span>
+                <Link to="/parents" className="font-semibold text-gray-700 hover:text-mentra-blue underline-offset-4 hover:underline">families</Link>
+                <span aria-hidden="true">·</span>
+                <Link to="/schools" className="font-semibold text-gray-700 hover:text-mentra-blue underline-offset-4 hover:underline">schools</Link>
+              </nav>
               <HeroHelperHint />
             </div>
           </div>

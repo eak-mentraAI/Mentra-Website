@@ -1,4 +1,5 @@
 import React from 'react';
+import { screens, type Screen } from '@/data/productScreens';
 import { ExploreSparks, AdaptiveTutor, StuckDetection, CodeBuild, LearnerPassport, XPSprigs, ReflectJournal, BoundedSession } from '@/components/icons/students';
 import { IntelligenceHub, WeeklyDigest, LiveDashboard, ConceptMap, AIControl, SpotQuietOnes, SmartGrading, FadingTrend } from '@/components/icons/teachers';
 import { StatusLight, FullDashboard, SafetyMonitor, GrowthGoals, ConsentControls, DataPortability, EmotionalData, LearnerIdentity, IndependenceTrajectory } from '@/components/icons/parents';
@@ -37,8 +38,9 @@ export interface Persona {
   tabLabel: string;
   headline: React.ReactNode;
   subtext: string;
-  problemStatement: React.ReactNode;
-  problemBorderColor: string;
+  /** A real app screen with a one-line caption */
+  screen: Screen;
+  screenCaption: string;
   blurbs: Blurb[];
   stats?: Stat[];
   deepDive?: DeepDiveLink;
@@ -54,11 +56,8 @@ export const personas: Persona[] = [
       '.'
     ),
     subtext: "Mentra adapts to how you think, then steps back as you get stronger.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "Same lesson as everyone else. Hints that don't help. AI that does the thinking for you. ",
-      React.createElement('strong', { className: 'text-gray-900' }, 'Mentra is different — support that builds your ability, then gets out of the way.')
-    ),
-    problemBorderColor: 'border-grit-gold',
+    screen: screens.studentZoe,
+    screenCaption: 'Zoe opened with "can you just give me the answer." Sprig shrank the problem to one question, and Zoe solved it herself.',
     blurbs: [
       { icon: ExploreSparks, title: 'Explore What Makes You Curious', text: 'Daily prompts tailored to your interests — rabbit holes worth going down. No grades, just discovery that builds genuine curiosity.', color: 'grit-gold' },
       { icon: AdaptiveTutor, title: 'A Tutor That Steps Back', text: 'Questions get harder as you grow. Scaffolding fades as mastery increases. The goal is you not needing it.', color: 'mentra-blue' },
@@ -79,11 +78,15 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent' }, 'The AI works for you.')
     ),
     subtext: "Intelligence that amplifies your judgment — never replaces it.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "You sense something's off before the data confirms it — but the tools show dashboards, not decisions. And the AI is a black box you can't explain to parents. ",
-      React.createElement('strong', { className: 'text-gray-900' }, "Mentra gives you full visibility and full override. Every AI decision is yours to keep or change.")
-    ),
-    problemBorderColor: 'border-mentra-blue',
+    screen: screens.teacherBrief,
+    screenCaption: "Signals are written as sentences, not scores. When the evidence is thin, the brief says so instead of guessing.",
+    deepDive: {
+      eyebrow: 'For teachers',
+      title: 'See what Mentra shows you each day',
+      description: "Today's Brief, the Independence Report and family messages, in real screens.",
+      ctaLabel: 'Mentra for teachers',
+      href: '/teachers',
+    },
     blurbs: [
       { icon: IntelligenceHub, title: 'Know Who Needs You First', text: 'See which students need help now, who\'s coasting, and where to focus your energy — before the day starts.', color: 'mentra-blue' },
       { icon: FadingTrend, title: 'The Trend That Matters Most', text: "For every student, you see an 8-week sparkline of how much AI help they've needed — and whether that line is going down. Mentra's job is to make itself less necessary. This is how you watch it happen.", color: 'growth-green' },
@@ -104,11 +107,15 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-grit-gold to-curiosity-coral bg-clip-text text-transparent' }, "We only speak up when it matters.")
     ),
     subtext: "Quiet when things are fine. Unmissable when they're not. You control everything.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "Most apps bury you in notifications until you tune out. Then your child struggles and you miss it. And the AI? You can't see what it's doing or stop it if you disagree. ",
-      React.createElement('strong', { className: 'text-gray-900' }, "Mentra earns your trust by respecting your attention — and giving you the controls, not just the dashboard.")
-    ),
-    problemBorderColor: 'border-grit-gold',
+    screen: screens.parentOneQuestion,
+    screenCaption: "One small thing to try at home each week, and a way to tell Mentra whether it landed. When there's nothing specific to tailor it to, it says it's a general tip.",
+    deepDive: {
+      eyebrow: 'For families',
+      title: 'See what your child sees, and what you control',
+      description: "Real screens from the student, teacher and parent views, plus every consent setting.",
+      ctaLabel: 'Mentra for families',
+      href: '/parents',
+    },
     blurbs: [
       { icon: StatusLight, title: 'One Status. Three Colors. The Right One.', text: "Green means your child's need for AI help is fading — independence is growing. Yellow means it's steady. Red means it's rising and a teacher should know. Tap the badge for the why and the trend.", color: 'growth-green' },
       { icon: FullDashboard, title: 'Plain Language, Not Data Dumps', text: 'A calm, plain-language story of how your child is learning to think — not spreadsheets. And when it\'s early, an honest "this will fill in as they work" instead of a meaningless number.', color: 'mentra-blue' },
@@ -130,11 +137,8 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent' }, 'Every control is real.')
     ),
     subtext: "Compliance built into the architecture — not promised in a contract.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "Great demos, but the governance team finds self-reported compliance, no real FERPA controls, and AI nobody can explain at a board meeting. ",
-      React.createElement('strong', { className: 'text-gray-900' }, 'Mentra was built for your toughest audit. Every claim is demonstrable by inspecting the system, not reading a policy document.')
-    ),
-    problemBorderColor: 'border-mentra-blue',
+    screen: screens.teacherAnalytics,
+    screenCaption: 'One investigation, one screen: how many students are growing, where the class stalls, and what to assign next. Each section links to its evidence.',
     blurbs: [
       { icon: AltitudeView, title: 'An Altitude View, Never Surveillance', text: 'See where understanding is genuinely established versus still emerging, equity across cohorts, and an engine-decided queue of where to focus — always at the aggregate, never surveilling an individual child.', color: 'mentra-blue' },
       { icon: ComplianceShield, title: 'Compliance by Architecture', text: 'Dozens of automated policy gates run on every code change, enforcing security, AI safety, and tenant isolation. Audit evidence is generated from real system state — not self-reported assertions.', color: 'mentra-blue' },
@@ -152,11 +156,11 @@ export const personas: Persona[] = [
       { value: '<1s', label: 'AI kill switch response' },
     ],
     deepDive: {
-      eyebrow: 'For IT & Curriculum Teams',
-      title: 'See how Mentra fits with your existing stack',
-      description: 'Architecture, standards, and integration details — SIS, SSO, LMS, and the partner API for cognition data.',
-      ctaLabel: 'Explore the Platform',
-      href: '/platform',
+      eyebrow: 'For schools and districts',
+      title: 'Judge Mentra on learning, not logins',
+      description: 'Real screens, a pilot plan with agreed measures, and the governance details your board will ask about.',
+      ctaLabel: 'Mentra for schools',
+      href: '/schools',
     },
   },
 ];

@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
 import ErrorBoundary from "./components/layout/ErrorBoundary";
 import Index from "./pages/Index";
@@ -19,6 +19,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Press = lazy(() => import("./pages/Press"));
 const Platform = lazy(() => import("./pages/Platform"));
 const SponsorASchool = lazy(() => import("./pages/SponsorASchool"));
+const AudiencePage = lazy(() => import("./pages/AudiencePage"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-white">
@@ -69,15 +70,17 @@ function AnimatedRoutes() {
         <Route path="/press" element={<Press />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/sponsor-a-school" element={<SponsorASchool />} />
+        <Route path="/teachers" element={<AudiencePage audienceId="teachers" />} />
+        <Route path="/parents" element={<AudiencePage audienceId="parents" />} />
+        <Route path="/schools" element={<AudiencePage audienceId="schools" />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />
         {/* Redirects for old routes */}
         <Route path="/how-it-works" element={<RedirectToHash hash="how-it-works" />} />
-        <Route path="/students" element={<RedirectToHash hash="personas" />} />
-        <Route path="/teachers" element={<RedirectToHash hash="personas" />} />
-        <Route path="/parents" element={<RedirectToHash hash="personas" />} />
-        <Route path="/institutions" element={<RedirectToHash hash="personas" />} />
+        <Route path="/students" element={<RedirectToHash hash="see-it-in-action" />} />
+        <Route path="/institutions" element={<Navigate to="/schools" replace />} />
+        <Route path="/districts" element={<Navigate to="/schools" replace />} />
         <Route path="/pricing" element={<RedirectToHash hash="pricing" />} />
         <Route path="/faq" element={<RedirectToHash hash="faq" />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
