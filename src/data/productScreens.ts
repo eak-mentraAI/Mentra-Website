@@ -40,7 +40,7 @@ export const screens = {
     {
       kind: 'records',
       items: [
-        'An AI grade of how well each reply shows the skill, which updates his mastery estimate for it',
+        "Sprig's grade of how well each reply shows the skill, which updates his mastery estimate for it",
         'Whether he reached the idea unaided',
         'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether he later succeeds without it',
       ],

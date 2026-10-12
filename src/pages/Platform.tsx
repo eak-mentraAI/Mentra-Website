@@ -123,7 +123,7 @@ const mentraInternals = [
   },
   {
     title: 'Engine, AI, Human',
-    description: 'Two kinds of intelligence read the graph. Fixed rules decide the reads adults see, like whether help is fading as independent work holds up — auditable and the same every time. AI grades individual tutoring replies as one input, and turns the result into warm, human prose. The adult approves. The machine never acts on a child unsupervised.',
+    description: 'Two kinds of intelligence read the graph. Fixed rules decide the reads adults see, like whether help is fading as independent work holds up — auditable and the same every time. Sprig grades individual tutoring replies as one input, and turns the result into warm, human prose. The adult approves. The machine never acts on a child unsupervised.',
     badge: null,
   },
   {
