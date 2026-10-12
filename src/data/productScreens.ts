@@ -20,25 +20,13 @@ const screen = (file: string, width: number, height: number, label: string, alt:
 });
 
 export const screens = {
-  studentNoAnswers: screen(
-    'student-no-answers', 1400, 703, 'Student · Q&A with Sprig',
-    'Jordan asks Sprig for a worksheet answer about why plants need sunlight. Sprig replies "No worksheet answers from me — but I can get you there fast" and asks what Jordan already knows.',
-  ),
-  studentExperiment: screen(
-    'student-experiment', 1400, 490, 'Student · Q&A with Sprig',
-    'Jordan proposes testing two identical plants, one in a closet and one by a window. Sprig calls it a well-designed experiment and asks which single thing Jordan would measure each day, and why.',
+  studentLeo: screen(
+    'student-leo', 1400, 684, 'Student · Q&A with Sprig',
+    'Leo asks whether wolves leaving a forest would be good for the deer. Sprig asks what would happen to the deer over the next few years. Leo says they would eat all the plants, and Sprig asks what happens to the deer when the food runs out.',
   ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
     "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",
-  ),
-  studentZoe: screen(
-    'student-zoe', 1400, 716, 'Student · Q&A with Sprig',
-    'Zoe tells Sprig she does not know what to do. Sprig asks what 20 divided by 5 is. Zoe works out that x is 12, and Sprig names the idea she just used.',
-  ),
-  parentTeacherMessage: screen(
-    'parent-teacher-message', 1400, 590, 'Parent · Messages with the teacher',
-    "Teacher message to Jordan's parent: Jordan started out asking Sprig for worksheet answers, but by Thursday was proposing a two-plant experiment. The parent replies that Jordan wants to try it on the windowsill this weekend.",
   ),
   parentTrust: screen(
     'parent-trust', 1400, 479, 'Parent · Trust & Privacy',
@@ -68,11 +56,7 @@ export const screens = {
     'parent-one-question', 1400, 354, 'Parent · One question this week',
     "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
   ),
-  teacherParentMessage: screen(
-    'teacher-parent-message', 1400, 524, 'Teacher · Messages with families',
-    "Ms. Alvarez's message to Jordan's parent about the plant experiment, with a suggestion to ask at home what Jordan would measure, and the parent's reply.",
-  ),
 } satisfies Record<string, Screen>;
 
 export const SHOWCASE_DISCLOSURE =
-  'Real Mentra screens from a fictional showcase class. Student messages were scripted; every Sprig reply was generated live by the product. No real child appears.';
+  'Real Mentra screens from a fictional showcase class. Student messages were written in advance; every Sprig reply was generated live by the product. No real child appears.';

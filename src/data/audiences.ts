@@ -53,11 +53,6 @@ export const audiences: Audience[] = [
         text: "Every recommendation shows what it's based on, what success looks like and when it may be wrong. You approve, modify or dismiss it, and when the evidence is thin it says so.",
         screen: screens.teacherRecommendation,
       },
-      {
-        title: 'Share growth with families in one message',
-        text: 'Tell a parent what changed this week and one thing to ask at home. Their reply comes back to you.',
-        screen: screens.teacherParentMessage,
-      },
     ],
     moreTitle: 'More for teachers',
   },
@@ -69,17 +64,12 @@ export const audiences: Audience[] = [
     eyebrow: 'Mentra for families',
     title: 'What if AI helped your child think, instead of thinking for them?',
     intro:
-      "Mentra is a learning companion that won't do your child's homework. It coaches them through their own reasoning, tells you what's changing in plain words, and leaves you in control of their data.",
+      "Mentra is a learning companion designed not to do your child's homework. It coaches them through their own reasoning, tells you what's changing in plain words, and leaves you in control of their data.",
     proof: [
       {
         title: 'What your child sees',
-        text: 'Ask Sprig for the worksheet answer and it asks what your child already knows, then helps them get there on their own.',
-        screen: screens.studentNoAnswers,
-      },
-      {
-        title: 'A story from the teacher, not just a grade',
-        text: "Your child's teacher can tell you what changed this week and suggest one thing to ask at dinner.",
-        screen: screens.parentTeacherMessage,
+        text: 'Ask Sprig a question and it often answers with one, so your child works the idea out instead of being told it.',
+        screen: screens.studentLeo,
       },
       {
         title: 'One small thing to try at home',

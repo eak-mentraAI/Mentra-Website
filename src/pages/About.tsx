@@ -28,7 +28,7 @@ const roadmapPhases = [
     items: [
       'Honest measurement: 26 signal types and a deterministic insight engine that refuses to score a child parroting an answer as mastery — it says "we don\'t know yet" instead',
       'An independence-quality signal that tells real thinking apart from mimicry',
-      'Socratic AI tutoring that guides thinking, never gives answers, with scaffolding that fades',
+      'Socratic AI tutoring that guides thinking rather than giving answers, with scaffolding that fades',
       'Teacher intelligence hub with full override on every AI decision',
       'Parent insights — signal, not noise — with consent controls on everything',
       'COPPA/FERPA compliance built into the architecture, not bolted on',

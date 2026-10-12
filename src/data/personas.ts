@@ -56,13 +56,13 @@ export const personas: Persona[] = [
       '.'
     ),
     subtext: "Mentra adapts to how you think, then steps back as you get stronger.",
-    screen: screens.studentZoe,
-    screenCaption: 'Zoe opened with "can you just give me the answer." Sprig shrank the problem to one question, and Zoe solved it herself.',
+    screen: screens.studentVerdict,
+    screenCaption: "Feedback on a finished investigation, written about what the student actually argued: what held up, what didn't, and the next thing to test.",
     blurbs: [
       { icon: ExploreSparks, title: 'Explore What Makes You Curious', text: 'Daily prompts tailored to your interests — rabbit holes worth going down. No grades, just discovery that builds genuine curiosity.', color: 'grit-gold' },
       { icon: AdaptiveTutor, title: 'A Tutor That Steps Back', text: 'Questions get harder as you grow. Scaffolding fades as mastery increases. The goal is you not needing it.', color: 'mentra-blue' },
       { icon: BoundedSession, title: 'A Tutor That Knows When to Stop', text: "Every Sprig session has a hard cap: 20 messages, 10 minutes, and a mandatory reflection before the session can close. Not because we're rationing AI — because reflection is where learning actually consolidates. Sprig won't let you skip that part.", color: 'wisdom-purple' },
-      { icon: StuckDetection, title: 'Help That Builds Your Thinking', text: 'Detects when you\'re stuck and guides your thinking — never gives you the answer.', color: 'curiosity-coral' },
+      { icon: StuckDetection, title: 'Help That Builds Your Thinking', text: 'Detects when you\'re stuck and guides your thinking rather than handing you the answer.', color: 'curiosity-coral' },
       { icon: CodeBuild, title: 'Code, Build, and Create', text: 'Write real code with an AI mentor that teaches systematic thinking — then lets you fly solo.', color: 'growth-green' },
       { icon: LearnerPassport, title: 'More Than a Number', text: 'A Learner Passport that captures how you think, grow, and solve problems — and follows you forward.', color: 'wisdom-purple' },
       { icon: XPSprigs, title: 'Earn XP, Grow Your Sprig', text: 'Earn experience points for effort and growth — not just right answers. Your Sprig grows as you do, rewarding the work you put in.', color: 'grit-gold' },
@@ -83,7 +83,7 @@ export const personas: Persona[] = [
     deepDive: {
       eyebrow: 'For teachers',
       title: 'See what Mentra shows you each day',
-      description: "Today's Brief, the Independence Report and family messages, in real screens.",
+      description: "Today's Brief, class analytics and recommendations, in real screens.",
       ctaLabel: 'Mentra for teachers',
       href: '/teachers',
     },
@@ -112,7 +112,7 @@ export const personas: Persona[] = [
     deepDive: {
       eyebrow: 'For families',
       title: 'See what your child sees, and what you control',
-      description: "Real screens from the student, teacher and parent views, plus every consent setting.",
+      description: "Real screens from the student and parent views, plus every consent setting.",
       ctaLabel: 'Mentra for families',
       href: '/parents',
     },

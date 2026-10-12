@@ -33,7 +33,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Mentra coaches students through their own reasoning instead of handing over answers, shows teachers how each student thinks, and gives families one thing to try at home.
+                Mentra is built to coach students through their own reasoning rather than hand over answers, shows teachers how each student thinks, and gives families one thing to try at home.
               </p>
             </div>
 
