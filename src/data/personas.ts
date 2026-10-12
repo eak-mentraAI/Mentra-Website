@@ -32,13 +32,22 @@ export interface DeepDiveLink {
   href: string;
 }
 
+export interface PersonaScreen {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  label: string;
+  caption: string;
+}
+
 export interface Persona {
   id: string;
   tabLabel: string;
   headline: React.ReactNode;
   subtext: string;
-  problemStatement: React.ReactNode;
-  problemBorderColor: string;
+  /** A real, cropped screen from the app (see public/images/product) */
+  screen: PersonaScreen;
   blurbs: Blurb[];
   stats?: Stat[];
   deepDive?: DeepDiveLink;
@@ -54,11 +63,14 @@ export const personas: Persona[] = [
       '.'
     ),
     subtext: "Mentra adapts to how you think, then steps back as you get stronger.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "Same lesson as everyone else. Hints that don't help. AI that does the thinking for you. ",
-      React.createElement('strong', { className: 'text-gray-900' }, 'Mentra is different — support that builds your ability, then gets out of the way.')
-    ),
-    problemBorderColor: 'border-grit-gold',
+    screen: {
+      src: '/images/product/student-zoe.webp',
+      alt: 'Zoe tells Sprig she does not know what to do. Sprig asks what 20 divided by 5 is. Zoe works out that x is 12, and Sprig names the idea she just used.',
+      width: 1400,
+      height: 716,
+      label: 'Student · Q&A with Sprig',
+      caption: 'Zoe opened with "can you just give me the answer." Sprig shrank the problem to one question, and Zoe solved it herself.',
+    },
     blurbs: [
       { icon: ExploreSparks, title: 'Explore What Makes You Curious', text: 'Daily prompts tailored to your interests — rabbit holes worth going down. No grades, just discovery that builds genuine curiosity.', color: 'grit-gold' },
       { icon: AdaptiveTutor, title: 'A Tutor That Steps Back', text: 'Questions get harder as you grow. Scaffolding fades as mastery increases. The goal is you not needing it.', color: 'mentra-blue' },
@@ -79,11 +91,14 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent' }, 'The AI works for you.')
     ),
     subtext: "Intelligence that amplifies your judgment — never replaces it.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "You sense something's off before the data confirms it — but the tools show dashboards, not decisions. And the AI is a black box you can't explain to parents. ",
-      React.createElement('strong', { className: 'text-gray-900' }, "Mentra gives you full visibility and full override. Every AI decision is yours to keep or change.")
-    ),
-    problemBorderColor: 'border-mentra-blue',
+    screen: {
+      src: '/images/product/teacher-brief.webp',
+      alt: "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",
+      width: 1400,
+      height: 517,
+      label: "Teacher · Today's Brief",
+      caption: "Signals are written as sentences, not scores. When the evidence is thin, the brief says so instead of guessing.",
+    },
     blurbs: [
       { icon: IntelligenceHub, title: 'Know Who Needs You First', text: 'See which students need help now, who\'s coasting, and where to focus your energy — before the day starts.', color: 'mentra-blue' },
       { icon: FadingTrend, title: 'The Trend That Matters Most', text: "For every student, you see an 8-week sparkline of how much AI help they've needed — and whether that line is going down. Mentra's job is to make itself less necessary. This is how you watch it happen.", color: 'growth-green' },
@@ -104,11 +119,14 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-grit-gold to-curiosity-coral bg-clip-text text-transparent' }, "We only speak up when it matters.")
     ),
     subtext: "Quiet when things are fine. Unmissable when they're not. You control everything.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "Most apps bury you in notifications until you tune out. Then your child struggles and you miss it. And the AI? You can't see what it's doing or stop it if you disagree. ",
-      React.createElement('strong', { className: 'text-gray-900' }, "Mentra earns your trust by respecting your attention — and giving you the controls, not just the dashboard.")
-    ),
-    problemBorderColor: 'border-grit-gold',
+    screen: {
+      src: '/images/product/parent-trust.webp',
+      alt: "A parent's Trust & Privacy page: an active consent record listing five purposes, with partner sharing and anonymized product use turned off, and a toggle for each purpose explaining what turning it off does.",
+      width: 1400,
+      height: 479,
+      label: 'Parent · Trust & Privacy',
+      caption: 'Every purpose is listed in plain words. Each toggle explains what turning it off does.',
+    },
     blurbs: [
       { icon: StatusLight, title: 'One Status. Three Colors. The Right One.', text: "Green means your child's need for AI help is fading — independence is growing. Yellow means it's steady. Red means it's rising and a teacher should know. Tap the badge for the why and the trend.", color: 'growth-green' },
       { icon: FullDashboard, title: 'Plain Language, Not Data Dumps', text: 'A calm, plain-language story of how your child is learning to think — not spreadsheets. And when it\'s early, an honest "this will fill in as they work" instead of a meaningless number.', color: 'mentra-blue' },
@@ -130,11 +148,14 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent' }, 'Every control is real.')
     ),
     subtext: "Compliance built into the architecture — not promised in a contract.",
-    problemStatement: React.createElement('p', { className: 'text-gray-700 leading-relaxed' },
-      "Great demos, but the governance team finds self-reported compliance, no real FERPA controls, and AI nobody can explain at a board meeting. ",
-      React.createElement('strong', { className: 'text-gray-900' }, 'Mentra was built for your toughest audit. Every claim is demonstrable by inspecting the system, not reading a policy document.')
-    ),
-    problemBorderColor: 'border-mentra-blue',
+    screen: {
+      src: '/images/product/teacher-independence.webp',
+      alt: "The Cognitive Independence Report: without enough recent work, it says it is waiting for real work instead of guessing, and shows a preview of sample reads, each clearly labelled SAMPLE.",
+      width: 1400,
+      height: 717,
+      label: 'Teacher · Independence Report',
+      caption: 'Without enough recent work, the report waits for real data instead of guessing. The reads below are labelled samples.',
+    },
     blurbs: [
       { icon: AltitudeView, title: 'An Altitude View, Never Surveillance', text: 'See where understanding is genuinely established versus still emerging, equity across cohorts, and an engine-decided queue of where to focus — always at the aggregate, never surveilling an individual child.', color: 'mentra-blue' },
       { icon: ComplianceShield, title: 'Compliance by Architecture', text: 'Dozens of automated policy gates run on every code change, enforcing security, AI safety, and tenant isolation. Audit evidence is generated from real system state — not self-reported assertions.', color: 'mentra-blue' },

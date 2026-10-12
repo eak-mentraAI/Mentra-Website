@@ -3,7 +3,6 @@ import { BookOpen, Sparkles, FileText, Users, BarChart3, Shield, Eye, Zap } from
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScrollTimeline from '@/components/sections/ScrollTimeline';
 import PulledQuote from '@/components/ui/PulledQuote';
-import FadingDemo from '@/components/sections/FadingDemo';
 
 const beliefs = [
   {
@@ -122,12 +121,6 @@ const HowItWorksSection = () => {
           ))}
         </div>
 
-        {/* Interactive fading demo */}
-        <AnimateOnScroll>
-          <div className="max-w-5xl mx-auto mb-20">
-            <FadingDemo />
-          </div>
-        </AnimateOnScroll>
 
         {/* Video */}
         <AnimateOnScroll>
