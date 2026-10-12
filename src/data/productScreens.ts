@@ -42,9 +42,9 @@ export const screens = {
       items: [
         'An AI grade of how well each reply shows the skill, which updates his mastery estimate for it',
         'Whether he reached the idea unaided',
-        'Each hint Sprig offers, and whether he later succeeds without it',
+        'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether he later succeeds without it',
       ],
-      goesTo: "Leo's learner graph, read by the teacher's Independence Report and the parent's \"How Leo is growing\"",
+      goesTo: "Leo's learner graph, which the teacher's Independence Report reads",
     },
   ),
   studentVerdict: screen(
@@ -57,7 +57,7 @@ export const screens = {
         'Which evidence was tagged, and the cause-and-effect map drawn',
         "How the student's confidence moved, here from 65 to 55",
       ],
-      goesTo: "The student's Cognitive Mirror, and the class radar in the teacher's analytics",
+      goesTo: "The saved investigation feeds the student's Cognitive Mirror and the teacher's class radar; the same signals also go to the learner graph",
     },
   ),
   parentTrust: screen(
