@@ -44,9 +44,14 @@ export const audiences: Audience[] = [
         screen: screens.teacherBrief,
       },
       {
-        title: "A read on independence that won't guess",
-        text: 'The Independence Report shows whether help is fading the right way for each student. Until there is enough real work, it waits instead of making one up.',
-        screen: screens.teacherIndependence,
+        title: 'See where the class gets stuck',
+        text: "For each investigation: how many students are growing, which reasoning skill has the most room to grow, the level where most sessions stall, and a next move for the whole class.",
+        screen: screens.teacherAnalytics,
+      },
+      {
+        title: 'Nothing happens until you approve it',
+        text: "Every recommendation shows what it's based on, what success looks like and when it may be wrong. You approve, modify or dismiss it, and when the evidence is thin it says so.",
+        screen: screens.teacherRecommendation,
       },
       {
         title: 'Share growth with families in one message',
@@ -77,6 +82,11 @@ export const audiences: Audience[] = [
         screen: screens.parentTeacherMessage,
       },
       {
+        title: 'One small thing to try at home',
+        text: 'Each week you get one two-minute idea, not a report card. Tap a button to tell Mentra whether it landed.',
+        screen: screens.parentOneQuestion,
+      },
+      {
         title: 'Every permission, in plain words',
         text: 'See exactly what you agreed to, purpose by purpose. Each toggle tells you what turning it off changes, and your choice takes effect right away.',
         screen: screens.parentTrust,
@@ -94,6 +104,11 @@ export const audiences: Audience[] = [
     intro:
       "Mentra shows how students reason, where a class gets stuck and what to try next, and it says plainly when there isn't enough evidence yet. A pilot then measures whether it's worth the cost.",
     proof: [
+      {
+        title: 'What a class can reason through, on one screen',
+        text: 'How many students are growing, where the class stalls and what to assign next. Each section links to the evidence behind it.',
+        screen: screens.teacherAnalytics,
+      },
       {
         title: 'Evidence of reasoning, not time-on-app',
         text: "Feedback is written about each student's actual reasoning: what held up, what didn't, and the next thing to test.",

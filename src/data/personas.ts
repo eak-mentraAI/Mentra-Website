@@ -107,8 +107,8 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-grit-gold to-curiosity-coral bg-clip-text text-transparent' }, "We only speak up when it matters.")
     ),
     subtext: "Quiet when things are fine. Unmissable when they're not. You control everything.",
-    screen: screens.parentTrust,
-    screenCaption: 'Every purpose is listed in plain words. Each toggle explains what turning it off does.',
+    screen: screens.parentOneQuestion,
+    screenCaption: "One small thing to try at home each week, and a way to tell Mentra whether it landed. When there's nothing specific to tailor it to, it says it's a general tip.",
     deepDive: {
       eyebrow: 'For families',
       title: 'See what your child sees, and what you control',
@@ -137,8 +137,8 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent' }, 'Every control is real.')
     ),
     subtext: "Compliance built into the architecture — not promised in a contract.",
-    screen: screens.teacherIndependence,
-    screenCaption: 'Without enough recent work, the report waits for real data instead of guessing. The reads below are labelled samples.',
+    screen: screens.teacherAnalytics,
+    screenCaption: 'One investigation, one screen: how many students are growing, where the class stalls, and what to assign next. Each section links to its evidence.',
     blurbs: [
       { icon: AltitudeView, title: 'An Altitude View, Never Surveillance', text: 'See where understanding is genuinely established versus still emerging, equity across cohorts, and an engine-decided queue of where to focus — always at the aggregate, never surveilling an individual child.', color: 'mentra-blue' },
       { icon: ComplianceShield, title: 'Compliance by Architecture', text: 'Dozens of automated policy gates run on every code change, enforcing security, AI safety, and tenant isolation. Audit evidence is generated from real system state — not self-reported assertions.', color: 'mentra-blue' },

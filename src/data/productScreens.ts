@@ -56,6 +56,18 @@ export const screens = {
     'teacher-independence', 1400, 717, 'Teacher · Independence Report',
     'The Cognitive Independence Report: without enough recent work, it says it is waiting for real work instead of guessing, and shows a preview of sample reads, each clearly labelled SAMPLE.',
   ),
+  teacherAnalytics: screen(
+    'teacher-analytics', 1400, 782, 'Teacher · Investigation analytics',
+    "Analytics for one investigation: 4 of 6 students growing, the class's biggest room to grow and a suggested next move, a class radar across five reasoning skills from 6 students and 23 sessions, and the levels where the class most often got stuck.",
+  ),
+  teacherRecommendation: screen(
+    'teacher-recommendation', 1400, 626, 'Teacher · Recommendations',
+    "A recommendation for Jordan marked lower confidence, explaining why it matters, what it's based on, what success looks like and when it may be wrong, with Approve, Modify, Dismiss and Track outcome buttons. The page notes that nothing happens until the teacher approves.",
+  ),
+  parentOneQuestion: screen(
+    'parent-one-question', 1400, 354, 'Parent · One question this week',
+    "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
+  ),
   teacherParentMessage: screen(
     'teacher-parent-message', 1400, 524, 'Teacher · Messages with families',
     "Ms. Alvarez's message to Jordan's parent about the plant experiment, with a suggestion to ask at home what Jordan would measure, and the parent's reply.",
