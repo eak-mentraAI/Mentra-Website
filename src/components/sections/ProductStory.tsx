@@ -10,31 +10,25 @@ type Step = {
   screen: Screen;
 };
 
-// One student's arc, told with real screens from the app (showcase frames Student 04, 03, 06b and Parent 06).
+// Real exchanges whose visible Sprig turns hold up on a semantic read (showcase frames Student 11, 16, 06b).
 const steps: Step[] = [
   {
-    eyebrow: 'The ask',
-    title: '"Just tell me the answer for my worksheet."',
-    text: "Jordan wants the worksheet done. Sprig won't give the answer. It asks what Jordan already knows, then builds on Jordan's half-right guess.",
-    screen: screens.studentNoAnswers,
+    eyebrow: 'Explain it',
+    title: 'Asks how before it helps.',
+    text: "Noah has the right answer but can't explain it. Sprig asks how he got it before offering any help, then gives him a sentence frame to fill in himself instead of writing the explanation for him.",
+    screen: screens.studentNoah,
   },
   {
-    eyebrow: 'The turn',
-    title: 'From getting an answer to designing a test.',
-    text: 'In a later session, Jordan proposes the experiment: two identical plants, one in the closet and one by the window. Sprig names it as real scientific thinking, then asks what Jordan would measure.',
-    screen: screens.studentExperiment,
+    eyebrow: 'Think it through',
+    title: 'A question instead of the answer.',
+    text: "Leo asks whether losing the wolves would be good for the deer. Sprig asks what would happen over a few years instead. When Leo says the deer would eat all the plants, Sprig asks what happens next.",
+    screen: screens.studentLeo,
   },
   {
-    eyebrow: 'The feedback',
-    title: "Feedback on Jordan's reasoning, not a score.",
-    text: "On a finished investigation, Sprig quotes Jordan's own work back. It credits Jordan for lowering their confidence when a rival explanation held up, and points out the one weak spot in the test.",
+    eyebrow: 'Reasoning feedback',
+    title: 'Feedback on the reasoning, not a score.',
+    text: "On a finished investigation, Sprig responds to what the student actually wrote. It credits them for lowering their confidence when a rival explanation held up, and points out the one weak spot in their test.",
     screen: screens.studentVerdict,
-  },
-  {
-    eyebrow: 'The loop',
-    title: 'The teacher sees it. The family builds on it.',
-    text: "Ms. Alvarez tells Jordan's parent what changed this week and suggests one thing to ask at home. The parent replies that Jordan wants to try it on the windowsill this weekend.",
-    screen: screens.parentTeacherMessage,
   },
 ];
 
@@ -54,10 +48,10 @@ const ProductStory = () => {
               id="product-story-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
             >
-              What happens when a student asks AI to do their homework
+              How Sprig responds when a student asks for help
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              One week with Jordan, a seventh grader, in real Mentra screens.
+              Real exchanges from Mentra. Cropped, not edited.
             </p>
           </div>
         </AnimateOnScroll>
@@ -65,9 +59,9 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-3 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
-            aria-label="Jordan's week"
+            aria-label="Sprig exchanges"
           >
             {steps.map((s, i) => {
               const selected = i === active;

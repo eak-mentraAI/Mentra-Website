@@ -8,7 +8,7 @@ const commitments = [
   {
     icon: Brain,
     title: 'Thinking comes first',
-    text: 'Ask Sprig for the answer and it asks what you already know. It coaches students through their own reasoning instead of doing the work for them.',
+    text: 'Sprig is designed to ask how a student is thinking before it helps, and to hand the next step back to them rather than do the work.',
   },
   {
     icon: ShieldCheck,
