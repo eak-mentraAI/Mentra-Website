@@ -6,6 +6,7 @@ import ProductStory from '../components/sections/ProductStory';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
 import PersonaSwitcher from '../components/sections/PersonaSwitcher';
 import PricingSection from '../components/sections/PricingSection';
+import TrustSection from '../components/sections/TrustSection';
 import FAQSection from '../components/sections/FAQSection';
 import SponsorCallout from '../components/sections/SponsorCallout';
 import Footer from '../components/layout/Footer';
@@ -34,6 +35,7 @@ const Index = () => {
       <HowItWorksSection />
       <div className="bg-gray-50 pb-10"><HairlineDivider width="md" /></div>
       <PersonaSwitcher />
+      <TrustSection />
       <PricingSection />
       <div className="bg-white py-10"><HairlineDivider width="md" /></div>
       <FAQSection />

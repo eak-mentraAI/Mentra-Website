@@ -50,14 +50,7 @@ const PersonaSwitcher = () => {
 
           {/* Real product screen */}
           <div className="max-w-4xl mx-auto mb-12">
-            <ProductScreen
-              src={active.screen.src}
-              alt={active.screen.alt}
-              width={active.screen.width}
-              height={active.screen.height}
-              label={active.screen.label}
-              caption={active.screen.caption}
-            />
+            <ProductScreen screen={active.screen} caption={active.screenCaption} />
           </div>
 
           {/* Stats bar (institutions only) */}

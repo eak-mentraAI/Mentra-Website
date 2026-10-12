@@ -1,26 +1,8 @@
 import React from 'react';
-import { BookOpen, Sparkles, FileText, Users, BarChart3, Shield, Eye, Zap } from 'lucide-react';
+import { BookOpen, Sparkles, FileText, Users, BarChart3 } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScrollTimeline from '@/components/sections/ScrollTimeline';
 import PulledQuote from '@/components/ui/PulledQuote';
-
-const beliefs = [
-  {
-    icon: Zap,
-    title: 'AI That Fades',
-    description: 'Scaffolding reduces as mastery increases. The metric is how much less a student needs the AI compared to last month.',
-  },
-  {
-    icon: Eye,
-    title: 'Humans in Control',
-    description: 'Teachers override any AI decision. Parents gate all data. Admins kill-switch all AI in under a second — fails closed. No black boxes.',
-  },
-  {
-    icon: Shield,
-    title: 'Honesty by Architecture',
-    description: 'Fail-closed consent, append-only audit trails, automated policy gates on every commit — and a system built to say "we don\'t know yet" instead of inventing a score. Every claim is provable, and we test that against the live product, not just the code review.',
-  },
-];
 
 const flywheel = [
   {
@@ -85,7 +67,7 @@ const HowItWorksSection = () => {
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <div className="max-w-5xl mx-auto mb-16">
+          <div className="max-w-5xl mx-auto mb-20">
             <div className="relative aspect-[3/1] w-full">
               <img
                 src="/images/scenes/scaffolding-fades.png"
@@ -107,19 +89,6 @@ const HowItWorksSection = () => {
           </div>
         </AnimateOnScroll>
 
-        <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20">
-          {beliefs.map((b, i) => (
-            <AnimateOnScroll key={b.title} delay={i * 100}>
-              <div className="text-center space-y-4">
-                <div className="w-12 h-12 bg-mentra-blue/10 rounded-xl flex items-center justify-center mx-auto">
-                  <b.icon className="w-6 h-6 text-mentra-blue" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">{b.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{b.description}</p>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
 
 
         {/* Video */}

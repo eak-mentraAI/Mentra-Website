@@ -1,4 +1,5 @@
 import React from 'react';
+import { screens, type Screen } from '@/data/productScreens';
 import { ExploreSparks, AdaptiveTutor, StuckDetection, CodeBuild, LearnerPassport, XPSprigs, ReflectJournal, BoundedSession } from '@/components/icons/students';
 import { IntelligenceHub, WeeklyDigest, LiveDashboard, ConceptMap, AIControl, SpotQuietOnes, SmartGrading, FadingTrend } from '@/components/icons/teachers';
 import { StatusLight, FullDashboard, SafetyMonitor, GrowthGoals, ConsentControls, DataPortability, EmotionalData, LearnerIdentity, IndependenceTrajectory } from '@/components/icons/parents';
@@ -32,22 +33,14 @@ export interface DeepDiveLink {
   href: string;
 }
 
-export interface PersonaScreen {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  label: string;
-  caption: string;
-}
-
 export interface Persona {
   id: string;
   tabLabel: string;
   headline: React.ReactNode;
   subtext: string;
-  /** A real, cropped screen from the app (see public/images/product) */
-  screen: PersonaScreen;
+  /** A real app screen with a one-line caption */
+  screen: Screen;
+  screenCaption: string;
   blurbs: Blurb[];
   stats?: Stat[];
   deepDive?: DeepDiveLink;
@@ -63,14 +56,8 @@ export const personas: Persona[] = [
       '.'
     ),
     subtext: "Mentra adapts to how you think, then steps back as you get stronger.",
-    screen: {
-      src: '/images/product/student-zoe.webp',
-      alt: 'Zoe tells Sprig she does not know what to do. Sprig asks what 20 divided by 5 is. Zoe works out that x is 12, and Sprig names the idea she just used.',
-      width: 1400,
-      height: 716,
-      label: 'Student · Q&A with Sprig',
-      caption: 'Zoe opened with "can you just give me the answer." Sprig shrank the problem to one question, and Zoe solved it herself.',
-    },
+    screen: screens.studentZoe,
+    screenCaption: 'Zoe opened with "can you just give me the answer." Sprig shrank the problem to one question, and Zoe solved it herself.',
     blurbs: [
       { icon: ExploreSparks, title: 'Explore What Makes You Curious', text: 'Daily prompts tailored to your interests — rabbit holes worth going down. No grades, just discovery that builds genuine curiosity.', color: 'grit-gold' },
       { icon: AdaptiveTutor, title: 'A Tutor That Steps Back', text: 'Questions get harder as you grow. Scaffolding fades as mastery increases. The goal is you not needing it.', color: 'mentra-blue' },
@@ -91,13 +78,14 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent' }, 'The AI works for you.')
     ),
     subtext: "Intelligence that amplifies your judgment — never replaces it.",
-    screen: {
-      src: '/images/product/teacher-brief.webp',
-      alt: "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",
-      width: 1400,
-      height: 517,
-      label: "Teacher · Today's Brief",
-      caption: "Signals are written as sentences, not scores. When the evidence is thin, the brief says so instead of guessing.",
+    screen: screens.teacherBrief,
+    screenCaption: "Signals are written as sentences, not scores. When the evidence is thin, the brief says so instead of guessing.",
+    deepDive: {
+      eyebrow: 'For teachers',
+      title: 'See what Mentra shows you each day',
+      description: "Today's Brief, the Independence Report and family messages, in real screens.",
+      ctaLabel: 'Mentra for teachers',
+      href: '/teachers',
     },
     blurbs: [
       { icon: IntelligenceHub, title: 'Know Who Needs You First', text: 'See which students need help now, who\'s coasting, and where to focus your energy — before the day starts.', color: 'mentra-blue' },
@@ -119,13 +107,14 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-grit-gold to-curiosity-coral bg-clip-text text-transparent' }, "We only speak up when it matters.")
     ),
     subtext: "Quiet when things are fine. Unmissable when they're not. You control everything.",
-    screen: {
-      src: '/images/product/parent-trust.webp',
-      alt: "A parent's Trust & Privacy page: an active consent record listing five purposes, with partner sharing and anonymized product use turned off, and a toggle for each purpose explaining what turning it off does.",
-      width: 1400,
-      height: 479,
-      label: 'Parent · Trust & Privacy',
-      caption: 'Every purpose is listed in plain words. Each toggle explains what turning it off does.',
+    screen: screens.parentTrust,
+    screenCaption: 'Every purpose is listed in plain words. Each toggle explains what turning it off does.',
+    deepDive: {
+      eyebrow: 'For families',
+      title: 'See what your child sees, and what you control',
+      description: "Real screens from the student, teacher and parent views, plus every consent setting.",
+      ctaLabel: 'Mentra for families',
+      href: '/parents',
     },
     blurbs: [
       { icon: StatusLight, title: 'One Status. Three Colors. The Right One.', text: "Green means your child's need for AI help is fading — independence is growing. Yellow means it's steady. Red means it's rising and a teacher should know. Tap the badge for the why and the trend.", color: 'growth-green' },
@@ -148,14 +137,8 @@ export const personas: Persona[] = [
       React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent' }, 'Every control is real.')
     ),
     subtext: "Compliance built into the architecture — not promised in a contract.",
-    screen: {
-      src: '/images/product/teacher-independence.webp',
-      alt: "The Cognitive Independence Report: without enough recent work, it says it is waiting for real work instead of guessing, and shows a preview of sample reads, each clearly labelled SAMPLE.",
-      width: 1400,
-      height: 717,
-      label: 'Teacher · Independence Report',
-      caption: 'Without enough recent work, the report waits for real data instead of guessing. The reads below are labelled samples.',
-    },
+    screen: screens.teacherIndependence,
+    screenCaption: 'Without enough recent work, the report waits for real data instead of guessing. The reads below are labelled samples.',
     blurbs: [
       { icon: AltitudeView, title: 'An Altitude View, Never Surveillance', text: 'See where understanding is genuinely established versus still emerging, equity across cohorts, and an engine-decided queue of where to focus — always at the aggregate, never surveilling an individual child.', color: 'mentra-blue' },
       { icon: ComplianceShield, title: 'Compliance by Architecture', text: 'Dozens of automated policy gates run on every code change, enforcing security, AI safety, and tenant isolation. Audit evidence is generated from real system state — not self-reported assertions.', color: 'mentra-blue' },
@@ -173,11 +156,11 @@ export const personas: Persona[] = [
       { value: '<1s', label: 'AI kill switch response' },
     ],
     deepDive: {
-      eyebrow: 'For IT & Curriculum Teams',
-      title: 'See how Mentra fits with your existing stack',
-      description: 'Architecture, standards, and integration details — SIS, SSO, LMS, and the partner API for cognition data.',
-      ctaLabel: 'Explore the Platform',
-      href: '/platform',
+      eyebrow: 'For schools and districts',
+      title: 'Judge Mentra on learning, not logins',
+      description: 'Real screens, a pilot plan with agreed measures, and the governance details your board will ask about.',
+      ctaLabel: 'Mentra for schools',
+      href: '/schools',
     },
   },
 ];
