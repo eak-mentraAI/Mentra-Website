@@ -108,7 +108,7 @@ const stackLayers: StackLayerProps[] = [
 const mentraInternals = [
   {
     title: 'The Capture Layer',
-    description: 'Students work naturally inside modules — Guided QA, Writing & Reflection, Coding, Investigations, Assignments, Prompt Labs. Every attempt, revision, and reflection emits learning signal: dozens of distinct signal types across cognition, metacognition, engagement, and emotion. Not answers. Not grades. The texture of thinking.',
+    description: 'Students work naturally inside modules — Guided Q&A, Investigations, Coding, the Signal & Noise game, open exploration, journaling and goals. Their attempts, revisions and reflections emit learning signal: dozens of distinct signal types across cognition, metacognition, engagement, and emotion. Not answers. Not grades. The texture of thinking.',
     badge: null,
   },
   {
@@ -118,12 +118,12 @@ const mentraInternals = [
   },
   {
     title: 'The Knowledge Graph',
-    description: 'A living model of one mind. Concepts connect to the concepts they unlock; struggles connect to their root causes; mastery on one skill propagates to readiness on the next — a map that grows richer and more current with every session.',
+    description: 'A per-child model that keeps the full history of every signal, with typed links for prerequisites, common confusions, misconceptions and transfer between contexts. It grows more complete as a student works.',
     badge: null,
   },
   {
     title: 'Engine, AI, Human',
-    description: 'Two kinds of intelligence read the graph. Deterministic engines decide what a child has truly demonstrated — provable, auditable, the same every time. AI translates the decision into warm, human prose. The adult approves. The machine never acts on a child unsupervised.',
+    description: 'Two kinds of intelligence read the graph. Fixed rules decide the reads adults see, like whether help is fading as independent work holds up — auditable and the same every time. AI grades individual tutoring replies as one input, and turns the result into warm, human prose. The adult approves. The machine never acts on a child unsupervised.',
     badge: null,
   },
   {

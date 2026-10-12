@@ -2,6 +2,16 @@
 // Source frames: marketing/carousel/<date>/ in the app repo (see the showcase doc for
 // which frames are cleared for marketing). Crops live in /public/images/product.
 
+/**
+ * What the interaction on a screen feeds into the learner model. Every line must trace to code in the
+ * app repo (signal extractors and the learner-intelligence-service); don't add claims you can't point to.
+ */
+export interface SignalTrail {
+  kind: 'records' | 'reads';
+  items: string[];
+  goesTo: string;
+}
+
 export interface Screen {
   src: string;
   alt: string;
@@ -9,24 +19,46 @@ export interface Screen {
   height: number;
   /** Shown in the frame's title bar */
   label: string;
+  signals?: SignalTrail;
 }
 
-const screen = (file: string, width: number, height: number, label: string, alt: string): Screen => ({
+const screen = (
+  file: string, width: number, height: number, label: string, alt: string, signals?: SignalTrail,
+): Screen => ({
   src: `/images/product/${file}.webp`,
   alt,
   width,
   height,
   label,
+  signals,
 });
 
 export const screens = {
   studentLeo: screen(
     'student-leo', 1400, 684, 'Student · Q&A with Sprig',
     'Leo asks whether wolves leaving a forest would be good for the deer. Sprig asks what would happen to the deer over the next few years. Leo says they would eat all the plants, and Sprig asks what happens to the deer when the food runs out.',
+    {
+      kind: 'records',
+      items: [
+        'An AI grade of how well each reply shows the skill, which updates his mastery estimate for it',
+        'Whether he reached the idea unaided',
+        'Each hint Sprig offers, and whether he later succeeds without it',
+      ],
+      goesTo: "Leo's learner graph, read by the teacher's Independence Report and the parent's \"How Leo is growing\"",
+    },
   ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
     "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",
+    {
+      kind: 'records',
+      items: [
+        'How deep the why-chain went',
+        'Which evidence was tagged, and the cause-and-effect map drawn',
+        "How the student's confidence moved, here from 65 to 55",
+      ],
+      goesTo: "The student's Cognitive Mirror, and the class radar in the teacher's analytics",
+    },
   ),
   parentTrust: screen(
     'parent-trust', 1400, 479, 'Parent · Trust & Privacy',
@@ -47,6 +79,14 @@ export const screens = {
   teacherAnalytics: screen(
     'teacher-analytics', 1400, 782, 'Teacher · Investigation analytics',
     "Analytics for one investigation: 4 of 6 students growing, the class's biggest room to grow and a suggested next move, a class radar across five reasoning skills from 6 students and 23 sessions, and the levels where the class most often got stuck.",
+    {
+      kind: 'reads',
+      items: [
+        'Why-chain depth, axiom tagging and cause-and-effect maps from each investigation',
+        'Prediction scores, and how well confidence matched the result',
+      ],
+      goesTo: 'Every student in the class, across all their sessions on this investigation',
+    },
   ),
   teacherRecommendation: screen(
     'teacher-recommendation', 1400, 626, 'Teacher · Recommendations',

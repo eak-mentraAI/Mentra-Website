@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Screen } from '@/data/productScreens';
 
@@ -35,6 +36,27 @@ const ProductScreen = ({ screen, caption, className }: ProductScreenProps) => (
     </div>
     {caption && (
       <figcaption className="mt-3 text-sm text-gray-500 leading-relaxed">{caption}</figcaption>
+    )}
+    {screen.signals && (
+      <div className="mt-4 rounded-2xl border border-mentra-blue/15 bg-mentra-blue/[0.03] p-4 sm:p-5 grid gap-4 sm:grid-cols-[minmax(0,1.4fr)_auto_minmax(0,1fr)] sm:items-center">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-mentra-blue mb-2">
+            {screen.signals.kind === 'records' ? 'What this records' : 'What this reads'}
+          </p>
+          <ul className="space-y-1.5 text-sm text-gray-700 leading-snug list-disc pl-4 marker:text-mentra-blue/50">
+            {screen.signals.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <ArrowRight className="hidden sm:block w-5 h-5 text-mentra-blue/50" aria-hidden="true" />
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400 mb-2">
+            {screen.signals.kind === 'records' ? 'Where it goes' : 'From'}
+          </p>
+          <p className="text-sm text-gray-700 leading-snug">{screen.signals.goesTo}</p>
+        </div>
+      </div>
     )}
   </figure>
 );
