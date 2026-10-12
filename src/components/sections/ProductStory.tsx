@@ -10,18 +10,13 @@ type Step = {
   screen: Screen;
 };
 
-// Real exchanges whose visible Sprig turns hold up on a semantic read (showcase frames Student 11, 16, 06b).
+// Real exchanges whose visible Sprig turns hold up on a semantic read (showcase frames Student 16 and 06b;
+// full transcripts reviewed, not just the cropped turns).
 const steps: Step[] = [
-  {
-    eyebrow: 'Explain it',
-    title: 'Asks how before it helps.',
-    text: "Noah has the right answer but can't explain it. Sprig asks how he got it before offering any help, then gives him a sentence frame to fill in himself instead of writing the explanation for him.",
-    screen: screens.studentNoah,
-  },
   {
     eyebrow: 'Think it through',
     title: 'A question instead of the answer.',
-    text: "Leo asks whether losing the wolves would be good for the deer. Sprig asks what would happen over a few years instead. When Leo says the deer would eat all the plants, Sprig asks what happens next.",
+    text: "Leo asks whether losing the wolves would be good for the deer. Sprig asks what would happen over a few years instead. Leo works out that the deer would eat the plants, then run out of food themselves.",
     screen: screens.studentLeo,
   },
   {
@@ -59,7 +54,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-3 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-2 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >

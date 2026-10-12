@@ -68,8 +68,8 @@ export const audiences: Audience[] = [
     proof: [
       {
         title: 'What your child sees',
-        text: "When your child has an answer but can't explain it, Sprig asks how they got there first, then gives them a sentence frame to finish themselves.",
-        screen: screens.studentNoah,
+        text: 'Ask Sprig a question and it often answers with one, so your child works the idea out instead of being told it.',
+        screen: screens.studentLeo,
       },
       {
         title: 'One small thing to try at home',

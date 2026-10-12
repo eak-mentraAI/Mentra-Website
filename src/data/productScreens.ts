@@ -20,10 +20,6 @@ const screen = (file: string, width: number, height: number, label: string, alt:
 });
 
 export const screens = {
-  studentNoah: screen(
-    'student-noah', 1400, 703, 'Student · Q&A with Sprig',
-    'Noah says he got x = 6 but cannot explain it. Sprig asks how he got 6 before helping. Noah says he cross multiplied, and Sprig gives him a sentence frame with blanks to fill in himself.',
-  ),
   studentLeo: screen(
     'student-leo', 1400, 684, 'Student · Q&A with Sprig',
     'Leo asks whether wolves leaving a forest would be good for the deer. Sprig asks what would happen to the deer over the next few years. Leo says they would eat all the plants, and Sprig asks what happens to the deer when the food runs out.',
