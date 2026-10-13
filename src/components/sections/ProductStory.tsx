@@ -10,17 +10,29 @@ type Step = {
   screen: Screen;
 };
 
-// Real exchanges whose visible Sprig turns hold up on a semantic read (showcase frames Student 16 and 06b;
-// full transcripts reviewed, not just the cropped turns).
+// Real Sprig output from the 2026-10-13 shoot (simulated students that reply to Sprig) plus the 2026-10-12 verdict.
+// Full transcripts reviewed, not just the cropped turns: marketing/carousel/<date>/transcripts in the app repo.
 const steps: Step[] = [
   {
-    eyebrow: 'Think it through',
-    title: 'A question instead of the answer.',
-    text: "Leo asks whether losing the wolves would be good for the deer. Sprig asks what would happen over a few years instead. Leo works out that the deer would eat the plants, then run out of food themselves.",
-    screen: screens.studentLeo,
+    eyebrow: 'Q&A',
+    title: "Asks for the student's thinking first.",
+    text: "Priya asks which method is better. Before answering, Sprig asks how Priya would use one. Over the next few turns Priya tests messier numbers and works out the rule themselves: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
+    screen: screens.studentPriya,
   },
   {
-    eyebrow: 'Reasoning feedback',
+    eyebrow: 'Signal & Noise',
+    title: 'Coaching on how they judged, not what they picked.',
+    text: 'In the Signal & Noise game, students rank sources and explain why. Sprig responds to their reasoning: what they caught, what they let through, and one move to try next round.',
+    screen: screens.studentSignalNoise,
+  },
+  {
+    eyebrow: 'Coding',
+    title: 'Reads the error message with them.',
+    text: "A student's program prints something strange. Sprig explains what the message is telling them, asks a question that leads them to the missing parentheses, then has them explain why the parentheses matter.",
+    screen: screens.studentCoding,
+  },
+  {
+    eyebrow: 'Investigations',
     title: 'Feedback on the reasoning, not a score.',
     text: "On a finished investigation, Sprig responds to what the student actually wrote. It credits them for lowering their confidence when a rival explanation held up, and points out the one weak spot in their test.",
     screen: screens.studentVerdict,
@@ -43,10 +55,10 @@ const ProductStory = () => {
               id="product-story-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
             >
-              How Sprig responds when a student asks for help
+              How Sprig teaches, across Mentra
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Real exchanges from Mentra. Cropped, not edited.
+              Tutoring, games, coding and investigations. Real screens, cropped but not edited, and what each one records.
             </p>
           </div>
         </AnimateOnScroll>
@@ -54,7 +66,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-2 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >

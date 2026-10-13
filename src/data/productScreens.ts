@@ -34,17 +34,42 @@ const screen = (
 });
 
 export const screens = {
-  studentLeo: screen(
-    'student-leo', 1400, 684, 'Student · Q&A with Sprig',
-    'Leo asks whether wolves leaving a forest would be good for the deer. Sprig asks what would happen to the deer over the next few years. Leo says they would eat all the plants, and Sprig asks what happens to the deer when the food runs out.',
+  studentPriya: screen(
+    'student-priya', 1400, 688, 'Student · Q&A with Sprig',
+    "Sprig asks Priya whether 3/4 = x/6 has a clean whole-number scale factor. Priya says 4 to 6 isn't a clean multiplier, so they'd cross multiply and get x = 4.5. Sprig names the decision rule Priya worked out: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
     {
       kind: 'records',
       items: [
-        "Sprig's grade of how well each reply shows the skill, which updates his mastery estimate for it",
-        'Whether he reached the idea unaided',
-        'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether he later succeeds without it',
+        "Sprig's grade of how well each reply shows the skill, which updates their mastery estimate for it",
+        'Whether they reached the idea unaided',
+        'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether they later succeed without it',
       ],
-      goesTo: "Leo's learner graph, which the teacher's Independence Report reads",
+      goesTo: "Priya's learner graph, which the teacher's Independence Report reads",
+    },
+  ),
+  studentSignalNoise: screen(
+    'student-signal-noise', 1340, 1327, 'Student · Signal & Noise',
+    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, in four parts: Your Frame, What You Caught & What You Let Through, The Thread, and Your Next Edge. The student's ranking and rationale follow below.",
+    {
+      kind: 'records',
+      items: [
+        'How well their confidence matched their judgment',
+        'Their reflection on the round',
+        'Whether they weighed trade-offs, and how developed their reasoning was',
+      ],
+      goesTo: "The learner graph tracks calibration and reflection over time, and trade-offs and reasoning feed a decision-quality read. The game's own judgment profile updates too",
+    },
+  ),
+  studentCoding: screen(
+    'student-coding', 1400, 508, 'Student · Coding with Sprig',
+    "A student asks Sprig why their program prints a method object instead of a count. Sprig explains what the message is telling them and asks whether they left the parentheses off .count(). When the student realizes they did, Sprig asks them to explain the difference between count and count().",
+    {
+      kind: 'records',
+      items: [
+        'Debugging persistence: attempts, time spent, and whether the bug gets resolved',
+        'Whether the student reaches the fix unaided',
+      ],
+      goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
     },
   ),
   studentVerdict: screen(
@@ -99,4 +124,4 @@ export const screens = {
 } satisfies Record<string, Screen>;
 
 export const SHOWCASE_DISCLOSURE =
-  'Real Mentra screens from a fictional showcase class. Student messages were written in advance; every Sprig reply was generated live by the product. No real child appears.';
+  'Synthetic students, real Sprig responses: these examples show the real experience without exposing any child\'s data.';
