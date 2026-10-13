@@ -26,12 +26,6 @@ const steps: Step[] = [
     screen: screens.studentSignalNoise,
   },
   {
-    eyebrow: 'Coding',
-    title: 'Reads the error message with them.',
-    text: "A student's program prints something strange. Sprig explains what the message is telling them, asks a question that leads them to the missing parentheses, then has them explain why the parentheses matter.",
-    screen: screens.studentCoding,
-  },
-  {
     eyebrow: 'Investigations',
     title: 'Feedback on the reasoning, not a score.',
     text: "On a finished investigation, Sprig responds to what the student actually wrote. It credits them for lowering their confidence when a rival explanation held up, and points out the one weak spot in their test.",
@@ -58,7 +52,7 @@ const ProductStory = () => {
               How Sprig teaches, across Mentra
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Tutoring, games, coding and investigations. Real screens, cropped but not edited, and what each one records.
+              Tutoring, games and investigations. Real screens, cropped but not edited, and what each one records.
             </p>
           </div>
         </AnimateOnScroll>
@@ -66,7 +60,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-3 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >
