@@ -22,7 +22,7 @@ const steps: Step[] = [
   {
     eyebrow: 'Signal & Noise',
     title: 'Coaching on how they judged, not what they picked.',
-    text: 'In the Signal & Noise game, students rank sources and explain why. Sprig responds to their reasoning: what they caught, what they let through, and one move to try next round.',
+    text: 'In the Signal & Noise game, students rank sources and explain why. Sprig responds to their reasoning: what they caught, what they let through, and the question to ask next time.',
     screen: screens.studentSignalNoise,
   },
   {

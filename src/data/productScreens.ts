@@ -48,8 +48,8 @@ export const screens = {
     },
   ),
   studentSignalNoise: screen(
-    'student-signal-noise', 1340, 1327, 'Student · Signal & Noise',
-    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, in four parts: Your Frame, What You Caught & What You Let Through, The Thread, and Your Next Edge. The student's ranking and rationale follow below.",
+    'student-signal-noise', 1340, 752, 'Student · Signal & Noise',
+    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, under Your Frame and What You Caught & What You Let Through. It credits the student's focus on logical structure and suggests asking who each source is written for.",
     {
       kind: 'records',
       items: [
