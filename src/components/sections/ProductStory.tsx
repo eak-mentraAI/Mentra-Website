@@ -28,7 +28,7 @@ const steps: Step[] = [
   {
     eyebrow: 'Coding',
     title: 'Reads the error message with them.',
-    text: "A student's program prints something strange. Sprig explains what the message is telling them, asks a question that leads them to the missing parentheses, then checks they know which line to change.",
+    text: "A student's program prints something strange. Sprig explains what the message is telling them, asks a question that leads them to the missing parentheses, then has them explain why the parentheses matter.",
     screen: screens.studentCoding,
   },
   {

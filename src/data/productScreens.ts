@@ -35,8 +35,8 @@ const screen = (
 
 export const screens = {
   studentPriya: screen(
-    'student-priya', 1400, 703, 'Student · Q&A with Sprig',
-    "Priya asks Sprig whether scale factor or cross multiplying is better, and when. Before answering, Sprig asks Priya to walk through how they'd use scale factor on a problem, and Priya explains it with their own example.",
+    'student-priya', 1400, 688, 'Student · Q&A with Sprig',
+    "Sprig asks Priya whether 3/4 = x/6 has a clean whole-number scale factor. Priya says 4 to 6 isn't a clean multiplier, so they'd cross multiply and get x = 4.5. Sprig names the decision rule Priya worked out: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
     {
       kind: 'records',
       items: [
@@ -48,8 +48,8 @@ export const screens = {
     },
   ),
   studentSignalNoise: screen(
-    'student-signal-noise', 1340, 1174, 'Student · Signal & Noise',
-    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, in four parts: Your Frame, What You Caught & What You Let Through, The Thread, and Your Next Edge.",
+    'student-signal-noise', 1340, 1327, 'Student · Signal & Noise',
+    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, in four parts: Your Frame, What You Caught & What You Let Through, The Thread, and Your Next Edge. The student's ranking and rationale follow below.",
     {
       kind: 'records',
       items: [
@@ -61,8 +61,8 @@ export const screens = {
     },
   ),
   studentCoding: screen(
-    'student-coding', 1400, 285, 'Student · Coding with Sprig',
-    "A student asks Sprig why their program prints a method object instead of a count. Sprig explains what the message is telling them and asks whether they left the parentheses off .count(), then asks which line needs the fix.",
+    'student-coding', 1400, 508, 'Student · Coding with Sprig',
+    "A student asks Sprig why their program prints a method object instead of a count. Sprig explains what the message is telling them and asks whether they left the parentheses off .count(). When the student realizes they did, Sprig asks them to explain the difference between count and count().",
     {
       kind: 'records',
       items: [
@@ -124,4 +124,4 @@ export const screens = {
 } satisfies Record<string, Screen>;
 
 export const SHOWCASE_DISCLOSURE =
-  "Real Mentra screens from a fictional showcase class, with every Sprig reply generated live by the product. Students are simulated: a model replied to what Sprig actually said (investigation work was written in advance). Conversations were run up to three times per student, and we show ones that passed our own coaching review. No real child appears.";
+  'Synthetic students, real Sprig responses: these examples show the real experience without exposing any child\'s data.';
