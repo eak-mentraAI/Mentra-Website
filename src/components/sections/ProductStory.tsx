@@ -22,14 +22,8 @@ const steps: Step[] = [
   {
     eyebrow: 'Signal & Noise',
     title: 'Coaching on how they judged, not what they picked.',
-    text: 'In the Signal & Noise game, students rank sources and explain why. Sprig responds to their reasoning: what they caught, what they let through, and one move to try next round.',
+    text: 'In the Signal & Noise game, students rank sources and explain why. Sprig responds to their reasoning: what they caught, what they let through, and the question to ask next time.',
     screen: screens.studentSignalNoise,
-  },
-  {
-    eyebrow: 'Coding',
-    title: 'Reads the error message with them.',
-    text: "A student's program prints something strange. Sprig explains what the message is telling them, asks a question that leads them to the missing parentheses, then has them explain why the parentheses matter.",
-    screen: screens.studentCoding,
   },
   {
     eyebrow: 'Investigations',
@@ -58,7 +52,7 @@ const ProductStory = () => {
               How Sprig teaches, across Mentra
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Tutoring, games, coding and investigations. Real screens, cropped but not edited, and what each one records.
+              Tutoring, games and investigations. Real screens, cropped but not edited, and what each one records.
             </p>
           </div>
         </AnimateOnScroll>
@@ -66,7 +60,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-3 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >

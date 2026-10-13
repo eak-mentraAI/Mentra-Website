@@ -48,8 +48,8 @@ export const screens = {
     },
   ),
   studentSignalNoise: screen(
-    'student-signal-noise', 1340, 1327, 'Student · Signal & Noise',
-    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, in four parts: Your Frame, What You Caught & What You Let Through, The Thread, and Your Next Edge. The student's ranking and rationale follow below.",
+    'student-signal-noise', 1340, 752, 'Student · Signal & Noise',
+    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, under Your Frame and What You Caught & What You Let Through. It credits the student's focus on logical structure and suggests asking who each source is written for.",
     {
       kind: 'records',
       items: [
@@ -58,18 +58,6 @@ export const screens = {
         'Whether they weighed trade-offs, and how developed their reasoning was',
       ],
       goesTo: "The learner graph tracks calibration and reflection over time, and trade-offs and reasoning feed a decision-quality read. The game's own judgment profile updates too",
-    },
-  ),
-  studentCoding: screen(
-    'student-coding', 1400, 508, 'Student · Coding with Sprig',
-    "A student asks Sprig why their program prints a method object instead of a count. Sprig explains what the message is telling them and asks whether they left the parentheses off .count(). When the student realizes they did, Sprig asks them to explain the difference between count and count().",
-    {
-      kind: 'records',
-      items: [
-        'Debugging persistence: attempts, time spent, and whether the bug gets resolved',
-        'Whether the student reaches the fix unaided',
-      ],
-      goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
     },
   ),
   studentVerdict: screen(
