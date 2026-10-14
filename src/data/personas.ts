@@ -145,14 +145,14 @@ export const personas: Persona[] = [
       { icon: RosterIntegration, title: 'Roster Integration in Days', text: 'Clever, ClassLink, Canvas, Schoology, Google Classroom, OneRoster. Configure once, monitor through a single panel.', color: 'growth-green' },
       { icon: KillSwitch, title: 'AI Kill Switch', text: 'One toggle disables all AI in under a second. Fails closed — if anything breaks, AI stays off until you say otherwise.', color: 'curiosity-coral' },
       { icon: Explainability, title: 'No Black Boxes', text: 'Every AI adaptation is visible with a rationale. Teachers override anything. You can explain it at a board meeting.', color: 'grit-gold' },
-      { icon: SecureExport, title: 'Provable Data Portability', text: '20 export domains. AES-256-GCM encrypted, PII-redacted, consent-verified. Every step auditable.', color: 'wisdom-purple' },
+      { icon: SecureExport, title: 'Provable Data Portability', text: 'Up to 26 data domains in a full archive export. AES-256-GCM encrypted, PII-redacted, consent-verified. Every step auditable.', color: 'wisdom-purple' },
       { icon: ITObservability, title: 'IT Observability', text: '16-service health monitoring, AI safety metrics, and FERPA audit logs. Proactive, not reactive.', color: 'mentra-blue' },
       { icon: TenantIsolation, title: 'Tenant Isolation Enforced at the Database Layer', text: 'Every Mentra database query runs with a tenant context set by the JWT and verified by Postgres Row-Level Security policies. A bug in application code can\'t leak data across tenants — the database itself refuses to return it. (A small number of legacy tables are mid-migration to add district-level scoping on top of tenant-level; tracked publicly in our security backlog.)', color: 'curiosity-coral' },
     ],
     stats: [
       { value: 'Dozens', label: 'Automated policy gates' },
       { value: '16', label: 'Independently monitored services' },
-      { value: '20', label: 'Export data domains' },
+      { value: '26', label: 'Data domains in a full archive' },
       { value: '<1s', label: 'AI kill switch response' },
     ],
     deepDive: {
