@@ -27,7 +27,11 @@ jobs:
         run: npm run lint
 
       - name: Typecheck
-        run: npx tsc --noEmit
+        # The root tsconfig.json has "files": [] and only references these two,
+        # so a bare `tsc --noEmit` checks nothing. Check each project directly.
+        run: |
+          npx tsc --noEmit -p tsconfig.app.json
+          npx tsc --noEmit -p tsconfig.node.json
 
       - name: Security audit
         run: npm audit --audit-level=high
