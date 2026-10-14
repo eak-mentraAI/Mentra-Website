@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import ProductScreen from '@/components/ui/ProductScreen';
-import { screens, SHOWCASE_DISCLOSURE, type Screen } from '@/data/productScreens';
-
-type Step = {
-  eyebrow: string;
-  title: string;
-  text: string;
-  screen: Screen;
-};
+import ScreenTabs, { type ScreenTab } from '@/components/ui/ScreenTabs';
+import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 
 // Real Sprig output from the 2026-10-13/14 shoots (simulated students that reply to Sprig) plus the 2026-10-12 verdict.
 // Full transcripts reviewed, not just the cropped turns: marketing/carousel/<date>/transcripts in the app repo.
-const steps: Step[] = [
+const steps: ScreenTab[] = [
   {
     eyebrow: 'Asking for the answer',
     title: '"Can you just tell me the answer?"',
@@ -45,78 +38,33 @@ const steps: Step[] = [
   },
 ];
 
-const ProductStory = () => {
-  const [active, setActive] = useState(0);
-  const step = steps[active];
-
-  return (
-    <section id="see-it-in-action" className="py-24 bg-white scroll-mt-20" aria-labelledby="product-story-heading">
-      <div className="container mx-auto px-4">
-        <AnimateOnScroll>
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-3">
-              See it in the product
-            </p>
-            <h2
-              id="product-story-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
-            >
-              How Sprig teaches, across Mentra
-            </h2>
-            <p className="text-lg text-gray-500 leading-relaxed">
-              Tutoring, games, coding, AI literacy and investigations. Real screens, cropped but not edited, and what they record.
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        <div className="max-w-5xl mx-auto">
-          {/* Steps */}
-          <div
-            className="flex lg:grid lg:grid-cols-5 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
-            role="tablist"
-            aria-label="Sprig exchanges"
+const ProductStory = () => (
+  <section id="see-it-in-action" className="py-24 bg-white scroll-mt-20" aria-labelledby="product-story-heading">
+    <div className="container mx-auto px-4">
+      <AnimateOnScroll>
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-3">
+            See it in the product
+          </p>
+          <h2
+            id="product-story-heading"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
           >
-            {steps.map((s, i) => {
-              const selected = i === active;
-              return (
-                <button
-                  key={s.eyebrow}
-                  type="button"
-                  role="tab"
-                  id={`story-tab-${i}`}
-                  aria-selected={selected}
-                  aria-controls="story-panel"
-                  onClick={() => setActive(i)}
-                  className={`flex-shrink-0 w-60 lg:w-auto text-left rounded-2xl p-4 border transition-colors duration-200 ${
-                    selected
-                      ? 'bg-mentra-blue/5 border-mentra-blue/30'
-                      : 'bg-white border-gray-200 hover:bg-gray-50'
-                  }`}
-                >
-                  <span className={`block text-xs font-semibold uppercase tracking-[0.14em] mb-1.5 ${selected ? 'text-mentra-blue' : 'text-gray-400'}`}>
-                    {String(i + 1).padStart(2, '0')} · {s.eyebrow}
-                  </span>
-                  <span className="block text-sm font-bold text-gray-900 leading-snug">{s.title}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active step: what to notice, then the screen at a readable size */}
-          <div id="story-panel" role="tabpanel" aria-labelledby={`story-tab-${active}`}>
-            <div key={active} className="animate-fade-in-up">
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">{step.text}</p>
-              <ProductScreen screen={step.screen} />
-            </div>
-          </div>
+            How Sprig teaches, across Mentra
+          </h2>
+          <p className="text-lg text-gray-500 leading-relaxed">
+            Tutoring, games, coding, AI literacy and investigations. Real screens, cropped but not edited, and what they record.
+          </p>
         </div>
+      </AnimateOnScroll>
 
-        <p className="max-w-3xl mx-auto text-center text-xs text-gray-400 mt-10 leading-relaxed">
-          {SHOWCASE_DISCLOSURE}
-        </p>
-      </div>
-    </section>
-  );
-};
+      <ScreenTabs tabs={steps} label="Sprig across Mentra" />
+
+      <p className="max-w-3xl mx-auto text-center text-xs text-gray-400 mt-10 leading-relaxed">
+        {SHOWCASE_DISCLOSURE}
+      </p>
+    </div>
+  </section>
+);
 
 export default ProductStory;

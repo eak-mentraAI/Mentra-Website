@@ -1,28 +1,35 @@
 import { screens, type Screen } from '@/data/productScreens';
-
-export interface ProofPoint {
-  title: string;
-  text: string;
-  screen: Screen;
-}
+import type { ScreenTab } from '@/components/ui/ScreenTabs';
 
 export interface PilotRow {
   question: string;
   evidence: string;
 }
 
+/** A grid of feature cards, filled from a persona's blurbs in personas.ts */
+export interface FeatureGroup {
+  title: string;
+  personaId: string;
+}
+
 export interface Audience {
   id: 'teachers' | 'parents' | 'schools';
   path: string;
-  /** Matches a persona id in personas.ts; its blurbs fill the "more" grid */
-  personaId: string;
   docTitle: string;
   eyebrow: string;
   title: string;
   intro: string;
-  proof: ProofPoint[];
+  /** Homepage card: a one-line pitch and a preview screen */
+  cardLine: string;
+  preview: Screen;
+  /** Shown in a tab viewer. Keep one "honest about what we don't know" line per page, not one per tab. */
+  proof: ScreenTab[];
   pilot?: PilotRow[];
-  moreTitle: string;
+  /** Persona whose stat tiles appear on the page, if any */
+  statsPersonaId?: string;
+  features: FeatureGroup[];
+  /** Show the consent screen in the trust section (only where families are the audience) */
+  trustScreen: boolean;
   /** Optional pointer to a deeper page, e.g. the Platform page for IT */
   more?: { text: string; href: string; label: string };
 }
@@ -31,101 +38,122 @@ export const audiences: Audience[] = [
   {
     id: 'teachers',
     path: '/teachers',
-    personaId: 'teachers',
     docTitle: 'Mentra for Teachers',
     eyebrow: 'Mentra for teachers',
     title: 'See how your students think, not just what they answered.',
     intro:
       "Mentra shows where each student's reasoning is growing, where it stalls, and what you might try next. You stay the one making the decisions.",
+    cardLine: 'Know who needs you, where the class is stuck, and what to try next. You make every call.',
+    preview: screens.teacherBrief,
     proof: [
       {
+        eyebrow: "Today's Brief",
         title: 'Start the day knowing what needs you',
-        text: "Today's Brief turns class signals into plain sentences. When the evidence is thin, it says so and keeps watching instead of guessing.",
+        text: "Today's Brief turns class signals into plain sentences and lists what needs you today, with links to dig deeper.",
         screen: screens.teacherBrief,
       },
       {
+        eyebrow: 'Class analytics',
         title: 'See where the class gets stuck',
-        text: "For each investigation: how many students are growing, which reasoning skill has the most room to grow, the level where most sessions stall, and a next move for the whole class.",
+        text: 'For each investigation: how many students are growing, which reasoning skill has the most room to grow, the level where most sessions stall, and a next move for the whole class.',
         screen: screens.teacherAnalytics,
       },
       {
+        eyebrow: 'Evidence',
         title: 'Every read shows its evidence',
         text: "A student's reply to Sprig is scored as an independent attempt and, the same day, becomes evidence behind their row in the Independence Report. One good reply doesn't flip the read, and where there isn't enough data the report says so.",
         screen: screens.teacherSignalLanding,
       },
       {
+        eyebrow: 'Recommendations',
         title: 'Nothing happens until you approve it',
-        text: "Every recommendation shows what it's based on, what success looks like and when it may be wrong. You approve, modify or dismiss it, and when the evidence is thin it says so.",
+        text: "Every recommendation shows what it's based on, what success looks like and when it may be wrong. You approve, modify or dismiss it.",
         screen: screens.teacherRecommendation,
       },
       {
-        title: 'Share growth with families in one message',
+        eyebrow: 'Families',
+        title: 'Share growth in one message',
         text: "Tell a parent what happened in their child's own words, and one thing to ask at home. Their reply comes back to you.",
         screen: screens.teacherParentMessage,
       },
     ],
-    moreTitle: 'More for teachers',
+    features: [{ title: 'More for teachers', personaId: 'teachers' }],
+    trustScreen: false,
   },
   {
     id: 'parents',
     path: '/parents',
-    personaId: 'parents',
     docTitle: 'Mentra for Families',
     eyebrow: 'Mentra for families',
     title: 'What if AI helped your child think, instead of thinking for them?',
     intro:
       "Mentra is a learning companion designed not to do your child's homework. It coaches them through their own reasoning, tells you what's changing in plain words, and leaves you in control of their data.",
+    cardLine: 'A companion that coaches instead of answering, plain-language updates, and every permission in your hands.',
+    preview: screens.parentOneQuestion,
     proof: [
       {
-        title: 'What your child sees',
-        text: "Ask Sprig which way to solve a problem and it asks how your child would do it first, so they work the idea out instead of being told it.",
-        screen: screens.studentPriya,
+        eyebrow: 'What your child sees',
+        title: "Doesn't let a wrong answer slide",
+        text: 'When your child gets it wrong, Sprig says "not quite", keeps what they got right, and has them check the step that slipped. Then it hands over a new problem to try alone.',
+        screen: screens.studentZoe,
       },
       {
-        title: 'A story from the teacher, not just a grade',
+        eyebrow: 'From the teacher',
+        title: 'A story, not just a grade',
         text: "Your child's teacher can share what happened in a conversation with Sprig, in your child's own words, with one thing to ask at dinner.",
         screen: screens.parentTeacherMessage,
       },
       {
-        title: 'One small thing to try at home',
+        eyebrow: 'At home',
+        title: 'One small thing to try',
         text: 'Each week you get one two-minute idea, not a report card. Tap a button to tell Mentra whether it landed.',
         screen: screens.parentOneQuestion,
       },
       {
-        title: "A record of what your child has done",
+        eyebrow: 'Learner Passport',
+        title: 'A record of what your child has done',
         text: "The Learner Passport shows milestones your child has reached and what's next. It's honest about its limits: not every activity is counted there yet.",
         screen: screens.parentPassport,
       },
       {
+        eyebrow: 'Permissions',
         title: 'Every permission, in plain words',
         text: 'See exactly what you agreed to, purpose by purpose. Each toggle tells you what turning it off changes, and your choice takes effect right away.',
         screen: screens.parentTrust,
       },
     ],
-    moreTitle: 'More for families',
+    features: [
+      { title: 'What your child does in Mentra', personaId: 'students' },
+      { title: 'More for families', personaId: 'parents' },
+    ],
+    trustScreen: true,
   },
   {
     id: 'schools',
     path: '/schools',
-    personaId: 'institutions',
     docTitle: 'Mentra for Schools and Districts',
     eyebrow: 'Mentra for schools and districts',
     title: 'Judge us on learning, not logins.',
     intro:
-      "Mentra shows how students reason, where a class gets stuck and what to try next, and it says plainly when there isn't enough evidence yet. A pilot then measures whether it's worth the cost.",
+      'Mentra shows how students reason, where a class gets stuck and what to try next. A pilot then measures whether it is worth the cost, against measures you agree up front.',
+    cardLine: 'Evidence of reasoning, a pilot measured your way, and governance your board can inspect.',
+    preview: screens.teacherAnalytics,
     proof: [
       {
+        eyebrow: 'Class analytics',
         title: 'What a class can reason through, on one screen',
         text: 'How many students are growing, where the class stalls and what to assign next. Each section links to the evidence behind it.',
         screen: screens.teacherAnalytics,
       },
       {
+        eyebrow: 'Reasoning feedback',
         title: 'Evidence of reasoning, not time-on-app',
         text: "Feedback is written about each student's actual reasoning: what held up, what didn't, and the next thing to test.",
         screen: screens.studentVerdict,
       },
       {
-        title: 'Honest about what it doesn\'t know yet',
+        eyebrow: 'Evidence',
+        title: "Honest about what it doesn't know yet",
         text: "Each student's read is built from their recent work and shows its evidence. Where there isn't enough data, it says so instead of producing a number your board can't trust.",
         screen: screens.teacherSignalLanding,
       },
@@ -137,7 +165,9 @@ export const audiences: Audience[] = [
       { question: 'Does it improve learning?', evidence: 'Pre and post measures on instructional tasks you choose' },
       { question: 'Is the cost justified?', evidence: 'Cost per active student, teacher time, and the measured outcomes above' },
     ],
-    moreTitle: 'Governance and controls',
+    statsPersonaId: 'institutions',
+    features: [{ title: 'Governance and controls', personaId: 'institutions' }],
+    trustScreen: false,
     more: {
       text: 'For IT and curriculum teams: architecture, rostering, SSO and data portability.',
       href: '/platform',

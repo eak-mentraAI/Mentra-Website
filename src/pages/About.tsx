@@ -123,6 +123,23 @@ export default function About() {
           </div>
         </section>
 
+        {/* The founder's video (moved from the homepage) */}
+        <section className="w-full bg-white pb-24" aria-label="Why we built Mentra, in 90 seconds">
+          <div className="container mx-auto px-4">
+            <div className="aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200">
+              <iframe
+                src="https://www.youtube.com/embed/Q84vfTtvGMA"
+                title="Why we built Mentra"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+
         {/* What We Believe */}
         <section className="w-full bg-gray-50 py-24">
           <div className="container mx-auto px-4">

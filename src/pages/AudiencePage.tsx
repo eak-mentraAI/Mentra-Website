@@ -5,7 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import PageTransition from '@/components/layout/PageTransition';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import ProductScreen from '@/components/ui/ProductScreen';
+import ScreenTabs from '@/components/ui/ScreenTabs';
 import { Button } from '@/components/ui/button';
 import TrustSection from '@/components/sections/TrustSection';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
@@ -16,7 +16,7 @@ import { SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 /** One template for /teachers, /parents and /schools. Copy lives in src/data/audiences.ts. */
 const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
   const audience = getAudience(audienceId);
-  const persona = personas.find((p) => p.id === audience.personaId);
+  const stats = personas.find((p) => p.id === audience.statsPersonaId)?.stats;
   const { open: openScheduleCall } = useScheduleCall();
 
   useEffect(() => {
@@ -65,22 +65,11 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
             </div>
           </section>
 
-          {/* Proof: real screens, each with what to notice */}
+          {/* Proof: real screens in one tab viewer, the same interaction as the homepage story */}
           <section className="pb-24" aria-label="Real product screens">
-            <div className="container mx-auto max-w-5xl px-4 space-y-20">
-              {audience.proof.map((p, i) => (
-                <AnimateOnScroll key={p.title}>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400 mb-2">
-                      {String(i + 1).padStart(2, '0')}
-                    </p>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-balance">{p.title}</h2>
-                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">{p.text}</p>
-                    <ProductScreen screen={p.screen} />
-                  </div>
-                </AnimateOnScroll>
-              ))}
-              <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto">
+            <div className="container mx-auto px-4">
+              <ScreenTabs tabs={audience.proof} label={`${audience.eyebrow}: real screens`} signals="reads" />
+              <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto mt-10">
                 {SHOWCASE_DISCLOSURE}
               </p>
             </div>
@@ -125,41 +114,60 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
             </section>
           )}
 
-          <TrustSection />
-
-          {/* Everything else for this audience */}
-          {persona && (
-            <section className="py-24 bg-white" aria-labelledby="more-heading">
-              <div className="container mx-auto max-w-5xl px-4">
-                <h2 id="more-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center text-balance">
-                  {audience.moreTitle}
-                </h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {persona.blurbs.map((b, i) => (
-                    <AnimateOnScroll key={b.title} delay={(i % 3) * 100}>
-                      <div className="bg-gray-50 rounded-2xl p-6 h-full">
-                        <div className="w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center mb-4">
-                          <b.icon className="w-5 h-5 text-mentra-blue" />
-                        </div>
-                        <h3 className="text-base font-bold text-gray-900 mb-2">{b.title}</h3>
-                        <p className="text-gray-500 text-sm leading-relaxed">{b.text}</p>
-                      </div>
-                    </AnimateOnScroll>
-                  ))}
-                </div>
-                {audience.more && (
-                  <div className="mt-12 text-center">
-                    <p className="text-gray-500 mb-4">{audience.more.text}</p>
-                    <Link
-                      to={audience.more.href}
-                      className="inline-flex items-center gap-2 text-mentra-blue font-semibold hover:gap-3 transition-all"
-                    >
-                      {audience.more.label}
-                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                    </Link>
+          {/* Stat tiles (schools) */}
+          {stats && (
+            <section className="pb-24 bg-white" aria-label="At a glance">
+              <div className="container mx-auto max-w-5xl px-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {stats.map((s) => (
+                  <div key={s.label} className="bg-gray-50 rounded-xl p-4 text-center">
+                    <div className="text-3xl font-bold text-mentra-blue mb-1">{s.value}</div>
+                    <div className="text-xs text-gray-500">{s.label}</div>
                   </div>
-                )}
+                ))}
               </div>
+            </section>
+          )}
+
+          <TrustSection showScreen={audience.trustScreen} />
+
+          {/* Feature cards for this audience */}
+          {audience.features.map((group) => {
+            const blurbs = personas.find((p) => p.id === group.personaId)?.blurbs ?? [];
+            const headingId = `features-${group.personaId}`;
+            return (
+              <section key={group.personaId} className="py-20 bg-white" aria-labelledby={headingId}>
+                <div className="container mx-auto max-w-5xl px-4">
+                  <h2 id={headingId} className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center text-balance">
+                    {group.title}
+                  </h2>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {blurbs.map((b, i) => (
+                      <AnimateOnScroll key={b.title} delay={(i % 3) * 100}>
+                        <div className="bg-gray-50 rounded-2xl p-6 h-full">
+                          <div className="w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center mb-4">
+                            <b.icon className="w-5 h-5 text-mentra-blue" />
+                          </div>
+                          <h3 className="text-base font-bold text-gray-900 mb-2">{b.title}</h3>
+                          <p className="text-gray-500 text-sm leading-relaxed">{b.text}</p>
+                        </div>
+                      </AnimateOnScroll>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            );
+          })}
+
+          {audience.more && (
+            <section className="pb-24 bg-white text-center">
+              <p className="text-gray-500 mb-4">{audience.more.text}</p>
+              <Link
+                to={audience.more.href}
+                className="inline-flex items-center gap-2 text-mentra-blue font-semibold hover:gap-3 transition-all"
+              >
+                {audience.more.label}
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </section>
           )}
         </main>

@@ -1,144 +1,96 @@
 import React from 'react';
-import { BookOpen, Sparkles, FileText, Users, BarChart3 } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import ScrollTimeline from '@/components/sections/ScrollTimeline';
-import PulledQuote from '@/components/ui/PulledQuote';
 import ProductScreen from '@/components/ui/ProductScreen';
-import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
+import { screens } from '@/data/productScreens';
 
-const flywheel = [
+// Every step here must trace to app code (signal extractors, learner-intelligence-service, CoachingPolicy).
+const steps = [
   {
-    number: 1,
-    icon: BookOpen,
-    image: "/images/sprig/flywheel-01-reflect.png",
-    title: "A Reply Becomes Signals",
-    color: "mentra-blue",
-    description: "In tutoring, investigations, coding, the Signal & Noise game, open exploration and journaling, a student's work is recorded as typed signals: whether they tried it unaided, how deep their reasoning went, which hints they needed, how their confidence moved.",
+    image: '/images/sprig/flywheel-01-reflect.png',
+    title: 'A reply becomes signals',
+    description: 'Did they try it unaided? How deep did the reasoning go? Which hints did they need, and how did their confidence move?',
   },
   {
-    number: 2,
-    icon: FileText,
-    image: "/images/sprig/flywheel-02-patterns.png",
-    title: "Signals Build a Learner Graph",
-    color: "mentra-blue",
-    description: "Each signal lands in that student's learner graph with its full history. Fixed rules, not a chatbot, read the graph to decide what adults see, and below an evidence floor the answer is \"not enough evidence yet.\"",
+    image: '/images/sprig/flywheel-02-patterns.png',
+    title: 'Signals build a learner graph',
+    description: "Each signal lands in that student's learner graph, with its full history.",
   },
   {
-    number: 3,
-    icon: Sparkles,
-    image: "/images/sprig/flywheel-03-act.png",
-    title: "AI Explains, Humans Act",
-    color: "mentra-blue",
-    description: "The read is written up in plain language for each adult. The teacher, parent or student decides what to do, and recommendations wait for a teacher's approval.",
+    image: '/images/sprig/flywheel-03-act.png',
+    title: 'Rules decide what adults see',
+    description: 'Fixed rules, not a chatbot, turn the graph into the reads teachers and parents see.',
   },
   {
-    number: 4,
-    icon: Users,
-    image: "/images/sprig/flywheel-04-adapts.png",
-    title: "Scaffolding Adapts",
-    color: "mentra-blue",
-    description: "Sprig checks the student's record before it replies. Once they've shown a skill, it pulls back: a harder open question instead of another hint. The goal is less help next time.",
+    image: '/images/sprig/flywheel-04-adapts.png',
+    title: 'People act',
+    description: 'Teachers approve, change or dismiss each recommendation. Families get one thing to try at home.',
   },
   {
-    number: 5,
-    icon: BarChart3,
-    image: "/images/sprig/flywheel-05-independence.png",
-    title: "Independence Grows",
-    color: "mentra-blue",
-    description: "Over weeks, Mentra looks for one trend: help fading while independent work holds up. That trend, not time on the app, is what it reports to teachers and parents, and until there's enough evidence it says so.",
+    image: '/images/sprig/flywheel-05-independence.png',
+    title: 'Sprig steps back',
+    description: 'Once a student shows a skill, Sprig asks a harder open question instead of offering another hint.',
   },
 ];
 
-const HowItWorksSection = () => {
-  return (
-    <section id="how-it-works" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-4">
-        {/* Beliefs row */}
-        <AnimateOnScroll>
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-              How Mentra works
-            </h2>
-          </div>
-        </AnimateOnScroll>
+const HowItWorksSection = () => (
+  <section id="how-it-works" className="py-24 bg-gray-50 scroll-mt-20" aria-labelledby="how-it-works-heading">
+    <div className="container mx-auto px-4">
+      <AnimateOnScroll>
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-3">How Mentra works</p>
+          <h2
+            id="how-it-works-heading"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
+          >
+            From one reply to the long-term picture
+          </h2>
+          <p className="text-lg text-gray-500 leading-relaxed">
+            Most ed-tech adds dependency. Mentra is built so the help fades: every reply teaches Mentra something, and the
+            adults in a child&rsquo;s life decide what to do with it.
+          </p>
+        </div>
+      </AnimateOnScroll>
 
-        <AnimateOnScroll>
-          <PulledQuote className="mb-12">
-            Most ed-tech adds dependency. Mentra builds capability — scaffolding that fades, support that steps back, and humans who stay in control.
-          </PulledQuote>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll>
-          <div className="max-w-5xl mx-auto mb-20">
-            <div className="relative aspect-[3/1] w-full">
+      {/* The pipeline, as one strip */}
+      <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-16">
+        {steps.map((step, i) => (
+          <AnimateOnScroll key={step.title} delay={i * 80}>
+            <li className="relative h-full bg-white rounded-2xl border border-gray-100 p-5">
               <img
-                src="/images/scenes/scaffolding-fades.png"
-                alt="A student grows more independent as Sprig steps back. The visible scaffolding — ladders, guide rails, helping hands — fades from left to right."
-                width="1774"
-                height="887"
-                className="w-full h-full object-cover object-[center_60%]"
-                style={{
-                  WebkitMaskImage:
-                    'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)',
-                  WebkitMaskComposite: 'source-in',
-                  maskImage:
-                    'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)',
-                  maskComposite: 'intersect',
-                }}
+                src={step.image}
+                alt=""
+                aria-hidden="true"
+                width="56"
+                height="56"
                 loading="lazy"
+                className="w-14 h-14 object-contain mb-3"
               />
-            </div>
-          </div>
-        </AnimateOnScroll>
-
-
-
-        {/* Video */}
-        <AnimateOnScroll>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center text-balance">
-            Why we built Mentra
-          </h3>
-        </AnimateOnScroll>
-        <div id="see-it" className="aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200 mb-16 scroll-mt-24">
-          <iframe
-            src="https://www.youtube.com/embed/Q84vfTtvGMA"
-            title="Why we built Mentra"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-            className="w-full h-full rounded-2xl"
-          ></iframe>
-        </div>
-
-        {/* Flywheel */}
-        <div className="w-full">
-          <AnimateOnScroll>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center text-balance">
-              From one reply to the long-term picture
-            </h3>
-          </AnimateOnScroll>
-          <ScrollTimeline steps={flywheel} />
-
-          {/* One real reply, traced from Sprig to the teacher's report (2026-10-14 signal-landing frame) */}
-          <AnimateOnScroll>
-            <div className="max-w-5xl mx-auto mt-16">
-              <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 text-balance">One reply, traced to the teacher</h4>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
-                A student answered Sprig in their own words: &ldquo;it&rsquo;s the energy source&hellip; it powers the whole thing
-                so the plant can make food.&rdquo; The reply was scored as an independent attempt, stored, and minutes later it was
-                the newest evidence behind that student&rsquo;s row in the teacher&rsquo;s Independence Report. One good reply
-                doesn&rsquo;t flip the read: the report weighs all recent work, and says &ldquo;not enough data yet&rdquo; where it
-                can&rsquo;t tell.
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-mentra-blue mb-1">
+                {String(i + 1).padStart(2, '0')}
               </p>
-              <ProductScreen screen={screens.teacherSignalLanding} />
-              <p className="text-xs text-gray-400 mt-4">{SHOWCASE_DISCLOSURE}</p>
-            </div>
+              <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug">{step.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
+            </li>
           </AnimateOnScroll>
+        ))}
+      </ol>
+
+      {/* The proof: one real reply, traced to the teacher's report (2026-10-14 signal-landing frame) */}
+      <AnimateOnScroll>
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 text-balance">One reply, traced to the teacher</h3>
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
+            A student answered Sprig in their own words: &ldquo;it&rsquo;s the energy source&hellip; it powers the whole thing
+            so the plant can make food.&rdquo; The reply was scored as an independent attempt, stored, and minutes later it was
+            the newest evidence behind that student&rsquo;s row in the teacher&rsquo;s Independence Report. One good reply
+            doesn&rsquo;t flip the read: the report weighs all recent work, and says &ldquo;not enough data yet&rdquo; where it
+            can&rsquo;t tell.
+          </p>
+          <ProductScreen screen={screens.teacherSignalLanding} />
         </div>
-      </div>
-    </section>
-  );
-};
+      </AnimateOnScroll>
+    </div>
+  </section>
+);
 
 export default HowItWorksSection;

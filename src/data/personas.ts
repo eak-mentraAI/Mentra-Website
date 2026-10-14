@@ -1,17 +1,8 @@
 import React from 'react';
-import { screens, type Screen } from '@/data/productScreens';
 import { ExploreSparks, AdaptiveTutor, StuckDetection, CodeBuild, LearnerPassport, XPSprigs, ReflectJournal, BoundedSession } from '@/components/icons/students';
 import { IntelligenceHub, WeeklyDigest, LiveDashboard, ConceptMap, AIControl, SpotQuietOnes, SmartGrading, FadingTrend } from '@/components/icons/teachers';
 import { StatusLight, FullDashboard, SafetyMonitor, GrowthGoals, ConsentControls, DataPortability, EmotionalData, LearnerIdentity, IndependenceTrajectory } from '@/components/icons/parents';
 import { ComplianceShield, RosterIntegration, KillSwitch, Explainability, SecureExport, ITObservability, TenantIsolation, AltitudeView } from '@/components/icons/institutions';
-
-export const colorBorderMap: Record<string, string> = {
-  'mentra-blue': 'hover:border-t-mentra-blue',
-  'growth-green': 'hover:border-t-growth-green',
-  'curiosity-coral': 'hover:border-t-curiosity-coral',
-  'grit-gold': 'hover:border-t-grit-gold',
-  'wisdom-purple': 'hover:border-t-wisdom-purple',
-};
 
 export interface Blurb {
   icon: React.FC<{ className?: string }>;
@@ -25,68 +16,28 @@ export interface Stat {
   label: string;
 }
 
-export interface DeepDiveLink {
-  eyebrow: string;
-  title: string;
-  description: string;
-  ctaLabel: string;
-  href: string;
-}
-
 export interface Persona {
   id: string;
-  tabLabel: string;
-  headline: React.ReactNode;
-  subtext: string;
-  /** A real app screen with a one-line caption */
-  screen: Screen;
-  screenCaption: string;
   blurbs: Blurb[];
   stats?: Stat[];
-  deepDive?: DeepDiveLink;
 }
 
 export const personas: Persona[] = [
   {
     id: 'students',
-    tabLabel: 'Students',
-    headline: React.createElement('span', null,
-      'Learn to think for yourself — with help that ',
-      React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent' }, 'fades as you grow'),
-      '.'
-    ),
-    subtext: "Mentra adapts to how you think, then steps back as you get stronger.",
-    screen: screens.studentZoe,
-    screenCaption: "When Zoe answers 15, Sprig doesn't praise it. It keeps Zoe's method, asks them to check 3 × 4, then hands over a new problem to try alone.",
     blurbs: [
-      { icon: ExploreSparks, title: 'Explore What Makes You Curious', text: 'Daily prompts tailored to your interests — rabbit holes worth going down. No grades, just discovery that builds genuine curiosity.', color: 'grit-gold' },
-      { icon: AdaptiveTutor, title: 'A Tutor That Steps Back', text: 'Questions get harder as you grow. Scaffolding fades as mastery increases. The goal is you not needing it.', color: 'mentra-blue' },
-      { icon: BoundedSession, title: 'A Tutor That Knows When to Stop', text: "Every Sprig session has a hard cap: 20 messages, 10 minutes, and a mandatory reflection before the session can close. Not because we're rationing AI — because reflection is where learning actually consolidates. Sprig won't let you skip that part.", color: 'wisdom-purple' },
-      { icon: StuckDetection, title: 'Help That Builds Your Thinking', text: 'Detects when you\'re stuck and guides your thinking rather than handing you the answer.', color: 'curiosity-coral' },
-      { icon: CodeBuild, title: 'Code, Build, and Create', text: 'Write real code with an AI mentor that teaches systematic thinking — then lets you fly solo.', color: 'growth-green' },
-      { icon: LearnerPassport, title: 'More Than a Number', text: "A Learner Passport that records the work you've done, from journal entries and goals to the milestones you've reached, and grows as more of your activity is counted.", color: 'wisdom-purple' },
-      { icon: XPSprigs, title: 'Earn XP, Grow Your Sprig', text: 'Earn experience points for effort and growth — not just right answers. Your Sprig grows as you do, rewarding the work you put in.', color: 'grit-gold' },
-      { icon: ReflectJournal, title: 'Reflect and Own Your Growth', text: 'Journaling, mood check-ins, and goal-setting that teach you to notice your own patterns — a skill you keep.', color: 'mentra-blue' },
+      { icon: ExploreSparks, title: 'Explore What Makes Them Curious', text: 'Daily prompts tailored to their interests: rabbit holes worth going down. No grades, just discovery that builds genuine curiosity.', color: 'grit-gold' },
+      { icon: AdaptiveTutor, title: 'A Tutor That Steps Back', text: 'Questions get harder as your child grows, and support fades as they show a skill. The goal is for them not to need it.', color: 'mentra-blue' },
+      { icon: BoundedSession, title: 'A Tutor That Knows When to Stop', text: "Every Sprig session has a hard cap: 20 messages, 10 minutes, and a reflection before the session can close. Not because we're rationing AI, but because reflection is where learning consolidates.", color: 'wisdom-purple' },
+      { icon: StuckDetection, title: 'Help That Builds Their Thinking', text: "Notices when your child is stuck and guides their thinking rather than handing them the answer.", color: 'curiosity-coral' },
+      { icon: CodeBuild, title: 'Code, Build, and Create', text: 'Your child writes real code with Sprig as a mentor that teaches systematic thinking, then lets them fly solo.', color: 'growth-green' },
+      { icon: LearnerPassport, title: 'More Than a Number', text: "A Learner Passport that records the work your child has done, from journal entries and goals to the milestones they've reached, and grows as more of their activity is counted.", color: 'wisdom-purple' },
+      { icon: XPSprigs, title: 'XP for Effort, Not Just Answers', text: 'Your child earns experience points for effort and growth, not just right answers, and their Sprig grows as they do.', color: 'grit-gold' },
+      { icon: ReflectJournal, title: 'Reflection They Own', text: 'Journaling, mood check-ins and goal-setting that teach your child to notice their own patterns: a skill they keep.', color: 'mentra-blue' },
     ],
   },
   {
     id: 'teachers',
-    tabLabel: 'Teachers',
-    headline: React.createElement('span', null,
-      'See everything. Control everything.',
-      React.createElement('br'),
-      React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent' }, 'The AI works for you.')
-    ),
-    subtext: "Intelligence that amplifies your judgment — never replaces it.",
-    screen: screens.teacherBrief,
-    screenCaption: "Signals are written as sentences, not scores. When the evidence is thin, the brief says so instead of guessing.",
-    deepDive: {
-      eyebrow: 'For teachers',
-      title: 'See what Mentra shows you each day',
-      description: "Today's Brief, class analytics and recommendations, in real screens.",
-      ctaLabel: 'Mentra for teachers',
-      href: '/teachers',
-    },
     blurbs: [
       { icon: IntelligenceHub, title: 'Know Who Needs You First', text: 'See which students need help now, who\'s coasting, and where to focus your energy — before the day starts.', color: 'mentra-blue' },
       { icon: FadingTrend, title: 'The Trend That Matters Most', text: "For every student, you see an 8-week sparkline of how much AI help they've needed — and whether that line is going down. Mentra's job is to make itself less necessary. This is how you watch it happen.", color: 'growth-green' },
@@ -100,22 +51,6 @@ export const personas: Persona[] = [
   },
   {
     id: 'parents',
-    tabLabel: 'Parents',
-    headline: React.createElement('span', null,
-      "Your attention is too valuable to waste.",
-      React.createElement('br'),
-      React.createElement('span', { className: 'bg-gradient-to-r from-grit-gold to-curiosity-coral bg-clip-text text-transparent' }, "We only speak up when it matters.")
-    ),
-    subtext: "Quiet when things are fine. Unmissable when they're not. You control everything.",
-    screen: screens.parentOneQuestion,
-    screenCaption: "One small thing to try at home each week, and a way to tell Mentra whether it landed. When there's nothing specific to tailor it to, it says it's a general tip.",
-    deepDive: {
-      eyebrow: 'For families',
-      title: 'See what your child sees, and what you control',
-      description: "Real screens from the student and parent views, plus every consent setting.",
-      ctaLabel: 'Mentra for families',
-      href: '/parents',
-    },
     blurbs: [
       { icon: StatusLight, title: 'One Status. Three Colors. The Right One.', text: "Green means your child's need for AI help is fading — independence is growing. Yellow means it's steady. Red means it's rising and a teacher should know. Tap the badge for the why and the trend.", color: 'growth-green' },
       { icon: FullDashboard, title: 'Plain Language, Not Data Dumps', text: 'A calm, plain-language story of how your child is learning to think — not spreadsheets. And when it\'s early, an honest "this will fill in as they work" instead of a meaningless number.', color: 'mentra-blue' },
@@ -130,15 +65,6 @@ export const personas: Persona[] = [
   },
   {
     id: 'institutions',
-    tabLabel: 'Districts',
-    headline: React.createElement('span', null,
-      'Every claim is provable.',
-      React.createElement('br'),
-      React.createElement('span', { className: 'bg-gradient-to-r from-mentra-blue to-wisdom-purple bg-clip-text text-transparent' }, 'Every control is real.')
-    ),
-    subtext: "Compliance built into the architecture — not promised in a contract.",
-    screen: screens.teacherAnalytics,
-    screenCaption: 'One investigation, one screen: how many students are growing, where the class stalls, and what to assign next. Each section links to its evidence.',
     blurbs: [
       { icon: AltitudeView, title: 'An Altitude View, Never Surveillance', text: 'See where understanding is genuinely established versus still emerging, equity across cohorts, and an engine-decided queue of where to focus — always at the aggregate, never surveilling an individual child.', color: 'mentra-blue' },
       { icon: ComplianceShield, title: 'Compliance by Architecture', text: 'Dozens of automated policy gates run on every code change, enforcing security, AI safety, and tenant isolation. Audit evidence is generated from real system state — not self-reported assertions.', color: 'mentra-blue' },
@@ -155,12 +81,5 @@ export const personas: Persona[] = [
       { value: '26', label: 'Data domains in a full archive' },
       { value: '<1s', label: 'AI kill switch response' },
     ],
-    deepDive: {
-      eyebrow: 'For schools and districts',
-      title: 'Judge Mentra on learning, not logins',
-      description: 'Real screens, a pilot plan with agreed measures, and the governance details your board will ask about.',
-      ctaLabel: 'Mentra for schools',
-      href: '/schools',
-    },
   },
 ];
