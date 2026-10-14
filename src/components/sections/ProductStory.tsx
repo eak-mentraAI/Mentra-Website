@@ -33,9 +33,9 @@ const steps: Step[] = [
   },
   {
     eyebrow: 'Investigations',
-    title: 'Feedback on the reasoning, not a score.',
-    text: "On a finished investigation, Sprig responds to what the student actually wrote. It credits them for lowering their confidence when a rival explanation held up, and points out the one weak spot in their test.",
-    screen: screens.studentVerdict,
+    title: 'Pushes on the vaguest part.',
+    text: "Investigating why shade plants grow bigger, darker leaves, a student builds a chain of whys. Sprig skips the praise and asks about the fuzziest phrase, \"using its energy different\": what has to happen first?",
+    screen: screens.studentWhyChain,
   },
 ];
 

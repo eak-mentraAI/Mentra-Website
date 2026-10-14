@@ -84,6 +84,19 @@ export const screens = {
       goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
     },
   ),
+  studentWhyChain: screen(
+    'student-why-chain', 1400, 431, 'Student · Investigations',
+    "An investigation of the claim that plants in shade grow larger, darker green leaves. The student's why-chain has two levels: the plant needs bigger leaves to catch light, then it senses low light, makes more chlorophyll, and uses its energy differently. Sprig asks what has to happen first before the plant can put its energy into bigger leaves.",
+    {
+      kind: 'records',
+      items: [
+        'How deep the why-chain goes, level by level',
+        'Whether the student notes more than one cause at a level',
+        'The evidence they tag and the cause-and-effect map they build next',
+      ],
+      goesTo: "The saved investigation feeds the student's Cognitive Mirror and the teacher's class radar; the same signals also go to the learner graph",
+    },
+  ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
     "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",
