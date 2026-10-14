@@ -60,8 +60,8 @@ export const screens = {
     qaSignals('Priya'),
   ),
   studentSignalNoise: screen(
-    'student-signal-noise', 1340, 752, 'Student · Signal & Noise',
-    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, under Your Frame and What You Caught & What You Let Through. It credits the student's focus on logical structure and suggests asking who each source is written for.",
+    'student-signal-noise', 1300, 1273, 'Student · Signal & Noise',
+    "Sprig's coaching after a student ranks three explanations of error-message design, choosing Option C first. Your Frame notes the student set out with an audience lens but ranked on depth and evidence. What You Caught credits the specific details used from Option C and asks who each piece is written for. The Thread says this is the student's first evaluation, so there's no pattern yet. Your Next Edge suggests a sentence to write about each option before ranking next time.",
     {
       kind: 'records',
       items: [
@@ -97,6 +97,10 @@ export const screens = {
       goesTo: "The saved investigation feeds the student's Cognitive Mirror and the teacher's class radar; the same signals also go to the learner graph",
     },
   ),
+  studentPrompting: screen(
+    'student-prompting', 1400, 647, 'Student · Prompt Engineering',
+    "Sprig's feedback on a student's prompt for the Haiku Teacher challenge, which asks for a prompt that includes 2 to 3 example haikus. Score 42%. It credits the everyday topics and the 5-7-5 rule, then points out the prompt asks the AI for examples without including any, and suggests writing one haiku and putting it in the prompt.",
+  ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
     "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",
@@ -122,10 +126,6 @@ export const screens = {
     'teacher-brief', 1400, 517, "Teacher · Today's Brief",
     "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",
   ),
-  teacherIndependence: screen(
-    'teacher-independence', 1400, 717, 'Teacher · Independence Report',
-    'The Cognitive Independence Report: without enough recent work, it says it is waiting for real work instead of guessing, and shows a preview of sample reads, each clearly labelled SAMPLE.',
-  ),
   teacherAnalytics: screen(
     'teacher-analytics', 1400, 782, 'Teacher · Investigation analytics',
     "Analytics for one investigation: 4 of 6 students growing, the class's biggest room to grow and a suggested next move, a class radar across five reasoning skills from 6 students and 23 sessions, and the levels where the class most often got stuck.",
@@ -146,7 +146,32 @@ export const screens = {
     'parent-one-question', 1400, 354, 'Parent · One question this week',
     "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
   ),
+  teacherSignalLanding: screen(
+    'teacher-signal-landing', 1400, 416, 'Teacher · Independence Report',
+    "One student's row in the teacher's Independence Report, as of Oct 14, 2026, with supporting evidence open. It reads 'Independent work falling' with moderate confidence. Help intensity and hint reliance don't have enough recent signal yet, transfer across contexts isn't demonstrated, and the suggested next step is to watch the trend instead of guessing.",
+    {
+      kind: 'reads',
+      items: [
+        "Independent-attempt scores from each of the student's Q&A replies",
+        "Help intensity and hint reliance, once there's enough data",
+        'Whether a skill has carried across two different contexts',
+      ],
+      goesTo: "The student's learner graph, over a 14-day window",
+    },
+  ),
+  teacherParentMessage: screen(
+    'teacher-parent-message', 1400, 978, 'Teacher · Messages with families',
+    "Ms. Alvarez's message to Jordan's parent about Jordan's sunlight conversation with Sprig, quoting Jordan's own words from it and suggesting a question to ask at home, with the parent's reply.",
+  ),
+  parentTeacherMessage: screen(
+    'parent-teacher-message', 1400, 1033, 'Parent · Messages with the teacher',
+    "The parent's view of the same thread: the teacher's message about Jordan's sunlight conversation with Sprig, and the parent's reply saying they'll ask about the plant in the dark at dinner.",
+  ),
+  parentPassport: screen(
+    'parent-passport', 1400, 283, 'Parent · Learner Passport',
+    "Milestones on a child's Learner Passport, as the parent sees it: Reflection Beginner and Dream Planter reached, with Story Weaver at 4 of 10 journal entries and Goal Builder at 2 of 5 goals next.",
+  ),
 } satisfies Record<string, Screen>;
 
 export const SHOWCASE_DISCLOSURE =
-  'Synthetic students, real Sprig responses: these examples show the real experience without exposing any child\'s data.';
+  'Synthetic students and families, real Sprig responses: these examples show the real experience without exposing any child\'s data.';

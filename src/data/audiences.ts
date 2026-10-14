@@ -49,9 +49,19 @@ export const audiences: Audience[] = [
         screen: screens.teacherAnalytics,
       },
       {
+        title: 'Every read shows its evidence',
+        text: "A student's reply to Sprig is scored as an independent attempt and, the same day, becomes evidence behind their row in the Independence Report. One good reply doesn't flip the read, and where there isn't enough data the report says so.",
+        screen: screens.teacherSignalLanding,
+      },
+      {
         title: 'Nothing happens until you approve it',
         text: "Every recommendation shows what it's based on, what success looks like and when it may be wrong. You approve, modify or dismiss it, and when the evidence is thin it says so.",
         screen: screens.teacherRecommendation,
+      },
+      {
+        title: 'Share growth with families in one message',
+        text: "Tell a parent what happened in their child's own words, and one thing to ask at home. Their reply comes back to you.",
+        screen: screens.teacherParentMessage,
       },
     ],
     moreTitle: 'More for teachers',
@@ -72,9 +82,19 @@ export const audiences: Audience[] = [
         screen: screens.studentPriya,
       },
       {
+        title: 'A story from the teacher, not just a grade',
+        text: "Your child's teacher can share what happened in a conversation with Sprig, in your child's own words, with one thing to ask at dinner.",
+        screen: screens.parentTeacherMessage,
+      },
+      {
         title: 'One small thing to try at home',
         text: 'Each week you get one two-minute idea, not a report card. Tap a button to tell Mentra whether it landed.',
         screen: screens.parentOneQuestion,
+      },
+      {
+        title: "A record of what your child has done",
+        text: "The Learner Passport shows milestones your child has reached and what's next. It's honest about its limits: not every activity is counted there yet.",
+        screen: screens.parentPassport,
       },
       {
         title: 'Every permission, in plain words',
@@ -106,8 +126,8 @@ export const audiences: Audience[] = [
       },
       {
         title: 'Honest about what it doesn\'t know yet',
-        text: "Reports that need weeks of data say so, instead of producing a number your board can't trust.",
-        screen: screens.teacherIndependence,
+        text: "Each student's read is built from their recent work and shows its evidence. Where there isn't enough data, it says so instead of producing a number your board can't trust.",
+        screen: screens.teacherSignalLanding,
       },
     ],
     pilot: [

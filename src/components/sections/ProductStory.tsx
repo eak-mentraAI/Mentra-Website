@@ -22,7 +22,7 @@ const steps: Step[] = [
   {
     eyebrow: 'Signal & Noise',
     title: 'Coaching on how they judged, not what they picked.',
-    text: 'In the Signal & Noise game, students rank sources and explain why. Sprig responds to their reasoning: what they caught, what they let through, and the question to ask next time.',
+    text: "In the Signal & Noise game, students rank sources and explain why. Sprig coaches how they judged: what they caught, the lens they drifted from, and one concrete habit for next time. On a first evaluation, it says there's no pattern to call out yet.",
     screen: screens.studentSignalNoise,
   },
   {
@@ -30,6 +30,12 @@ const steps: Step[] = [
     title: 'Points at the bug, not the fix.',
     text: "A student's program prints 2 when they watered the plant three times. Sprig confirms the part that works, points at len(waterings) and asks what it's actually counting. The student works out it's counting plants, not days, and goes to fix it themselves.",
     screen: screens.studentCoding,
+  },
+  {
+    eyebrow: 'AI literacy',
+    title: 'Teaches students to prompt well.',
+    text: "The challenge: write a prompt with two or three example haikus. A student asks the AI for examples instead of including any. Sprig scores it 42%, names exactly that miss, and suggests writing one haiku and putting it in the prompt.",
+    screen: screens.studentPrompting,
   },
   {
     eyebrow: 'Investigations',
@@ -58,7 +64,7 @@ const ProductStory = () => {
               How Sprig teaches, across Mentra
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Tutoring, games, coding and investigations. Real screens, cropped but not edited, and what each one records.
+              Tutoring, games, coding, AI literacy and investigations. Real screens, cropped but not edited, and what they record.
             </p>
           </div>
         </AnimateOnScroll>
@@ -66,7 +72,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-5 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >
