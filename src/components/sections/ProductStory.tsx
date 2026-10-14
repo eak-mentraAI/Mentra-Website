@@ -20,16 +20,16 @@ const steps: Step[] = [
     screen: screens.studentJordan,
   },
   {
-    eyebrow: 'Choosing a method',
-    title: "Asks for the student's thinking first.",
-    text: "Priya asks which method is better. Before answering, Sprig asks how Priya would use one. Over the next few turns Priya tests messier numbers and works out the rule themselves: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
-    screen: screens.studentPriya,
-  },
-  {
     eyebrow: 'Signal & Noise',
     title: 'Coaching on how they judged, not what they picked.',
     text: 'In the Signal & Noise game, students rank sources and explain why. Sprig responds to their reasoning: what they caught, what they let through, and the question to ask next time.',
     screen: screens.studentSignalNoise,
+  },
+  {
+    eyebrow: 'Coding',
+    title: 'Points at the bug, not the fix.',
+    text: "A student's program prints 2 when they watered the plant three times. Sprig confirms the part that works, points at len(waterings) and asks what it's actually counting. The student works out it's counting plants, not days, and goes to fix it themselves.",
+    screen: screens.studentCoding,
   },
   {
     eyebrow: 'Investigations',
@@ -58,7 +58,7 @@ const ProductStory = () => {
               How Sprig teaches, across Mentra
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Tutoring, games and investigations. Real screens, cropped but not edited, and what each one records.
+              Tutoring, games, coding and investigations. Real screens, cropped but not edited, and what each one records.
             </p>
           </div>
         </AnimateOnScroll>

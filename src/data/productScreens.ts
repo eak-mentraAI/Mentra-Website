@@ -72,6 +72,18 @@ export const screens = {
       goesTo: "The learner graph tracks calibration and reflection over time, and trade-offs and reasoning feed a decision-quality read. The game's own judgment profile updates too",
     },
   ),
+  studentCoding: screen(
+    'student-coding', 1400, 742, 'Student · Coding with Sprig',
+    "A student's Python program records watering days in a dictionary but prints len(waterings), which counts the two plants instead of the window plant's three watering days. The student asks why it prints 2. Sprig says the water function works, points to len(waterings) and asks what waterings is and what len counts on a dictionary. The student works out that len counts the keys, and Sprig sends them to look at what's inside waterings[\"window plant\"].",
+    {
+      kind: 'records',
+      items: [
+        'Debugging persistence: attempts, time spent, and whether the bug gets resolved',
+        'Whether the student reaches the fix unaided',
+      ],
+      goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
+    },
+  ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
     "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",
