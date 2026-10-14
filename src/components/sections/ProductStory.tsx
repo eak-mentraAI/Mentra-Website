@@ -10,11 +10,17 @@ type Step = {
   screen: Screen;
 };
 
-// Real Sprig output from the 2026-10-13 shoot (simulated students that reply to Sprig) plus the 2026-10-12 verdict.
+// Real Sprig output from the 2026-10-13/14 shoots (simulated students that reply to Sprig) plus the 2026-10-12 verdict.
 // Full transcripts reviewed, not just the cropped turns: marketing/carousel/<date>/transcripts in the app repo.
 const steps: Step[] = [
   {
-    eyebrow: 'Q&A',
+    eyebrow: 'Asking for the answer',
+    title: '"Can you just tell me the answer?"',
+    text: "Jordan asks Sprig for the answer. Sprig says no, asks what Jordan thinks is going on, then offers one foothold: plants make their own food. From there Jordan works out that sunlight is the energy for making glucose, and what happens to a plant without it.",
+    screen: screens.studentJordan,
+  },
+  {
+    eyebrow: 'Choosing a method',
     title: "Asks for the student's thinking first.",
     text: "Priya asks which method is better. Before answering, Sprig asks how Priya would use one. Over the next few turns Priya tests messier numbers and works out the rule themselves: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
     screen: screens.studentPriya,
@@ -60,7 +66,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-3 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >

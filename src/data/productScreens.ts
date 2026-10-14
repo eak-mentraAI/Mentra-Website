@@ -22,6 +22,16 @@ export interface Screen {
   signals?: SignalTrail;
 }
 
+const qaSignals = (name: string): SignalTrail => ({
+  kind: 'records',
+  items: [
+    "Sprig's grade of how well each reply shows the skill, which updates their mastery estimate for it",
+    'Whether they reached the idea unaided',
+    'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether they later succeed without it',
+  ],
+  goesTo: `${name}'s learner graph, which the teacher's Independence Report reads`,
+});
+
 const screen = (
   file: string, width: number, height: number, label: string, alt: string, signals?: SignalTrail,
 ): Screen => ({
@@ -34,18 +44,15 @@ const screen = (
 });
 
 export const screens = {
+  studentJordan: screen(
+    'student-jordan', 1400, 562, 'Student · Q&A with Sprig',
+    "Jordan asks Sprig to just tell them the answer to a sunlight question. Sprig says it won't hand over the answer and asks what Jordan has tried or thinks is going on. Jordan guesses plants need sunlight to grow but doesn't know why.",
+    qaSignals('Jordan'),
+  ),
   studentPriya: screen(
     'student-priya', 1400, 688, 'Student · Q&A with Sprig',
     "Sprig asks Priya whether 3/4 = x/6 has a clean whole-number scale factor. Priya says 4 to 6 isn't a clean multiplier, so they'd cross multiply and get x = 4.5. Sprig names the decision rule Priya worked out: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
-    {
-      kind: 'records',
-      items: [
-        "Sprig's grade of how well each reply shows the skill, which updates their mastery estimate for it",
-        'Whether they reached the idea unaided',
-        'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether they later succeed without it',
-      ],
-      goesTo: "Priya's learner graph, which the teacher's Independence Report reads",
-    },
+    qaSignals('Priya'),
   ),
   studentSignalNoise: screen(
     'student-signal-noise', 1340, 752, 'Student · Signal & Noise',
