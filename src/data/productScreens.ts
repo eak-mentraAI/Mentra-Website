@@ -60,8 +60,8 @@ export const screens = {
     qaSignals('Priya'),
   ),
   studentSignalNoise: screen(
-    'student-signal-noise', 1340, 752, 'Student · Signal & Noise',
-    "Sprig's coaching after a student ranks two persuasive-letter sources in the Signal & Noise game, under Your Frame and What You Caught & What You Let Through. It credits the student's focus on logical structure and suggests asking who each source is written for.",
+    'student-signal-noise', 1300, 1273, 'Student · Signal & Noise',
+    "Sprig's coaching after a student ranks three explanations of error-message design, choosing Option C first. Your Frame notes the student set out with an audience lens but ranked on depth and evidence. What You Caught credits the specific details used from Option C and asks who each piece is written for. The Thread says this is the student's first evaluation, so there's no pattern yet. Your Next Edge suggests a sentence to write about each option before ranking next time.",
     {
       kind: 'records',
       items: [
