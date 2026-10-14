@@ -56,8 +56,8 @@ export const personas: Persona[] = [
       '.'
     ),
     subtext: "Mentra adapts to how you think, then steps back as you get stronger.",
-    screen: screens.studentVerdict,
-    screenCaption: "Feedback on a finished investigation, written about what the student actually argued: what held up, what didn't, and the next thing to test.",
+    screen: screens.studentZoe,
+    screenCaption: "When Zoe answers 15, Sprig doesn't praise it. It keeps Zoe's method, asks them to check 3 × 4, then hands over a new problem to try alone.",
     blurbs: [
       { icon: ExploreSparks, title: 'Explore What Makes You Curious', text: 'Daily prompts tailored to your interests — rabbit holes worth going down. No grades, just discovery that builds genuine curiosity.', color: 'grit-gold' },
       { icon: AdaptiveTutor, title: 'A Tutor That Steps Back', text: 'Questions get harder as you grow. Scaffolding fades as mastery increases. The goal is you not needing it.', color: 'mentra-blue' },

@@ -10,14 +10,14 @@ type Step = {
   screen: Screen;
 };
 
-// Real Sprig output from the 2026-10-13 shoot (simulated students that reply to Sprig) plus the 2026-10-12 verdict.
+// Real Sprig output from the 2026-10-13/14 shoots (simulated students that reply to Sprig) plus the 2026-10-12 verdict.
 // Full transcripts reviewed, not just the cropped turns: marketing/carousel/<date>/transcripts in the app repo.
 const steps: Step[] = [
   {
-    eyebrow: 'Q&A',
-    title: "Asks for the student's thinking first.",
-    text: "Priya asks which method is better. Before answering, Sprig asks how Priya would use one. Over the next few turns Priya tests messier numbers and works out the rule themselves: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
-    screen: screens.studentPriya,
+    eyebrow: 'Asking for the answer',
+    title: '"Can you just tell me the answer?"',
+    text: "Jordan asks Sprig for the answer. Sprig says no, asks what Jordan thinks is going on, then offers one foothold: plants make their own food. From there Jordan works out that sunlight is the energy for making glucose, and what happens to a plant without it.",
+    screen: screens.studentJordan,
   },
   {
     eyebrow: 'Signal & Noise',
@@ -26,10 +26,16 @@ const steps: Step[] = [
     screen: screens.studentSignalNoise,
   },
   {
+    eyebrow: 'Coding',
+    title: 'Points at the bug, not the fix.',
+    text: "A student's program prints 2 when they watered the plant three times. Sprig confirms the part that works, points at len(waterings) and asks what it's actually counting. The student works out it's counting plants, not days, and goes to fix it themselves.",
+    screen: screens.studentCoding,
+  },
+  {
     eyebrow: 'Investigations',
-    title: 'Feedback on the reasoning, not a score.',
-    text: "On a finished investigation, Sprig responds to what the student actually wrote. It credits them for lowering their confidence when a rival explanation held up, and points out the one weak spot in their test.",
-    screen: screens.studentVerdict,
+    title: 'Pushes on the vaguest part.',
+    text: "Investigating why shade plants grow bigger, darker leaves, a student builds a chain of whys. Sprig skips the praise and asks about the fuzziest phrase, \"using its energy different\": what has to happen first?",
+    screen: screens.studentWhyChain,
   },
 ];
 
@@ -52,7 +58,7 @@ const ProductStory = () => {
               How Sprig teaches, across Mentra
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Tutoring, games and investigations. Real screens, cropped but not edited, and what each one records.
+              Tutoring, games, coding and investigations. Real screens, cropped but not edited, and what each one records.
             </p>
           </div>
         </AnimateOnScroll>
@@ -60,7 +66,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-3 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >

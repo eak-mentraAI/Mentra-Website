@@ -22,6 +22,16 @@ export interface Screen {
   signals?: SignalTrail;
 }
 
+const qaSignals = (name: string): SignalTrail => ({
+  kind: 'records',
+  items: [
+    "Sprig's grade of how well each reply shows the skill, which updates their mastery estimate for it",
+    'Whether they reached the idea unaided',
+    'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether they later succeed without it',
+  ],
+  goesTo: `${name}'s learner graph, which the teacher's Independence Report reads`,
+});
+
 const screen = (
   file: string, width: number, height: number, label: string, alt: string, signals?: SignalTrail,
 ): Screen => ({
@@ -34,18 +44,20 @@ const screen = (
 });
 
 export const screens = {
+  studentJordan: screen(
+    'student-jordan', 1400, 562, 'Student · Q&A with Sprig',
+    "Jordan asks Sprig to just tell them the answer to a sunlight question. Sprig says it won't hand over the answer and asks what Jordan has tried or thinks is going on. Jordan guesses plants need sunlight to grow but doesn't know why.",
+    qaSignals('Jordan'),
+  ),
+  studentZoe: screen(
+    'student-zoe', 1400, 698, 'Student · Q&A with Sprig',
+    "Zoe answers 15 for x in 3/5 = x/20. Sprig says not quite, keeps Zoe's method of multiplying the top by 4, and asks what 3 times 4 is. Zoe answers 12, Sprig confirms x = 12 and gives a new problem to try: 2 is to 7 as x is to 35.",
+    qaSignals('Zoe'),
+  ),
   studentPriya: screen(
     'student-priya', 1400, 688, 'Student · Q&A with Sprig',
     "Sprig asks Priya whether 3/4 = x/6 has a clean whole-number scale factor. Priya says 4 to 6 isn't a clean multiplier, so they'd cross multiply and get x = 4.5. Sprig names the decision rule Priya worked out: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
-    {
-      kind: 'records',
-      items: [
-        "Sprig's grade of how well each reply shows the skill, which updates their mastery estimate for it",
-        'Whether they reached the idea unaided',
-        'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether they later succeed without it',
-      ],
-      goesTo: "Priya's learner graph, which the teacher's Independence Report reads",
-    },
+    qaSignals('Priya'),
   ),
   studentSignalNoise: screen(
     'student-signal-noise', 1340, 752, 'Student · Signal & Noise',
@@ -58,6 +70,31 @@ export const screens = {
         'Whether they weighed trade-offs, and how developed their reasoning was',
       ],
       goesTo: "The learner graph tracks calibration and reflection over time, and trade-offs and reasoning feed a decision-quality read. The game's own judgment profile updates too",
+    },
+  ),
+  studentCoding: screen(
+    'student-coding', 1400, 742, 'Student · Coding with Sprig',
+    "A student's Python program records watering days in a dictionary but prints len(waterings), which counts the two plants instead of the window plant's three watering days. The student asks why it prints 2. Sprig says the water function works, points to len(waterings) and asks what waterings is and what len counts on a dictionary. The student works out that len counts the keys, and Sprig sends them to look at what's inside waterings[\"window plant\"].",
+    {
+      kind: 'records',
+      items: [
+        'Debugging persistence: attempts, time spent, and whether the bug gets resolved',
+        'Whether the student reaches the fix unaided',
+      ],
+      goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
+    },
+  ),
+  studentWhyChain: screen(
+    'student-why-chain', 1400, 431, 'Student · Investigations',
+    "An investigation of the claim that plants in shade grow larger, darker green leaves. The student's why-chain has two levels: the plant needs bigger leaves to catch light, then it senses low light, makes more chlorophyll, and uses its energy differently. Sprig asks what has to happen first before the plant can put its energy into bigger leaves.",
+    {
+      kind: 'records',
+      items: [
+        'How deep the why-chain goes, level by level',
+        'Whether the student notes more than one cause at a level',
+        'The evidence they tag and the cause-and-effect map they build next',
+      ],
+      goesTo: "The saved investigation feeds the student's Cognitive Mirror and the teacher's class radar; the same signals also go to the learner graph",
     },
   ),
   studentVerdict: screen(
