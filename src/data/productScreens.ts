@@ -54,11 +54,6 @@ export const screens = {
     "Zoe answers 15 for x in 3/5 = x/20. Sprig says not quite, keeps Zoe's method of multiplying the top by 4, and asks what 3 times 4 is. Zoe answers 12, Sprig confirms x = 12 and gives a new problem to try: 2 is to 7 as x is to 35.",
     qaSignals('Zoe'),
   ),
-  studentPriya: screen(
-    'student-priya', 1400, 688, 'Student · Q&A with Sprig',
-    "Sprig asks Priya whether 3/4 = x/6 has a clean whole-number scale factor. Priya says 4 to 6 isn't a clean multiplier, so they'd cross multiply and get x = 4.5. Sprig names the decision rule Priya worked out: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
-    qaSignals('Priya'),
-  ),
   studentSignalNoise: screen(
     'student-signal-noise', 1300, 1273, 'Student · Signal & Noise',
     "Sprig's coaching after a student ranks three explanations of error-message design, choosing Option C first. Your Frame notes the student set out with an audience lens but ranked on depth and evidence. What You Caught credits the specific details used from Option C and asks who each piece is written for. The Thread says this is the student's first evaluation, so there's no pattern yet. Your Next Edge suggests a sentence to write about each option before ranking next time.",
@@ -100,6 +95,19 @@ export const screens = {
   studentPrompting: screen(
     'student-prompting', 1400, 647, 'Student · Prompt Engineering',
     "Sprig's feedback on a student's prompt for the Haiku Teacher challenge, which asks for a prompt that includes 2 to 3 example haikus. Score 42%. It credits the everyday topics and the 5-7-5 rule, then points out the prompt asks the AI for examples without including any, and suggests writing one haiku and putting it in the prompt.",
+  ),
+  studentExploration: screen(
+    'student-exploration', 1400, 244, 'Student · Free Explore',
+    "In an open exploration about a carnival game with a 1-in-10 chance to win, a student asks whether playing 10 times guarantees a win. Sprig says it's not a guarantee: each turn is its own 1-in-10 chance, you'd expect to win about once on average, and some people win twice or not at all. It suggests a try-it with ten objects, one marked with an X.",
+    {
+      kind: 'records',
+      items: [
+        'How far the student explores beyond the opening idea',
+        'The follow-up questions they choose to ask',
+        'How engaged they stay through the session',
+      ],
+      goesTo: "The student's learner graph",
+    },
   ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",

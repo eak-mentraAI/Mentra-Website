@@ -4,11 +4,10 @@ import Header from '../components/layout/Header';
 import HeroSection from '../components/sections/HeroSection';
 import ProductStory from '../components/sections/ProductStory';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
-import PersonaSwitcher from '../components/sections/PersonaSwitcher';
+import AudienceLinks from '../components/sections/AudienceLinks';
 import PricingSection from '../components/sections/PricingSection';
 import TrustSection from '../components/sections/TrustSection';
 import FAQSection from '../components/sections/FAQSection';
-import SponsorCallout from '../components/sections/SponsorCallout';
 import Footer from '../components/layout/Footer';
 import FloatingSprig from '../components/FloatingSprig';
 import HairlineDivider from '../components/ui/HairlineDivider';
@@ -34,12 +33,11 @@ const Index = () => {
       <ProductStory />
       <HowItWorksSection />
       <div className="bg-gray-50 pb-10"><HairlineDivider width="md" /></div>
-      <PersonaSwitcher />
+      <AudienceLinks />
       <TrustSection />
       <PricingSection />
       <div className="bg-white py-10"><HairlineDivider width="md" /></div>
       <FAQSection />
-      <SponsorCallout />
       <Footer />
       <FloatingSprig />
     </div>

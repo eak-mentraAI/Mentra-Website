@@ -31,12 +31,15 @@ interface TrustSectionProps {
   /** Which real screen to show under the commitments */
   screen?: Screen;
   caption?: string;
+  /** Show the consent screen under the commitments (homepage and the Parents page) */
+  showScreen?: boolean;
   className?: string;
 }
 
 const TrustSection = ({
   screen = screens.parentConsent,
   caption = 'What a parent sees: active consent, its history, one-click revoke, data deletion, and an export of every AI conversation.',
+  showScreen = true,
   className = 'bg-gray-50',
 }: TrustSectionProps) => (
   <section id="trust" className={`py-24 ${className}`} aria-labelledby="trust-heading">
@@ -50,7 +53,7 @@ const TrustSection = ({
         </h2>
       </AnimateOnScroll>
 
-      <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+      <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {commitments.map((c, i) => (
           <AnimateOnScroll key={c.title} delay={i * 100}>
             <div className="bg-white rounded-2xl p-6 h-full border border-gray-100">
@@ -64,11 +67,13 @@ const TrustSection = ({
         ))}
       </div>
 
-      <AnimateOnScroll>
-        <div className="max-w-5xl mx-auto">
-          <ProductScreen screen={screen} caption={caption} />
-        </div>
-      </AnimateOnScroll>
+      {showScreen && (
+        <AnimateOnScroll>
+          <div className="max-w-5xl mx-auto mt-12">
+            <ProductScreen screen={screen} caption={caption} />
+          </div>
+        </AnimateOnScroll>
+      )}
     </div>
   </section>
 );

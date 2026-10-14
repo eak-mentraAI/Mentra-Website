@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { ArrowRight, Heart } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 
 const CTASection = () => {
   const { open: openScheduleCall } = useScheduleCall();
+  const { pathname } = useLocation();
 
   return (
     <section data-sprig-cta className="py-24 bg-gray-900 relative overflow-hidden">
@@ -32,6 +34,17 @@ const CTASection = () => {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
+
+            {/* Second path, merged in from the old homepage Sponsor callout */}
+            {pathname !== '/sponsor-a-school' && (
+              <p className="text-gray-400 text-sm sm:text-base">
+                <Heart className="inline w-4 h-4 mr-1.5 -mt-0.5 text-curiosity-coral" aria-hidden="true" />
+                Know a school that can&rsquo;t afford it?{' '}
+                <Link to="/sponsor-a-school" className="text-white font-semibold underline-offset-4 hover:underline">
+                  Sponsor a year of Mentra
+                </Link>
+              </p>
+            )}
           </div>
           </AnimateOnScroll>
         </div>
