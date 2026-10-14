@@ -3,6 +3,8 @@ import { BookOpen, Sparkles, FileText, Users, BarChart3 } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScrollTimeline from '@/components/sections/ScrollTimeline';
 import PulledQuote from '@/components/ui/PulledQuote';
+import ProductScreen from '@/components/ui/ProductScreen';
+import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 
 const flywheel = [
   {
@@ -117,6 +119,22 @@ const HowItWorksSection = () => {
             </h3>
           </AnimateOnScroll>
           <ScrollTimeline steps={flywheel} />
+
+          {/* One real reply, traced from Sprig to the teacher's report (2026-10-14 signal-landing frame) */}
+          <AnimateOnScroll>
+            <div className="max-w-5xl mx-auto mt-16">
+              <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 text-balance">One reply, traced to the teacher</h4>
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
+                A student answered Sprig in their own words: &ldquo;it&rsquo;s the energy source&hellip; it powers the whole thing
+                so the plant can make food.&rdquo; The reply was scored as an independent attempt, stored, and minutes later it was
+                the newest evidence behind that student&rsquo;s row in the teacher&rsquo;s Independence Report. One good reply
+                doesn&rsquo;t flip the read: the report weighs all recent work, and says &ldquo;not enough data yet&rdquo; where it
+                can&rsquo;t tell.
+              </p>
+              <ProductScreen screen={screens.teacherSignalLanding} />
+              <p className="text-xs text-gray-400 mt-4">{SHOWCASE_DISCLOSURE}</p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

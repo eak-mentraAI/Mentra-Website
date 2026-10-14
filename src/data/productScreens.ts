@@ -122,10 +122,6 @@ export const screens = {
     'teacher-brief', 1400, 517, "Teacher · Today's Brief",
     "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",
   ),
-  teacherIndependence: screen(
-    'teacher-independence', 1400, 717, 'Teacher · Independence Report',
-    'The Cognitive Independence Report: without enough recent work, it says it is waiting for real work instead of guessing, and shows a preview of sample reads, each clearly labelled SAMPLE.',
-  ),
   teacherAnalytics: screen(
     'teacher-analytics', 1400, 782, 'Teacher · Investigation analytics',
     "Analytics for one investigation: 4 of 6 students growing, the class's biggest room to grow and a suggested next move, a class radar across five reasoning skills from 6 students and 23 sessions, and the levels where the class most often got stuck.",
@@ -146,7 +142,28 @@ export const screens = {
     'parent-one-question', 1400, 354, 'Parent · One question this week',
     "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
   ),
+  teacherSignalLanding: screen(
+    'teacher-signal-landing', 1400, 416, 'Teacher · Independence Report',
+    "One student's row in the teacher's Independence Report, as of Oct 14, 2026, with supporting evidence open. It reads 'Independent work falling' with moderate confidence. Help intensity and hint reliance don't have enough recent signal yet, transfer across contexts isn't demonstrated, and the suggested next step is to watch the trend instead of guessing.",
+    {
+      kind: 'reads',
+      items: [
+        "Independent-attempt scores from each of the student's Q&A replies",
+        "Help intensity and hint reliance, once there's enough data",
+        'Whether a skill has carried across two different contexts',
+      ],
+      goesTo: "The student's learner graph, over a 14-day window",
+    },
+  ),
+  teacherParentMessage: screen(
+    'teacher-parent-message', 1400, 978, 'Teacher · Messages with families',
+    "Ms. Alvarez's message to Jordan's parent about Jordan's sunlight conversation with Sprig, quoting Jordan's own words from it and suggesting a question to ask at home, with the parent's reply.",
+  ),
+  parentTeacherMessage: screen(
+    'parent-teacher-message', 1400, 1033, 'Parent · Messages with the teacher',
+    "The parent's view of the same thread: the teacher's message about Jordan's sunlight conversation with Sprig, and the parent's reply saying they'll ask about the plant in the dark at dinner.",
+  ),
 } satisfies Record<string, Screen>;
 
 export const SHOWCASE_DISCLOSURE =
-  'Synthetic students, real Sprig responses: these examples show the real experience without exposing any child\'s data.';
+  'Synthetic students and families, real Sprig responses: these examples show the real experience without exposing any child\'s data.';
