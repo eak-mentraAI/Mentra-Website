@@ -97,6 +97,10 @@ export const screens = {
       goesTo: "The saved investigation feeds the student's Cognitive Mirror and the teacher's class radar; the same signals also go to the learner graph",
     },
   ),
+  studentPrompting: screen(
+    'student-prompting', 1400, 647, 'Student · Prompt Engineering',
+    "Sprig's feedback on a student's prompt for the Haiku Teacher challenge, which asks for a prompt that includes 2 to 3 example haikus. Score 42%. It credits the everyday topics and the 5-7-5 rule, then points out the prompt asks the AI for examples without including any, and suggests writing one haiku and putting it in the prompt.",
+  ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
     "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",
@@ -162,6 +166,10 @@ export const screens = {
   parentTeacherMessage: screen(
     'parent-teacher-message', 1400, 1033, 'Parent · Messages with the teacher',
     "The parent's view of the same thread: the teacher's message about Jordan's sunlight conversation with Sprig, and the parent's reply saying they'll ask about the plant in the dark at dinner.",
+  ),
+  parentPassport: screen(
+    'parent-passport', 1400, 283, 'Parent · Learner Passport',
+    "Milestones on a child's Learner Passport, as the parent sees it: Reflection Beginner and Dream Planter reached, with Story Weaver at 4 of 10 journal entries and Goal Builder at 2 of 5 goals next.",
   ),
 } satisfies Record<string, Screen>;
 

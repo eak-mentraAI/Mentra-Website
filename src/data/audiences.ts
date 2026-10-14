@@ -92,6 +92,11 @@ export const audiences: Audience[] = [
         screen: screens.parentOneQuestion,
       },
       {
+        title: "A record of what your child has done",
+        text: "The Learner Passport shows milestones your child has reached and what's next. It's honest about its limits: not every activity is counted there yet.",
+        screen: screens.parentPassport,
+      },
+      {
         title: 'Every permission, in plain words',
         text: 'See exactly what you agreed to, purpose by purpose. Each toggle tells you what turning it off changes, and your choice takes effect right away.',
         screen: screens.parentTrust,

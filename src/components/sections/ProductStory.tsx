@@ -32,6 +32,12 @@ const steps: Step[] = [
     screen: screens.studentCoding,
   },
   {
+    eyebrow: 'AI literacy',
+    title: 'Teaches students to prompt well.',
+    text: "The challenge: write a prompt with two or three example haikus. A student asks the AI for examples instead of including any. Sprig scores it 42%, names exactly that miss, and suggests writing one haiku and putting it in the prompt.",
+    screen: screens.studentPrompting,
+  },
+  {
     eyebrow: 'Investigations',
     title: 'Pushes on the vaguest part.',
     text: "Investigating why shade plants grow bigger, darker leaves, a student builds a chain of whys. Sprig skips the praise and asks about the fuzziest phrase, \"using its energy different\": what has to happen first?",
@@ -58,7 +64,7 @@ const ProductStory = () => {
               How Sprig teaches, across Mentra
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Tutoring, games, coding and investigations. Real screens, cropped but not edited, and what each one records.
+              Tutoring, games, coding, AI literacy and investigations. Real screens, cropped but not edited, and what they record.
             </p>
           </div>
         </AnimateOnScroll>
@@ -66,7 +72,7 @@ const ProductStory = () => {
         <div className="max-w-5xl mx-auto">
           {/* Steps */}
           <div
-            className="flex lg:grid lg:grid-cols-4 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
+            className="flex lg:grid lg:grid-cols-5 gap-2 overflow-x-auto [scrollbar-width:none] -mx-4 px-4 lg:mx-0 lg:px-0 pb-2 lg:pb-0 mb-6"
             role="tablist"
             aria-label="Sprig exchanges"
           >

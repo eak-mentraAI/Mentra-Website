@@ -64,7 +64,7 @@ export const personas: Persona[] = [
       { icon: BoundedSession, title: 'A Tutor That Knows When to Stop', text: "Every Sprig session has a hard cap: 20 messages, 10 minutes, and a mandatory reflection before the session can close. Not because we're rationing AI — because reflection is where learning actually consolidates. Sprig won't let you skip that part.", color: 'wisdom-purple' },
       { icon: StuckDetection, title: 'Help That Builds Your Thinking', text: 'Detects when you\'re stuck and guides your thinking rather than handing you the answer.', color: 'curiosity-coral' },
       { icon: CodeBuild, title: 'Code, Build, and Create', text: 'Write real code with an AI mentor that teaches systematic thinking — then lets you fly solo.', color: 'growth-green' },
-      { icon: LearnerPassport, title: 'More Than a Number', text: 'A Learner Passport that captures how you think, grow, and solve problems — and follows you forward.', color: 'wisdom-purple' },
+      { icon: LearnerPassport, title: 'More Than a Number', text: "A Learner Passport that records the work you've done, from journal entries and goals to the milestones you've reached, and grows as more of your activity is counted.", color: 'wisdom-purple' },
       { icon: XPSprigs, title: 'Earn XP, Grow Your Sprig', text: 'Earn experience points for effort and growth — not just right answers. Your Sprig grows as you do, rewarding the work you put in.', color: 'grit-gold' },
       { icon: ReflectJournal, title: 'Reflect and Own Your Growth', text: 'Journaling, mood check-ins, and goal-setting that teach you to notice your own patterns — a skill you keep.', color: 'mentra-blue' },
     ],
