@@ -49,6 +49,11 @@ export const screens = {
     "Jordan asks Sprig to just tell them the answer to a sunlight question. Sprig says it won't hand over the answer and asks what Jordan has tried or thinks is going on. Jordan guesses plants need sunlight to grow but doesn't know why.",
     qaSignals('Jordan'),
   ),
+  studentZoe: screen(
+    'student-zoe', 1400, 698, 'Student · Q&A with Sprig',
+    "Zoe answers 15 for x in 3/5 = x/20. Sprig says not quite, keeps Zoe's method of multiplying the top by 4, and asks what 3 times 4 is. Zoe answers 12, Sprig confirms x = 12 and gives a new problem to try: 2 is to 7 as x is to 35.",
+    qaSignals('Zoe'),
+  ),
   studentPriya: screen(
     'student-priya', 1400, 688, 'Student · Q&A with Sprig',
     "Sprig asks Priya whether 3/4 = x/6 has a clean whole-number scale factor. Priya says 4 to 6 isn't a clean multiplier, so they'd cross multiply and get x = 4.5. Sprig names the decision rule Priya worked out: scale factor when the multiplier is obvious, cross-multiply when it isn't.",
