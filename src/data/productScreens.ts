@@ -96,6 +96,19 @@ export const screens = {
     'student-prompting', 1400, 647, 'Student · Prompt Engineering',
     "Sprig's feedback on a student's prompt for the Haiku Teacher challenge, which asks for a prompt that includes 2 to 3 example haikus. Score 42%. It credits the everyday topics and the 5-7-5 rule, then points out the prompt asks the AI for examples without including any, and suggests writing one haiku and putting it in the prompt.",
   ),
+  studentExploration: screen(
+    'student-exploration', 1400, 244, 'Student · Free Explore',
+    "In an open exploration about a carnival game with a 1-in-10 chance to win, a student asks whether playing 10 times guarantees a win. Sprig says it's not a guarantee: each turn is its own 1-in-10 chance, you'd expect to win about once on average, and some people win twice or not at all. It suggests a try-it with ten objects, one marked with an X.",
+    {
+      kind: 'records',
+      items: [
+        'How far the student explores beyond the opening idea',
+        'The follow-up questions they choose to ask',
+        'How engaged they stay through the session',
+      ],
+      goesTo: "The student's learner graph",
+    },
+  ),
   studentVerdict: screen(
     'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
     "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",

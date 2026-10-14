@@ -31,6 +31,12 @@ const steps: ScreenTab[] = [
     screen: screens.studentPrompting,
   },
   {
+    eyebrow: 'Exploration',
+    title: 'Answers the question the student actually asked.',
+    text: "Exploring whether a carnival game is a good deal, a student asks if playing 10 times guarantees a win. Sprig says no, explains why each turn is its own 1-in-10 chance, and suggests a hands-on way to see it.",
+    screen: screens.studentExploration,
+  },
+  {
     eyebrow: 'Investigations',
     title: 'Pushes on the vaguest part.',
     text: "Investigating why shade plants grow bigger, darker leaves, a student builds a chain of whys. Sprig skips the praise and asks about the fuzziest phrase, \"using its energy different\": what has to happen first?",
@@ -53,7 +59,7 @@ const ProductStory = () => (
             How Sprig teaches, across Mentra
           </h2>
           <p className="text-lg text-gray-500 leading-relaxed">
-            Tutoring, games, coding, AI literacy and investigations. Real screens, cropped but not edited, and what they record.
+            Tutoring, games, coding, AI literacy, exploration and investigations. Real screens, cropped but not edited, and what they record.
           </p>
         </div>
       </AnimateOnScroll>

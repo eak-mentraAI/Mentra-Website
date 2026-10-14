@@ -23,6 +23,7 @@ const gridCols: Record<number, string> = {
   3: 'lg:grid-cols-3',
   4: 'lg:grid-cols-4',
   5: 'lg:grid-cols-5',
+  6: 'lg:grid-cols-3',
 };
 
 /** A row of tabs over one real product screen at a readable size. Used by the homepage story and the audience pages. */
