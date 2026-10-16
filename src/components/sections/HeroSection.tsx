@@ -1,10 +1,17 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageSquareText } from 'lucide-react';
+import { ArrowRight, MessageSquareText, GraduationCap, Heart, School } from 'lucide-react';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import HeroHelperHint from '@/components/HeroHelperHint';
 import SprigOrb from '@/components/ui/SprigOrb';
+
+// Audience pages. Tint classes are written out in full so Tailwind keeps them.
+const audienceLinks = [
+  { to: '/teachers', label: 'Teachers', icon: GraduationCap, tint: 'bg-mentra-blue/10 text-mentra-blue' },
+  { to: '/parents', label: 'Families', icon: Heart, tint: 'bg-curiosity-coral/10 text-curiosity-coral' },
+  { to: '/schools', label: 'Schools', icon: School, tint: 'bg-wisdom-purple/10 text-wisdom-purple' },
+];
 
 const HeroSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
@@ -58,13 +65,24 @@ const HeroSection = () => {
                   See it in action
                 </Button>
               </div>
-              <nav aria-label="Mentra for you" className="flex flex-wrap justify-center lg:justify-start gap-x-2 gap-y-1 text-sm text-gray-500">
-                <span>Mentra for</span>
-                <Link to="/teachers" className="font-semibold text-gray-700 hover:text-mentra-blue underline-offset-4 hover:underline">teachers</Link>
-                <span aria-hidden="true">·</span>
-                <Link to="/parents" className="font-semibold text-gray-700 hover:text-mentra-blue underline-offset-4 hover:underline">families</Link>
-                <span aria-hidden="true">·</span>
-                <Link to="/schools" className="font-semibold text-gray-700 hover:text-mentra-blue underline-offset-4 hover:underline">schools</Link>
+              <nav aria-label="Mentra for you" className="flex flex-col items-center lg:items-start gap-2.5 pt-2">
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">Built for</span>
+                <ul className="flex flex-wrap justify-center lg:justify-start gap-2">
+                  {audienceLinks.map(({ to, label, icon: Icon, tint }) => (
+                    <li key={to}>
+                      <Link
+                        to={to}
+                        className="group inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-4 py-1.5 text-sm font-semibold text-gray-700 shadow-sm hover:border-mentra-blue/40 hover:text-gray-900 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-2"
+                      >
+                        <span className={`flex h-7 w-7 items-center justify-center rounded-full ${tint}`}>
+                          <Icon className="h-4 w-4" aria-hidden="true" />
+                        </span>
+                        {label}
+                        <ArrowRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-mentra-blue group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </nav>
               <HeroHelperHint />
             </div>
