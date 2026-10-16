@@ -67,18 +67,17 @@ const HeroSection = () => {
               </div>
               <nav aria-label="Mentra for you" className="flex flex-col items-center lg:items-start gap-2.5 pt-2">
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">Built for</span>
-                <ul className="flex flex-wrap justify-center lg:justify-start gap-2">
+                <ul className="flex flex-nowrap justify-center lg:justify-start gap-1 sm:gap-2">
                   {audienceLinks.map(({ to, label, icon: Icon, tint }) => (
                     <li key={to}>
                       <Link
                         to={to}
-                        className="group inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white pl-1.5 pr-4 py-1.5 text-sm font-semibold text-gray-700 shadow-sm hover:border-mentra-blue/40 hover:text-gray-900 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-2"
+                        className="inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap rounded-full border border-gray-200 bg-white pl-1 pr-2.5 sm:pl-1.5 sm:pr-4 py-1 sm:py-1.5 text-[13px] sm:text-sm font-semibold text-gray-700 shadow-sm hover:border-mentra-blue/40 hover:text-gray-900 hover:shadow-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-2"
                       >
-                        <span className={`flex h-7 w-7 items-center justify-center rounded-full ${tint}`}>
-                          <Icon className="h-4 w-4" aria-hidden="true" />
+                        <span className={`flex h-5 w-5 sm:h-7 sm:w-7 items-center justify-center rounded-full ${tint}`}>
+                          <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                         </span>
                         {label}
-                        <ArrowRight className="h-3.5 w-3.5 text-gray-400 group-hover:text-mentra-blue group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
                       </Link>
                     </li>
                   ))}
