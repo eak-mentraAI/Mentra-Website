@@ -8,38 +8,38 @@ import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 const steps: ScreenTab[] = [
   {
     eyebrow: 'Asking for the answer',
-    title: '"Can you just tell me the answer?"',
-    text: "Jordan asks Sprig for the answer. Sprig says no, asks what Jordan thinks is going on, then offers one foothold: plants make their own food. From there Jordan works out that sunlight is the energy for making glucose, and what happens to a plant without it.",
+    title: 'The thinking stays with the student.',
+    text: "Jordan asks Sprig for the answer. Sprig won't hand it over. It asks what Jordan already thinks, offers one foothold, and lets Jordan build the rest: sunlight is the energy a plant uses to make its own food.",
     screen: screens.studentJordan,
   },
   {
     eyebrow: 'Signal & Noise',
-    title: 'Coaching on how they judged, not what they picked.',
-    text: "In the Signal & Noise game, students rank sources and explain why. Sprig coaches how they judged: what they caught, the lens they drifted from, and one concrete habit for next time. On a first evaluation, it says there's no pattern to call out yet.",
+    title: 'Judgment is a skill. Sprig coaches it.',
+    text: 'Students rank sources and defend the ranking. Sprig\'s feedback is about how they judged, not what they picked: what they caught, the lens they drifted from, and one habit to try next time.',
     screen: screens.studentSignalNoise,
   },
   {
     eyebrow: 'Coding',
-    title: 'Points at the bug, not the fix.',
-    text: "A student's program prints 2 when they watered the plant three times. Sprig confirms the part that works, points at len(waterings) and asks what it's actually counting. The student works out it's counting plants, not days, and goes to fix it themselves.",
+    title: 'Debugging by thinking, not by copying a fix.',
+    text: 'The program prints 2 when it should print 3. Sprig asks what the code is really counting. The student works out it\'s counting plants, not days, and goes to fix it themselves.',
     screen: screens.studentCoding,
   },
   {
     eyebrow: 'AI literacy',
-    title: 'Teaches students to prompt well.',
-    text: "The challenge: write a prompt with two or three example haikus. A student asks the AI for examples instead of including any. Sprig scores it 42%, names exactly that miss, and suggests writing one haiku and putting it in the prompt.",
+    title: 'Learning to use AI well, not lean on it.',
+    text: 'Students practice writing prompts, and Sprig grades the craft. This one asked the AI for examples instead of giving any. Sprig names the miss and the fix to try: write one haiku and put it in the prompt.',
     screen: screens.studentPrompting,
   },
   {
     eyebrow: 'Exploration',
-    title: 'Answers the question the student actually asked.',
-    text: "Exploring whether a carnival game is a good deal, a student asks if playing 10 times guarantees a win. Sprig says no, explains why each turn is its own 1-in-10 chance, and suggests a hands-on way to see it.",
+    title: 'Curiosity that ends in a test, not a fact.',
+    text: 'A carnival game sparks a question: does playing 10 times guarantee a win? Sprig explains why each turn is a fresh 1-in-10 chance, then gives the student a way to see it for themselves with ten objects and an X.',
     screen: screens.studentExploration,
   },
   {
     eyebrow: 'Investigations',
-    title: 'Pushes on the vaguest part.',
-    text: "Investigating why shade plants grow bigger, darker leaves, a student builds a chain of whys. Sprig skips the praise and asks about the fuzziest phrase, \"using its energy different\": what has to happen first?",
+    title: "Reasoning that goes one 'why' deeper.",
+    text: 'A student explains why shade plants grow bigger, darker leaves. Instead of praise, Sprig asks about the vaguest step, "using its energy different": what has to happen first?',
     screen: screens.studentWhyChain,
   },
 ];
@@ -59,7 +59,7 @@ const ProductStory = () => (
             How Sprig teaches, across Mentra
           </h2>
           <p className="text-lg text-gray-500 leading-relaxed">
-            Tutoring, games, coding, AI literacy, exploration and investigations. Real screens, cropped but not edited, and what they record.
+            Six places students work in Mentra. In each one, Sprig hands the thinking back to the student. Real screens, cropped but not edited.
           </p>
         </div>
       </AnimateOnScroll>
