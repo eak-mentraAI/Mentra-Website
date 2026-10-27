@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScreenTabs, { type ScreenTab } from '@/components/ui/ScreenTabs';
+import ProductScreen from '@/components/ui/ProductScreen';
 import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 
 // Real Sprig output (simulated students that reply to Sprig). Tabs 1 and 3 are 2026-10-27 motion loops; the rest are stills.
@@ -65,6 +66,22 @@ const ProductStory = () => (
       </AnimateOnScroll>
 
       <ScreenTabs tabs={steps} label="Sprig across Mentra" />
+
+      {/* The next beat of tab 1's story: the teacher's side of Jordan's conversation (2026-10-27 motion loop) */}
+      <AnimateOnScroll>
+        <div className="max-w-5xl mx-auto mt-20 pt-16 border-t border-gray-100">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-3">Then the teacher sees it</p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-balance">
+            Every turn the report looked at is one click away.
+          </h3>
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
+            Later, Jordan&rsquo;s teacher opens the report. Each turn is labelled: on their own, with help, or repeated what
+            Sprig said. One click opens the exact turn in the conversation. A turn where Jordan only repeated Sprig
+            isn&rsquo;t counted as independent work, and until there&rsquo;s enough recent work, the read says so.
+          </p>
+          <ProductScreen screen={screens.teacherTurnTrace} />
+        </div>
+      </AnimateOnScroll>
 
       <p className="max-w-3xl mx-auto text-center text-xs text-gray-400 mt-10 leading-relaxed">
         {SHOWCASE_DISCLOSURE}
