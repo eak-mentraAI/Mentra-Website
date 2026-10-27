@@ -20,6 +20,8 @@ export interface Screen {
   /** Shown in the frame's title bar */
   label: string;
   signals?: SignalTrail;
+  /** Real footage (an approved in-app video loop). Shown instead of the still; src is the poster. */
+  video?: { src: string; poster: string };
 }
 
 const qaSignals = (name: string): SignalTrail => ({
@@ -30,6 +32,18 @@ const qaSignals = (name: string): SignalTrail => ({
     'Each hint Sprig offers, and, where the skill is mapped to the curriculum, whether they later succeed without it',
   ],
   goesTo: `${name}'s learner graph, which the teacher's Independence Report reads`,
+});
+
+const videoScreen = (
+  file: string, label: string, alt: string, signals?: SignalTrail,
+): Screen => ({
+  src: `/images/product/${file}-poster.webp`,
+  alt,
+  width: 1280,
+  height: 720,
+  label,
+  signals,
+  video: { src: `/videos/${file}.mp4`, poster: `/images/product/${file}-poster.webp` },
 });
 
 const screen = (
@@ -44,10 +58,36 @@ const screen = (
 });
 
 export const screens = {
-  studentJordan: screen(
-    'student-jordan', 1400, 562, 'Student · Q&A with Sprig',
-    "Jordan asks Sprig to just tell them the answer to a sunlight question. Sprig says it won't hand over the answer and asks what Jordan has tried or thinks is going on. Jordan guesses plants need sunlight to grow but doesn't know why.",
+  // Motion loops from the 2026-10-27 publish set (marketing/carousel/publish-v2-2026-10-27 in the app repo):
+  // eased camera, waits shortened, no text. Approved for the site by the owner.
+  studentJordan: videoScreen(
+    'student-jordan', 'Student · Q&A with Sprig',
+    "Video: Jordan's conversation with Sprig about why plants need sunlight. Sprig hints that sunlight isn't just warming the plant and asks what it might be doing to help the plant make food. Jordan types: is it giving the plant energy to actually make the food? Sprig replies that's the key idea, and that sunlight gives the plant the energy it needs to make its own food.",
     qaSignals('Jordan'),
+  ),
+  studentCoding: videoScreen(
+    'student-coding', 'Student · Coding with Sprig',
+    "Video: a coding session. The program prints 2 instead of 3 because len(waterings) counts the plants. Sprig asks what waterings is and what len counts on a dictionary. Jordan works out it's the whole dictionary, edits line 10 to len(waterings[\"window plant\"]), and runs it: Window plant days: 3.",
+    {
+      kind: 'records',
+      items: [
+        'Debugging persistence: attempts, time spent, and whether the bug gets resolved',
+        'Whether the student reaches the fix unaided',
+      ],
+      goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
+    },
+  ),
+  teacherTurnTrace: videoScreen(
+    'teacher-turn-trace', "Teacher · Independence Report",
+    "Video: in the teacher's Independence Report, Jordan's card reads not enough recent sessions yet and lists the turns seen so far, each labelled repeated what Sprig said, with help, or on their own. The teacher clicks Open this turn on a turn labelled repeated what Sprig said, and the conversation opens with that exact turn highlighted.",
+    {
+      kind: 'reads',
+      items: [
+        "Each of the student's turns, labelled: on their own, with help, or repeated what Sprig said",
+        'Only turns done on their own count as independent work; help is weighed separately',
+      ],
+      goesTo: "The student's learner graph. The read itself waits until there's enough recent work",
+    },
   ),
   studentZoe: screen(
     'student-zoe', 1400, 698, 'Student · Q&A with Sprig',
@@ -65,18 +105,6 @@ export const screens = {
         'Whether they weighed trade-offs, and how developed their reasoning was',
       ],
       goesTo: "The learner graph tracks calibration and reflection over time, and trade-offs and reasoning feed a decision-quality read. The game's own judgment profile updates too",
-    },
-  ),
-  studentCoding: screen(
-    'student-coding', 1400, 742, 'Student · Coding with Sprig',
-    "A student's Python program records watering days in a dictionary but prints len(waterings), which counts the two plants instead of the window plant's three watering days. The student asks why it prints 2. Sprig says the water function works, points to len(waterings) and asks what waterings is and what len counts on a dictionary. The student works out that len counts the keys, and Sprig sends them to look at what's inside waterings[\"window plant\"].",
-    {
-      kind: 'records',
-      items: [
-        'Debugging persistence: attempts, time spent, and whether the bug gets resolved',
-        'Whether the student reaches the fix unaided',
-      ],
-      goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
     },
   ),
   studentWhyChain: screen(
@@ -153,19 +181,6 @@ export const screens = {
   parentOneQuestion: screen(
     'parent-one-question', 1400, 354, 'Parent · One question this week',
     "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
-  ),
-  teacherSignalLanding: screen(
-    'teacher-signal-landing', 1400, 416, 'Teacher · Independence Report',
-    "One student's row in the teacher's Independence Report, as of Oct 14, 2026, with supporting evidence open. It reads 'Independent work falling' with moderate confidence. Help intensity and hint reliance don't have enough recent signal yet, transfer across contexts isn't demonstrated, and the suggested next step is to watch the trend instead of guessing.",
-    {
-      kind: 'reads',
-      items: [
-        "Independent-attempt scores from each of the student's Q&A replies",
-        "Help intensity and hint reliance, once there's enough data",
-        'Whether a skill has carried across two different contexts',
-      ],
-      goesTo: "The student's learner graph, over a 14-day window",
-    },
   ),
   teacherParentMessage: screen(
     'teacher-parent-message', 1400, 978, 'Teacher · Messages with families',

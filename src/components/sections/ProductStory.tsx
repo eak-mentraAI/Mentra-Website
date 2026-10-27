@@ -3,13 +3,13 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScreenTabs, { type ScreenTab } from '@/components/ui/ScreenTabs';
 import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 
-// Real Sprig output from the 2026-10-13/14 shoots (simulated students that reply to Sprig) plus the 2026-10-12 verdict.
+// Real Sprig output (simulated students that reply to Sprig). Tabs 1 and 3 are 2026-10-27 motion loops; the rest are stills.
 // Full transcripts reviewed, not just the cropped turns: marketing/carousel/<date>/transcripts in the app repo.
 const steps: ScreenTab[] = [
   {
     eyebrow: 'Asking for the answer',
     title: 'The thinking stays with the student.',
-    text: "Jordan asks Sprig for the answer. Sprig won't hand it over. It asks what Jordan already thinks, offers one foothold, and lets Jordan build the rest: sunlight is the energy a plant uses to make its own food.",
+    text: "Jordan asks Sprig for the answer. Sprig won't hand it over. It asks what the sunlight is doing for the plant, nudges past a first guess about warmth, and lets Jordan reach the idea: sunlight is the energy a plant uses to make its own food.",
     screen: screens.studentJordan,
   },
   {
@@ -21,7 +21,7 @@ const steps: ScreenTab[] = [
   {
     eyebrow: 'Coding',
     title: 'Debugging by thinking, not by copying a fix.',
-    text: 'The program prints 2 when it should print 3. Sprig asks what the code is really counting. The student works out it\'s counting plants, not days, and goes to fix it themselves.',
+    text: 'The program prints 2 when it should print 3. Sprig asks what the code is really counting. Jordan works out it\'s counting plants, not days, then fixes the line and runs it.',
     screen: screens.studentCoding,
   },
   {
@@ -59,7 +59,7 @@ const ProductStory = () => (
             How Sprig teaches, across Mentra
           </h2>
           <p className="text-lg text-gray-500 leading-relaxed">
-            Six places students work in Mentra. In each one, Sprig hands the thinking back to the student. Real screens, cropped but not edited.
+            Six places students work in Mentra. In each one, Sprig hands the thinking back to the student. Real screens and footage from the live app; the videos skip the waits.
           </p>
         </div>
       </AnimateOnScroll>

@@ -1,4 +1,6 @@
 import React from 'react';
+import ProductVideo from '@/components/ui/ProductVideo';
+import { SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
@@ -137,6 +139,27 @@ export default function About() {
                 className="w-full h-full"
               ></iframe>
             </div>
+          </div>
+        </section>
+
+        {/* The product in 30 seconds (2026-10-27 promo cut: real footage, waits shortened) */}
+        <section className="w-full bg-white pb-24" aria-labelledby="about-promo-heading">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 id="about-promo-heading" className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-center text-balance">
+              Mentra in 30 seconds
+            </h2>
+            <p className="text-lg text-gray-500 leading-relaxed text-center max-w-2xl mx-auto mb-8">
+              Sprig coaches two students through tutoring and code, and then their teacher sees the work.
+            </p>
+            <ProductVideo
+              mode="player"
+              src="/videos/promo-30s.mp4"
+              poster="/images/product/promo-30s-poster.webp"
+              alt="A 30-second product film: Zoe asks Sprig for a homework answer and Sprig asks a question back; Jordan works toward why plants need sunlight and Sprig confirms the key idea; in a coding project Jordan fixes a line and runs it; then the teacher opens the report, where each turn is labelled and one click opens the exact turn."
+              width={1280}
+              height={720}
+            />
+            <p className="text-xs text-gray-400 text-center mt-4">{SHOWCASE_DISCLOSURE}</p>
           </div>
         </section>
 
