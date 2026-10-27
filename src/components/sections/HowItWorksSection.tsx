@@ -75,18 +75,16 @@ const HowItWorksSection = () => (
         ))}
       </ol>
 
-      {/* The proof: one real reply, traced to the teacher's report (2026-10-14 signal-landing frame) */}
+      {/* The proof: the teacher's side of Jordan's conversation from the story's first tab (2026-10-27 motion loop) */}
       <AnimateOnScroll>
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 text-balance">One reply, traced to the teacher</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 text-balance">Then the teacher sees it</h3>
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
-            A student answered Sprig in their own words: &ldquo;it&rsquo;s the energy source&hellip; it powers the whole thing
-            so the plant can make food.&rdquo; The reply was scored as an independent attempt, stored, and minutes later it was
-            the newest evidence behind that student&rsquo;s row in the teacher&rsquo;s Independence Report. One good reply
-            doesn&rsquo;t flip the read: the report weighs all recent work, and says &ldquo;not enough data yet&rdquo; where it
-            can&rsquo;t tell.
+            Later, Jordan&rsquo;s teacher opens the report. Every turn it looked at is listed with a label: on their own, with
+            help, or repeated what Sprig said. One click opens the exact turn in the conversation. A turn where Jordan only
+            repeated Sprig isn&rsquo;t counted as independent work, and until there&rsquo;s enough recent work, the read says so.
           </p>
-          <ProductScreen screen={screens.teacherSignalLanding} />
+          <ProductScreen screen={screens.teacherTurnTrace} />
         </div>
       </AnimateOnScroll>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import ProductVideo from '@/components/ui/ProductVideo';
 import type { Screen } from '@/data/productScreens';
 
 export interface ProductScreenProps {
@@ -12,6 +13,16 @@ export interface ProductScreenProps {
 /** A cropped, readable screenshot from the live Mentra app, in a light window frame. */
 const ProductScreen = ({ screen, caption, className }: ProductScreenProps) => (
   <figure className={cn('w-full', className)}>
+    {screen.video ? (
+      // The clip carries its own browser frame, so no title bar here
+      <ProductVideo
+        src={screen.video.src}
+        poster={screen.video.poster}
+        alt={screen.alt}
+        width={screen.width}
+        height={screen.height}
+      />
+    ) : (
     <div className="rounded-2xl border border-gray-200 bg-white shadow-lg shadow-gray-900/5 overflow-hidden">
       <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-100 bg-gray-50">
         <span className="flex gap-1.5" aria-hidden="true">
@@ -34,6 +45,7 @@ const ProductScreen = ({ screen, caption, className }: ProductScreenProps) => (
         />
       </a>
     </div>
+    )}
     {caption && (
       <figcaption className="mt-3 text-sm text-gray-500 leading-relaxed">{caption}</figcaption>
     )}

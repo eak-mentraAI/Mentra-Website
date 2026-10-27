@@ -60,9 +60,9 @@ export const audiences: Audience[] = [
       },
       {
         eyebrow: 'Evidence',
-        title: 'Every read shows its evidence',
-        text: "A student's reply to Sprig is scored as an independent attempt and, the same day, becomes evidence behind their row in the Independence Report. One good reply doesn't flip the read, and where there isn't enough data the report says so.",
-        screen: screens.teacherSignalLanding,
+        title: 'Every turn the report looked at is one click away',
+        text: "Open a student's recent turns and each one is labelled: on their own, with help, or repeated what Sprig said. One click opens the exact turn in the conversation.",
+        screen: screens.teacherTurnTrace,
       },
       {
         eyebrow: 'Recommendations',
@@ -154,8 +154,8 @@ export const audiences: Audience[] = [
       {
         eyebrow: 'Evidence',
         title: "Honest about what it doesn't know yet",
-        text: "Each student's read is built from their recent work and shows its evidence. Where there isn't enough data, it says so instead of producing a number your board can't trust.",
-        screen: screens.teacherSignalLanding,
+        text: "Until there's enough recent work, a student's read says so instead of producing a number your board can't trust. The turns it has seen are listed and labelled, and a turn where the student only repeated Sprig isn't counted as independent work.",
+        screen: screens.teacherTurnTrace,
       },
     ],
     pilot: [
