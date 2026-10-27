@@ -3,6 +3,8 @@ import { cn } from '@/lib/utils';
 
 export interface ProductVideoProps {
   src: string;
+  /** Lighter encode served below 768px (720w, ~0.25 MB). Falls back to src. */
+  mobileSrc?: string;
   poster: string;
   /** Describes what the clip shows, for screen readers and as the poster's alt text */
   alt: string;
@@ -18,25 +20,31 @@ export interface ProductVideoProps {
 
 /**
  * Real Mentra footage. The poster always renders first, so the page costs nothing until a clip is needed.
- * Loops only autoplay on wider screens, when the visitor allows motion and isn't on Save-Data; phones and
- * reduced-motion get the poster alone. Clips are muted and have no audio track.
+ * Muted loops autoplay inline while in view, on phones too (with the lighter mobileSrc encode). Visitors with
+ * reduced motion or Save-Data get the poster alone. Clips have no audio track.
  */
-const ProductVideo = ({ src, poster, alt, width, height, mode = 'loop', className }: ProductVideoProps) => {
+const ProductVideo = ({ src, mobileSrc, poster, alt, width, height, mode = 'loop', className }: ProductVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [motionOk, setMotionOk] = useState(false);
+  const [loopSrc, setLoopSrc] = useState(src);
 
   useEffect(() => {
     if (mode !== 'loop') return;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const wide = window.matchMedia('(min-width: 768px)').matches;
+    const narrow = window.matchMedia('(max-width: 767px)').matches;
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
-    setMotionOk(!reduced && wide && !saveData);
-  }, [mode]);
+    setLoopSrc(narrow && mobileSrc ? mobileSrc : src);
+    setMotionOk(!reduced && !saveData);
+  }, [mode, src, mobileSrc]);
 
   // Play only while at least a quarter of the clip is on screen.
   useEffect(() => {
     const video = videoRef.current;
     if (!video || mode !== 'loop' || !motionOk) return;
+    // iOS only allows inline autoplay for muted video, and React doesn't always write the muted attribute.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) video.play().catch(() => {});
@@ -75,7 +83,7 @@ const ProductVideo = ({ src, poster, alt, width, height, mode = 'loop', classNam
     <video
       ref={videoRef}
       className={frame}
-      src={src}
+      src={loopSrc}
       poster={poster}
       width={width}
       height={height}
