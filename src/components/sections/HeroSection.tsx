@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageSquareText, GraduationCap, Heart, School } from 'lucide-react';
+import { CalendarDays, PlayCircle, GraduationCap, Heart, School } from 'lucide-react';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import HeroHelperHint from '@/components/HeroHelperHint';
 import SprigOrb from '@/components/ui/SprigOrb';
@@ -52,17 +52,18 @@ const HeroSection = () => {
                   aria-label="Book a walkthrough with the Mentra team"
                   onClick={openScheduleCall}
                 >
+                  <CalendarDays className="mr-2 h-5 w-5" aria-hidden="true" />
                   Book a walkthrough
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                  aria-label="Watch Sprig in action: jump to the product videos"
                   onClick={scrollToStory}
                 >
-                  <MessageSquareText className="mr-2 h-5 w-5" aria-hidden="true" />
-                  See it in action
+                  <PlayCircle className="mr-2 h-5 w-5 text-mentra-blue group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  Watch Sprig in action
                 </Button>
               </div>
               <nav aria-label="Mentra for you" className="flex flex-col items-center lg:items-start gap-2.5 pt-2">
