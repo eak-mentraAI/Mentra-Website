@@ -17,6 +17,7 @@ const ProductScreen = ({ screen, caption, className }: ProductScreenProps) => (
       // The clip carries its own browser frame, so no title bar here
       <ProductVideo
         src={screen.video.src}
+        mobileSrc={screen.video.mobileSrc}
         poster={screen.video.poster}
         alt={screen.alt}
         width={screen.width}

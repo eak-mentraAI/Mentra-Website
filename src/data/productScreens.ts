@@ -21,7 +21,7 @@ export interface Screen {
   label: string;
   signals?: SignalTrail;
   /** Real footage (an approved in-app video loop). Shown instead of the still; src is the poster. */
-  video?: { src: string; poster: string };
+  video?: { src: string; mobileSrc?: string; poster: string };
 }
 
 const qaSignals = (name: string): SignalTrail => ({
@@ -43,7 +43,7 @@ const videoScreen = (
   height: 720,
   label,
   signals,
-  video: { src: `/videos/${file}.mp4`, poster: `/images/product/${file}-poster.webp` },
+  video: { src: `/videos/${file}.mp4`, mobileSrc: `/videos/${file}-720.mp4`, poster: `/images/product/${file}-poster.webp` },
 });
 
 const screen = (
