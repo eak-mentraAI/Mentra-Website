@@ -155,7 +155,7 @@ export default function About() {
               mode="player"
               src="/videos/promo-30s.mp4"
               poster="/images/product/promo-30s-poster.webp"
-              alt="A 30-second product film: Zoe asks Sprig for a homework answer and Sprig asks a question back; Jordan works toward why plants need sunlight and Sprig confirms the key idea; in a coding project Jordan fixes a line and runs it; then the teacher opens the report, where each turn is labelled and one click opens the exact turn."
+              alt="A 30-second product film: Zoe asks Sprig for a homework answer and Sprig asks a question back; Jordan works toward why plants need sunlight and Sprig confirms the key idea; in a coding project Jordan fixes a line and runs it; then the teacher opens the report, where each turn is labelled, and one click opens Jordan's energy turn, labelled with help: help is weighed separately, not counted as independent work."
               width={1280}
               height={720}
             />
