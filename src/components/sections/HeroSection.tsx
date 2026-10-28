@@ -67,7 +67,7 @@ const HeroSection = () => {
                 </Button>
               </div>
               <nav aria-label="Mentra for you" className="flex flex-col items-center lg:items-start gap-2.5 pt-2">
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">Built for</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Built for</span>
                 <ul className="flex flex-nowrap justify-center lg:justify-start gap-1 sm:gap-2">
                   {audienceLinks.map(({ to, label, icon: Icon, tint }) => (
                     <li key={to}>
@@ -92,7 +92,9 @@ const HeroSection = () => {
           <div className="flex justify-center lg:justify-end">
             <SprigOrb size="lg">
               <img
-                src="/images/sprig/sprig-trio.png"
+                src="/images/sprig/sprig-trio-896.webp"
+                srcSet="/images/sprig/sprig-trio-480.webp 480w, /images/sprig/sprig-trio-896.webp 896w"
+                sizes="(min-width: 1280px) 448px, (min-width: 1024px) 384px, (min-width: 640px) 288px, 224px"
                 alt="Sprig with peers — your AI learning companions"
                 width="400"
                 height="400"

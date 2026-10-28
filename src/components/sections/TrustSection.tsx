@@ -13,7 +13,7 @@ const commitments = [
   {
     icon: ShieldCheck,
     title: 'Parents hold the controls',
-    text: "Consent is listed purpose by purpose, and each toggle says what turning it off changes. Parents can revoke consent, request deletion, or export their child's AI conversations.",
+    text: "Consent is listed purpose by purpose, and each toggle says what turning it off changes. Parents can revoke consent, request deletion, or, for specific reasons such as safety, request an export of their child's AI conversations.",
   },
   {
     icon: UserCheck,
@@ -38,7 +38,7 @@ interface TrustSectionProps {
 
 const TrustSection = ({
   screen = screens.parentConsent,
-  caption = 'What a parent sees: active consent, its history, one-click revoke, data deletion, and an export of every AI conversation.',
+  caption = 'What a parent sees: active consent, its history, one-click revoke, data deletion, and where to request an export of their AI conversations.',
   showScreen = true,
   className = 'bg-gray-50',
 }: TrustSectionProps) => (

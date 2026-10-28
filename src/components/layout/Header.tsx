@@ -108,7 +108,7 @@ const Header = () => {
             className="focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 rounded-md"
           >
             <img
-              src="/images/logos/mentra-logo-color.png"
+              src="/images/logos/mentra-logo-color-160.webp"
               alt="Mentra Logo"
               width="200"
               height="80"
@@ -154,13 +154,14 @@ const Header = () => {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-          <a href="https://app.mymentra.ai/login" target="_blank" rel="noopener noreferrer">
-            <Button
-              className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow-md focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-              aria-label="Login to Mentra"
-            >
-              Login
-            </Button>
+          {/* A quiet text link, so customers signing in can't mistake it for the booking CTA */}
+          <a
+            href="https://app.mymentra.ai/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-2 rounded-md font-medium text-gray-700 hover:text-mentra-blue transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-2"
+          >
+            Log in<span className="sr-only"> to Mentra (opens in a new tab)</span>
           </a>
           <Button
             className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow-md focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
@@ -221,13 +222,13 @@ const Header = () => {
               );
             })}
             <div className="px-4 pt-2 flex flex-col gap-3">
-              <a href="https://app.mymentra.ai/login" target="_blank" rel="noopener noreferrer">
-                <Button
-                  className="w-full bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-                  aria-label="Login to Mentra"
-                >
-                  Login
-                </Button>
+              <a
+                href="https://app.mymentra.ai/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full text-center px-6 py-2 rounded-full font-medium text-gray-700 border border-gray-300 hover:border-mentra-blue hover:text-mentra-blue transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-2"
+              >
+                Log in<span className="sr-only"> to Mentra (opens in a new tab)</span>
               </a>
               <Button
                 className="w-full bg-mentra-blue hover:bg-mentra-blue/90 text-white px-6 py-2 rounded-full font-medium focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"

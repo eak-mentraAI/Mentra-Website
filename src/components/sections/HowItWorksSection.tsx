@@ -4,27 +4,27 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 // Every step here must trace to app code (signal extractors, learner-intelligence-service, CoachingPolicy).
 const steps = [
   {
-    image: '/images/sprig/flywheel-01-reflect.png',
+    image: '/images/sprig/flywheel-01-reflect-112.webp',
     title: 'A reply becomes signals',
     description: 'Did they try it unaided? How deep did the reasoning go? Which hints did they need, and how did their confidence move?',
   },
   {
-    image: '/images/sprig/flywheel-02-patterns.png',
+    image: '/images/sprig/flywheel-02-patterns-112.webp',
     title: 'Signals build a learner graph',
     description: "Each signal lands in that student's learner graph, with its full history.",
   },
   {
-    image: '/images/sprig/flywheel-03-act.png',
+    image: '/images/sprig/flywheel-03-act-112.webp',
     title: 'Rules decide what adults see',
     description: 'Fixed rules, not a chatbot, turn the graph into the reads teachers and parents see.',
   },
   {
-    image: '/images/sprig/flywheel-04-adapts.png',
+    image: '/images/sprig/flywheel-04-adapts-112.webp',
     title: 'People act',
     description: 'Teachers approve, change or dismiss each recommendation. Families get one thing to try at home.',
   },
   {
-    image: '/images/sprig/flywheel-05-independence.png',
+    image: '/images/sprig/flywheel-05-independence-112.webp',
     title: 'Sprig steps back',
     description: 'Once a student shows a skill, Sprig asks a harder open question instead of offering another hint.',
   },

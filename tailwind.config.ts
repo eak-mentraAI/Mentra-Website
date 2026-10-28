@@ -55,7 +55,8 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				// Mentra brand palette
-				'mentra-blue': '#3A86FF',
+				// Deepened from #3A86FF so white-on-blue buttons and blue text pass WCAG AA (4.97:1 on white)
+				'mentra-blue': '#2A6BDB',
 				'growth-green': '#06D6A0',
 				'curiosity-coral': '#FF6B6B',
 				'journal-sand': '#F8FAFC',
