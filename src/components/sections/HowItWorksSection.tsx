@@ -1,7 +1,5 @@
 import React from 'react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import ProductScreen from '@/components/ui/ProductScreen';
-import { screens } from '@/data/productScreens';
 
 // Every step here must trace to app code (signal extractors, learner-intelligence-service, CoachingPolicy).
 const steps = [
@@ -45,14 +43,14 @@ const HowItWorksSection = () => (
             From one reply to the long-term picture
           </h2>
           <p className="text-lg text-gray-500 leading-relaxed">
-            Most ed-tech adds dependency. Mentra is built so the help fades: every reply teaches Mentra something, and the
-            adults in a child&rsquo;s life decide what to do with it.
+            What you just watched happens in every conversation. Each reply teaches Mentra something, the help fades as the
+            student shows a skill, and the adults in a child&rsquo;s life decide what to do with it.
           </p>
         </div>
       </AnimateOnScroll>
 
       {/* The pipeline, as one strip */}
-      <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-16">
+      <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
         {steps.map((step, i) => (
           <AnimateOnScroll key={step.title} delay={i * 80}>
             <li className="relative h-full bg-white rounded-2xl border border-gray-100 p-5">
@@ -75,18 +73,6 @@ const HowItWorksSection = () => (
         ))}
       </ol>
 
-      {/* The proof: the teacher's side of Jordan's conversation from the story's first tab (2026-10-27 motion loop) */}
-      <AnimateOnScroll>
-        <div className="max-w-5xl mx-auto">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 text-balance">Then the teacher sees it</h3>
-          <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
-            Later, Jordan&rsquo;s teacher opens the report. Every turn it looked at is listed with a label: on their own, with
-            help, or repeated what Sprig said. One click opens the exact turn in the conversation. A turn where Jordan only
-            repeated Sprig isn&rsquo;t counted as independent work, and until there&rsquo;s enough recent work, the read says so.
-          </p>
-          <ProductScreen screen={screens.teacherTurnTrace} />
-        </div>
-      </AnimateOnScroll>
     </div>
   </section>
 );

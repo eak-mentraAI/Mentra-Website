@@ -72,7 +72,7 @@ const FAQSection = () => {
   }, []);
 
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-16 text-center">
           Frequently asked questions
@@ -128,7 +128,7 @@ const FAQSection = () => {
                     </h3>
                     <Accordion type="single" collapsible className="w-full space-y-1.5">
                       {section.questions.map((faq, idx) => (
-                        <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className="bg-gray-50 rounded-xl border border-gray-100">
+                        <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className="bg-white rounded-xl border border-gray-100">
                           <AccordionTrigger className="text-sm font-medium px-5 py-4 text-left text-gray-900 hover:bg-gray-100 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
                             <span>{faq.question}</span>
                           </AccordionTrigger>

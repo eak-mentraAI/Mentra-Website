@@ -1,7 +1,7 @@
 import React from 'react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import ScreenTabs, { type ScreenTab } from '@/components/ui/ScreenTabs';
-import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
+import { screens } from '@/data/productScreens';
 
 // Real Sprig output (simulated students that reply to Sprig). Tabs 1 and 3 are 2026-10-27 motion loops; the rest are stills.
 // Full transcripts reviewed, not just the cropped turns: marketing/carousel/<date>/transcripts in the app repo.
@@ -45,7 +45,7 @@ const steps: ScreenTab[] = [
 ];
 
 const ProductStory = () => (
-  <section id="see-it-in-action" className="py-24 bg-white scroll-mt-20" aria-labelledby="product-story-heading">
+  <section id="see-it-in-action" className="py-24 bg-gray-50 scroll-mt-20" aria-labelledby="product-story-heading">
     <div className="container mx-auto px-4">
       <AnimateOnScroll>
         <div className="max-w-3xl mx-auto text-center mb-12">
@@ -66,9 +66,7 @@ const ProductStory = () => (
 
       <ScreenTabs tabs={steps} label="Sprig across Mentra" />
 
-      <p className="max-w-3xl mx-auto text-center text-xs text-gray-400 mt-10 leading-relaxed">
-        {SHOWCASE_DISCLOSURE}
-      </p>
+
     </div>
   </section>
 );

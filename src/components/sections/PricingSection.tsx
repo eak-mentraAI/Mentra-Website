@@ -70,7 +70,7 @@ const PricingSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
 
   return (
-    <section id="pricing" className="py-24 bg-gray-50">
+    <section id="pricing" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <AnimateOnScroll>
