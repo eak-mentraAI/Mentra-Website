@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import BrandUnderline from '@/components/ui/BrandUnderline';
 
 const commitments = [
   {
@@ -32,7 +33,7 @@ const TrustSection = ({ className = 'bg-gray-50' }: TrustSectionProps) => (
       <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 max-w-6xl mx-auto">
         <AnimateOnScroll>
           <h2 id="trust-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance lg:sticky lg:top-28">
-            Built for growing minds. Designed for the adults who protect them.
+            Built for growing minds. Designed for <BrandUnderline>the adults who protect them</BrandUnderline>.
           </h2>
         </AnimateOnScroll>
 
