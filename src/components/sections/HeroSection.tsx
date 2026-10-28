@@ -17,7 +17,7 @@ const HeroSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
 
   const scrollToStory = () => {
-    document.getElementById('see-it-in-action')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('the-story')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -59,7 +59,7 @@ const HeroSection = () => {
                   size="lg"
                   variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-                  aria-label="Watch Sprig in action: jump to the product videos"
+                  aria-label="Watch Sprig in action: jump to Jordan's conversation"
                   onClick={scrollToStory}
                 >
                   <PlayCircle className="mr-2 h-5 w-5 text-mentra-blue group-hover:scale-110 transition-transform" aria-hidden="true" />
