@@ -66,7 +66,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
           </section>
 
           {/* Proof: real screens in one tab viewer, the same interaction as the homepage story */}
-          <section className="pb-24" aria-label="Real product screens">
+          <section className="py-24 bg-gray-50" aria-label="Real product screens">
             <div className="container mx-auto px-4">
               <ScreenTabs tabs={audience.proof} label={`${audience.eyebrow}: real screens`} signals="reads" />
               <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto mt-10">
@@ -77,7 +77,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
 
           {/* Pilot plan (schools) */}
           {audience.pilot && (
-            <section className="py-24 bg-white border-t border-gray-100" aria-labelledby="pilot-heading">
+            <section className="py-24 bg-white" aria-labelledby="pilot-heading">
               <div className="container mx-auto max-w-4xl px-4">
                 <AnimateOnScroll>
                   <h2 id="pilot-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center text-balance">
@@ -116,7 +116,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
 
           {/* Stat tiles (schools) */}
           {stats && (
-            <section className="pb-24 bg-white" aria-label="At a glance">
+            <section className="py-16 bg-gray-50" aria-label="At a glance">
               <div className="container mx-auto max-w-5xl px-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {stats.map((s) => (
                   <div key={s.label} className="bg-gray-50 rounded-xl p-4 text-center">
@@ -128,14 +128,14 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
             </section>
           )}
 
-          <TrustSection showScreen={audience.trustScreen} />
+          <TrustSection showScreen={audience.trustScreen} className="bg-white" />
 
           {/* Feature cards for this audience */}
-          {audience.features.map((group) => {
+          {audience.features.map((group, gi) => {
             const blurbs = personas.find((p) => p.id === group.personaId)?.blurbs ?? [];
             const headingId = `features-${group.personaId}`;
             return (
-              <section key={group.personaId} className="py-20 bg-white" aria-labelledby={headingId}>
+              <section key={group.personaId} className={`py-20 ${gi % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`} aria-labelledby={headingId}>
                 <div className="container mx-auto max-w-5xl px-4">
                   <h2 id={headingId} className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center text-balance">
                     {group.title}
@@ -143,7 +143,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {blurbs.map((b, i) => (
                       <AnimateOnScroll key={b.title} delay={(i % 3) * 100}>
-                        <div className="bg-gray-50 rounded-2xl p-6 h-full">
+                        <div className={`rounded-2xl p-6 h-full ${gi % 2 === 0 ? 'bg-white border border-gray-100' : 'bg-gray-50'}`}>
                           <div className="w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center mb-4">
                             <b.icon className="w-5 h-5 text-mentra-blue" />
                           </div>
@@ -159,7 +159,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
           })}
 
           {audience.more && (
-            <section className="pb-24 bg-white text-center">
+            <section className={`pb-24 text-center ${audience.features.length % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}>
               <p className="text-gray-500 mb-4">{audience.more.text}</p>
               <Link
                 to={audience.more.href}
