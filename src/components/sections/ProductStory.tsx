@@ -44,8 +44,9 @@ const steps: ScreenTab[] = [
   },
 ];
 
-const ProductStory = () => (
-  <section id="see-it-in-action" className="py-24 bg-white scroll-mt-20" aria-labelledby="product-story-heading">
+/** Lives on /platform; the homepage tells Jordan's story in ConversationStory instead. */
+const ProductStory = ({ className = 'bg-white' }: { className?: string }) => (
+  <section id="see-it-in-action" className={`py-24 scroll-mt-20 ${className}`} aria-labelledby="product-story-heading">
     <div className="container mx-auto px-4">
       <AnimateOnScroll>
         <div className="max-w-3xl mx-auto text-center mb-12">
