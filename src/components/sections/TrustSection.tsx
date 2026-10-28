@@ -31,21 +31,9 @@ const TrustSection = ({ className = 'bg-gray-50' }: TrustSectionProps) => (
     <div className="container mx-auto px-4">
       <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 max-w-6xl mx-auto">
         <AnimateOnScroll>
-          <div className="lg:sticky lg:top-28 space-y-8">
-            <h2 id="trust-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance">
-              Built for growing minds. Designed for the adults who protect them.
-            </h2>
-            <img
-              src="/images/sprig/MENTRA_SPRIG_HEART-480.webp"
-              alt=""
-              aria-hidden="true"
-              width={240}
-              height={240}
-              loading="lazy"
-              decoding="async"
-              className="hidden sm:block w-48 h-48 lg:w-60 lg:h-60 object-contain"
-            />
-          </div>
+          <h2 id="trust-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance lg:sticky lg:top-28">
+            Built for growing minds. Designed for the adults who protect them.
+          </h2>
         </AnimateOnScroll>
 
         <ul className="divide-y divide-gray-200 border-y border-gray-200">
