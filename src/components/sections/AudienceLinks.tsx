@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import { audiences } from '@/data/audiences';
+import { audiences, type Audience } from '@/data/audiences';
+
+// One Sprig illustration per audience: the art carries the colour, not the UI.
+const illustration: Record<Audience['id'], string> = {
+  teachers: '/images/sprig/fem-teacher-256.webp',
+  parents: '/images/sprig/MENTRA_SPRIG_GIVE-256.webp',
+  schools: '/images/sprig/platform-hero-256.webp',
+};
 
 /** Homepage pointer to the three audience pages: one line each, the detail lives on the page. */
 const AudienceLinks = () => (
@@ -26,8 +33,18 @@ const AudienceLinks = () => (
               <AnimateOnScroll delay={i * 60}>
                 <Link
                   to={a.path}
-                  className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 py-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-4 rounded-sm"
+                  className="group grid grid-cols-[4.5rem_minmax(0,1fr)_auto] sm:grid-cols-[6rem_minmax(0,1fr)_auto] items-center gap-4 sm:gap-6 py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-4 rounded-sm"
                 >
+                  <img
+                    src={illustration[a.id]}
+                    alt=""
+                    aria-hidden="true"
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-[4.5rem] h-[4.5rem] sm:w-24 sm:h-24 object-contain group-hover:scale-105 transition-transform duration-300 motion-reduce:transition-none"
+                  />
                   <span>
                     <span className="block text-lg font-bold text-gray-900 group-hover:text-mentra-blue transition-colors">
                       {a.eyebrow}
