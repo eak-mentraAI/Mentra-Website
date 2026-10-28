@@ -12,9 +12,9 @@ import { cn } from '@/lib/utils';
 // (marketing/carousel/2026-10-14/tours/s5-student-turn/attempt-16/transcript.md in the app repo).
 // Sprig lines are live production output; Jordan is a simulated student. Pills quote the policy's recorded
 // method for that turn. Keep the claim scope of the 2026-10-27 production notes: nothing here says Jordan
-// learned it or got there on his own. The evaluator read his turns as partial, and the teacher's report
-// labels his photosynthesis turn (turn 7, the last one here) "repeated what Sprig said"; that turn is the one
-// the teacher video opens.
+// learned it or got there on his own. The evaluator read his turns as partial. The teacher's report labels his
+// energy turn (turn 4) "with help" and his photosynthesis turn (turn 7, the last one here) "repeated what Sprig
+// said". The teacher video (Round 5 re-film) opens turn 4.
 type Turn = { who: 'student' | 'sprig'; text: string; pill?: string; reportLabel?: string };
 
 const turns: Turn[] = [
@@ -35,7 +35,11 @@ const turns: Turn[] = [
     text: "Right — plants do make their own food. So now connect those two things: if sunlight isn't just warming the plant, what might it be doing to help the plant make that food?",
     pill: 'A targeted hint',
   },
-  { who: 'student', text: 'oh wait is it like... giving the plant energy to actually make the food?' },
+  {
+    who: 'student',
+    text: 'oh wait is it like... giving the plant energy to actually make the food?',
+    reportLabel: 'with help',
+  },
   {
     who: 'sprig',
     text: "Yes — that's the key idea right there. So for your worksheet: sunlight gives the plant the energy it needs to make its own food. That's the answer, in your own words already.",
@@ -73,7 +77,7 @@ const beats: Beat[] = [
   {
     eyebrow: 'One click to check',
     title: 'The teacher opens the exact turn.',
-    text: 'Every label links to the turn behind it, so the teacher can see the evidence for themselves.',
+    text: 'Every label links to the turn behind it. Here the teacher opens Jordan’s breakthrough, which the report marks “with help”, so it’s weighed separately from independent work.',
     shown: 13,
     labelled: true,
     video: true,
@@ -307,7 +311,7 @@ const ConversationStory = () => {
                 <ProductVideo {...screens.teacherTurnTrace.video!} alt={screens.teacherTurnTrace.alt} width={1280} height={720} />
                 <p className="flex items-center gap-2 text-sm text-gray-500">
                   <MousePointerClick className="h-4 w-4 text-mentra-blue" aria-hidden="true" />
-                  Jordan&rsquo;s teacher opens the turn labelled &ldquo;repeated what Sprig said&rdquo;.
+                  Jordan&rsquo;s teacher opens the energy turn, labelled &ldquo;with help&rdquo;.
                 </p>
               </motion.div>
             </div>
