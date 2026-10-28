@@ -1,25 +1,20 @@
 import React from 'react';
-import { Brain, ShieldCheck, UserCheck, Scale } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
 const commitments = [
   {
-    icon: Brain,
     title: 'Thinking comes first',
     text: 'Sprig is designed to ask how a student is thinking before it helps, and to hand the next step back to them rather than do the work.',
   },
   {
-    icon: ShieldCheck,
     title: 'Parents hold the controls',
     text: "Consent is listed purpose by purpose, and each toggle says what turning it off changes. Parents can revoke consent, request deletion, or, for specific reasons such as safety, request an export of their child's AI conversations.",
   },
   {
-    icon: UserCheck,
     title: 'Teachers stay in charge',
     text: 'Mentra suggests and teachers decide. Recommendations wait for a teacher to approve, modify or dismiss them, and an administrator can switch all AI off.',
   },
   {
-    icon: Scale,
     title: "We don't pretend to know more than we do",
     text: 'When there isn\'t enough evidence, Mentra says "not yet" instead of inventing a conclusion about a child.',
   },
@@ -29,30 +24,30 @@ interface TrustSectionProps {
   className?: string;
 }
 
+// Same heading-left, rows-right layout as How it works and the pilot section. Used on the homepage and the
+// audience pages.
 const TrustSection = ({ className = 'bg-gray-50' }: TrustSectionProps) => (
   <section id="trust" className={`py-24 ${className}`} aria-labelledby="trust-heading">
     <div className="container mx-auto px-4">
-      <AnimateOnScroll>
-        <h2
-          id="trust-heading"
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 text-center text-balance max-w-4xl mx-auto"
-        >
-          Built for growing minds. Designed for the adults who protect them.
-        </h2>
-      </AnimateOnScroll>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 max-w-6xl mx-auto">
+        <AnimateOnScroll>
+          <h2 id="trust-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance lg:sticky lg:top-28">
+            Built for growing minds. Designed for the adults who protect them.
+          </h2>
+        </AnimateOnScroll>
 
-      <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {commitments.map((c, i) => (
-          <AnimateOnScroll key={c.title} delay={i * 100}>
-            <div className="bg-white rounded-2xl p-6 h-full border border-gray-100">
-              <div className="w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center mb-4">
-                <c.icon className="w-5 h-5 text-mentra-blue" aria-hidden="true" />
-              </div>
-              <h3 className="text-base font-bold text-gray-900 mb-2">{c.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{c.text}</p>
-            </div>
-          </AnimateOnScroll>
-        ))}
+        <ul className="divide-y divide-gray-200 border-y border-gray-200">
+          {commitments.map((c, i) => (
+            <li key={c.title}>
+              <AnimateOnScroll delay={i * 60}>
+                <div className="py-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{c.title}</h3>
+                  <p className="text-base text-gray-700 leading-relaxed">{c.text}</p>
+                </div>
+              </AnimateOnScroll>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>
