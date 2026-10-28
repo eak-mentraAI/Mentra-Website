@@ -79,7 +79,7 @@ export const screens = {
   ),
   teacherTurnTrace: videoScreen(
     'teacher-turn-trace', "Teacher · Independence Report",
-    "Video: in the teacher's Independence Report, Jordan's card reads not enough recent sessions yet and lists the turns seen so far, each labelled repeated what Sprig said, with help, or on their own. The teacher clicks Open this turn on a turn labelled repeated what Sprig said, and the conversation opens with that exact turn highlighted.",
+    "Video: in the teacher's Independence Report, Jordan's recent turns are listed, each labelled on their own, with help, or repeated what Sprig said. The teacher clicks Open this turn on an Oct 25 turn labelled with help, and the conversation opens with that exact turn highlighted: Jordan asking if sunlight is giving the plant energy to actually make the food, and Sprig replying that's the key idea.",
     {
       kind: 'reads',
       items: [
