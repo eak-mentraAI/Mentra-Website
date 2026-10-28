@@ -28,8 +28,6 @@ export interface Audience {
   /** Persona whose stat tiles appear on the page, if any */
   statsPersonaId?: string;
   features: FeatureGroup[];
-  /** Show the consent screen in the trust section (only where families are the audience) */
-  trustScreen: boolean;
   /** Optional pointer to a deeper page, e.g. the Platform page for IT */
   more?: { text: string; href: string; label: string };
 }
@@ -78,7 +76,6 @@ export const audiences: Audience[] = [
       },
     ],
     features: [{ title: 'More for teachers', personaId: 'teachers' }],
-    trustScreen: false,
   },
   {
     id: 'parents',
@@ -126,7 +123,6 @@ export const audiences: Audience[] = [
       { title: 'What your child does in Mentra', personaId: 'students' },
       { title: 'More for families', personaId: 'parents' },
     ],
-    trustScreen: true,
   },
   {
     id: 'schools',
@@ -167,7 +163,6 @@ export const audiences: Audience[] = [
     ],
     statsPersonaId: 'institutions',
     features: [{ title: 'Governance and controls', personaId: 'institutions' }],
-    trustScreen: false,
     more: {
       text: 'For IT and curriculum teams: architecture, rostering, SSO and data portability.',
       href: '/platform',

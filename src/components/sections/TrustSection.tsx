@@ -1,8 +1,6 @@
 import React from 'react';
 import { Brain, ShieldCheck, UserCheck, Scale } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import ProductScreen from '@/components/ui/ProductScreen';
-import { screens, type Screen } from '@/data/productScreens';
 
 const commitments = [
   {
@@ -28,20 +26,10 @@ const commitments = [
 ];
 
 interface TrustSectionProps {
-  /** Which real screen to show under the commitments */
-  screen?: Screen;
-  caption?: string;
-  /** Show the consent screen under the commitments (homepage and the Parents page) */
-  showScreen?: boolean;
   className?: string;
 }
 
-const TrustSection = ({
-  screen = screens.parentConsent,
-  caption = 'What a parent sees: active consent, its history, one-click revoke, data deletion, and where to request an export of their AI conversations.',
-  showScreen = true,
-  className = 'bg-gray-50',
-}: TrustSectionProps) => (
+const TrustSection = ({ className = 'bg-gray-50' }: TrustSectionProps) => (
   <section id="trust" className={`py-24 ${className}`} aria-labelledby="trust-heading">
     <div className="container mx-auto px-4">
       <AnimateOnScroll>
@@ -66,14 +54,6 @@ const TrustSection = ({
           </AnimateOnScroll>
         ))}
       </div>
-
-      {showScreen && (
-        <AnimateOnScroll>
-          <div className="max-w-5xl mx-auto mt-12">
-            <ProductScreen screen={screen} caption={caption} />
-          </div>
-        </AnimateOnScroll>
-      )}
     </div>
   </section>
 );

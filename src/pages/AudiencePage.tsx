@@ -128,7 +128,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
             </section>
           )}
 
-          <TrustSection showScreen={audience.trustScreen} className="bg-white" />
+          <TrustSection className="bg-white" />
 
           {/* Feature cards for this audience */}
           {audience.features.map((group, gi) => {
