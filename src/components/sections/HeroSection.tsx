@@ -17,7 +17,7 @@ const HeroSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
 
   const scrollToStory = () => {
-    document.getElementById('see-it-in-action')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('the-story')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -59,7 +59,7 @@ const HeroSection = () => {
                   size="lg"
                   variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 group focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
-                  aria-label="Watch Sprig in action: jump to the product videos"
+                  aria-label="Watch Sprig in action: jump to Jordan's conversation"
                   onClick={scrollToStory}
                 >
                   <PlayCircle className="mr-2 h-5 w-5 text-mentra-blue group-hover:scale-110 transition-transform" aria-hidden="true" />
@@ -67,7 +67,7 @@ const HeroSection = () => {
                 </Button>
               </div>
               <nav aria-label="Mentra for you" className="flex flex-col items-center lg:items-start gap-2.5 pt-2">
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">Built for</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Built for</span>
                 <ul className="flex flex-nowrap justify-center lg:justify-start gap-1 sm:gap-2">
                   {audienceLinks.map(({ to, label, icon: Icon, tint }) => (
                     <li key={to}>
@@ -92,7 +92,9 @@ const HeroSection = () => {
           <div className="flex justify-center lg:justify-end">
             <SprigOrb size="lg">
               <img
-                src="/images/sprig/sprig-trio.png"
+                src="/images/sprig/sprig-trio-896.webp"
+                srcSet="/images/sprig/sprig-trio-480.webp 480w, /images/sprig/sprig-trio-896.webp 896w"
+                sizes="(min-width: 1280px) 448px, (min-width: 1024px) 384px, (min-width: 640px) 288px, 224px"
                 alt="Sprig with peers — your AI learning companions"
                 width="400"
                 height="400"

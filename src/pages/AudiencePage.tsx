@@ -5,7 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import PageTransition from '@/components/layout/PageTransition';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import ScreenTabs from '@/components/ui/ScreenTabs';
+import ScreenStory from '@/components/sections/ScreenStory';
 import { Button } from '@/components/ui/button';
 import TrustSection from '@/components/sections/TrustSection';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
@@ -59,21 +59,14 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
                   variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 rounded-full font-medium text-lg"
                 >
-                  <Link to="/#see-it-in-action">See Sprig in action</Link>
+                  <Link to="/#the-story">See Sprig in action</Link>
                 </Button>
               </div>
             </div>
           </section>
 
-          {/* Proof: real screens in one tab viewer, the same interaction as the homepage story */}
-          <section className="py-24 bg-gray-50" aria-label="Real product screens">
-            <div className="container mx-auto px-4">
-              <ScreenTabs tabs={audience.proof} label={`${audience.eyebrow}: real screens`} signals="reads" />
-              <p className="text-xs text-gray-400 text-center leading-relaxed max-w-3xl mx-auto mt-10">
-                {SHOWCASE_DISCLOSURE}
-              </p>
-            </div>
-          </section>
+          {/* Proof: real screens as one pinned scroll scene, the same motion as the homepage story */}
+          <ScreenStory beats={audience.proof} label={`${audience.eyebrow}: real screens`} note={SHOWCASE_DISCLOSURE} />
 
           {/* Pilot plan (schools) */}
           {audience.pilot && (
@@ -128,7 +121,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
             </section>
           )}
 
-          <TrustSection showScreen={audience.trustScreen} className="bg-white" />
+          <TrustSection className="bg-white" />
 
           {/* Feature cards for this audience */}
           {audience.features.map((group, gi) => {

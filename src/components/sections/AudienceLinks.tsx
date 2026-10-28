@@ -2,57 +2,64 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import { audiences } from '@/data/audiences';
+import { audiences, type Audience } from '@/data/audiences';
 
-/** Homepage pointer to the three audience pages. Each card previews one real screen; the detail lives on the page. */
+// One Sprig illustration per audience: the art carries the colour, not the UI.
+const illustration: Record<Audience['id'], string> = {
+  teachers: '/images/sprig/blog-hero-256.webp',
+  parents: '/images/sprig/MENTRA_SPRIG_GIVE-256.webp',
+  schools: '/images/sprig/platform-hero-256.webp',
+};
+
+/** Homepage pointer to the three audience pages: one line each, the detail lives on the page. */
 const AudienceLinks = () => (
   <section id="personas" className="py-24 bg-white scroll-mt-20" aria-labelledby="audience-links-heading">
     <div className="container mx-auto px-4">
-      <AnimateOnScroll>
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2
-            id="audience-links-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance"
-          >
-            Humans in control at every level
-          </h2>
-          <p className="text-lg text-gray-500 leading-relaxed">
-            Each adult around a student sees what they need and controls what they should.
-          </p>
-        </div>
-      </AnimateOnScroll>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 max-w-6xl mx-auto">
+        <AnimateOnScroll>
+          <div className="space-y-5">
+            <h2 id="audience-links-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance">
+              Humans in control at every level
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Each adult around a student sees what they need and controls what they should.
+            </p>
+          </div>
+        </AnimateOnScroll>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {audiences.map((a, i) => (
-          <AnimateOnScroll key={a.id} delay={i * 100}>
-            <Link
-              to={a.path}
-              className="group flex flex-col h-full rounded-2xl border border-gray-200 bg-white overflow-hidden hover:shadow-xl hover:shadow-gray-900/5 hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <div className="h-44 overflow-hidden border-b border-gray-100 bg-gray-50">
-                <img
-                  src={a.preview.src}
-                  alt=""
-                  aria-hidden="true"
-                  width={a.preview.width}
-                  height={a.preview.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover object-left-top"
-                />
-              </div>
-              <div className="flex flex-col flex-1 p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-mentra-blue mb-2">{a.eyebrow}</p>
-                <h3 className="text-lg font-bold text-gray-900 leading-snug mb-2">{a.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed flex-1">{a.cardLine}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-mentra-blue group-hover:gap-3 transition-all">
-                  See {a.eyebrow}
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </span>
-              </div>
-            </Link>
-          </AnimateOnScroll>
-        ))}
+        <ul className="divide-y divide-gray-200 border-y border-gray-200">
+          {audiences.map((a, i) => (
+            <li key={a.id}>
+              <AnimateOnScroll delay={i * 60}>
+                <Link
+                  to={a.path}
+                  className="group grid grid-cols-[4.5rem_minmax(0,1fr)_auto] sm:grid-cols-[6rem_minmax(0,1fr)_auto] items-center gap-4 sm:gap-6 py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue focus-visible:ring-offset-4 rounded-sm"
+                >
+                  <img
+                    src={illustration[a.id]}
+                    alt=""
+                    aria-hidden="true"
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-[4.5rem] h-[4.5rem] sm:w-24 sm:h-24 object-contain group-hover:scale-105 transition-transform duration-300 motion-reduce:transition-none"
+                  />
+                  <span>
+                    <span className="block text-lg font-bold text-gray-900 group-hover:text-mentra-blue transition-colors">
+                      {a.eyebrow}
+                    </span>
+                    <span className="block text-base text-gray-700 leading-relaxed mt-1">{a.cardLine}</span>
+                  </span>
+                  <ArrowRight
+                    className="h-5 w-5 text-gray-400 group-hover:text-mentra-blue group-hover:translate-x-1 transition-[color,transform]"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </AnimateOnScroll>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>

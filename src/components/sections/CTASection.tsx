@@ -9,6 +9,22 @@ const CTASection = () => {
   const { open: openScheduleCall } = useScheduleCall();
   const { pathname } = useLocation();
 
+  // The homepage already asks for the booking twice (the story's close and the pilot offer), so here it keeps only
+  // the sponsor path.
+  if (pathname === '/') {
+    return (
+      <section data-sprig-cta className="py-12 bg-gray-900">
+        <p className="container mx-auto px-4 text-center text-gray-300 text-sm sm:text-base">
+          <Heart className="inline w-4 h-4 mr-1.5 -mt-0.5 text-curiosity-coral" aria-hidden="true" />
+          Know a school that can&rsquo;t afford it?{' '}
+          <Link to="/sponsor-a-school" className="text-white font-semibold underline-offset-4 hover:underline">
+            Sponsor a year of Mentra
+          </Link>
+        </p>
+      </section>
+    );
+  }
+
   return (
     <section data-sprig-cta className="py-24 bg-gray-900 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">

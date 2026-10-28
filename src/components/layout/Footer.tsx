@@ -30,7 +30,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1 space-y-6">
             <img
-              src="/images/logos/mentra-logo-color.png"
+              src="/images/logos/mentra-logo-color-160.webp"
               alt="Mentra Logo"
               width="200"
               height="80"
@@ -125,20 +125,20 @@ const Footer = () => {
         {/* Legal Links */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex gap-6 text-sm">
-            <Link to="/privacy" className="text-gray-500 hover:text-white transition-colors">
+            <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors">
               Privacy
             </Link>
-            <Link to="/terms" className="text-gray-500 hover:text-white transition-colors">
+            <Link to="/terms" className="text-gray-400 hover:text-white transition-colors">
               Terms
             </Link>
-            <Link to="/cookies" className="text-gray-500 hover:text-white transition-colors">
+            <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors">
               Cookies
             </Link>
           </div>
         </div>
 
         <div className="mt-6 text-center md:text-left">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} Mentra AI, Inc. All rights reserved.
           </p>
         </div>

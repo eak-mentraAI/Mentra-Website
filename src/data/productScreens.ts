@@ -154,10 +154,6 @@ export const screens = {
     'parent-trust', 1400, 479, 'Parent · Trust & Privacy',
     "A parent's Trust & Privacy page: an active consent record listing five purposes, with partner sharing and anonymized product use turned off, and a toggle for each purpose explaining what turning it off does.",
   ),
-  parentConsent: screen(
-    'parent-consent', 1400, 667, 'Parent · Consent & Privacy',
-    "A parent's Consent & Privacy page: Jordan's active consent with History, Revoke and Request Data Deletion buttons, and a panel to export Jordan's AI conversation history.",
-  ),
   teacherBrief: screen(
     'teacher-brief', 1400, 517, "Teacher · Today's Brief",
     "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",

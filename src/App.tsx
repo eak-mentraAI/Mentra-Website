@@ -78,7 +78,7 @@ function AnimatedRoutes() {
         <Route path="/cookies" element={<Cookies />} />
         {/* Redirects for old routes */}
         <Route path="/how-it-works" element={<RedirectToHash hash="how-it-works" />} />
-        <Route path="/students" element={<RedirectToHash hash="see-it-in-action" />} />
+        <Route path="/students" element={<RedirectToHash hash="the-story" />} />
         <Route path="/institutions" element={<Navigate to="/schools" replace />} />
         <Route path="/districts" element={<Navigate to="/schools" replace />} />
         <Route path="/pricing" element={<RedirectToHash hash="pricing" />} />

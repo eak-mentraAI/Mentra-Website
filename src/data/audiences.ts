@@ -1,4 +1,4 @@
-import { screens, type Screen } from '@/data/productScreens';
+import { screens } from '@/data/productScreens';
 import type { ScreenTab } from '@/components/ui/ScreenTabs';
 
 export interface PilotRow {
@@ -19,17 +19,14 @@ export interface Audience {
   eyebrow: string;
   title: string;
   intro: string;
-  /** Homepage card: a one-line pitch and a preview screen */
+  /** Homepage link: a one-line pitch */
   cardLine: string;
-  preview: Screen;
   /** Shown in a tab viewer. Keep one "honest about what we don't know" line per page, not one per tab. */
   proof: ScreenTab[];
   pilot?: PilotRow[];
   /** Persona whose stat tiles appear on the page, if any */
   statsPersonaId?: string;
   features: FeatureGroup[];
-  /** Show the consent screen in the trust section (only where families are the audience) */
-  trustScreen: boolean;
   /** Optional pointer to a deeper page, e.g. the Platform page for IT */
   more?: { text: string; href: string; label: string };
 }
@@ -44,7 +41,6 @@ export const audiences: Audience[] = [
     intro:
       "Mentra shows where each student's reasoning is growing, where it stalls, and what you might try next. You stay the one making the decisions.",
     cardLine: 'Know who needs you, where the class is stuck, and what to try next. You make every call.',
-    preview: screens.teacherBrief,
     proof: [
       {
         eyebrow: "Today's Brief",
@@ -78,7 +74,6 @@ export const audiences: Audience[] = [
       },
     ],
     features: [{ title: 'More for teachers', personaId: 'teachers' }],
-    trustScreen: false,
   },
   {
     id: 'parents',
@@ -89,7 +84,6 @@ export const audiences: Audience[] = [
     intro:
       "Mentra is a learning companion designed not to do your child's homework. It coaches them through their own reasoning, tells you what's changing in plain words, and leaves you in control of their data.",
     cardLine: 'A companion that coaches instead of answering, plain-language updates, and every permission in your hands.',
-    preview: screens.parentOneQuestion,
     proof: [
       {
         eyebrow: 'What your child sees',
@@ -126,7 +120,6 @@ export const audiences: Audience[] = [
       { title: 'What your child does in Mentra', personaId: 'students' },
       { title: 'More for families', personaId: 'parents' },
     ],
-    trustScreen: true,
   },
   {
     id: 'schools',
@@ -137,7 +130,6 @@ export const audiences: Audience[] = [
     intro:
       'Mentra shows how students reason, where a class gets stuck and what to try next. A pilot then measures whether it is worth the cost, against measures you agree up front.',
     cardLine: 'Evidence of reasoning, a pilot measured your way, and governance your board can inspect.',
-    preview: screens.teacherAnalytics,
     proof: [
       {
         eyebrow: 'Class analytics',
@@ -167,7 +159,6 @@ export const audiences: Audience[] = [
     ],
     statsPersonaId: 'institutions',
     features: [{ title: 'Governance and controls', personaId: 'institutions' }],
-    trustScreen: false,
     more: {
       text: 'For IT and curriculum teams: architecture, rostering, SSO and data portability.',
       href: '/platform',

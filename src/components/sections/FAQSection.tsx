@@ -28,7 +28,7 @@ const faqSections = [
     questions: [
       { question: "How do you protect student data?", answer: "By architecture, not policy. Fail-closed consent gating, append-only audit trails, Row-Level Security at the database layer, and automated policy gates that block any change violating those rules before it ships. Every access is logged. Data is never sold or used for ads." },
       { question: "What content filters are in place?", answer: "A multi-layer safety pipeline runs on every interaction: input validation, age-appropriate content filtering, output scanning for PII, and a feedback safety filter that prevents the AI from ever leaking answers." },
-      { question: "Can parents monitor their child's AI conversations?", answer: "Parents see coaching frequency and progress — not raw conversation logs, which are the child's private learning space. You know how involved the AI is. Teachers have full visibility with override capability." },
+      { question: "Can parents monitor their child's AI conversations?", answer: "Parents see the shape of their child's work and how it's trending, like how often Sprig is coaching and whether they're becoming more independent. They don't see the conversations themselves, which are the child's private learning space. For specific reasons, such as a safety concern, a parent can request an export of their child's AI conversations. Teachers have full visibility with override capability." },
       { question: "What happens if the AI provides incorrect information?", answer: "Districts have a one-click kill switch that disables all AI in under a second. It fails closed — AI stays off until explicitly re-enabled. Teachers can override any individual adaptation immediately." },
     ],
   },

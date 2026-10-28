@@ -6,6 +6,7 @@ import PageTransition from '@/components/layout/PageTransition';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import { Button } from '@/components/ui/button';
 import SprigOrb from '@/components/ui/SprigOrb';
+import ProductStory from '@/components/sections/ProductStory';
 import {
   Database,
   Users,
@@ -523,6 +524,9 @@ const Platform = () => {
             </div>
           </div>
         </section>
+
+        {/* SPRIG ACROSS MENTRA: the six product tabs, moved here from the homepage */}
+        <ProductStory className="bg-gray-50" />
 
         {/* STANDARDS & INTEGRATIONS */}
         <section className="py-24 bg-white">

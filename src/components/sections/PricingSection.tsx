@@ -1,139 +1,80 @@
 import React from 'react';
-import { CheckCircle2, Users, Building2, Landmark, GraduationCap } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, CalendarDays } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
+import { getAudience } from '@/data/audiences';
 
-const tiers = [
-  {
-    name: 'Core',
-    subtitle: 'AI Learning Assistance',
-    description: 'Foundational AI companion that builds capability, not dependency.',
-    icon: GraduationCap,
-    features: [
-      'Personal AI learning companion',
-      'Socratic scaffolding that fades over time',
-      'AI journaling & goal tracking',
-      'Parent growth dashboard',
-      'Privacy-first architecture',
-      'Mobile & web access',
-    ],
-    highlight: false,
-  },
-  {
-    name: 'Growth',
-    subtitle: 'Longitudinal Insights',
-    description: 'Track real learning over time — see capability build, not just grades.',
-    icon: Users,
-    features: [
-      'Everything in Core',
-      'Learner Passport with growth tracking',
-      'Teacher AI Copilot',
-      'Custom learning paths',
-      'Engagement & progress analytics',
-      'Family sharing (up to 4)',
-    ],
-    highlight: true,
-  },
-  {
-    name: 'Intelligence',
-    subtitle: 'Predictive Analytics',
-    description: 'Early intervention signals, cohort analysis, and curriculum optimization.',
-    icon: Building2,
-    features: [
-      'Everything in Growth',
-      'Predictive learner analytics',
-      'Cohort & curriculum insights',
-      'Early intervention signals',
-      'College & career readiness tracking',
-      'Advanced AI model tier',
-    ],
-    highlight: false,
-  },
-  {
-    name: 'Enterprise',
-    subtitle: 'Institutional Optimization',
-    description: 'Full platform deployment with dedicated support and custom integrations.',
-    icon: Landmark,
-    features: [
-      'Everything in Intelligence',
-      'District-wide admin dashboard',
-      'SIS/LMS integration',
-      'Private cloud deployment option',
-      'Custom analytics & reporting',
-      'Dedicated account manager',
-    ],
-    highlight: false,
-  },
-];
+// Pilot-first pricing. Every line here restates the FAQ ("How does Mentra pricing work?", implementation and
+// contract answers) or the Schools page pilot plan; keep them in sync rather than adding new claims.
+const pilotRows = getAudience('schools').pilot ?? [];
 
 const PricingSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
 
   return (
-    <section id="pricing" className="py-24 bg-white">
+    <section id="pricing" className="py-24 bg-white scroll-mt-20" aria-labelledby="pricing-heading">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <AnimateOnScroll>
-          <div className="text-center mb-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-              Invest in learner intelligence
-            </h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-2">
-              Pricing built for how schools actually buy — predictable, scalable, and anchored to outcomes that matter.
-            </p>
-            <p className="text-sm text-gray-400 max-w-xl mx-auto">
-              Per-student licensing + institutional platform fee. Volume discounts for multi-year commitments.
-            </p>
-          </div>
-        </AnimateOnScroll>
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 max-w-6xl mx-auto">
+          <AnimateOnScroll>
+            <div className="space-y-6">
+              <h2 id="pricing-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-balance">
+                Start with a pilot.
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                We agree the measures with you before it starts, so the result is yours to judge.
+              </p>
 
-        {/* Tier Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {tiers.map((tier, idx) => {
-            const Icon = tier.icon;
-            return (
-              <AnimateOnScroll key={tier.name} delay={idx * 100}>
-                <div
-                  className={`flex flex-col rounded-2xl bg-white border ${tier.highlight ? 'shadow-xl ring-2 ring-mentra-blue relative border-mentra-blue/20' : 'shadow-sm hover:shadow-md border-gray-200'} p-6 transition-all duration-300 h-full`}
+              <div className="rounded-2xl bg-gray-50 p-6 space-y-3">
+                <p className="text-3xl font-bold text-gray-900 tabular-nums">
+                  $9–18 <span className="text-base font-medium text-gray-600">per student, per month</span>
+                </p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Per-student licensing, depending on scale and commitment, plus an institutional platform fee. Pilot
+                  pricing in year one. Families use Mentra free through their school&rsquo;s plan.
+                </p>
+              </div>
+
+              <p className="text-base text-gray-700 leading-relaxed">
+                Pilot onboarding is designed to take 2&ndash;3 weeks, with live sessions and ongoing support for teachers.
+              </p>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <Button
+                  size="lg"
+                  className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+                  aria-label="Book a walkthrough with the Mentra team"
+                  onClick={openScheduleCall}
                 >
-                  {tier.highlight && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mentra-blue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
-                      Most Popular
-                    </span>
-                  )}
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${tier.highlight ? 'bg-mentra-blue/10' : 'bg-gray-100'}`}>
-                    <Icon className={`w-5 h-5 ${tier.highlight ? 'text-mentra-blue' : 'text-gray-600'}`} />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">{tier.name}</h3>
-                  <p className={`text-sm font-medium mb-2 ${tier.highlight ? 'text-mentra-blue' : 'text-gray-500'}`}>
-                    {tier.subtitle}
-                  </p>
-                  <p className="text-sm text-gray-400 mb-5 leading-relaxed">
-                    {tier.description}
-                  </p>
-                  <ul className="space-y-3 flex-1 mb-5">
-                    {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-gray-500 text-sm">
-                        <CheckCircle2
-                          className={`w-4 h-4 min-w-4 min-h-4 mt-0.5 ${tier.highlight ? 'text-mentra-blue' : 'text-growth-green'}`}
-                        />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    type="button"
-                    onClick={openScheduleCall}
-                    className={`w-full py-2.5 rounded-full font-semibold text-sm transition-all duration-200 text-center block ${tier.highlight ? 'bg-mentra-blue text-white hover:bg-mentra-blue/90' : 'border border-gray-200 text-gray-700 hover:bg-gray-50'}`}
-                  >
-                    Request a quote
-                  </button>
-                </div>
-              </AnimateOnScroll>
-            );
-          })}
-        </div>
+                  <CalendarDays className="mr-2 h-5 w-5" aria-hidden="true" />
+                  Book a walkthrough
+                </Button>
+                <Link
+                  to="/schools"
+                  className="inline-flex items-center gap-1.5 font-semibold text-mentra-blue underline-offset-4 hover:underline"
+                >
+                  See the full pilot plan
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </AnimateOnScroll>
 
+          <AnimateOnScroll delay={100}>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">What a pilot measures</h3>
+              <dl className="divide-y divide-gray-200 border-y border-gray-200">
+                {pilotRows.map((row) => (
+                  <div key={row.question} className="grid gap-1 py-5 sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] sm:gap-6">
+                    <dt className="font-semibold text-gray-900">{row.question}</dt>
+                    <dd className="text-gray-700 leading-relaxed">{row.evidence}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </AnimateOnScroll>
+        </div>
       </div>
     </section>
   );
