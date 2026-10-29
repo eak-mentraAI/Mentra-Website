@@ -6,7 +6,7 @@ import { audiences, type Audience } from '@/data/audiences';
 
 // One Sprig illustration per audience: the art carries the colour, not the UI.
 const illustration: Record<Audience['id'], string> = {
-  teachers: '/images/sprig/blog-hero-256.webp',
+  teachers: '/images/sprig/teacher-notebook-256.webp',
   parents: '/images/sprig/MENTRA_SPRIG_GIVE-256.webp',
   schools: '/images/sprig/platform-hero-256.webp',
 };

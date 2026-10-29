@@ -3,7 +3,6 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
-import SprigOrb from '@/components/ui/SprigOrb';
 import { Button } from '@/components/ui/button';
 import {
   Heart,
@@ -253,15 +252,13 @@ export default function SponsorASchool() {
               </div>
               {/* Right: Sprig with heart */}
               <div className="flex justify-center lg:justify-end">
-                <SprigOrb size="lg">
-                  <img
-                    src="/images/sprig/MENTRA_SPRIG_GIVE.webp"
-                    alt="One Sprig handing a heart to a smaller Sprig — the gift of equal access to learning"
-                    width="400"
-                    height="400"
-                    className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl animate-breathe motion-reduce:animate-none"
-                  />
-                </SprigOrb>
+                <img
+                  src="/images/sprig/MENTRA_SPRIG_GIVE.webp"
+                  alt="One Sprig handing a heart to a smaller Sprig — the gift of equal access to learning"
+                  width="400"
+                  height="400"
+                  className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain"
+                />
               </div>
             </div>
           </div>
