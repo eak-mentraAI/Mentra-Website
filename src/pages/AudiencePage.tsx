@@ -14,6 +14,13 @@ import { personas } from '@/data/personas';
 import { SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 
 /** One template for /teachers, /parents and /schools. Copy lives in src/data/audiences.ts. */
+
+// One Sprig scene per audience, in the light two-character style (see art/sprig-generated).
+const heroArt: Record<Audience['id'], string> = {
+  teachers: '/images/sprig/hero-teachers-576.webp',
+  parents: '/images/sprig/hero-families-576.webp',
+  schools: '/images/sprig/hero-schools-576.webp',
+};
 const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
   const audience = getAudience(audienceId);
   const stats = personas.find((p) => p.id === audience.statsPersonaId)?.stats;
@@ -34,7 +41,16 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
         <main className="flex-1">
           {/* Hero */}
           <section className="bg-gradient-to-b from-mentra-blue/5 via-white to-white">
-            <div className="container mx-auto max-w-4xl px-4 pt-32 sm:pt-40 pb-16 text-center">
+            <div className="container mx-auto max-w-4xl px-4 pt-28 sm:pt-32 pb-16 text-center">
+              <img
+                src={heroArt[audience.id]}
+                alt=""
+                aria-hidden="true"
+                width={288}
+                height={288}
+                decoding="async"
+                className="mx-auto mb-6 w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 object-contain"
+              />
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-4">
                 {audience.eyebrow}
               </p>

@@ -1,0 +1,12 @@
+{
+  "model": "gpt-image-1.5",
+  "prompt": "Match the art style of the reference images exactly. The character is Sprig: a soft, rounded mint-teal seedling creature with two green leaves on top, small dot eyes, rosy cheeks, a bold, thick dark-teal outline (the same heavy line weight as the references, never thin or sketchy) and gentle cel shading. Characters are drawn large in the frame. Keep Sprig on-model. Light mint palette, small friendly scene with one or two characters and a few props, generous empty space, transparent background, no text, no letters, no logos, no realistic people.\n\nScene: A teacher Sprig with round glasses stands beside a small blank easel board, facing two small student Sprigs sitting on the ground. One student Sprig raises a leaf as if to answer a question.",
+  "refs": [
+    ".claude/skills/sprig-image/refs/character-sheet.png",
+    "public/images/sprig/MENTRA_SPRIG_GIVE.png",
+    "public/images/sprig/blog-hero.png"
+  ],
+  "size": "1024x1024",
+  "quality": "medium",
+  "note": "AI-generated with OpenAI image editing from existing Sprig art as style references; approved by a human before use."
+}
