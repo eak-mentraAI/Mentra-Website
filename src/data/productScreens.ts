@@ -21,7 +21,7 @@ export interface Screen {
   label: string;
   signals?: SignalTrail;
   /** Real footage (an approved in-app video loop). Shown instead of the still; src is the poster. */
-  video?: { src: string; mobileSrc?: string; poster: string };
+  video?: { src: string; mobileSrc?: string; poster: string; playbackRate?: number };
 }
 
 const qaSignals = (name: string): SignalTrail => ({
@@ -46,6 +46,8 @@ const videoScreen = (
   video: { src: `/videos/${file}.mp4`, mobileSrc: `/videos/${file}-720.mp4`, poster: `/images/product/${file}-poster.webp` },
 });
 
+const withPlaybackRate = (playbackRate: number, s: Screen): Screen => ({ ...s, video: s.video && { ...s.video, playbackRate } });
+
 const screen = (
   file: string, width: number, height: number, label: string, alt: string, signals?: SignalTrail,
 ): Screen => ({
@@ -65,7 +67,8 @@ export const screens = {
     "Video: Jordan's conversation with Sprig about why plants need sunlight. Sprig hints that sunlight isn't just warming the plant and asks what it might be doing to help the plant make food. Jordan types: is it giving the plant energy to actually make the food? Sprig replies that's the key idea, and that sunlight gives the plant the energy it needs to make its own food.",
     qaSignals('Jordan'),
   ),
-  studentCoding: videoScreen(
+  // 0.8x: the conversation turns and the fix go by fast at full speed.
+  studentCoding: withPlaybackRate(0.8, videoScreen(
     'student-coding', 'Student · Coding with Sprig',
     "Video: a coding session. The program prints 2 instead of 3 because len(waterings) counts the plants. Sprig asks what waterings is and what len counts on a dictionary. Jordan works out it's the whole dictionary, edits line 10 to len(waterings[\"window plant\"]), and runs it: Window plant days: 3.",
     {
@@ -76,8 +79,9 @@ export const screens = {
       ],
       goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
     },
-  ),
-  teacherTurnTrace: videoScreen(
+  )),
+  // Played at 0.8x everywhere: the click and the jump to the turn are quick, and viewers should catch it in one loop.
+  teacherTurnTrace: withPlaybackRate(0.8, videoScreen(
     'teacher-turn-trace', "Teacher · Independence Report",
     "Video: in the teacher's Independence Report, Jordan's recent turns are listed, each labelled on their own, with help, or repeated what Sprig said. The teacher clicks Open this turn on an Oct 25 turn labelled with help, and the conversation opens with that exact turn highlighted: Jordan asking if sunlight is giving the plant energy to actually make the food, and Sprig replying that's the key idea.",
     {
@@ -88,7 +92,7 @@ export const screens = {
       ],
       goesTo: "The student's learner graph. The read itself waits until there's enough recent work",
     },
-  ),
+  )),
   studentZoe: screen(
     'student-zoe', 1400, 698, 'Student · Q&A with Sprig',
     "Zoe answers 15 for x in 3/5 = x/20. Sprig says not quite, keeps Zoe's method of multiplying the top by 4, and asks what 3 times 4 is. Zoe answers 12, Sprig confirms x = 12 and gives a new problem to try: 2 is to 7 as x is to 35.",
@@ -191,6 +195,20 @@ export const screens = {
     "Milestones on a child's Learner Passport, as the parent sees it: Reflection Beginner and Dream Planter reached, with Story Weaver at 4 of 10 journal entries and Goal Builder at 2 of 5 goals next.",
   ),
 } satisfies Record<string, Screen>;
+
+/**
+ * The teacher loop cropped and zoomed for phones (made from the 1920 master: the camera follows the "with help" row,
+ * then Jordan's turn, then Sprig's reply). The clip's own closing pull-back is cut, and the still review screen is held
+ * twice as long so each stop can be read on a phone: 11.4 s.
+ */
+export const teacherTurnTraceZoom = {
+  src: '/videos/teacher-turn-trace-zoom.mp4',
+  poster: '/images/product/teacher-turn-trace-zoom-poster.webp',
+  alt: "Video, zoomed in: in the teacher's Independence Report, an Oct 25 turn labelled with help. The teacher opens it, and the conversation shows Jordan's turn highlighted: is sunlight giving the plant energy to actually make the food? Then Sprig's reply: that's the key idea right there.",
+  width: 630,
+  height: 788,
+  playbackRate: 0.8,
+};
 
 export const SHOWCASE_DISCLOSURE =
   'Synthetic students and families, real Sprig responses: these examples show the real experience without exposing any child\'s data.';

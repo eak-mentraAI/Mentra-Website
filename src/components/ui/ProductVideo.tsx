@@ -15,6 +15,8 @@ export interface ProductVideoProps {
    * 'player': click to play with controls (the promo).
    */
   mode?: 'loop' | 'player';
+  /** Loops only: below 1 slows the clip so a viewer can take it in on one pass */
+  playbackRate?: number;
   className?: string;
 }
 
@@ -23,7 +25,7 @@ export interface ProductVideoProps {
  * Muted loops autoplay inline while in view, on phones too (with the lighter mobileSrc encode). Visitors with
  * reduced motion or Save-Data get the poster alone. Clips have no audio track.
  */
-const ProductVideo = ({ src, mobileSrc, poster, alt, width, height, mode = 'loop', className }: ProductVideoProps) => {
+const ProductVideo = ({ src, mobileSrc, poster, alt, width, height, mode = 'loop', playbackRate = 1, className }: ProductVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [motionOk, setMotionOk] = useState(false);
   const [loopSrc, setLoopSrc] = useState(src);
@@ -45,6 +47,9 @@ const ProductVideo = ({ src, mobileSrc, poster, alt, width, height, mode = 'loop
     video.muted = true;
     video.defaultMuted = true;
     video.setAttribute('muted', '');
+    // defaultPlaybackRate survives the source loading; playbackRate covers a clip that's already loaded.
+    video.defaultPlaybackRate = playbackRate;
+    video.playbackRate = playbackRate;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) video.play().catch(() => {});
@@ -54,7 +59,7 @@ const ProductVideo = ({ src, mobileSrc, poster, alt, width, height, mode = 'loop
     );
     observer.observe(video);
     return () => observer.disconnect();
-  }, [mode, motionOk]);
+  }, [mode, motionOk, playbackRate]);
 
   const frame = cn('block w-full h-auto rounded-2xl shadow-lg shadow-gray-900/5 bg-gray-50', className);
 
