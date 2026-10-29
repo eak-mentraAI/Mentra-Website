@@ -19,6 +19,7 @@ const ProductScreen = ({ screen, caption, className }: ProductScreenProps) => (
         src={screen.video.src}
         mobileSrc={screen.video.mobileSrc}
         poster={screen.video.poster}
+        playbackRate={screen.video.playbackRate}
         alt={screen.alt}
         width={screen.width}
         height={screen.height}

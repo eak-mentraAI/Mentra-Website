@@ -21,7 +21,7 @@ export interface Screen {
   label: string;
   signals?: SignalTrail;
   /** Real footage (an approved in-app video loop). Shown instead of the still; src is the poster. */
-  video?: { src: string; mobileSrc?: string; poster: string };
+  video?: { src: string; mobileSrc?: string; poster: string; playbackRate?: number };
 }
 
 const qaSignals = (name: string): SignalTrail => ({
@@ -45,6 +45,8 @@ const videoScreen = (
   signals,
   video: { src: `/videos/${file}.mp4`, mobileSrc: `/videos/${file}-720.mp4`, poster: `/images/product/${file}-poster.webp` },
 });
+
+const withPlaybackRate = (playbackRate: number, s: Screen): Screen => ({ ...s, video: s.video && { ...s.video, playbackRate } });
 
 const screen = (
   file: string, width: number, height: number, label: string, alt: string, signals?: SignalTrail,
@@ -77,7 +79,8 @@ export const screens = {
       goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
     },
   ),
-  teacherTurnTrace: videoScreen(
+  // Played at 0.8x everywhere: the click and the jump to the turn are quick, and viewers should catch it in one loop.
+  teacherTurnTrace: withPlaybackRate(0.8, videoScreen(
     'teacher-turn-trace', "Teacher · Independence Report",
     "Video: in the teacher's Independence Report, Jordan's recent turns are listed, each labelled on their own, with help, or repeated what Sprig said. The teacher clicks Open this turn on an Oct 25 turn labelled with help, and the conversation opens with that exact turn highlighted: Jordan asking if sunlight is giving the plant energy to actually make the food, and Sprig replying that's the key idea.",
     {
@@ -88,7 +91,7 @@ export const screens = {
       ],
       goesTo: "The student's learner graph. The read itself waits until there's enough recent work",
     },
-  ),
+  )),
   studentZoe: screen(
     'student-zoe', 1400, 698, 'Student · Q&A with Sprig',
     "Zoe answers 15 for x in 3/5 = x/20. Sprig says not quite, keeps Zoe's method of multiplying the top by 4, and asks what 3 times 4 is. Zoe answers 12, Sprig confirms x = 12 and gives a new problem to try: 2 is to 7 as x is to 35.",
@@ -203,6 +206,7 @@ export const teacherTurnTraceZoom = {
   alt: "Video, zoomed in: in the teacher's Independence Report, an Oct 25 turn labelled with help. The teacher opens it, and the conversation shows Jordan's turn highlighted: is sunlight giving the plant energy to actually make the food? Then Sprig's reply: that's the key idea right there.",
   width: 630,
   height: 788,
+  playbackRate: 0.8,
 };
 
 export const SHOWCASE_DISCLOSURE =
