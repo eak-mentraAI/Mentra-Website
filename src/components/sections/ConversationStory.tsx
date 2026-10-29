@@ -88,9 +88,143 @@ const beats: Beat[] = [
 
 const CTA_BEAT = beats.length;
 
-// Scroll per beat: about one ordinary flick on a phone.
+// Scroll per beat. Swipes and wheel gestures step one beat at a time (useBeatStepping), so this only sets how far a
+// keyboard or scrollbar scroll travels per beat.
 const BEAT_VH = 60;
 const TRACK_VH = (CTA_BEAT + 1) * BEAT_VH + 30;
+const BEATS = CTA_BEAT + 1;
+
+/**
+ * One gesture, one beat. While the scene is pinned, a swipe or a wheel/trackpad gesture moves to the next or previous
+ * beat and waits there; momentum can't carry it further. A gesture past the first or last beat is left to the browser,
+ * so the visitor scrolls out of the scene normally. Keyboard and scrollbar scrolling stay native.
+ * CSS scroll snapping was tried first and was unreliable: small flicks snapped back and big ones skipped beats.
+ */
+const useBeatStepping = (trackRef: React.RefObject<HTMLDivElement>, enabled: boolean) => {
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || !enabled) return;
+
+    const geom = () => ({ top: track.getBoundingClientRect().top + window.scrollY, range: track.offsetHeight - window.innerHeight });
+    const centerY = (i: number) => {
+      const { top, range } = geom();
+      return top + ((i + 0.5) * range) / BEATS;
+    };
+    const beatAtScroll = () => {
+      const { top, range } = geom();
+      return Math.min(BEATS - 1, Math.max(0, Math.floor(((window.scrollY - top) / range) * BEATS)));
+    };
+    const isPinned = () => {
+      const r = track.getBoundingClientRect();
+      return r.top <= 1 && r.bottom >= window.innerHeight - 1;
+    };
+
+    let target = -1; // the beat we're moving to
+    let busyUntil = 0; // our own smooth scroll is running until then
+    let lastGestureAt = -Infinity; // the visitor's last swipe or wheel input
+    const now = () => performance.now();
+    const beat = () => (now() < busyUntil && target >= 0 ? target : beatAtScroll());
+    // Exits are left to the browser: back past the first beat, or on past the last.
+    const captures = (dir: 1 | -1) => isPinned() && !(beat() === 0 && dir < 0) && !(beat() === BEATS - 1 && dir > 0);
+    const go = (i: number) => {
+      target = i;
+      busyUntil = now() + 700;
+      window.scrollTo({ top: centerY(i), behavior: 'smooth' });
+    };
+    const step = (dir: 1 | -1) => go(Math.min(BEATS - 1, Math.max(0, beat() + dir)));
+
+    // Wheel and trackpad: one step per gesture. A gesture ends after 200 ms without wheel events, which also swallows a
+    // trackpad's inertia tail.
+    let lastWheel = -Infinity;
+    let wheelSpent = false;
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaY) < 1) return;
+      const dir = e.deltaY > 0 ? 1 : -1;
+      const t = now();
+      lastGestureAt = t;
+      if (!captures(dir)) return;
+      e.preventDefault();
+      if (t - lastWheel > 200) wheelSpent = false;
+      lastWheel = t;
+      if (wheelSpent || t < busyUntil - 300) return;
+      wheelSpent = true;
+      step(dir);
+    };
+
+    // Touch: hold the page still during the swipe, then step once when the finger lifts.
+    let startY: number | null = null;
+    let decided = false;
+    let capturing = false;
+    const onTouchStart = (e: TouchEvent) => {
+      startY = e.touches[0].clientY;
+      decided = false;
+      capturing = false;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (startY === null) return;
+      const dy = startY - e.touches[0].clientY; // positive: scrolling down the page
+      if (!decided) {
+        if (Math.abs(dy) < 6) return;
+        decided = true;
+        capturing = captures(dy > 0 ? 1 : -1);
+      }
+      lastGestureAt = now();
+      if (capturing && e.cancelable) e.preventDefault();
+    };
+    const onTouchEnd = (e: TouchEvent) => {
+      if (startY === null) return;
+      const dy = startY - (e.changedTouches[0]?.clientY ?? startY);
+      startY = null;
+      if (capturing && Math.abs(dy) > 24) step(dy > 0 ? 1 : -1);
+    };
+
+    // Entering: a flick from the hero (or back up from below) can carry momentum deep into the scene. On entry from
+    // the visitor's own scrolling, hold the first beat (or the last, coming back up) until that momentum dies.
+    // Programmatic scrolls, like the nav's section links, pass straight through.
+    let wasPinned = isPinned();
+    let hold: number | null = null;
+    let holdUntil = 0;
+    const onScroll = () => {
+      const t = now();
+      const pinned = isPinned();
+      if (hold !== null) {
+        if (t < holdUntil) {
+          if (Math.abs(window.scrollY - hold) > 2) {
+            window.scrollTo({ top: hold, behavior: 'instant' as ScrollBehavior });
+            holdUntil = t + 250;
+          }
+        } else {
+          hold = null;
+        }
+      } else if (pinned && !wasPinned && t >= busyUntil && t - lastGestureAt < 1500) {
+        const { top, range } = geom();
+        const b = window.scrollY - top < range / 2 ? 0 : BEATS - 1;
+        target = b;
+        hold = centerY(b);
+        holdUntil = t + 250;
+        window.scrollTo({ top: hold, behavior: 'instant' as ScrollBehavior });
+        if (startY !== null) {
+          decided = true;
+          capturing = true;
+        }
+      }
+      wasPinned = pinned;
+    };
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [trackRef, enabled]);
+};
 
 /** Below lg the story stacks, and the full teacher frame is too small to read; phones get a zoomed crop instead. */
 const useStackedLayout = () => {
@@ -240,6 +374,8 @@ const ConversationStory = () => {
     setBeat((prev) => (prev === next ? prev : next));
   });
   const stacked = useStackedLayout();
+
+  useBeatStepping(trackRef, !reduceMotion);
 
   if (reduceMotion) {
     return (
