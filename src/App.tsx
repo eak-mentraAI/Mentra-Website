@@ -48,20 +48,25 @@ const RedirectToHash = ({ hash }: { hash: string }) => {
 // land users mid-page on the new route. Skips when a hash is present so
 // in-page anchor scrolling (handled by Index.tsx and scroll-mt-* margins)
 // still works.
+// 'instant' overrides the global `scroll-behavior: smooth`: a smooth scroll gets cut off when the old page is
+// swapped out, leaving visitors near the new page's footer.
+const scrollToTopNow = () => {
+  if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+};
+
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
   useEffect(() => {
-    if (!hash) {
-      window.scrollTo(0, 0);
-    }
+    if (!hash) scrollToTopNow();
   }, [pathname, hash]);
   return null;
 };
 
 function AnimatedRoutes() {
   const location = useLocation();
+  // The new page mounts only after the old one's exit animation, so reset the scroll again at that point.
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" onExitComplete={scrollToTopNow}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />

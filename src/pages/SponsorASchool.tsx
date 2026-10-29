@@ -3,7 +3,6 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
-import SprigOrb from '@/components/ui/SprigOrb';
 import { Button } from '@/components/ui/button';
 import {
   Heart,
@@ -251,19 +250,17 @@ export default function SponsorASchool() {
                   </div>
                 </div>
               </div>
-              {/* Right: Sprig with heart */}
+              {/* Right: a seedling handed on */}
               <div className="flex justify-center lg:justify-end">
-                <SprigOrb size="lg">
-                  <img
-                    src="/images/sprig/hero-sponsor-896.webp"
-                    srcSet="/images/sprig/hero-sponsor-480.webp 480w, /images/sprig/hero-sponsor-896.webp 896w"
-                    sizes="(min-width: 1280px) 448px, (min-width: 1024px) 384px, (min-width: 640px) 288px, 224px"
-                    alt="One Sprig handing a small potted seedling to a smaller Sprig, who reaches out to take it"
-                    width="400"
-                    height="400"
-                    className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl animate-breathe motion-reduce:animate-none"
-                  />
-                </SprigOrb>
+                <img
+                  src="/images/sprig/hero-sponsor-896.webp"
+                  srcSet="/images/sprig/hero-sponsor-480.webp 480w, /images/sprig/hero-sponsor-896.webp 896w"
+                  sizes="(min-width: 1280px) 448px, (min-width: 1024px) 384px, (min-width: 640px) 288px, 224px"
+                  alt="One Sprig handing a small potted seedling to a smaller Sprig, who reaches out to take it"
+                  width="400"
+                  height="400"
+                  className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain"
+                />
               </div>
             </div>
           </div>
