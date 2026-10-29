@@ -92,6 +92,12 @@ export const audiences: Audience[] = [
         screen: screens.studentZoe,
       },
       {
+        eyebrow: 'Their home screen',
+        title: 'A Sprig that grows with them',
+        text: 'Your child earns XP for asking why, writing a reflection or exploring an idea, not for right answers. Their Sprig levels up as they go, and they pick up where they left off.',
+        screen: screens.studentHome,
+      },
+      {
         eyebrow: 'From the teacher',
         title: 'A story, not just a grade',
         text: "Your child's teacher can share what happened in a conversation with Sprig, in your child's own words, with one thing to ask at dinner.",
@@ -100,14 +106,14 @@ export const audiences: Audience[] = [
       {
         eyebrow: 'At home',
         title: 'One small thing to try',
-        text: 'Each week you get one two-minute idea, not a report card. Tap a button to tell Mentra whether it landed.',
-        screen: screens.parentOneQuestion,
+        text: 'Each week you get one small thing to try at home, tied to what the class is learning. Tap a button to tell Mentra whether it landed.',
+        screen: screens.parentHome,
       },
       {
         eyebrow: 'Learner Passport',
         title: 'A record of what your child has done',
-        text: "The Learner Passport shows milestones your child has reached and what's next. It's honest about its limits: not every activity is counted there yet.",
-        screen: screens.parentPassport,
+        text: "Your child's Learner Passport shows what they've done and the goals they set, and says when it started counting each activity. It's honest about its limits: not every activity is counted there yet.",
+        screen: screens.studentPassport,
       },
       {
         eyebrow: 'Permissions',
@@ -148,6 +154,12 @@ export const audiences: Audience[] = [
         title: "Honest about what it doesn't know yet",
         text: "Until there's enough recent work, a student's read says so instead of producing a number your board can't trust. The turns it has seen are listed and labelled, and a turn where the student only repeated Sprig isn't counted as independent work.",
         screen: screens.teacherTurnTrace,
+      },
+      {
+        eyebrow: 'Family consent',
+        title: 'Parents hold the keys',
+        text: "A child under 13 uses Sprig only with a parent's OK. Parents can review or withdraw consent, request deletion, and download their child's recent AI conversations.",
+        screen: screens.parentConsent,
       },
     ],
     pilot: [
