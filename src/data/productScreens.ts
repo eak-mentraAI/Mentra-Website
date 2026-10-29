@@ -192,5 +192,18 @@ export const screens = {
   ),
 } satisfies Record<string, Screen>;
 
+/**
+ * The teacher loop cropped and zoomed for phones (made from the 1920 master: the camera follows the "with help" row,
+ * then Jordan's turn, then Sprig's reply). The clip's own closing pull-back is cut, and the still review screen is held
+ * twice as long so each stop can be read on a phone: 11.4 s.
+ */
+export const teacherTurnTraceZoom = {
+  src: '/videos/teacher-turn-trace-zoom.mp4',
+  poster: '/images/product/teacher-turn-trace-zoom-poster.webp',
+  alt: "Video, zoomed in: in the teacher's Independence Report, an Oct 25 turn labelled with help. The teacher opens it, and the conversation shows Jordan's turn highlighted: is sunlight giving the plant energy to actually make the food? Then Sprig's reply: that's the key idea right there.",
+  width: 630,
+  height: 788,
+};
+
 export const SHOWCASE_DISCLOSURE =
   'Synthetic students and families, real Sprig responses: these examples show the real experience without exposing any child\'s data.';

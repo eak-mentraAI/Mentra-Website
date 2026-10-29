@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CalendarDays, MousePointerClick } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProductVideo from '@/components/ui/ProductVideo';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
-import { screens, SHOWCASE_DISCLOSURE } from '@/data/productScreens';
+import { screens, SHOWCASE_DISCLOSURE, teacherTurnTraceZoom } from '@/data/productScreens';
 import { cn } from '@/lib/utils';
 
 // Jordan's conversation, quoted from the full transcript of conv_20261025232607_09774c6b
@@ -60,13 +60,15 @@ const turns: Turn[] = [
 
 type Beat = { eyebrow: string; title: string; text: string; shown: number; labelled?: boolean; video?: boolean };
 
-// Each beat is one stop of the scroll. `shown` is how many turns of the conversation are on screen.
+// Each beat is one stop of the scroll. `shown` is how many turns of the conversation are on screen; each conversation
+// beat adds one exchange (two turns), so every stop visibly moves the chat forward.
 const beats: Beat[] = [
   { eyebrow: 'A real conversation', title: "Jordan wants the answer. Sprig won't hand it over.", text: 'It asks what Jordan thinks the sunlight is doing for the plant.', shown: 2 },
   { eyebrow: 'A first guess', title: 'A wrong guess gets a nudge.', text: 'Sprig says why warmth isn’t the main thing, and asks a narrower question.', shown: 4 },
   { eyebrow: 'A targeted hint', title: 'The question gets narrower.', text: 'Sprig connects the two ideas Jordan already has, and leaves the last step to him.', shown: 6 },
   { eyebrow: 'The idea', title: 'Jordan puts it in his own words.', text: 'Sunlight is the energy a plant uses to make its own food.', shown: 8 },
-  { eyebrow: 'Then a name for it', title: 'Sprig asks what the process is called.', text: 'Jordan guesses photosynthesis, and Sprig sums up the whole picture.', shown: 12 },
+  { eyebrow: 'Then a name for it', title: 'Sprig asks what the process is called.', text: 'Jordan checks he can write it his way, and Sprig asks for the name of the whole process.', shown: 10 },
+  { eyebrow: 'Photosynthesis', title: 'Jordan names it.', text: 'Sprig confirms the word and sums up the whole picture.', shown: 12 },
   {
     eyebrow: 'Then the teacher sees it',
     title: 'Whose thinking was it?',
@@ -85,6 +87,25 @@ const beats: Beat[] = [
 ];
 
 const CTA_BEAT = beats.length;
+
+// Scroll per beat. Long enough that one flick on a phone settles on the next beat instead of skipping past it.
+const BEAT_VH = 80;
+const TRACK_VH = (CTA_BEAT + 1) * BEAT_VH + 30;
+// Where each beat sits in the track, as a scroll offset in vh: the middle of its share of the pinned distance.
+const snapTopVh = (i: number) => ((i + 0.5) * (TRACK_VH - 100)) / (CTA_BEAT + 1);
+
+/** Below lg the story stacks, and the full teacher frame is too small to read; phones get a zoomed crop instead. */
+const useStackedLayout = () => {
+  const [stacked, setStacked] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)');
+    const update = () => setStacked(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+  return stacked;
+};
 
 const Bubble = ({ turn, labelled }: { turn: Turn; labelled: boolean }) => (
   <div className={cn('flex flex-col gap-1.5', turn.who === 'student' ? 'items-end' : 'items-start')}>
@@ -217,6 +238,23 @@ const ConversationStory = () => {
     const next = Math.min(CTA_BEAT, Math.floor(p * (CTA_BEAT + 1)));
     setBeat((prev) => (prev === next ? prev : next));
   });
+  const stacked = useStackedLayout();
+
+  // While the scene is on screen, the page snaps (by proximity) to the nearest beat, so each one holds until the
+  // visitor scrolls again. Snapping is off everywhere else on the page.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || reduceMotion) return;
+    const root = document.documentElement;
+    const observer = new IntersectionObserver(([entry]) => {
+      root.style.scrollSnapType = entry.isIntersecting ? 'y proximity' : '';
+    });
+    observer.observe(track);
+    return () => {
+      observer.disconnect();
+      root.style.scrollSnapType = '';
+    };
+  }, [reduceMotion]);
 
   if (reduceMotion) {
     return (
@@ -234,13 +272,19 @@ const ConversationStory = () => {
   // Jump straight past the pinned scene; a smooth scroll would play every beat on the way.
   const skipStory = () => {
     const next = trackRef.current?.parentElement?.nextElementSibling as HTMLElement | null;
+    // Drop the beat snapping first, or the jump can be pulled back onto the last beat.
+    document.documentElement.style.scrollSnapType = '';
     if (next) window.scrollTo({ top: next.getBoundingClientRect().top + window.scrollY - 64, behavior: 'instant' as ScrollBehavior });
   };
 
   return (
     <section id="the-story" className="relative bg-gray-50" aria-labelledby="conversation-story-heading">
-      {/* Scroll track: its height sets how long the scene stays pinned (~55vh of scroll per beat). */}
-      <div ref={trackRef} style={{ height: `${(CTA_BEAT + 1) * 55 + 30}vh` }}>
+      {/* Scroll track: its height sets how long the scene stays pinned (BEAT_VH of scroll per beat). */}
+      <div ref={trackRef} className="relative" style={{ height: `${TRACK_VH}vh` }}>
+        {/* Snap points, one per beat */}
+        {Array.from({ length: CTA_BEAT + 1 }, (_, i) => (
+          <div key={i} aria-hidden="true" className="absolute left-0 h-px w-px [scroll-snap-align:start]" style={{ top: `${snapTopVh(i)}vh` }} />
+        ))}
         <div className="sticky top-16 h-[calc(100svh-4rem)] overflow-hidden">
           {/* Bottom padding on phones keeps the chat clear of the fixed Cookie Settings pill */}
           <div className="container mx-auto h-full px-4 pt-5 pb-16 sm:py-10 grid grid-rows-[auto_minmax(0,1fr)] gap-5 lg:grid-rows-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:items-center">
@@ -308,7 +352,13 @@ const ConversationStory = () => {
                 aria-hidden={!showVideo}
                 style={{ pointerEvents: showVideo ? 'auto' : 'none' }}
               >
-                <ProductVideo {...screens.teacherTurnTrace.video!} alt={screens.teacherTurnTrace.alt} width={1280} height={720} />
+                {stacked ? (
+                  <div className="flex min-h-0 flex-1 justify-center">
+                    <ProductVideo key="zoom" {...teacherTurnTraceZoom} className="h-full w-auto max-w-full object-cover" />
+                  </div>
+                ) : (
+                  <ProductVideo key="full" {...screens.teacherTurnTrace.video!} alt={screens.teacherTurnTrace.alt} width={1280} height={720} />
+                )}
                 <p className="flex items-center gap-2 text-sm text-gray-500">
                   <MousePointerClick className="h-4 w-4 text-mentra-blue" aria-hidden="true" />
                   Jordan&rsquo;s teacher opens the energy turn, labelled &ldquo;with help&rdquo;.
