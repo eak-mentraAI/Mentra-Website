@@ -67,7 +67,8 @@ export const screens = {
     "Video: Jordan's conversation with Sprig about why plants need sunlight. Sprig hints that sunlight isn't just warming the plant and asks what it might be doing to help the plant make food. Jordan types: is it giving the plant energy to actually make the food? Sprig replies that's the key idea, and that sunlight gives the plant the energy it needs to make its own food.",
     qaSignals('Jordan'),
   ),
-  studentCoding: videoScreen(
+  // 0.8x: the conversation turns and the fix go by fast at full speed.
+  studentCoding: withPlaybackRate(0.8, videoScreen(
     'student-coding', 'Student · Coding with Sprig',
     "Video: a coding session. The program prints 2 instead of 3 because len(waterings) counts the plants. Sprig asks what waterings is and what len counts on a dictionary. Jordan works out it's the whole dictionary, edits line 10 to len(waterings[\"window plant\"]), and runs it: Window plant days: 3.",
     {
@@ -78,7 +79,7 @@ export const screens = {
       ],
       goesTo: "The learner graph; independent attempts are read by the teacher's Independence Report",
     },
-  ),
+  )),
   // Played at 0.8x everywhere: the click and the jump to the turn are quick, and viewers should catch it in one loop.
   teacherTurnTrace: withPlaybackRate(0.8, videoScreen(
     'teacher-turn-trace', "Teacher · Independence Report",
