@@ -96,14 +96,21 @@ const BEATS = CTA_BEAT + 1;
 
 /**
  * One gesture, one beat. While the scene is pinned, a swipe or a wheel/trackpad gesture moves to the next or previous
- * beat and waits there; momentum can't carry it further. A gesture past the first or last beat is left to the browser,
- * so the visitor scrolls out of the scene normally. Keyboard and scrollbar scrolling stay native.
+ * beat and waits there; momentum can't carry it further. Keyboard and scrollbar scrolling stay native.
+ * - Touch: the pinned scene gets touch-action: none, so iOS never starts its own scroll (or momentum) during a swipe;
+ *   the swipe's direction then steps one beat, or, past the first or last beat, scrolls out of the scene.
+ * - Wheel: one step per gesture; past the first or last beat the wheel is left to the browser.
  * CSS scroll snapping was tried first and was unreliable: small flicks snapped back and big ones skipped beats.
  */
-const useBeatStepping = (trackRef: React.RefObject<HTMLDivElement>, enabled: boolean) => {
+const useBeatStepping = (
+  trackRef: React.RefObject<HTMLDivElement>,
+  sceneRef: React.RefObject<HTMLDivElement>,
+  enabled: boolean,
+) => {
   useEffect(() => {
     const track = trackRef.current;
-    if (!track || !enabled) return;
+    const scene = sceneRef.current;
+    if (!track || !scene || !enabled) return;
 
     const geom = () => ({ top: track.getBoundingClientRect().top + window.scrollY, range: track.offsetHeight - window.innerHeight });
     const centerY = (i: number) => {
@@ -132,6 +139,18 @@ const useBeatStepping = (trackRef: React.RefObject<HTMLDivElement>, enabled: boo
       window.scrollTo({ top: centerY(i), behavior: 'smooth' });
     };
     const step = (dir: 1 | -1) => go(Math.min(BEATS - 1, Math.max(0, beat() + dir)));
+    // Scroll out of the scene: up to the end of the hero, or down to the next section (below the 4rem header).
+    const leave = (dir: 1 | -1) => {
+      target = -1;
+      busyUntil = now() + 900;
+      const { top } = geom();
+      window.scrollTo({ top: dir > 0 ? top + track.offsetHeight - 64 : top - window.innerHeight * 0.75, behavior: 'smooth' });
+    };
+    // Only while pinned: before and after, a touch on the scene must scroll the page as usual.
+    const lockTouch = (on: boolean) => {
+      const value = on ? 'none' : '';
+      if (scene.style.touchAction !== value) scene.style.touchAction = value;
+    };
 
     // Wheel and trackpad: one step per gesture. A gesture ends after 200 ms without wheel events, which also swallows a
     // trackpad's inertia tail.
@@ -151,31 +170,27 @@ const useBeatStepping = (trackRef: React.RefObject<HTMLDivElement>, enabled: boo
       step(dir);
     };
 
-    // Touch: hold the page still during the swipe, then step once when the finger lifts.
+    // Touch: while pinned the page doesn't move during the swipe; the swipe's direction is applied when it lifts.
+    // preventDefault backs up touch-action for touches that start outside the scene (the header).
     let startY: number | null = null;
-    let decided = false;
     let capturing = false;
     const onTouchStart = (e: TouchEvent) => {
       startY = e.touches[0].clientY;
-      decided = false;
-      capturing = false;
+      capturing = isPinned();
     };
     const onTouchMove = (e: TouchEvent) => {
       if (startY === null) return;
-      const dy = startY - e.touches[0].clientY; // positive: scrolling down the page
-      if (!decided) {
-        if (Math.abs(dy) < 6) return;
-        decided = true;
-        capturing = captures(dy > 0 ? 1 : -1);
-      }
       lastGestureAt = now();
       if (capturing && e.cancelable) e.preventDefault();
     };
     const onTouchEnd = (e: TouchEvent) => {
       if (startY === null) return;
-      const dy = startY - (e.changedTouches[0]?.clientY ?? startY);
+      const dy = startY - (e.changedTouches[0]?.clientY ?? startY); // positive: swiping up, i.e. onward
       startY = null;
-      if (capturing && Math.abs(dy) > 24) step(dy > 0 ? 1 : -1);
+      if (!capturing || Math.abs(dy) < 24) return;
+      const dir = dy > 0 ? 1 : -1;
+      if (captures(dir)) step(dir);
+      else leave(dir);
     };
 
     // Entering: a flick from the hero (or back up from below) can carry momentum deep into the scene. On entry from
@@ -203,13 +218,12 @@ const useBeatStepping = (trackRef: React.RefObject<HTMLDivElement>, enabled: boo
         hold = centerY(b);
         holdUntil = t + 250;
         window.scrollTo({ top: hold, behavior: 'instant' as ScrollBehavior });
-        if (startY !== null) {
-          decided = true;
-          capturing = true;
-        }
+        if (startY !== null) capturing = true;
       }
+      lockTouch(pinned);
       wasPinned = pinned;
     };
+    lockTouch(isPinned());
 
     window.addEventListener('wheel', onWheel, { passive: false });
     window.addEventListener('touchstart', onTouchStart, { passive: true });
@@ -222,8 +236,9 @@ const useBeatStepping = (trackRef: React.RefObject<HTMLDivElement>, enabled: boo
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', onTouchEnd);
       window.removeEventListener('scroll', onScroll);
+      lockTouch(false);
     };
-  }, [trackRef, enabled]);
+  }, [trackRef, sceneRef, enabled]);
 };
 
 /** Below lg the story stacks, and the full teacher frame is too small to read; phones get a zoomed crop instead. */
@@ -366,6 +381,7 @@ const ConversationStory = () => {
   const { open: openScheduleCall } = useScheduleCall();
   const reduceMotion = useReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
+  const sceneRef = useRef<HTMLDivElement>(null);
   const [beat, setBeat] = useState(0);
 
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start start', 'end end'] });
@@ -375,7 +391,7 @@ const ConversationStory = () => {
   });
   const stacked = useStackedLayout();
 
-  useBeatStepping(trackRef, !reduceMotion);
+  useBeatStepping(trackRef, sceneRef, !reduceMotion);
 
   if (reduceMotion) {
     return (
@@ -400,7 +416,7 @@ const ConversationStory = () => {
     <section id="the-story" className="relative bg-gray-50" aria-labelledby="conversation-story-heading">
       {/* Scroll track: its height sets how long the scene stays pinned (BEAT_VH of scroll per beat). */}
       <div ref={trackRef} style={{ height: `${TRACK_VH}vh` }}>
-        <div className="sticky top-16 h-[calc(100svh-4rem)] overflow-hidden">
+        <div ref={sceneRef} className="sticky top-16 h-[calc(100svh-4rem)] overflow-hidden">
           {/* Bottom padding on phones keeps the chat clear of the fixed Cookie Settings pill */}
           <div className="container mx-auto h-full px-4 pt-5 pb-16 sm:py-10 grid grid-rows-[auto_minmax(0,1fr)] gap-5 lg:grid-rows-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:items-center">
             {/* Narration */}
