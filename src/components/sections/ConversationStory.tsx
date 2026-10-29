@@ -88,11 +88,9 @@ const beats: Beat[] = [
 
 const CTA_BEAT = beats.length;
 
-// Scroll per beat. Long enough that one flick on a phone settles on the next beat instead of skipping past it.
-const BEAT_VH = 80;
+// Scroll per beat: about one ordinary flick on a phone.
+const BEAT_VH = 60;
 const TRACK_VH = (CTA_BEAT + 1) * BEAT_VH + 30;
-// Where each beat sits in the track, as a scroll offset in vh: the middle of its share of the pinned distance.
-const snapTopVh = (i: number) => ((i + 0.5) * (TRACK_VH - 100)) / (CTA_BEAT + 1);
 
 /** Below lg the story stacks, and the full teacher frame is too small to read; phones get a zoomed crop instead. */
 const useStackedLayout = () => {
@@ -151,13 +149,15 @@ const ChatWindow = ({ shown, animate, labelled }: { shown: number; animate: bool
       <span className="rounded-md bg-amber-100 px-1.5 py-0.5 font-semibold text-amber-800">Worksheet</span>
       <span className="truncate">Why do plants need sunlight?</span>
     </div>
-    {/* Bottom-anchored like a real chat: new turns push older ones up and out of view. */}
-    <div className="flex min-h-0 flex-1 flex-col justify-end gap-3 overflow-hidden p-4 sm:p-5">
-      {/* No exit animations, for the same reason as the narration: fast scrolls must never leave stale turns. */}
+    {/* Bottom-anchored like a real chat: new turns push older ones up and out of view. Anchored by absolute
+        positioning, not justify-end: Safari lets an overflowing justify-end list spill out the bottom instead. */}
+    <div className="relative min-h-0 flex-1 overflow-hidden">
+      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-4 sm:p-5">
+      {/* No exit or layout animations: fast scrolls must never leave stale turns, and on iOS Safari framer's layout
+          projection could freeze older turns at their old offsets, so the chat looked stuck. New turns only fade in. */}
       {turns.slice(0, shown).map((turn, i) => (
         <motion.div
           key={i}
-          layout={animate ? 'position' : false}
           initial={animate ? { opacity: 0, y: 16 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: animate && turn.who === 'sprig' && i === shown - 1 ? 0.35 : 0 }}
@@ -165,6 +165,7 @@ const ChatWindow = ({ shown, animate, labelled }: { shown: number; animate: bool
           <Bubble turn={turn} labelled={labelled} />
         </motion.div>
       ))}
+      </div>
     </div>
   </div>
 );
@@ -240,22 +241,6 @@ const ConversationStory = () => {
   });
   const stacked = useStackedLayout();
 
-  // While the scene is on screen, the page snaps (by proximity) to the nearest beat, so each one holds until the
-  // visitor scrolls again. Snapping is off everywhere else on the page.
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track || reduceMotion) return;
-    const root = document.documentElement;
-    const observer = new IntersectionObserver(([entry]) => {
-      root.style.scrollSnapType = entry.isIntersecting ? 'y proximity' : '';
-    });
-    observer.observe(track);
-    return () => {
-      observer.disconnect();
-      root.style.scrollSnapType = '';
-    };
-  }, [reduceMotion]);
-
   if (reduceMotion) {
     return (
       <section id="the-story" className="bg-gray-50 scroll-mt-16" aria-labelledby="conversation-story-heading">
@@ -272,19 +257,13 @@ const ConversationStory = () => {
   // Jump straight past the pinned scene; a smooth scroll would play every beat on the way.
   const skipStory = () => {
     const next = trackRef.current?.parentElement?.nextElementSibling as HTMLElement | null;
-    // Drop the beat snapping first, or the jump can be pulled back onto the last beat.
-    document.documentElement.style.scrollSnapType = '';
     if (next) window.scrollTo({ top: next.getBoundingClientRect().top + window.scrollY - 64, behavior: 'instant' as ScrollBehavior });
   };
 
   return (
     <section id="the-story" className="relative bg-gray-50" aria-labelledby="conversation-story-heading">
       {/* Scroll track: its height sets how long the scene stays pinned (BEAT_VH of scroll per beat). */}
-      <div ref={trackRef} className="relative" style={{ height: `${TRACK_VH}vh` }}>
-        {/* Snap points, one per beat */}
-        {Array.from({ length: CTA_BEAT + 1 }, (_, i) => (
-          <div key={i} aria-hidden="true" className="absolute left-0 h-px w-px [scroll-snap-align:start]" style={{ top: `${snapTopVh(i)}vh` }} />
-        ))}
+      <div ref={trackRef} style={{ height: `${TRACK_VH}vh` }}>
         <div className="sticky top-16 h-[calc(100svh-4rem)] overflow-hidden">
           {/* Bottom padding on phones keeps the chat clear of the fixed Cookie Settings pill */}
           <div className="container mx-auto h-full px-4 pt-5 pb-16 sm:py-10 grid grid-rows-[auto_minmax(0,1fr)] gap-5 lg:grid-rows-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:items-center">
