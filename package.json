@@ -9,7 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "cp dist/index.html dist/404.html"
+    "postbuild": "cp dist/index.html dist/404.html && node scripts/prerender-routes.mjs"
   },
   "dependencies": {
     "@iconify/react": "^6.0.0",

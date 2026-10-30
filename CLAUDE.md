@@ -33,7 +33,7 @@ opened from anywhere via `useScheduleCall()`.
 npm ci
 npm run lint
 npx tsc --noEmit
-npm run build      # also copies dist/index.html to dist/404.html for SPA routing
+npm run build      # also writes dist/404.html, a per-route <route>.html for every page and post, and sitemap.xml (scripts/prerender-routes.mjs)
 npm run dev        # http://localhost:3000
 ```
 
