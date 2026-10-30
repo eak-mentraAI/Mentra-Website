@@ -128,12 +128,19 @@ const useBeatStepping = (
 
     let target = -1; // the beat we're moving to
     let busyUntil = 0; // our own smooth scroll is running until then
+    // Entry hold (see onScroll): the beat we're holding, until when, and the hard stop for the whole hold.
+    let hold: number | null = null;
+    let holdUntil = 0;
+    let holdCap = 0;
     let lastGestureAt = -Infinity; // the visitor's last swipe or wheel input
     const now = () => performance.now();
     const beat = () => (now() < busyUntil && target >= 0 ? target : beatAtScroll());
     // Exits are left to the browser: back past the first beat, or on past the last.
     const captures = (dir: 1 | -1) => isPinned() && !(beat() === 0 && dir < 0) && !(beat() === BEATS - 1 && dir > 0);
     const go = (i: number) => {
+      // A deliberate swipe or wheel step always beats the entry hold; otherwise the hold snaps our own smooth scroll
+      // back and eats the swipe (on iOS, momentum kept renewing the hold, so it took ~15 swipes to get going).
+      hold = null;
       target = i;
       busyUntil = now() + 700;
       window.scrollTo({ top: centerY(i), behavior: 'smooth' });
@@ -141,6 +148,7 @@ const useBeatStepping = (
     const step = (dir: 1 | -1) => go(Math.min(BEATS - 1, Math.max(0, beat() + dir)));
     // Scroll out of the scene: up to the end of the hero, or down to the next section (below the 4rem header).
     const leave = (dir: 1 | -1) => {
+      hold = null;
       target = -1;
       busyUntil = now() + 900;
       const { top } = geom();
@@ -196,14 +204,16 @@ const useBeatStepping = (
     // Entering: a flick from the hero (or back up from below) can carry momentum deep into the scene. On entry from
     // the visitor's own scrolling, hold the first beat (or the last, coming back up) until that momentum dies.
     // Programmatic scrolls, like the nav's section links, pass straight through.
+    // The hold renews while momentum keeps scrolling, but never past holdCap, and it ignores our own smooth scrolls.
     let wasPinned = isPinned();
-    let hold: number | null = null;
-    let holdUntil = 0;
     const onScroll = () => {
       const t = now();
       const pinned = isPinned();
+      if (hold !== null && t < busyUntil) {
+        hold = null; // our own step or exit is running: never fight it
+      }
       if (hold !== null) {
-        if (t < holdUntil) {
+        if (t < holdUntil && t < holdCap) {
           if (Math.abs(window.scrollY - hold) > 2) {
             window.scrollTo({ top: hold, behavior: 'instant' as ScrollBehavior });
             holdUntil = t + 250;
@@ -217,6 +227,7 @@ const useBeatStepping = (
         target = b;
         hold = centerY(b);
         holdUntil = t + 250;
+        holdCap = t + 900;
         window.scrollTo({ top: hold, behavior: 'instant' as ScrollBehavior });
         if (startY !== null) capturing = true;
       }
