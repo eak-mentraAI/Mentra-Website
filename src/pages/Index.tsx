@@ -4,6 +4,7 @@ import Header from '../components/layout/Header';
 import HeroSection from '../components/sections/HeroSection';
 import ConversationStory from '../components/sections/ConversationStory';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
+import HelpLevelDemo from '../components/sections/HelpLevelDemo';
 import TeacherEvidenceSection from '../components/sections/TeacherEvidenceSection';
 import StudyModeComparison from '../components/sections/StudyModeComparison';
 import AudienceLinks from '../components/sections/AudienceLinks';
@@ -31,6 +32,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <ConversationStory />
+      <HelpLevelDemo />
       <TeacherEvidenceSection />
       <StudyModeComparison />
       <HowItWorksSection />
