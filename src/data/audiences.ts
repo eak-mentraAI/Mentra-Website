@@ -87,9 +87,15 @@ export const audiences: Audience[] = [
     proof: [
       {
         eyebrow: 'What your child sees',
-        title: "Doesn't let a wrong answer slide",
-        text: 'When your child gets it wrong, Sprig says "not quite", keeps what they got right, and has them check the step that slipped. Then it hands over a new problem to try alone.',
-        screen: screens.studentZoe,
+        title: "Won't just hand over the answer",
+        text: "When your child asks Sprig for the answer, it asks what they've tried and what they think is going on. Then it works through it with them, one hint at a time.",
+        screen: screens.studentAskSprig,
+      },
+      {
+        eyebrow: 'Their home screen',
+        title: 'A Sprig that grows with them',
+        text: 'Your child earns XP for asking why, writing a reflection or exploring an idea, not for right answers. Their Sprig levels up as they go, and they pick up where they left off.',
+        screen: screens.studentHome,
       },
       {
         eyebrow: 'From the teacher',
@@ -147,7 +153,13 @@ export const audiences: Audience[] = [
         eyebrow: 'Evidence',
         title: "Honest about what it doesn't know yet",
         text: "Until there's enough recent work, a student's read says so instead of producing a number your board can't trust. The turns it has seen are listed and labelled, and a turn where the student only repeated Sprig isn't counted as independent work.",
-        screen: screens.teacherTurnTrace,
+        screen: screens.teacherIndependence,
+      },
+      {
+        eyebrow: 'Family consent',
+        title: 'Parents hold the keys',
+        text: "A child under 13 uses Sprig only with a parent's OK. Parents can review or withdraw consent, request deletion, and download their child's recent AI conversations.",
+        screen: screens.parentConsent,
       },
     ],
     pilot: [
