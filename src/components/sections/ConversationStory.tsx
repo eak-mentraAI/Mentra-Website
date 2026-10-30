@@ -265,16 +265,32 @@ const useStackedLayout = () => {
   return stacked;
 };
 
+// Styled after the app's redesigned Ask Sprig (2026-10-29): the student's turns in white on the right, Sprig's in
+// light blue on the left beside the app's own chat avatar (the waving Sprig: public/images/sprig-moments/greet.png in
+// the app repo, resized). The app's header Sprig tile is left out: at this zoom it would cost reading room, and the
+// words are the point.
 const Bubble = ({ turn, labelled }: { turn: Turn; labelled: boolean }) => (
-  <div className={cn('flex flex-col gap-1.5', turn.who === 'student' ? 'items-end' : 'items-start')}>
+  <div className={cn('flex gap-2 sm:gap-2.5', turn.who === 'student' ? 'justify-end' : 'items-start')}>
+    {turn.who === 'sprig' && (
+      <img
+        src="/images/sprig/sprig-greet-80.webp"
+        alt=""
+        aria-hidden="true"
+        width={40}
+        height={40}
+        decoding="async"
+        className="h-8 w-8 sm:h-10 sm:w-10 shrink-0 object-contain"
+      />
+    )}
+    <div className={cn('flex min-w-0 flex-col gap-1.5', turn.who === 'student' ? 'max-w-[88%] items-end' : 'max-w-[85%] items-start')}>
     <div
       className={cn(
-        'max-w-[88%] rounded-2xl border px-4 py-3 text-sm sm:text-[15px] leading-relaxed text-gray-800 transition-shadow duration-500',
-        turn.who === 'student' ? 'bg-mentra-blue/[0.07] border-mentra-blue/15 rounded-br-md' : 'bg-growth-green/[0.09] border-growth-green/25 rounded-bl-md',
+        'rounded-2xl border px-4 py-3 text-sm sm:text-[15px] leading-relaxed text-gray-800 transition-shadow duration-500',
+        turn.who === 'student' ? 'bg-white border-gray-200 shadow-sm' : 'bg-blue-50 border-blue-100',
         labelled && turn.reportLabel && 'ring-2 ring-amber-400 ring-offset-2',
       )}
     >
-      <span className="block text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 mb-1">
+      <span className="block text-xs font-medium text-gray-500 mb-1">
         {turn.who === 'student' ? 'Jordan' : 'Sprig'}
       </span>
       {turn.text}
@@ -292,6 +308,7 @@ const Bubble = ({ turn, labelled }: { turn: Turn; labelled: boolean }) => (
         Teacher&rsquo;s report: {turn.reportLabel}
       </motion.span>
     )}
+    </div>
   </div>
 );
 
