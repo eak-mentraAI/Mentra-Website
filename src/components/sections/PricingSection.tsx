@@ -21,25 +21,19 @@ const PricingSection = () => {
           <AnimateOnScroll>
             <div className="space-y-6 lg:sticky lg:top-28">
               <h2 id="pricing-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance">
-                Start with a pilot.
+                Start with a pilot you can evaluate.
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Try Mentra with your students before you commit. Before the pilot starts, we agree with you on how
-                you&rsquo;ll judge whether it worked.
+                Before the pilot starts, we agree with you how you&rsquo;ll judge whether it worked. We measure what
+                students can do without AI, on tasks done outside Mentra, and compare it with similar classes that
+                aren&rsquo;t using it.
               </p>
 
-              <div>
-                <p className="text-gray-900">
-                  <span className="block text-5xl font-bold tracking-tight tabular-nums">$9&ndash;18</span>
-                  <span className="block mt-1 text-lg font-medium text-gray-700">per student, per month</span>
-                </p>
-                <ul className="mt-5 max-w-md space-y-2.5 border-l-2 border-gray-200 pl-4 text-sm text-gray-600 leading-relaxed">
-                  <li>The exact price depends on how many students you have and how long you sign up for.</li>
-                  <li>There&rsquo;s also a platform fee for the school, and pilot pricing in the first year.</li>
-                  <li>Getting set up is designed to take 2&ndash;3 weeks, with training for teachers.</li>
-                  <li>Families don&rsquo;t pay. They join free through the school.</li>
-                </ul>
-              </div>
+              <ul className="max-w-md space-y-2.5 border-l-2 border-gray-200 pl-4 text-sm text-gray-600 leading-relaxed">
+                <li>Pricing is per student, plus a platform fee for the school, with pilot pricing in the first year. We quote it with your pilot plan.</li>
+                <li>Getting set up is designed to take 2&ndash;3 weeks, with training for teachers.</li>
+                <li>Families don&rsquo;t pay. They join free through the school.</li>
+              </ul>
 
               <Button
                 size="lg"

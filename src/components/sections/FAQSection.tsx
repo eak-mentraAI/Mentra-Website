@@ -42,7 +42,7 @@ const faqSections = [
   {
     section: 'Cost & Value',
     questions: [
-      { question: "How does Mentra pricing work?", answer: "Mentra uses a hybrid model: per-student licensing (volume-tiered, starting at $9–18/student/month depending on scale and commitment) plus an institutional platform fee that covers analytics, integrations, and administrative intelligence. Families access Mentra free through their school's plan." },
+      { question: "How does Mentra pricing work?", answer: "Mentra is licensed per student, with volume tiers, plus a platform fee for the school that covers analytics, integrations and administration. Schools start with a pilot at pilot pricing, and we quote it alongside the pilot plan. Families access Mentra free through their school's plan." },
       { question: "What's the return on investment for schools?", answer: "That's what a pilot is for. Before it starts, we agree the measures with you: changes in how independently students reason, teacher-rated usefulness and time saved, family participation, pre and post measures on tasks you choose, and cost per active student. See the pilot plan on our Schools page." },
       { question: "What contract terms are available, and is there need-based pricing?", answer: "We offer month-to-month, 1-year and 3-year agreements, with discounts for longer commitments, designed around school budgeting cycles: pilot pricing in year one, full rollout in year two, expansion in year three. Qualifying institutions can also access adjusted pricing — contact our team to discuss." },
     ],
