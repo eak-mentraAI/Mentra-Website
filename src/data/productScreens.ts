@@ -1,9 +1,10 @@
 // Cropped screens from the live Mentra app, shot on a fictional showcase class.
 // Source frames: marketing/carousel/<date>/ in the app repo (see the showcase doc for
 // which frames are cleared for marketing). Crops live in /public/images/product.
-// The parent Trust and Consent and student Home crops come from the 2026-10-29 redesign batch (hermetic demo data;
-// Maya R is invented). They show real app copy only: that batch's coaching and insight text is test-fixture text,
-// so its Brief, Recommendations, parent Home and Passport shots are not used.
+// Redesigned-UI crops come from two 2026-10-29 batches. Batch 1 gives parent Trust and Consent and student Home (real app
+// copy only; its coaching text was test fixture, so its Brief, Recommendations, parent Home and Passport shots aren't used).
+// Batch b gives the student, analytics, Independence Report, message and passport crops: every Sprig line is copied
+// verbatim from the 2026-10-14 showcase transcripts (app-screenshots-2026-10-29-b/transcripts).
 
 /**
  * What the interaction on a screen feeds into the learner model. Every line must trace to code in the
@@ -96,14 +97,26 @@ export const screens = {
       goesTo: "The student's learner graph. The read itself waits until there's enough recent work",
     },
   )),
-  studentZoe: screen(
-    'student-zoe', 1400, 698, 'Student · Q&A with Sprig',
-    "Zoe answers 15 for x in 3/5 = x/20. Sprig says not quite, keeps Zoe's method of multiplying the top by 4, and asks what 3 times 4 is. Zoe answers 12, Sprig confirms x = 12 and gives a new problem to try: 2 is to 7 as x is to 35.",
-    qaSignals('Zoe'),
+  teacherIndependence: screen(
+    'teacher-independence', 1400, 799, 'Teacher · Independence Report',
+    "The teacher's Cognitive Independence Report before there's enough recent work for a read. It explains that it won't guess, so it shows not enough data yet instead of a number, and lists what it needs. Below, Turns seen so far lists Jordan's Oct 25 turns, each labelled repeated what Sprig said or with help, with a note that these aren't counted as independent work.",
+    {
+      kind: 'reads',
+      items: [
+        "Each of the student's turns, labelled: on their own, with help, or repeated what Sprig said",
+        'Only turns done on their own count as independent work; help is weighed separately',
+      ],
+      goesTo: "The student's learner graph. The read itself waits until there's enough recent work",
+    },
+  ),
+  studentAskSprig: screen(
+    'student-ask-sprig', 1400, 406, 'Student · Ask Sprig',
+    "Jordan asks Sprig to just tell him the answer to a sunlight question. Sprig says stuck is a real place to be, that it won't hand over the answer but can help him work through it, and asks what he's tried or thinks is going on. Jordan replies that plants need sunlight to grow, but he doesn't know why it matters.",
+    qaSignals('Jordan'),
   ),
   studentSignalNoise: screen(
-    'student-signal-noise', 1300, 1273, 'Student · Signal & Noise',
-    "Sprig's coaching after a student ranks three explanations of error-message design, choosing Option C first. Your Frame notes the student set out with an audience lens but ranked on depth and evidence. What You Caught credits the specific details used from Option C and asks who each piece is written for. The Thread says this is the student's first evaluation, so there's no pattern yet. Your Next Edge suggests a sentence to write about each option before ranking next time.",
+    'student-signal-noise', 1346, 987, 'Student · Signal & Noise',
+    "Sprig's coaching after a student ranks three explanations of error-message design. Your Frame notes the student expected a tension between the user's and the designer's perspective but ranked on depth and evidence quality. What You Caught credits the specific, actionable mechanics in Option C and asks who each piece is written for. The Thread says this is the student's first evaluation, so there's no pattern yet. Your Next Edge suggests writing one sentence about each option before ranking next time.",
     {
       kind: 'records',
       items: [
@@ -115,8 +128,8 @@ export const screens = {
     },
   ),
   studentWhyChain: screen(
-    'student-why-chain', 1400, 431, 'Student · Investigations',
-    "An investigation of the claim that plants in shade grow larger, darker green leaves. The student's why-chain has two levels: the plant needs bigger leaves to catch light, then it senses low light, makes more chlorophyll, and uses its energy differently. Sprig asks what has to happen first before the plant can put its energy into bigger leaves.",
+    'student-why-chain', 1400, 588, 'Student · Investigations',
+    "An investigation of the claim that plants in shade grow larger, darker green leaves. At level 1 the student says the plant makes bigger leaves to catch more light, and Sprig asks what is actually happening that causes the change. At level 2 the student says the plant senses low light, makes more chlorophyll, and uses its energy differently. Sprig asks what has to happen first before the plant can put its energy into bigger leaves.",
     {
       kind: 'records',
       items: [
@@ -128,12 +141,12 @@ export const screens = {
     },
   ),
   studentPrompting: screen(
-    'student-prompting', 1400, 647, 'Student · Prompt Engineering',
-    "Sprig's feedback on a student's prompt for the Haiku Teacher challenge, which asks for a prompt that includes 2 to 3 example haikus. Score 42%. It credits the everyday topics and the 5-7-5 rule, then points out the prompt asks the AI for examples without including any, and suggests writing one haiku and putting it in the prompt.",
+    'student-prompting', 1400, 716, 'Student · Prompt Engineering',
+    "Sprig's feedback on a student's prompt asking an AI for example haikus. Score 42%. What worked: everyday topics and the 5-7-5 rule. To improve: the prompt asks for examples without including any, so Sprig suggests writing one haiku and putting it in the prompt.",
   ),
   studentExploration: screen(
-    'student-exploration', 1400, 244, 'Student · Free Explore',
-    "In an open exploration about a carnival game with a 1-in-10 chance to win, a student asks whether playing 10 times guarantees a win. Sprig says it's not a guarantee: each turn is its own 1-in-10 chance, you'd expect to win about once on average, and some people win twice or not at all. It suggests a try-it with ten objects, one marked with an X.",
+    'student-exploration', 1400, 696, 'Student · Free Explore',
+    "Free Explore on a carnival game: $3 to play for a 1-in-10 chance to win $20. Sprig explains expected value. The student asks whether playing 10 times guarantees a win. Sprig says it's not a guarantee: each turn is its own 1-in-10 chance, you'd expect to win about once on average, and some people win twice or not at all. It suggests a try-it with ten objects, one marked with an X.",
     {
       kind: 'records',
       items: [
@@ -166,8 +179,8 @@ export const screens = {
     "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",
   ),
   teacherAnalytics: screen(
-    'teacher-analytics', 1400, 782, 'Teacher · Investigation analytics',
-    "Analytics for one investigation: 4 of 6 students growing, the class's biggest room to grow and a suggested next move, a class radar across five reasoning skills from 6 students and 23 sessions, and the levels where the class most often got stuck.",
+    'teacher-analytics', 1400, 921, 'Teacher · Investigation analytics',
+    "Analytics for a Systems Thinking investigation, why do some streets flood after a storm: 4 of 9 students growing, 3 steady, 2 hitting a tough stretch and 1 just started, the class's biggest room to grow and a suggested next move, a class radar across five reasoning skills from 10 students and 31 sessions, and the levels where the class most often got stuck.",
     {
       kind: 'reads',
       items: [
@@ -186,15 +199,15 @@ export const screens = {
     "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
   ),
   teacherParentMessage: screen(
-    'teacher-parent-message', 1400, 978, 'Teacher · Messages with families',
-    "Ms. Alvarez's message to Jordan's parent about Jordan's sunlight conversation with Sprig, quoting Jordan's own words from it and suggesting a question to ask at home, with the parent's reply.",
+    'teacher-parent-message', 1400, 1056, 'Teacher · Messages with families',
+    "Ms. Alvarez's message to Jordan's parent, Sam, about Jordan's sunlight conversation with Sprig. It quotes Jordan's own words and suggests asking what would happen to a plant kept in the dark. The parent's reply is below.",
   ),
   parentTeacherMessage: screen(
-    'parent-teacher-message', 1400, 1033, 'Parent · Messages with the teacher',
-    "The parent's view of the same thread: the teacher's message about Jordan's sunlight conversation with Sprig, and the parent's reply saying they'll ask about the plant in the dark at dinner.",
+    'parent-teacher-message', 1400, 1105, 'Parent · Messages with the teacher',
+    "The parent's view of the same thread: Ms. Alvarez's message about Jordan's sunlight conversation with Sprig, and the parent's reply saying they'll ask about the plant in the dark at dinner.",
   ),
   parentPassport: screen(
-    'parent-passport', 1400, 283, 'Parent · Learner Passport',
+    'parent-passport', 1400, 307, 'Parent · Learner Passport',
     "Milestones on a child's Learner Passport, as the parent sees it: Reflection Beginner and Dream Planter reached, with Story Weaver at 4 of 10 journal entries and Goal Builder at 2 of 5 goals next.",
   ),
   parentConsent: screen(
