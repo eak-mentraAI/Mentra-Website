@@ -28,7 +28,7 @@ const crops = [
 ];
 
 const TeacherEvidenceSection = () => (
-  <section id="teacher-evidence" className="py-24 bg-white scroll-mt-20" aria-labelledby="teacher-evidence-heading">
+  <section id="teacher-evidence" className="py-24 bg-gray-50 scroll-mt-20" aria-labelledby="teacher-evidence-heading">
     <div className="container mx-auto px-4">
       <div className="max-w-6xl mx-auto space-y-12">
         <AnimateOnScroll>
@@ -45,7 +45,7 @@ const TeacherEvidenceSection = () => (
           </div>
         </AnimateOnScroll>
 
-        <div className="rounded-[2rem] border border-gray-200 bg-gray-50 p-4 sm:p-8">
+        <div className="rounded-[2rem] border border-gray-200 bg-white p-4 sm:p-8">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
             {crops.map((c, i) => (
               <AnimateOnScroll key={c.src} delay={i * 80}>

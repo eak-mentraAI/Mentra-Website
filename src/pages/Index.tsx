@@ -28,12 +28,12 @@ const Index = () => {
     <PageTransition>
     <div className="min-h-screen font-rounded">
       <Header />
-      {/* Arc: promise, show it, name the stakes, control, evidence and decision, trust, the ask, objections */}
+      {/* Arc: promise, show it, control, evidence and decision, what a school gets, trust, the ask, objections */}
       <HeroSection />
       <ConversationStory />
-      <StudyModeComparison />
       <HelpLevelDemo />
       <TeacherEvidenceSection />
+      <StudyModeComparison />
       <TrustSection />
       <PricingSection />
       <FAQSection />
