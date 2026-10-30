@@ -79,13 +79,12 @@ const StudyModeComparison = () => (
           </AnimateOnScroll>
         </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-          <p className="text-sm text-gray-500">Free tools differ. This compares what they&rsquo;re designed for, not any one product.</p>
+        <div>
           <Link
-            to="/blog/how-to-choose-an-ai-tutor-for-your-schools"
+            to="/blog/five-questions-before-choosing-an-ai-tutor"
             className="inline-flex items-center gap-1.5 font-semibold text-mentra-blue underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-mentra-blue rounded"
           >
-            Comparing options? How to choose an AI tutor for your schools
+            Comparing options? Five questions to ask before choosing an AI tutor
             <ArrowRight className="h-4 w-4 flex-none" aria-hidden="true" />
           </Link>
         </div>
