@@ -21,7 +21,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
 
   useEffect(() => {
     const previous = document.title;
-    document.title = `${audience.docTitle} | Mentra`;
+    document.title = audience.docTitle;
     return () => {
       document.title = previous;
     };
