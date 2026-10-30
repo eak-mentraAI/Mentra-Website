@@ -106,14 +106,14 @@ export const audiences: Audience[] = [
       {
         eyebrow: 'At home',
         title: 'One small thing to try',
-        text: 'Each week you get one small thing to try at home, tied to what the class is learning. Tap a button to tell Mentra whether it landed.',
-        screen: screens.parentHome,
+        text: 'Each week you get one two-minute idea, not a report card. Tap a button to tell Mentra whether it landed.',
+        screen: screens.parentOneQuestion,
       },
       {
         eyebrow: 'Learner Passport',
         title: 'A record of what your child has done',
-        text: "Your child's Learner Passport shows what they've done and the goals they set, and says when it started counting each activity. It's honest about its limits: not every activity is counted there yet.",
-        screen: screens.studentPassport,
+        text: "The Learner Passport shows milestones your child has reached and what's next. It's honest about its limits: not every activity is counted there yet.",
+        screen: screens.parentPassport,
       },
       {
         eyebrow: 'Permissions',

@@ -1,8 +1,9 @@
 // Cropped screens from the live Mentra app, shot on a fictional showcase class.
 // Source frames: marketing/carousel/<date>/ in the app repo (see the showcase doc for
 // which frames are cleared for marketing). Crops live in /public/images/product.
-// The teacher Brief and Recommendations, parent Home, Trust and Consent, and student Home and Passport crops come
-// from the 2026-10-29 redesign batch (hermetic demo data: Maya R, Diego M and the rest are invented).
+// The parent Trust and Consent and student Home crops come from the 2026-10-29 redesign batch (hermetic demo data;
+// Maya R is invented). They show real app copy only: that batch's coaching and insight text is test-fixture text,
+// so its Brief, Recommendations, parent Home and Passport shots are not used.
 
 /**
  * What the interaction on a screen feeds into the learner model. Every line must trace to code in the
@@ -161,8 +162,8 @@ export const screens = {
     "A parent's Trust & Privacy page for their child Maya: consent active since Aug 14, 2026, and a toggle for each of six purposes, from running Mentra to product update emails. Each one says what it allows and what turning it off changes. Partner sharing and product emails are off.",
   ),
   teacherBrief: screen(
-    'teacher-brief', 1400, 758, "Teacher · Today's Brief",
-    "A teacher's Today's Brief: class signals written as plain sentences, then What needs me today. Diego M needs attention because he has been asking Sprig for the next step on most ratio problems, with a suggested next step and a note that it's based on 4 sessions. Below it, 2 assignments need grading and a recommendation to check in with Diego.",
+    'teacher-brief', 1400, 517, "Teacher · Today's Brief",
+    "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",
   ),
   teacherAnalytics: screen(
     'teacher-analytics', 1400, 782, 'Teacher · Investigation analytics',
@@ -177,12 +178,12 @@ export const screens = {
     },
   ),
   teacherRecommendation: screen(
-    'teacher-recommendation', 1400, 762, 'Teacher · Recommendations',
-    "A recommendation to check in with Diego on his first move, marked moderate confidence. It says why it matters, that it's based on him asking for the next step on 9 of 12 ratio problems, what success looks like, and that it may be wrong because there have only been 4 sessions. Approve, Modify and Dismiss buttons sit below. The page notes that nothing happens until the teacher approves.",
+    'teacher-recommendation', 1400, 626, 'Teacher · Recommendations',
+    "A recommendation for Jordan marked lower confidence, explaining why it matters, what it's based on, what success looks like and when it may be wrong, with Approve, Modify, Dismiss and Track outcome buttons. The page notes that nothing happens until the teacher approves.",
   ),
-  parentHome: screen(
-    'parent-home', 1400, 391, 'Parent · Home',
-    "A parent's home page. A 10-minute activity, Ratios at the dinner table: Maya's class is working on ratios, so double a favorite recipe together and ask her how she knows how much of each ingredient to use, with four feedback buttons. Beside it, good news: Maya caught and fixed her own mistake on a ratio problem this week, and a suggestion to ask her how she noticed.",
+  parentOneQuestion: screen(
+    'parent-one-question', 1400, 354, 'Parent · One question this week',
+    "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
   ),
   teacherParentMessage: screen(
     'teacher-parent-message', 1400, 978, 'Teacher · Messages with families',
@@ -192,9 +193,9 @@ export const screens = {
     'parent-teacher-message', 1400, 1033, 'Parent · Messages with the teacher',
     "The parent's view of the same thread: the teacher's message about Jordan's sunlight conversation with Sprig, and the parent's reply saying they'll ask about the plant in the dark at dinner.",
   ),
-  studentPassport: screen(
-    'student-passport', 1400, 775, 'Student · Learner Passport',
-    "A student's Learner Passport. At the top, an insight marked starting to show: you tend to slow down and check your thinking before you answer. The passport says when it started counting each activity, then lists recorded activity (7 Guided Q&A, 5 journal entries, 4 assignments, 3 explorations) and three goals the student set, each with their own estimate of progress.",
+  parentPassport: screen(
+    'parent-passport', 1400, 283, 'Parent · Learner Passport',
+    "Milestones on a child's Learner Passport, as the parent sees it: Reflection Beginner and Dream Planter reached, with Story Weaver at 4 of 10 journal entries and Goal Builder at 2 of 5 goals next.",
   ),
   parentConsent: screen(
     'parent-consent', 1400, 720, 'Parent · Consent & Privacy',
