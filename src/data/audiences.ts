@@ -152,7 +152,7 @@ export const audiences: Audience[] = [
       {
         eyebrow: 'Evidence',
         title: "Honest about what it doesn't know yet",
-        text: "Until there's enough recent work, a student's read says so instead of producing a number your board can't trust. The turns it has seen are listed and labelled, and a turn where the student only repeated Sprig isn't counted as independent work.",
+        text: "Until there's enough recent work, a student's read says so instead of producing a number your board can't trust. When there is enough, the read comes with a confidence level and the evidence behind it.",
         screen: screens.teacherIndependence,
       },
       {

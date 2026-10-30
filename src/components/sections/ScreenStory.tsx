@@ -37,9 +37,10 @@ const Media = ({ beat }: { beat: ScreenTab }) => {
         </span>
         <span className="text-xs font-medium text-gray-500 truncate">{screen.label}</span>
       </div>
-      {/* Links to the full-size crop so it stays readable on phones, as ProductScreen does */}
+      {/* Links to the full-size crop so it stays readable on phones, as ProductScreen does.
+          On desktop, tall crops shrink to fit the pinned frame (header, padding, title bar and note) instead of being cut off. */}
       <a href={screen.src} target="_blank" rel="noopener noreferrer" className="block cursor-zoom-in">
-        <img src={screen.src} alt={screen.alt} width={screen.width} height={screen.height} decoding="async" className="block w-full h-auto" />
+        <img src={screen.src} alt={screen.alt} width={screen.width} height={screen.height} decoding="async" className="block w-full h-auto lg:max-h-[calc(100svh-13rem)] lg:object-contain" />
       </a>
     </div>
   );

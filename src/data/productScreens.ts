@@ -4,7 +4,8 @@
 // Redesigned-UI crops come from two 2026-10-29 batches. Batch 1 gives parent Trust and Consent and student Home (real app
 // copy only; its coaching text was test fixture, so its Brief, Recommendations, parent Home and Passport shots aren't used).
 // Batch b gives the student, analytics, Independence Report, message and passport crops: every Sprig line is copied
-// verbatim from the 2026-10-14 showcase transcripts (app-screenshots-2026-10-29-b/transcripts).
+// verbatim from the 2026-10-14 showcase transcripts (app-screenshots-2026-10-29-b/transcripts). Batch c (2026-10-30)
+// gives the Brief, the investigation verdict and the Independence Report: live captures on the showcase accounts.
 
 /**
  * What the interaction on a screen feeds into the learner model. Every line must trace to code in the
@@ -98,8 +99,8 @@ export const screens = {
     },
   )),
   teacherIndependence: screen(
-    'teacher-independence', 1400, 799, 'Teacher · Independence Report',
-    "The teacher's Cognitive Independence Report before there's enough recent work for a read. It explains that it won't guess, so it shows not enough data yet instead of a number, and lists what it needs. Below, Turns seen so far lists Jordan's Oct 25 turns, each labelled repeated what Sprig said or with help, with a note that these aren't counted as independent work.",
+    'teacher-independence', 1400, 480, 'Teacher · Independence Report',
+    "The teacher's Cognitive Independence Report: 1 student needs a look and 5 don't have enough recent sessions yet to read. Leo is marked leaning on support, with independent first attempts falling across recent sessions, moderate confidence as of Oct 28, 2026, and a link to the supporting evidence. Jordan is marked not enough data yet, with a note to check back as more work comes in.",
     {
       kind: 'reads',
       items: [
@@ -158,8 +159,8 @@ export const screens = {
     },
   ),
   studentVerdict: screen(
-    'student-verdict', 1400, 991, "Student · Sprig's verdict on an investigation",
-    "Sprig's verdict on Jordan's investigation, in four parts: Your Frame, Your Chain, Your Board and Your Next Edge. Each part refers to specific things Jordan wrote.",
+    'student-verdict', 1400, 1200, "Student · Sprig's verdict on an investigation",
+    "Sprig's verdict on Jordan's investigation into why plants near streetlights stay green longer in the fall, in four parts. Your Frame says his test pits the night-length mechanism against temperature as a real rival. Your Chain says each of his three levels moves the mechanism forward and that stopping at level 3 is honest. Your Board credits arrows labelled with real mechanisms and the sensory step as the leverage point. Your Next Edge notes his confidence moved from 65 to 55 and asks him to tighten his falsifier: what if lit trees changed three days later?",
     {
       kind: 'records',
       items: [
@@ -175,8 +176,8 @@ export const screens = {
     "A parent's Trust & Privacy page for their child Maya: consent active since Aug 14, 2026, and a toggle for each of six purposes, from running Mentra to product update emails. Each one says what it allows and what turning it off changes. Partner sharing and product emails are off.",
   ),
   teacherBrief: screen(
-    'teacher-brief', 1400, 517, "Teacher · Today's Brief",
-    "A teacher's Today's Brief: class signals written as plain sentences, and one recommendation that says there isn't enough evidence yet, so it will keep watching instead of guessing.",
+    'teacher-brief', 1400, 599, "Teacher · Today's Brief",
+    "A teacher's Today's Brief: Good morning, Elena, across all your classes. Class signals in plain sentences: students at risk up this week, driven by hint reliance; class mastery needs support, mostly error correction; no shared stuck point yet; no students standing out this week; and 1 student needs a look because the scaffolding may be creating dependency, while 5 don't have enough recent sessions to read. What needs me today says nothing needs the teacher today.",
   ),
   teacherAnalytics: screen(
     'teacher-analytics', 1400, 921, 'Teacher · Investigation analytics',
