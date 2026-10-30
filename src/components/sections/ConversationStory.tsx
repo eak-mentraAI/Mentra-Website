@@ -71,7 +71,7 @@ const beats: Beat[] = [
   { eyebrow: 'Photosynthesis', title: 'Jordan names it.', text: 'Sprig confirms the word and sums up the whole picture.', shown: 12 },
   {
     eyebrow: 'Then the teacher sees it',
-    title: 'Whose thinking was it?',
+    title: 'Which steps were his own?',
     text: "Jordan's last turn repeats what Sprig just said. His teacher's report labels it that way, and doesn't count it as independent work.",
     shown: 13,
     labelled: true,
@@ -450,7 +450,7 @@ const ConversationStory = () => {
             {/* Narration */}
             <div className="relative">
               <h2 id="conversation-story-heading" className="sr-only">
-                Jordan asks Sprig for the answer, and his teacher sees whose thinking it was
+                Jordan asks Sprig for the answer, and his teacher sees which steps were his own
               </h2>
               {/* Keyed remount, no exit animation: a fast scroll can skip several beats, and queued exits would
                   leave stale narration on screen. */}
