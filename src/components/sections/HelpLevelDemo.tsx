@@ -60,7 +60,7 @@ const HelpLevelDemo = () => {
   const level = levels[index];
 
   return (
-    <section id="help-levels" className="py-24 bg-white scroll-mt-20" aria-labelledby="help-levels-heading">
+    <section id="help-levels" className="py-24 bg-gray-50 scroll-mt-20" aria-labelledby="help-levels-heading">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
           <AnimateOnScroll>
@@ -77,7 +77,7 @@ const HelpLevelDemo = () => {
           </AnimateOnScroll>
 
           {/* The one interactive moment on the page gets its own panel; slider and chat share one width */}
-          <div className="grid gap-8 rounded-[2rem] border border-gray-200 bg-gray-50 p-5 sm:p-8 lg:grid-cols-[minmax(0,36rem)_minmax(0,1fr)] lg:items-center lg:gap-12 lg:p-12">
+          <div className="grid gap-8 rounded-[2rem] border border-gray-200 bg-white p-5 sm:p-8 lg:grid-cols-[minmax(0,36rem)_minmax(0,1fr)] lg:items-center lg:gap-12 lg:p-12">
             <div className="min-w-0 space-y-6">
               <div>
                 <label htmlFor="help-level" className="sr-only">AI help level</label>
@@ -118,7 +118,7 @@ const HelpLevelDemo = () => {
                   <span className="font-semibold">Jordan:</span> idk like maybe it keeps them warm or something?
                 </p>
                 {level.off ? (
-                  <p className="rounded-2xl border border-dashed border-gray-300 bg-white/60 px-5 py-3.5 text-base leading-relaxed text-gray-500">
+                  <p className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-5 py-3.5 text-base leading-relaxed text-gray-500">
                     Sprig is off for this assignment. Jordan works it out on his own.
                   </p>
                 ) : (

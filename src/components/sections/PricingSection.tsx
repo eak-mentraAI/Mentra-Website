@@ -44,16 +44,6 @@ const PricingSection = () => {
                 <CalendarDays className="mr-2 h-5 w-5" aria-hidden="true" />
                 Book a walkthrough
               </Button>
-              <img
-                src="/images/sprig/pilot-measure-480.webp"
-                alt=""
-                aria-hidden="true"
-                width={240}
-                height={240}
-                loading="lazy"
-                decoding="async"
-                className="hidden lg:block w-56 h-56 object-contain pt-4"
-              />
             </div>
           </AnimateOnScroll>
 

@@ -66,7 +66,7 @@ const HeroSection = () => {
                   Watch Sprig in action
                 </Button>
               </div>
-              <nav aria-label="Mentra for you" className="flex flex-col items-center lg:items-start gap-2.5 pt-2">
+              <nav id="personas" aria-label="Mentra for you" className="flex flex-col items-center lg:items-start gap-2.5 pt-2">
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Built for</span>
                 <ul className="flex flex-nowrap justify-center lg:justify-start gap-1 sm:gap-2">
                   {audienceLinks.map(({ to, label, icon: Icon, tint }) => (
