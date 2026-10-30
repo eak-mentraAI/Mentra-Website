@@ -5,7 +5,8 @@
 // copy only; its coaching text was test fixture, so its Brief, Recommendations, parent Home and Passport shots aren't used).
 // Batch b gives the student, analytics, Independence Report, message and passport crops: every Sprig line is copied
 // verbatim from the 2026-10-14 showcase transcripts (app-screenshots-2026-10-29-b/transcripts). Batch c (2026-10-30)
-// gives the Brief, the investigation verdict and the Independence Report: live captures on the showcase accounts.
+// gives the Brief, the investigation verdict and the Independence Report, and batch d the parent weekly-activity card:
+// live captures on the showcase accounts.
 
 /**
  * What the interaction on a screen feeds into the learner model. Every line must trace to code in the
@@ -196,7 +197,7 @@ export const screens = {
     "A recommendation for Jordan marked lower confidence, explaining why it matters, what it's based on, what success looks like and when it may be wrong, with Approve, Modify, Dismiss and Track outcome buttons. The page notes that nothing happens until the teacher approves.",
   ),
   parentOneQuestion: screen(
-    'parent-one-question', 1400, 354, 'Parent · One question this week',
+    'parent-one-question', 1400, 386, 'Parent · One question this week',
     "A two-minute suggestion for Jordan's parent: at dinner, ask what Jordan figured out this week, then just listen. It notes it's a general tip because no standout moments came up this week, and offers four feedback buttons.",
   ),
   teacherParentMessage: screen(
