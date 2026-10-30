@@ -24,6 +24,7 @@ const StudyModeComparison = () => (
       <div className="max-w-6xl mx-auto space-y-12">
         <AnimateOnScroll>
           <div className="mx-auto max-w-3xl space-y-4 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue">Why Mentra</p>
             <h2 id="why-mentra-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance">
               Why not a free AI study mode?
             </h2>
@@ -34,7 +35,7 @@ const StudyModeComparison = () => (
           </div>
         </AnimateOnScroll>
 
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_16rem_minmax(0,1fr)] md:items-center">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_15rem_minmax(0,1fr)] md:items-start">
           <AnimateOnScroll>
             <div className="min-w-0 space-y-4">
               {/* Signpost pointing left */}
@@ -44,7 +45,7 @@ const StudyModeComparison = () => (
               >
                 The shortcut
               </p>
-              <ol className="list-decimal space-y-2.5 pl-5 text-base leading-relaxed text-gray-500 marker:text-gray-400">
+              <ol className="list-decimal space-y-2.5 pl-5 text-base leading-relaxed text-gray-600 marker:text-gray-400">
                 {shortcut.map((s) => <li key={s}>{s}</li>)}
               </ol>
             </div>
@@ -57,7 +58,7 @@ const StudyModeComparison = () => (
             height={600}
             loading="lazy"
             decoding="async"
-            className="order-first mx-auto h-48 w-48 object-contain sm:h-64 sm:w-64 md:order-none"
+            className="order-first mx-auto h-44 w-44 object-contain sm:h-56 sm:w-56 md:order-none md:-mt-6"
           />
 
           <AnimateOnScroll delay={80}>

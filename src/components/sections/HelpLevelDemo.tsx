@@ -76,7 +76,8 @@ const HelpLevelDemo = () => {
             </div>
           </AnimateOnScroll>
 
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-center">
+          {/* The one interactive moment on the page gets its own panel; slider and chat share one width */}
+          <div className="grid gap-8 rounded-[2rem] border border-gray-200 bg-gray-50 p-5 sm:p-8 lg:grid-cols-[minmax(0,36rem)_minmax(0,1fr)] lg:items-center lg:gap-12 lg:p-12">
             <div className="min-w-0 space-y-6">
               <div>
                 <label htmlFor="help-level" className="sr-only">AI help level</label>
@@ -113,15 +114,15 @@ const HelpLevelDemo = () => {
               </div>
 
               <div className="space-y-3" aria-live="polite">
-                <p className="max-w-xl rounded-2xl border border-gray-200 bg-white px-5 py-3.5 text-base leading-relaxed text-gray-900">
+                <p className="rounded-2xl border border-gray-200 bg-white px-5 py-3.5 text-base leading-relaxed text-gray-900">
                   <span className="font-semibold">Jordan:</span> idk like maybe it keeps them warm or something?
                 </p>
                 {level.off ? (
-                  <p className="max-w-xl rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-5 py-3.5 text-base leading-relaxed text-gray-500">
+                  <p className="rounded-2xl border border-dashed border-gray-300 bg-white/60 px-5 py-3.5 text-base leading-relaxed text-gray-500">
                     Sprig is off for this assignment. Jordan works it out on his own.
                   </p>
                 ) : (
-                  <p className="max-w-xl rounded-2xl bg-mentra-blue/[0.07] px-5 py-3.5 text-base leading-relaxed text-gray-900">
+                  <p className="rounded-2xl bg-mentra-blue/[0.08] px-5 py-3.5 text-base leading-relaxed text-gray-900">
                     <span className="font-semibold">Sprig:</span> {level.reply}
                   </p>
                 )}
@@ -157,7 +158,7 @@ const HelpLevelDemo = () => {
                 height={300}
                 loading="lazy"
                 decoding="async"
-                className="h-40 w-40 object-contain motion-safe:animate-fade-in-up sm:h-56 sm:w-56 lg:h-72 lg:w-72"
+                className="h-36 w-36 object-contain motion-safe:animate-fade-in-up sm:h-48 sm:w-48 lg:h-64 lg:w-64"
               />
             </div>
           </div>
