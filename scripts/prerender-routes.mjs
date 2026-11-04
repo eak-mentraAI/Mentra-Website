@@ -27,7 +27,7 @@ const PAGES = {
   '/about': {
     title: 'About Mentra | Why We Built It',
     description:
-      "Mentra's founder on why we built AI whose job is to make itself unnecessary: every interaction should leave students stronger, not more dependent.",
+      'Why we built Mentra, what exists today, what a larger pilot still has to prove, and our aim to make it free for the schools that need it most.',
   },
   '/platform': {
     title: 'The Mentra Platform | Cognition Infrastructure for K–12',
