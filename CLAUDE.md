@@ -52,7 +52,7 @@ so "done" means all three pass.
 
 ## Agent rules
 
-- Work on a `claude/` branch and open a PR. Never push to `main` or merge, because pushing to `main` deploys.
+- Work on a `claude/` branch and open a PR. Never push to `main` directly, because pushing to `main` deploys. Merge a PR only when the user explicitly asks for that merge in chat, and only once CI passes; approval covers that PR only.
 - Don't edit `public/CNAME`, `.github/workflows/`, or the Formspree endpoint without explicit approval.
 - Don't invent customer logos, testimonials, statistics or certifications. Proof must be real, or be clearly marked as a placeholder in the PR for a human to fill.
 - Contact address is `hello@mymentra.ai`. Legal pages still say `privacy@mentra.ai` and `legal@mentra.ai` (wrong domain). Ask before changing them, because those mailboxes may not exist.
