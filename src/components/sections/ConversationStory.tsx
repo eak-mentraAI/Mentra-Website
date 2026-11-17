@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CalendarDays, MousePointerClick } from 'lucide-react';
+import { CalendarDays } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import ProductVideo from '@/components/ui/ProductVideo';
+import TeacherCheck from '@/components/sections/TeacherCheck';
 import { useScheduleCall } from '@/contexts/ScheduleCallContext';
-import { screens, SHOWCASE_DISCLOSURE, teacherTurnTraceZoom } from '@/data/productScreens';
+import { SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 import { cn } from '@/lib/utils';
 
 // Jordan's conversation, quoted from the full transcript of conv_20261025232607_09774c6b
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 // method for that turn. Keep the claim scope of the 2026-10-27 production notes: nothing here says Jordan
 // learned it or got there on his own. The evaluator read his turns as partial. The teacher's report labels his
 // energy turn (turn 4) "with help" and his photosynthesis turn (turn 7, the last one here) "repeated what Sprig
-// said". The teacher video (Round 5 re-film) opens turn 4.
+// said". Beat 8 (TeacherCheck) shows turn 4's row in the report and the exchange the teacher opens from it.
 type Turn = { who: 'student' | 'sprig'; text: string; pill?: string; reportLabel?: string };
 
 const turns: Turn[] = [
@@ -58,7 +58,7 @@ const turns: Turn[] = [
   },
 ];
 
-type Beat = { eyebrow: string; title: string; text: string; shown: number; labelled?: boolean; video?: boolean };
+type Beat = { eyebrow: string; title: string; text: string; shown: number; labelled?: boolean; check?: boolean };
 
 // Each beat is one stop of the scroll. `shown` is how many turns of the conversation are on screen; each conversation
 // beat adds one exchange (two turns), so every stop visibly moves the chat forward.
@@ -79,14 +79,39 @@ const beats: Beat[] = [
   {
     eyebrow: 'One click to check',
     title: 'The teacher opens the exact turn.',
-    text: 'Every label links to the turn behind it. Here the teacher opens Jordan’s breakthrough, which the report marks “with help”, so it’s weighed separately from independent work.',
+    text: 'Each turn in the report has a label and links to the exchange behind it. Here’s Jordan’s breakthrough, labelled “with help”.',
     shown: 13,
     labelled: true,
-    video: true,
+    check: true,
   },
 ];
 
 const CTA_BEAT = beats.length;
+
+// Beat 8's example: Jordan's energy turn and the targeted hint before it.
+const CHECK_TURN = turns.findIndex((t) => t.reportLabel === 'with help');
+const CHECK_HINT = turns[CHECK_TURN - 1].text;
+const CHECK_TEXT = turns[CHECK_TURN].text;
+const CHECK_CAPTION = 'The report’s own labels and wording, with Jordan’s real conversation. Layout simplified for this page.';
+
+/** Beat 8 plays in order once it's on screen: the turn, its row in the report, "Open this turn", then the exchange. */
+const useCheckSteps = (active: boolean) => {
+  const [step, setStep] = useState(0);
+  useEffect(() => {
+    if (!active) {
+      setStep(0);
+      return;
+    }
+    setStep(1);
+    const timers = [
+      window.setTimeout(() => setStep(2), 700),
+      window.setTimeout(() => setStep(3), 1900),
+      window.setTimeout(() => setStep(4), 2400),
+    ];
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, [active]);
+  return step;
+};
 
 // Scroll per beat. Swipes and wheel gestures step one beat at a time (useBeatStepping), so this only sets how far a
 // keyboard or scrollbar scroll travels per beat.
@@ -252,7 +277,7 @@ const useBeatStepping = (
   }, [trackRef, sceneRef, enabled]);
 };
 
-/** Below lg the story stacks, and the full teacher frame is too small to read; phones get a zoomed crop instead. */
+/** Below lg the story stacks and the stage is short, so beat 8 lets the opened exchange replace the turn card. */
 const useStackedLayout = () => {
   const [stacked, setStacked] = useState(false);
   useEffect(() => {
@@ -396,7 +421,10 @@ const StaticStory = ({ onBook }: { onBook: () => void }) => (
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue">Then the teacher sees it</p>
       <p className="text-lg text-gray-600 leading-relaxed">{beats[CTA_BEAT - 2].text} {beats[CTA_BEAT - 1].text}</p>
     </div>
-    <ProductVideo {...screens.teacherTurnTrace.video!} alt={screens.teacherTurnTrace.alt} width={1280} height={720} />
+    <figure className="m-0 space-y-3">
+      <TeacherCheck step={4} hint={CHECK_HINT} turn={CHECK_TEXT} still />
+      <figcaption className="text-sm text-gray-500">{CHECK_CAPTION}</figcaption>
+    </figure>
     <div className="lg:col-span-2 rounded-3xl bg-gray-900 p-8 sm:p-12"><CtaPanel onBook={onBook} /></div>
   </div>
 );
@@ -420,6 +448,8 @@ const ConversationStory = () => {
   const stacked = useStackedLayout();
 
   useBeatStepping(trackRef, sceneRef, !reduceMotion);
+  const showCheck = !reduceMotion && beat < CTA_BEAT && !!beats[beat].check;
+  const checkStep = useCheckSteps(showCheck);
 
   if (reduceMotion) {
     return (
@@ -431,7 +461,6 @@ const ConversationStory = () => {
 
   const shownBeat = Math.min(beat, CTA_BEAT - 1);
   const current = beats[shownBeat];
-  const showVideo = !!current.video;
   const showCta = beat >= CTA_BEAT;
 
   // Jump straight past the pinned scene; a smooth scroll would play every beat on the way.
@@ -497,31 +526,22 @@ const ConversationStory = () => {
             <div className="relative h-full min-h-0 lg:h-[min(72vh,40rem)]">
               <motion.div
                 className="absolute inset-0"
-                animate={{ opacity: showVideo ? 0 : 1, scale: showVideo ? 0.96 : 1 }}
+                animate={{ opacity: showCheck ? 0 : 1, scale: showCheck ? 0.96 : 1 }}
                 transition={{ duration: 0.45 }}
-                aria-hidden={showVideo}
+                aria-hidden={showCheck}
               >
                 <ChatWindow shown={current.shown} animate labelled={!!current.labelled} />
               </motion.div>
               <motion.div
-                className="absolute inset-0 flex flex-col justify-center gap-3"
+                className="absolute inset-0 flex flex-col justify-start lg:justify-center gap-3 overflow-hidden"
                 initial={false}
-                animate={{ opacity: showVideo ? 1 : 0, y: showVideo ? 0 : 30 }}
-                transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-                aria-hidden={!showVideo}
-                style={{ pointerEvents: showVideo ? 'auto' : 'none' }}
+                animate={{ opacity: showCheck ? 1 : 0 }}
+                transition={{ duration: 0.4 }}
+                aria-hidden={!showCheck}
+                style={{ pointerEvents: showCheck ? 'auto' : 'none' }}
               >
-                {stacked ? (
-                  <div className="flex min-h-0 flex-1 justify-center">
-                    <ProductVideo key="zoom" {...teacherTurnTraceZoom} className="h-full w-auto max-w-full object-cover" />
-                  </div>
-                ) : (
-                  <ProductVideo key="full" {...screens.teacherTurnTrace.video!} alt={screens.teacherTurnTrace.alt} width={1280} height={720} />
-                )}
-                <p className="flex items-center gap-2 text-sm text-gray-500">
-                  <MousePointerClick className="h-4 w-4 text-mentra-blue" aria-hidden="true" />
-                  Jordan&rsquo;s teacher opens the energy turn, labelled &ldquo;with help&rdquo;.
-                </p>
+                <TeacherCheck step={checkStep} hint={CHECK_HINT} turn={CHECK_TEXT} compact={stacked} />
+                <p className="text-xs sm:text-sm text-gray-500">{CHECK_CAPTION}</p>
               </motion.div>
             </div>
           </div>
