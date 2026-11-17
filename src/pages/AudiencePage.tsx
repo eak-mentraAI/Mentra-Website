@@ -65,6 +65,25 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
             </div>
           </section>
 
+          {/* The problem, in this audience's terms */}
+          {audience.problem && (
+            <section className="py-20 bg-white border-t border-gray-100" aria-labelledby="audience-problem-heading">
+              <div className="container mx-auto max-w-3xl px-4">
+                <AnimateOnScroll>
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-4">The problem</p>
+                  <h2 id="audience-problem-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-balance">
+                    {audience.problem.heading}
+                  </h2>
+                  <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                    {audience.problem.paragraphs.map((p) => (
+                      <p key={p}>{p}</p>
+                    ))}
+                  </div>
+                </AnimateOnScroll>
+              </div>
+            </section>
+          )}
+
           {/* Proof: real screens as one pinned scroll scene, the same motion as the homepage story */}
           <ScreenStory beats={audience.proof} label={`${audience.eyebrow}: real screens`} note={SHOWCASE_DISCLOSURE} />
 

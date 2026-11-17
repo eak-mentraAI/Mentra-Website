@@ -19,6 +19,8 @@ export interface Audience {
   eyebrow: string;
   title: string;
   intro: string;
+  /** The audience's problem in their own terms, shown under the hero. Keep claims to what the research supports. */
+  problem?: { heading: string; paragraphs: string[] };
   /** Homepage link: a one-line pitch */
   cardLine: string;
   /** Shown in a tab viewer. Keep one "honest about what we don't know" line per page, not one per tab. */
@@ -37,10 +39,18 @@ export const audiences: Audience[] = [
     path: '/teachers',
     docTitle: 'Mentra for Teachers',
     eyebrow: 'Mentra for teachers',
-    title: 'See how your students think, not just what they answered.',
+    title: 'When the finished work stops telling you much, see the working.',
     intro:
-      "Mentra shows where each student's reasoning is growing, where it stalls, and what you might try next. You stay the one making the decisions.",
-    cardLine: 'Know who needs you, where the class is stuck, and what to try next. You make every call.',
+      "Assign the work with Sprig and see what each student tried, where they needed help and what they managed on their own. Built first for high school classrooms. You stay the one making the decisions.",
+    problem: {
+      heading: 'You shouldn’t have to stand at the back of the room to know who did the thinking',
+      paragraphs: [
+        'A take-home essay or problem set can now come from a chatbot in seconds. Detectors give you a probability, not evidence, and they flag students who did their own work. So a lot of teachers have moved the work back into the room: handwritten essays, oral checks, tests watched from the back. It works, and it costs hours of grading and teaching time.',
+        'Mentra puts the AI-era assignment where you can see it. Sprig coaches through questions, and each turn is labelled: done on their own, done with help, or repeating what Sprig said, which counts for nothing. When you need to know what a student can do alone, set the assignment to No AI Help.',
+        'It isn’t a cheating detector. It’s a record to teach from: what a student did in Mentra, and only that.',
+      ],
+    },
+    cardLine: 'See what each student did with help and what they did alone. You make every call.',
     proof: [
       {
         eyebrow: "Today's Brief",
@@ -134,7 +144,14 @@ export const audiences: Audience[] = [
     eyebrow: 'Mentra for schools and districts',
     title: 'Judge us on learning, not logins.',
     intro:
-      'Mentra shows how students reason, where a class gets stuck and what to try next. A pilot then measures whether it is worth the cost, against measures you agree up front.',
+      'Mentra shows how students reason, where a class gets stuck and what to try next. A pilot then measures whether it is worth the cost, against measures you agree up front, including a check of unaided work that Sprig takes no part in.',
+    problem: {
+      heading: 'Your teachers are spending their own time to get trustworthy evidence back',
+      paragraphs: [
+        'In secondary school, unsupervised written work no longer shows who did the thinking. Teachers are moving work back into class and onto paper, and leaning on detectors that produce false accusations. Meanwhile budgets are tight, families are asking about screens, and some large districts have paused student-facing AI altogether.',
+        'Mentra is a narrow answer to a specific problem. Students work with Sprig on assignments the teacher sets, and the teacher sees what was done with help and what was done alone. We don’t claim it is proven to improve learning; no Socratic AI tutor can say that yet. That is what the pilot is for.',
+      ],
+    },
     cardLine: 'Evidence of reasoning, a pilot measured your way, and governance your board can inspect.',
     proof: [
       {
@@ -163,8 +180,10 @@ export const audiences: Audience[] = [
       },
     ],
     pilot: [
-      { question: 'Are students reasoning more independently?', evidence: 'Changes in reasoning quality and how often students ask for help' },
-      { question: 'Does it help teachers?', evidence: 'Teacher-rated usefulness, and the time it takes to act on an insight' },
+      { question: 'Are students doing the reasoning?', evidence: 'The share of students who write a real reasoning step, not a one-word reply, in most sessions, including the lowest-performing students' },
+      { question: 'Is the help fading?', evidence: 'How much help each student needs per problem over time, and whether their independent attempts hold up' },
+      { question: 'Can students do it without help?', evidence: 'A later No AI Help check that Sprig neither assists with nor writes' },
+      { question: 'Does it help teachers?', evidence: 'Whether teachers open the brief and change something the next day, teacher-rated usefulness, and the time it takes to act' },
       { question: 'Are families more engaged?', evidence: 'Participation in, and usefulness of, the at-home prompts' },
       { question: 'Does it improve learning?', evidence: 'Pre and post measures on instructional tasks you choose' },
       { question: 'Is the cost justified?', evidence: 'Cost per active student, teacher time, and the measured outcomes above' },
