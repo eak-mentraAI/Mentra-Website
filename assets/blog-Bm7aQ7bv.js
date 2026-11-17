@@ -1,14 +1,14 @@
-import{i as s}from"./index-BxLlz59q.js";/**
+import{i as s}from"./index-Dm-h6aHV.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const S=s("Calendar",[["path",{d:"M8 2v4",key:"1cmpym"}],["path",{d:"M16 2v4",key:"4m81vk"}],["rect",{width:"18",height:"18",x:"3",y:"4",rx:"2",key:"1hopcy"}],["path",{d:"M3 10h18",key:"8toen8"}]]);/**
+ */const W=s("Calendar",[["path",{d:"M8 2v4",key:"1cmpym"}],["path",{d:"M16 2v4",key:"4m81vk"}],["rect",{width:"18",height:"18",x:"3",y:"4",rx:"2",key:"1hopcy"}],["path",{d:"M3 10h18",key:"8toen8"}]]);/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const z=s("Clock",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["polyline",{points:"12 6 12 12 16 14",key:"68esgv"}]]),h=`---
+ */const z=s("Clock",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["polyline",{points:"12 6 12 12 16 14",key:"68esgv"}]]),c=`---
 title: Education Needs More Humanity, Not Less
 excerpt: The most common fear about AI in education is that learning will become colder and more transactional. The long-term outcome may be the opposite — and it depends entirely on how we choose to design it.
 author: Edward Kerr
@@ -584,6 +584,79 @@ They'll need the ability to remain thoughtful, grounded, curious, and self-direc
 
 > The question facing education is no longer "How do we give students access to knowledge?" The question is "How do we help them become wise enough to use it well?"
 `,m=`---
+title: Schoolwork Stopped Showing Who Did the Thinking. Here's What We Found, and What We Don't Know
+excerpt: We spent the autumn reading the 2026 research on K-12 and AI, then put our conclusions through an adversarial review. A narrower problem survived than the one we started with. This is what it is, what it means for how we build Mentra, and what we can't yet claim.
+author: Mentra
+date: 2026-11-17
+category: For Schools
+tags: [Research, Teachers, AI Tutors, Assessment, Evidence]
+image: /images/blog/schoolwork-stopped-showing-who-did-the-thinking.jpg
+featured: false
+readTime: 7
+---
+
+This autumn we read as much of the 2026 research on schools and AI as we could find: national polls, teacher and district surveys, randomised trials and a lot of what teachers and parents say to each other online. Then we put our conclusions through an adversarial review: five separate critiques, each objection ruled on, and the report rewritten where it failed.
+
+Less survived than we'd hoped. We think that's the useful part, so here it is.
+
+## The problem that held up
+
+**In secondary school, unsupervised written work no longer shows who did the thinking.**
+
+That's narrower than "AI is ruining education", and it rests on what teachers are doing, not only on what surveys say. Teachers have moved essays back into class and onto paper. Some no longer grade anything written at home. Some stand at the back of the room for every test. Others use AI detectors, which give a probability rather than evidence and wrongly flag students who did their own work.
+
+Each of these brings back some trust in the work. Each costs teachers hours of grading and supervision, and costs students teaching time.
+
+The wider picture points the same way, though it's weaker evidence:
+
+- Satisfaction with K-12 education hit **32%** in Gallup's 2026 poll, the lowest since the series began in 1999. Only about **2 in 10** Americans rate schools good or excellent at teaching critical thinking ([AP report of the Gallup poll](https://civilbeat.org/2026/09/americans-school-satisfaction-is-at-a-low-point-national-poll-shows)).
+- In a RAND panel of middle school, high school and college students, the share saying AI for schoolwork harms critical thinking rose from 54% to **67%** in a year, while their AI homework use rose from 48% to 62% ([eSchool News](https://www.eschoolnews.com/digital-learning/2026/03/25/student-use-of-ai-for-homework-rises/)).
+
+Students aren't confused about the risk. In their own accounts, they reach for an answer when the work feels pointless, too much lands at once, a grade is at stake, or they're stuck with no one to ask. An answer machine fixes all four in seconds.
+
+## What the trials say, and what they don't
+
+There is real evidence that **unstructured** answer-giving AI can hurt learning. In a trial with nearly 1,000 Turkish high-school maths students, unrestricted GPT-4 access raised practice scores, but students did **17% worse** than a control group once it was taken away. A version with guardrails avoided the harm ([Knowledge at Wharton](https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education/)).
+
+The evidence that a guard-railed AI tutor *helps* in K-12 is thinner than most marketing suggests, including, at times, our own. The largest trial so far ran over two years in 18 Tennessee middle schools. Students using Khan Academy with its AI tutor gained a modest amount in year two, at low cost. But the tutor was a chat icon beside the practice, and the typical student messaged it in only **17%** of the sessions where they made a mistake, mostly with one- or two-word replies. The authors conclude that engagement was the binding constraint ([NBER working paper 35620](https://www.nber.org/papers/w35620)).
+
+So the honest summary is this: **no trial has yet tested a product where a Socratic conversation is the assigned activity itself.** It hasn't failed. It hasn't been tested. Nobody, us included, can say a Socratic AI tutor is proven to improve learning in K-12.
+
+## The market isn't empty, and the money is tight
+
+Two more findings shaped our thinking.
+
+First, free tools now do part of what we do. AI study modes coach students step by step, and as of October 2026 Google Classroom gives teachers AI-written summaries of students' chats with an assigned notebook, free in every education edition ([Google](https://workspaceupdates.googleblog.com/2026/10/teacher-led-gemini-notebook-in-google-Classroom-now-offers-insight-summaries-for-educators-and-updated-sharing-settings-for-admins-including-trusted-domains.html)). If a teacher can't tell the difference between that and Mentra, we haven't earned a place in their classroom.
+
+Second, buyers are under pressure. In RAND's spring 2026 district survey, **54%** of district leaders named budget shortfalls a top-three concern, up from 33% a year earlier ([RAND](https://www.rand.org/pubs/research_reports/RRA4737-4.html)). Several states passed limits on classroom screens, and in September New York City and Los Angeles paused student-facing generative AI for this school year ([Tech Policy Press](https://techpolicy.press/americas-two-largest-school-districts-impose-ai-moratoriums)).
+
+## What this changes for Mentra
+
+**We'll stop using words we can't back up.** A conversation with Sprig shows what a student did with Sprig there. It doesn't prove what they understand, and it isn't a cheating detector. What we can say is that the teacher sees the student's working.
+
+**We'll lean on what's different.** Mentra separates work a student did with help from work they did alone. An answer that mostly repeats Sprig isn't counted as independent work. The teacher's brief is built by fixed rules from the recorded work, not written by a chatbot, and when there isn't enough evidence it says "too early to tell". When a teacher needs to know what a student can do on their own, they can set an assignment to No AI Help.
+
+**We'll make the conversation the assignment, not a side panel.** The Tennessee result is a warning about optional chat beside the work. Whether students actually reason when the conversation *is* the work is the question everything else depends on, so it's the first thing our pilots measure.
+
+**We'll start with high school.** That's where take-home work has changed most, and where screen limits and moratoriums bite least.
+
+## What a pilot has to show
+
+We write down the thresholds before a pilot starts, so the result can go against us:
+
+- the share of students, including the lowest-performing, who write a real reasoning step rather than a one-word reply in most sessions
+- whether the help each student needs per problem falls over time
+- whether students can do it later in a No AI Help check that Sprig takes no part in
+- whether teachers open the brief and change something the next day
+
+If students type the minimum, or teachers don't have two minutes to read what Mentra tells them, we'd rather know now.
+
+## What we don't know
+
+Plenty. We don't know whether teachers rank this problem high enough to adopt a new tool. We don't know whether a district will pay for it while a rough version comes free. We don't know whether text conversations serve weak readers and English learners as well as other students. Many of the survey figures in this area come from news reports of studies rather than the studies themselves, and polls from advocacy groups on every side disagree mostly because they ask different questions.
+
+If you teach in a high school and any of this sounds like your week, we'd like to hear from you, whether or not you'd ever use Mentra. Write to us at [hello@mymentra.ai](mailto:hello@mymentra.ai).
+`,g=`---
 title: Students Are Growing Up Alongside AI, Not Adopting It
 excerpt: Adults still talk about AI as something students will eventually learn to use. But for today's kids, AI isn't a tool they'll adopt — it's becoming part of the environment they develop inside. That distinction changes everything.
 author: Edward Kerr
@@ -865,7 +938,7 @@ not merely deciding whether students use AI,
 but helping shape the kind of thinkers students become while growing up beside it.
 
 > The defining educational question of the AI era may not be whether students have access to intelligence. It may be whether they retain agency, curiosity, and independent thought while living alongside it.
-`,g=`---
+`,p=`---
 title: Teachers Are Quietly Becoming Cognitive Architects
 excerpt: As AI takes over more of the information layer of teaching, the deeply human parts of the work — judgment, encouragement, identity formation — are becoming the parts that matter most. The teacher's role isn't shrinking. It's expanding.
 author: Edward Kerr
@@ -1143,7 +1216,7 @@ That's a profound shift.
 And honestly, I think we're only beginning to see the early stages of it.
 
 > In an age where AI can increasingly generate information, the teacher's highest value may become helping students develop wisdom, agency, and the confidence to think for themselves.
-`,p=`---
+`,y=`---
 title: The Collapse of the Traditional Homework Contract
 excerpt: For decades, homework operated on a quiet social contract — that the student producing the work was also producing the thinking. AI didn't just break that contract; it exposed how much of education had quietly come to depend on it.
 author: Edward Kerr
@@ -1397,7 +1470,7 @@ That's a much harder challenge.
 But it's also a far more important one.
 
 > The age of AI is forcing education to rediscover something it always knew beneath the surface: learning is not the artifact. Learning is the transformation happening inside the person producing it.
-`,y=`---
+`,f=`---
 title: The Quiet Cost of Outsourcing Thought
 excerpt: As answers become abundant and understanding remains scarce, the real question for education isn't whether students will use AI — it's whether they'll stop believing they need to think deeply at all.
 author: Edward Kerr
@@ -1575,7 +1648,7 @@ And I believe it will define the difference between educational systems that mer
 > The goal of education was never simply producing answers. It was producing humans capable of navigating the unknown.
 
 That goal matters now more than ever.
-`,f=`---
+`,w=`---
 title: The Students Falling Behind May Not Be the Ones We Think
 excerpt: The biggest educational divide emerging right now isn't between students who use AI and students who don't — it's between those who learn to direct it and those who become quietly dependent on it.
 author: Edward Kerr
@@ -1806,7 +1879,7 @@ That's the challenge I think education is really facing right now.
 Not simply integrating AI into classrooms.
 
 But helping students remain thoughtful, resilient, creative humans in a world where intelligence itself is becoming increasingly automated.
-`,w=`---
+`,b=`---
 title: The Year Education Realized AI Wasn't a Future Problem
 excerpt: For years, AI in education lived safely in the future tense. Then, almost overnight, the future arrived — and the questions schools must now answer are no longer about technology, but about the purpose of learning itself.
 author: Edward Kerr
@@ -2099,7 +2172,7 @@ And AI should ultimately be evaluated against whether it strengthens or weakens 
 > The question is no longer whether AI will shape education. The question is whether we will shape its role in education intentionally.
 
 That may end up being one of the defining decisions of this era.
-`,b=`---
+`,v=`---
 title: What I Hope You Understand Before the Future Arrives
 excerpt: A letter to my daughters about the principles that survive uncertainty — discernment, adaptability, humility, and the discipline to do hard things in a world flooded with synthetic abundance.
 author: Edward Kerr
@@ -2347,4 +2420,4 @@ Dad
 *I increasingly believe the defining skill of the next era may not be intelligence alone, but discernment — the ability to recognize what is true, meaningful, durable, and human in a world flooded with synthetic abundance.*
 
 *Originally published at [designforimpact.io](https://designforimpact.io/what-i-hope-you-understand-before-the-future-arrives/).*
-`,v=/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/;function I(t){const e=t.trim();return e===""?"":e==="true"?!0:e==="false"?!1:/^-?\d+(\.\d+)?$/.test(e)?Number(e):e.startsWith("[")&&e.endsWith("]")?e.slice(1,-1).split(",").map(n=>n.trim().replace(/^['"]|['"]$/g,"")).filter(Boolean):e.replace(/^['"]|['"]$/g,"")}function k(t){const e=v.exec(t);if(!e)return{data:{},body:t};const n={},i=e[1].split(/\r?\n/);for(const a of i){if(!a.trim()||a.trim().startsWith("#"))continue;const o=a.indexOf(":");if(o===-1)continue;const l=a.slice(0,o).trim(),c=a.slice(o+1);n[l]=I(c)}return{data:n,body:e[2]}}function A(t){return t.split("/").pop().replace(/\.md$/,"")}function T(t,e){const{data:n,body:i}=k(e),a=Array.isArray(n.tags)?n.tags:typeof n.tags=="string"&&n.tags?[n.tags]:[];return{slug:A(t),title:n.title??"Untitled",excerpt:n.excerpt??"",content:i.trim(),author:n.author??"Mentra",date:n.date??"1970-01-01",category:n.category??"Uncategorized",tags:a,image:n.image??"",featured:n.featured===!0,readTime:typeof n.readTime=="number"?n.readTime:5,canonicalUrl:n.canonicalUrl}}const B=Object.assign({"../content/blog/education-needs-more-humanity-not-less.md":h,"../content/blog/five-questions-before-choosing-an-ai-tutor.md":d,"../content/blog/school-was-built-for-information-scarcity.md":u,"../content/blog/students-are-growing-up-alongside-ai-not-adopting-it.md":m,"../content/blog/teachers-are-quietly-becoming-cognitive-architects.md":g,"../content/blog/the-collapse-of-the-traditional-homework-contract.md":p,"../content/blog/the-quiet-cost-of-outsourcing-thought.md":y,"../content/blog/the-students-falling-behind-may-not-be-the-ones-we-think.md":f,"../content/blog/the-year-education-realized-ai-wasnt-a-future-problem.md":w,"../content/blog/what-i-hope-you-understand-before-the-future-arrives.md":b}),r=Object.entries(B).map(([t,e])=>T(t,e)).sort((t,e)=>new Date(e.date).getTime()-new Date(t.date).getTime());function W(){return r}function q(t){return r.find(e=>e.slug===t)}export{S as C,z as a,q as b,W as g};
+`,k=/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/;function I(t){const e=t.trim();return e===""?"":e==="true"?!0:e==="false"?!1:/^-?\d+(\.\d+)?$/.test(e)?Number(e):e.startsWith("[")&&e.endsWith("]")?e.slice(1,-1).split(",").map(n=>n.trim().replace(/^['"]|['"]$/g,"")).filter(Boolean):e.replace(/^['"]|['"]$/g,"")}function A(t){const e=k.exec(t);if(!e)return{data:{},body:t};const n={},i=e[1].split(/\r?\n/);for(const a of i){if(!a.trim()||a.trim().startsWith("#"))continue;const o=a.indexOf(":");if(o===-1)continue;const l=a.slice(0,o).trim(),h=a.slice(o+1);n[l]=I(h)}return{data:n,body:e[2]}}function T(t){return t.split("/").pop().replace(/\.md$/,"")}function x(t,e){const{data:n,body:i}=A(e),a=Array.isArray(n.tags)?n.tags:typeof n.tags=="string"&&n.tags?[n.tags]:[];return{slug:T(t),title:n.title??"Untitled",excerpt:n.excerpt??"",content:i.trim(),author:n.author??"Mentra",date:n.date??"1970-01-01",category:n.category??"Uncategorized",tags:a,image:n.image??"",featured:n.featured===!0,readTime:typeof n.readTime=="number"?n.readTime:5,canonicalUrl:n.canonicalUrl}}const B=Object.assign({"../content/blog/education-needs-more-humanity-not-less.md":c,"../content/blog/five-questions-before-choosing-an-ai-tutor.md":d,"../content/blog/school-was-built-for-information-scarcity.md":u,"../content/blog/schoolwork-stopped-showing-who-did-the-thinking.md":m,"../content/blog/students-are-growing-up-alongside-ai-not-adopting-it.md":g,"../content/blog/teachers-are-quietly-becoming-cognitive-architects.md":p,"../content/blog/the-collapse-of-the-traditional-homework-contract.md":y,"../content/blog/the-quiet-cost-of-outsourcing-thought.md":f,"../content/blog/the-students-falling-behind-may-not-be-the-ones-we-think.md":w,"../content/blog/the-year-education-realized-ai-wasnt-a-future-problem.md":b,"../content/blog/what-i-hope-you-understand-before-the-future-arrives.md":v}),r=Object.entries(B).map(([t,e])=>x(t,e)).sort((t,e)=>new Date(e.date).getTime()-new Date(t.date).getTime());function q(){return r}function M(t){return r.find(e=>e.slug===t)}export{W as C,z as a,M as b,q as g};
