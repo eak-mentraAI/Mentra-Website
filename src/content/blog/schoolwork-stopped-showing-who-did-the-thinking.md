@@ -49,7 +49,7 @@ Second, buyers are under pressure. In RAND's spring 2026 district survey, **54%*
 
 **We'll stop using words we can't back up.** A conversation with Sprig shows what a student did with Sprig there. It doesn't prove what they understand, and it isn't a cheating detector. What we can say is that the teacher sees the student's working.
 
-**We'll lean on what's different.** Mentra separates work a student did with help from work they did alone. Repeating what Sprig said counts for nothing. The teacher's brief is built by fixed rules from the recorded work, not written by a chatbot, and when there isn't enough evidence it says "too early to tell". When a teacher needs to know what a student can do on their own, they can set an assignment to No AI Help.
+**We'll lean on what's different.** Mentra separates work a student did with help from work they did alone. An answer that mostly repeats Sprig isn't counted as independent work. The teacher's brief is built by fixed rules from the recorded work, not written by a chatbot, and when there isn't enough evidence it says "too early to tell". When a teacher needs to know what a student can do on their own, they can set an assignment to No AI Help.
 
 **We'll make the conversation the assignment, not a side panel.** The Tennessee result is a warning about optional chat beside the work. Whether students actually reason when the conversation *is* the work is the question everything else depends on, so it's the first thing our pilots measure.
 

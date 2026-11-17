@@ -39,7 +39,7 @@ const TeacherEvidenceSection = () => (
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               The Independence Report labels each answer by how it was reached: on their own, with help, or
-              repeating what Sprig said. Repeating Sprig counts for nothing. Until there&rsquo;s enough unaided work
+              repeating what Sprig said. Until there&rsquo;s enough unaided work
               to read, it says so instead of guessing. It&rsquo;s a record to teach from, not a verdict on a student.
             </p>
           </div>

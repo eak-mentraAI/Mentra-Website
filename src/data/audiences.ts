@@ -46,7 +46,7 @@ export const audiences: Audience[] = [
       heading: 'You shouldn’t have to stand at the back of the room to know who did the thinking',
       paragraphs: [
         'A take-home essay or problem set can now come from a chatbot in seconds. Detectors give you a probability, not evidence, and they flag students who did their own work. So a lot of teachers have moved the work back into the room: handwritten essays, oral checks, tests watched from the back. It works, and it costs hours of grading and teaching time.',
-        'Mentra puts the AI-era assignment where you can see it. Sprig coaches through questions, and each turn is labelled: done on their own, done with help, or repeating what Sprig said, which counts for nothing. When you need to know what a student can do alone, set the assignment to No AI Help.',
+        'Mentra puts the AI-era assignment where you can see it. Sprig coaches through questions, and each turn is labelled: done on their own, done with help, or repeating what Sprig said. When you need to know what a student can do alone, set the assignment to No AI Help.',
         'It isn’t a cheating detector. It’s a record to teach from: what a student did in Mentra, and only that.',
       ],
     },
