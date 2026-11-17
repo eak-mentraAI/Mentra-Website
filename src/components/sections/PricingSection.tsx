@@ -9,6 +9,15 @@ import { getAudience } from '@/data/audiences';
 // Pilot-first pricing. Every line here restates the FAQ ("How does Mentra pricing work?", implementation and
 // contract answers) or the Schools page pilot plan; keep them in sync rather than adding new claims.
 const pilotRows = getAudience('schools').pilot ?? [];
+// The homepage shows a teaser of the three questions closest to what Mentra is for (reasoning, the help fading,
+// doing it without help); the Schools page carries all of them.
+const TEASER_QUESTIONS = [
+  'Are students doing the reasoning?',
+  'Is the help fading?',
+  'Can students do it without help?',
+];
+const picked = pilotRows.filter((row) => TEASER_QUESTIONS.includes(row.question));
+const teaserRows = picked.length === TEASER_QUESTIONS.length ? picked : pilotRows.slice(0, 3);
 
 const PricingSection = () => {
   const { open: openScheduleCall } = useScheduleCall();
@@ -50,7 +59,7 @@ const PricingSection = () => {
           <div>
             <h3 className="text-lg font-bold text-gray-900 mb-4">What the pilot will tell you</h3>
             <ul className="divide-y divide-gray-200 border-y border-gray-200">
-              {pilotRows.map((row, i) => (
+              {teaserRows.map((row, i) => (
                 <li key={row.question}>
                   <AnimateOnScroll delay={i * 60}>
                     <div className="py-6">
@@ -66,9 +75,12 @@ const PricingSection = () => {
             </ul>
             <Link
               to="/schools"
-              className="mt-6 inline-flex items-center gap-1.5 font-semibold text-mentra-blue underline-offset-4 hover:underline"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-mentra-blue/30 px-5 py-2.5 font-semibold text-mentra-blue transition-colors hover:bg-mentra-blue/5 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
             >
               See the full pilot plan
+              {pilotRows.length > teaserRows.length && (
+                <span className="font-normal text-gray-500">&middot; all {pilotRows.length} questions</span>
+              )}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

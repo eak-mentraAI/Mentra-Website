@@ -6,6 +6,7 @@ import ProblemSection from '../components/sections/ProblemSection';
 import ConversationStory from '../components/sections/ConversationStory';
 import HelpLevelDemo from '../components/sections/HelpLevelDemo';
 import TeacherEvidenceSection from '../components/sections/TeacherEvidenceSection';
+import HomeWalkthroughCta from '../components/sections/HomeWalkthroughCta';
 import StudyModeComparison from '../components/sections/StudyModeComparison';
 import PricingSection from '../components/sections/PricingSection';
 import TrustSection from '../components/sections/TrustSection';
@@ -29,12 +30,14 @@ const Index = () => {
     <PageTransition>
     <div className="min-h-screen font-rounded">
       <Header />
-      {/* Arc: promise, the problem, show it, control, evidence and decision, what a school gets, trust, the ask, objections */}
+      {/* Arc: promise, the problem, show it (Jordan's story), try it, what the teacher sees, the ask, what a school
+          gets, trust, pricing, objections */}
       <HeroSection />
       <ProblemSection />
       <ConversationStory />
       <HelpLevelDemo />
       <TeacherEvidenceSection />
+      <HomeWalkthroughCta />
       <StudyModeComparison />
       <TrustSection />
       <PricingSection />

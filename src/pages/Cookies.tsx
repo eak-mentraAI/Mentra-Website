@@ -5,6 +5,7 @@ import PageTransition from '../components/layout/PageTransition';
 import LegalSection, { type LegalSectionItem } from '../components/shared/LegalSection';
 import LegalTableOfContents from '../components/shared/LegalTableOfContents';
 import '../App.css';
+import { usePageTitle } from '@/lib/usePageTitle';
 
 const sections: LegalSectionItem[] = [
   {
@@ -213,6 +214,7 @@ const sections: LegalSectionItem[] = [
 ];
 
 export default function Cookies() {
+  usePageTitle('Cookie Policy | Mentra');
   return (
     <PageTransition>
     <div className="min-h-screen font-rounded bg-gradient-to-br from-journal-sand via-white to-wisdom-purple/10 flex flex-col">

@@ -9,8 +9,9 @@ import Footer from '@/components/layout/Footer';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
 import { ArrowRight, Check } from 'lucide-react';
+import { usePageTitle } from '@/lib/usePageTitle';
 
-// About tells one story in order: the problem, our approach, what exists today, what is
+// About tells one story in order: why we built it, our approach, what exists today, what is
 // still unproven, where we're heading, how we mean to make it free for schools that need
 // it, and who is behind it. Every factual claim here restates the Platform page, the
 // Schools pilot plan or the Sponsor a School page; keep them in sync rather than adding
@@ -42,7 +43,15 @@ const built = [
   'LTI 1.3, OneRoster, and sign-in through Clever, ClassLink, Google and Microsoft',
 ];
 
-const pilotRows = getAudience('schools').pilot ?? [];
+// About shows only the headline pilot questions; the full plan lives on /schools.
+const HEADLINE_QUESTIONS = [
+  'Are students doing the reasoning?',
+  'Can students do it without help?',
+  'Does it improve learning?',
+];
+const allPilotRows = getAudience('schools').pilot ?? [];
+const headlineRows = allPilotRows.filter((row) => HEADLINE_QUESTIONS.includes(row.question));
+const pilotRows = headlineRows.length > 0 ? headlineRows : allPilotRows.slice(0, 3);
 
 // Forward-looking and deliberately general: directions we're working toward, not dated
 // commitments. Update "Now" as the platform changes.
@@ -96,6 +105,7 @@ function SectionIntro({ eyebrow, title, children }: { eyebrow: string; title: st
 
 export default function About() {
   const { open: openScheduleCall } = useScheduleCall();
+  usePageTitle('About Mentra | Why We Built It');
 
   return (
     <PageTransition>
@@ -105,41 +115,49 @@ export default function About() {
         {/* Hero */}
         <section className="w-full" aria-labelledby="about-hero-heading">
           <div className="mx-auto max-w-screen-xl px-4 pt-24 pb-16 sm:pt-32 sm:pb-20">
-            <div className="max-w-4xl">
-              <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-mentra-blue mb-6">
-                About Mentra
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-10 lg:gap-16 items-center">
+              <div className="max-w-4xl">
+                <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-mentra-blue mb-6">
+                  About Mentra
+                </div>
+                <h1
+                  id="about-hero-heading"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
+                >
+                  AI that leaves students thinking for themselves
+                </h1>
+                <p className="mt-8 text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-2xl">
+                  Why we built Mentra, what exists today, what we still have to prove, and how we mean to make it free for the schools that need it most.
+                </p>
               </div>
-              <h1
-                id="about-hero-heading"
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance"
-              >
-                AI that leaves students thinking for themselves
-              </h1>
-              <p className="mt-8 text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-2xl">
-                Why we built Mentra, what exists today, what we still have to prove, and how we mean to make it free for the schools that need it most.
-              </p>
+              <img
+                src="/images/sprig/sprig-idea-600.webp"
+                alt="Sprig, Mentra’s learning guide, pointing up at a lit bulb as an idea arrives"
+                width={600}
+                height={600}
+                loading="eager"
+                decoding="async"
+                className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 mx-auto lg:mx-0"
+              />
             </div>
           </div>
         </section>
 
-        {/* The problem */}
+        {/* Why we built it: the founder's question, not a repeat of the homepage problem */}
         <section className="w-full bg-gray-50 py-24" aria-labelledby="about-problem-heading">
           <div className="mx-auto max-w-screen-xl px-4">
             <AnimateOnScroll>
               <div className="max-w-3xl">
-                <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-mentra-blue mb-3">The problem</div>
+                <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-mentra-blue mb-3">Why we built it</div>
                 <h2 id="about-problem-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-balance">
-                  AI risks replacing the thinking students need most
+                  What if AI’s job was to make itself unnecessary?
                 </h2>
                 <div className="text-lg text-gray-500 leading-relaxed space-y-4">
                   <p>
-                    A student can now get a finished answer in seconds. What gets skipped is the slow part: working out what the question asks, trying something, getting it wrong, and trying again. That’s where reasoning is built.
+                    Mentra began with that question. Our founder, Edward Kerr, asked it as a technologist and as a parent. A finished answer now takes seconds, and what gets skipped is the slow part: working out what a question asks, trying something, getting it wrong and trying again. That’s where reasoning is built, and students sense what they’re losing; in one 2026 survey, two-thirds said using AI for schoolwork harms their critical thinking.
                   </p>
                   <p>
-                    Teachers feel it first. In secondary school, a finished essay or problem set no longer shows who did the thinking. Detectors give a probability, not evidence, so teachers are getting the evidence back with their own time: handwritten work in class, oral checks, tests watched from the back of the room. Students feel it too. In one 2026 survey, two-thirds of students said using AI for schoolwork harms their critical thinking, while their use of it kept rising.
-                  </p>
-                  <p>
-                    Most ed-tech responded by giving kids more AI. We asked a different question: what if AI’s job was to make itself unnecessary, so that every interaction left a student stronger, not more dependent?
+                    Most ed-tech answered by giving students more AI. We set out to build the opposite: AI that guides a student through the hard part instead of removing it, and steps back as their own work holds up, so each session leaves them stronger, not more dependent.
                   </p>
                 </div>
               </div>
@@ -237,7 +255,7 @@ export default function About() {
               <AnimateOnScroll>
                 <SectionIntro eyebrow="What we need to prove" title="Whether Mentra improves learning">
                   <p>
-                    A 20-student beta can’t answer that. The next step is a larger pilot with partner schools, judged on measures we agree before it starts, including students’ unaided work outside Mentra.
+                    A 20-student beta can’t answer that. The next step is a larger pilot with partner schools, judged on measures we agree before it starts, including students’ unaided work outside Mentra. These are the questions that matter most; the full plan covers the rest.
                   </p>
                 </SectionIntro>
               </AnimateOnScroll>

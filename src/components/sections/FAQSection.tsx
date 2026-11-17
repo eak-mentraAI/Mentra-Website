@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
@@ -30,7 +31,7 @@ const faqSections = [
   {
     section: 'Safety & Privacy',
     questions: [
-      { question: "How do you protect student data?", answer: "By architecture, not policy. Fail-closed consent gating, append-only audit trails, Row-Level Security at the database layer, and automated policy gates that block any change violating those rules before it ships. Every access is logged. Data is never sold or used for ads." },
+      { question: "How do you protect student data?", answer: "By how the system is built, not just by policy. Without a parent's consent, access is blocked by default. Each district's data is kept separate at the database level, every access is logged in a record that can't be edited, and automated checks stop any change that would break those rules before it ships. Data is never sold or used for ads." },
       { question: "What content filters are in place?", answer: "A multi-layer safety pipeline runs on every interaction: input validation, age-appropriate content filtering, output scanning for PII, and a feedback safety filter designed to stop the AI from handing over answers." },
       { question: "Can parents monitor their child's AI conversations?", answer: "Parents see the shape of their child's work and how it's trending, like how often Sprig is coaching and whether they're becoming more independent. They don't see the conversations themselves, which are the child's private learning space. For specific reasons, such as a safety concern, a parent can request an export of their child's AI conversations. Teachers have full visibility with override capability." },
       { question: "What happens if the AI provides incorrect information?", answer: "Districts have a one-click kill switch that disables all AI in under a second. It fails closed — AI stays off until explicitly re-enabled. Teachers can override any individual adaptation immediately." },
@@ -53,11 +54,38 @@ const faqSections = [
   },
 ];
 
+// Shown by default: the questions a buyer most often needs answered before a call. The rest open with "See all
+// questions". Match on the exact question text above.
+const featuredQuestions = [
+  'How do we begin using Mentra?',
+  'Is Mentra an AI cheating detector?',
+  'How do you protect student data?',
+  'How does Mentra pricing work?',
+  "What does Mentra do when it isn't sure?",
+  'How does Mentra fit with our existing SIS, SSO, and LMS?',
+];
+
+const allQuestions = faqSections.flatMap((s) => s.questions);
+const featured = featuredQuestions
+  .map((q) => allQuestions.find((faq) => faq.question === q))
+  .filter((faq): faq is (typeof allQuestions)[number] => Boolean(faq));
+const totalQuestions = allQuestions.length;
+
+const itemClass = 'bg-white rounded-xl border border-gray-100';
+const triggerClass =
+  'text-sm font-medium px-5 py-4 text-left text-gray-900 hover:bg-gray-100 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center';
+const contentClass = 'px-5 pb-4 text-gray-500 text-sm';
+
 const FAQSection = () => {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIdx, setActiveIdx] = useState(0);
+  // A link straight to one FAQ group (e.g. /#faq-safety-privacy) opens the full list
+  const [showAll, setShowAll] = useState(
+    () => typeof window !== 'undefined' && window.location.hash.startsWith('#faq-'),
+  );
 
   useEffect(() => {
+    if (!showAll) return;
     const observers: IntersectionObserver[] = [];
 
     sectionRefs.current.forEach((el, i) => {
@@ -73,16 +101,55 @@ const FAQSection = () => {
     });
 
     return () => observers.forEach((o) => o.disconnect());
-  }, []);
+  }, [showAll]);
+
+  const toggle = (
+    <div className="mt-10 text-center">
+      <button
+        type="button"
+        onClick={() => {
+          // Collapsing removes most of the section, so bring its heading back into view
+          if (showAll) document.getElementById('faq')?.scrollIntoView({ block: 'start' });
+          setShowAll(!showAll);
+        }}
+        aria-expanded={showAll}
+        aria-controls="faq-list"
+        className="inline-flex items-center gap-2 rounded-full border border-mentra-blue/30 bg-white px-5 py-2.5 text-sm font-semibold text-mentra-blue transition-colors hover:bg-mentra-blue/5 focus:outline-none focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2"
+      >
+        {showAll ? 'Show fewer questions' : `See all ${totalQuestions} questions`}
+        <ChevronDown
+          className={`h-4 w-4 transition-transform ${showAll ? 'rotate-180' : ''}`}
+          aria-hidden="true"
+        />
+      </button>
+    </div>
+  );
 
   return (
-    <section id="faq" className="py-24 bg-gray-50">
+    <section id="faq" className="py-24 bg-gray-50 scroll-mt-20" aria-labelledby="faq-heading">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-16 text-center">
+        <h2 id="faq-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-16 text-center">
           Frequently asked questions
         </h2>
 
-        <div className="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-12 max-w-5xl mx-auto">
+        {!showAll ? (
+          <div id="faq-list" className="max-w-3xl mx-auto">
+            <AnimateOnScroll>
+              <Accordion type="single" collapsible className="w-full space-y-1.5">
+                {featured.map((faq) => (
+                  <AccordionItem key={faq.question} value={`faq-featured-${slugify(faq.question)}`} className={itemClass}>
+                    <AccordionTrigger className={triggerClass}>
+                      <span>{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className={contentClass}>{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </AnimateOnScroll>
+            {toggle}
+          </div>
+        ) : (
+        <div id="faq-list" className="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-12 max-w-5xl mx-auto">
           {/* Sticky section nav — desktop only; mobile relies on accordion */}
           <nav className="hidden lg:block sticky top-24 self-start" aria-label="FAQ sections">
             <ul className="space-y-1 border-l border-gray-200">
@@ -132,11 +199,11 @@ const FAQSection = () => {
                     </h3>
                     <Accordion type="single" collapsible className="w-full space-y-1.5">
                       {section.questions.map((faq, idx) => (
-                        <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className="bg-white rounded-xl border border-gray-100">
-                          <AccordionTrigger className="text-sm font-medium px-5 py-4 text-left text-gray-900 hover:bg-gray-100 rounded-t-xl focus:outline-none focus:ring-2 focus:ring-mentra-blue flex justify-between items-center">
+                        <AccordionItem key={idx} value={`faq-${section.section}-${idx}`} className={itemClass}>
+                          <AccordionTrigger className={triggerClass}>
                             <span>{faq.question}</span>
                           </AccordionTrigger>
-                          <AccordionContent className="px-5 pb-4 text-gray-500 text-sm">
+                          <AccordionContent className={contentClass}>
                             {faq.answer}
                           </AccordionContent>
                         </AccordionItem>
@@ -146,8 +213,10 @@ const FAQSection = () => {
                 </AnimateOnScroll>
               );
             })}
+            {toggle}
           </div>
         </div>
+        )}
       </div>
     </section>
   );

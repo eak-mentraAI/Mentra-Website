@@ -11,8 +11,10 @@ import PageTransition from '../components/layout/PageTransition';
 import SprigOrb from '@/components/ui/SprigOrb';
 import { getAllPosts } from '@/lib/blog';
 import '../App.css';
+import { usePageTitle } from '@/lib/usePageTitle';
 
 const Blog = () => {
+  usePageTitle('Blog | Mentra');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
