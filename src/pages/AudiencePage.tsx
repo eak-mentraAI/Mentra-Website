@@ -32,35 +32,51 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
       <div className="min-h-screen font-rounded bg-white flex flex-col">
         <Header />
         <main className="flex-1">
-          {/* Hero */}
+          {/* Hero: copy left, an on-model Sprig right (stacked on mobile), like Home and Platform */}
           <section className="bg-gradient-to-b from-mentra-blue/5 via-white to-white">
-            <div className="container mx-auto max-w-4xl px-4 pt-32 sm:pt-40 pb-16 text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-4">
-                {audience.eyebrow}
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance mb-6">
-                {audience.title}
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
-                {audience.intro}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg hover:shadow-xl group"
-                  onClick={openScheduleCall}
-                >
-                  Book a walkthrough
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 rounded-full font-medium text-lg"
-                >
-                  <Link to="/#the-story">See Sprig in action</Link>
-                </Button>
+            <div className="container mx-auto max-w-6xl px-4 pt-32 sm:pt-40 pb-16">
+              <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+                <div className="text-center lg:text-left">
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue mb-4">
+                    {audience.eyebrow}
+                  </p>
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight text-balance mb-6">
+                    {audience.title}
+                  </h1>
+                  <p className="text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10">
+                    {audience.intro}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                    <Button
+                      size="lg"
+                      className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg hover:shadow-xl group"
+                      onClick={openScheduleCall}
+                    >
+                      Book a walkthrough
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    </Button>
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 rounded-full font-medium text-lg"
+                    >
+                      <Link to="/#the-story">See Sprig in action</Link>
+                    </Button>
+                  </div>
+                </div>
+                <div className="flex justify-center lg:justify-end">
+                  <img
+                    src={audience.hero.src}
+                    alt=""
+                    aria-hidden="true"
+                    width={audience.hero.width}
+                    height={audience.hero.height}
+                    loading="eager"
+                    decoding="async"
+                    className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -89,7 +105,7 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
 
           {/* Pilot plan (schools) */}
           {audience.pilot && (
-            <section className="py-24 bg-white" aria-labelledby="pilot-heading">
+            <section id="pilot-plan" className="py-24 bg-white scroll-mt-20" aria-labelledby="pilot-heading">
               <div className="container mx-auto max-w-4xl px-4">
                 <AnimateOnScroll>
                   <h2 id="pilot-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center text-balance">
@@ -140,20 +156,20 @@ const AudiencePage = ({ audienceId }: { audienceId: Audience['id'] }) => {
             </section>
           )}
 
-          <TrustSection className="bg-white" />
+          {/* The shared trust block also closes the homepage, so only pages that need it repeat it */}
+          {audience.showTrust && <TrustSection className="bg-white" />}
 
           {/* Feature cards for this audience */}
           {audience.features.map((group, gi) => {
-            const blurbs = personas.find((p) => p.id === group.personaId)?.blurbs ?? [];
-            const headingId = `features-${group.personaId}`;
+            const headingId = `features-${group.id}`;
             return (
-              <section key={group.personaId} className={`py-20 ${gi % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`} aria-labelledby={headingId}>
+              <section key={group.id} className={`py-20 ${gi % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`} aria-labelledby={headingId}>
                 <div className="container mx-auto max-w-5xl px-4">
                   <h2 id={headingId} className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center text-balance">
                     {group.title}
                   </h2>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {blurbs.map((b, i) => (
+                    {group.items.map((b, i) => (
                       <AnimateOnScroll key={b.title} delay={(i % 3) * 100}>
                         <div className={`rounded-2xl p-6 h-full ${gi % 2 === 0 ? 'bg-white border border-gray-100' : 'bg-gray-50'}`}>
                           <div className="w-10 h-10 bg-mentra-blue/10 rounded-lg flex items-center justify-center mb-4">

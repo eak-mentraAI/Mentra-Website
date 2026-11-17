@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import PageTransition from '@/components/layout/PageTransition';
+import { usePageTitle } from '@/lib/usePageTitle';
 
 const NotFound = () => {
+  usePageTitle('Page not found | Mentra');
   const location = useLocation();
 
   useEffect(() => {

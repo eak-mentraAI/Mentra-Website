@@ -7,6 +7,7 @@ import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import { Button } from '@/components/ui/button';
 import SprigOrb from '@/components/ui/SprigOrb';
 import ProductStory from '@/components/sections/ProductStory';
+import { usePageTitle } from '@/lib/usePageTitle';
 import {
   Database,
   Users,
@@ -36,7 +37,6 @@ type StackLayerProps = {
   role: string;
   protocol?: string;
   isMentra?: boolean;
-  highlight?: string;
 };
 
 const LOGO_BASE = '/images/logos/partners';
@@ -86,10 +86,9 @@ const stackLayers: StackLayerProps[] = [
     title: 'Mentra — The Cognition Layer',
     icon: Brain,
     vendors: [],
-    role: 'Mentra captures HOW students think while they learn, gives every signal governed meaning through its ontology, and maps it to a living per-child knowledge graph — turning raw signal into insight for teachers and partner systems.',
+    role: 'Mentra records how students work through a problem, not just their answers. An ontology defines what each signal means and how it may be used, and each student’s signals build up in their own knowledge graph. Teachers, and the partner systems a district approves, see insight drawn from it rather than raw data.',
     protocol: 'OAuth2 / Partner API',
     isMentra: true,
-    highlight: 'The Moat',
   },
   {
     step: '05',
@@ -97,8 +96,7 @@ const stackLayers: StackLayerProps[] = [
     icon: Plug,
     vendors: [
       { name: 'Parent Platforms' },
-      { name: 'NWEA MAP', logo: `${LOGO_BASE}/nwea-map.webp` },
-      { name: 'Renaissance STAR', logo: `${LOGO_BASE}/renaissance-star.png` },
+      { name: 'Assessment Platforms' },
       { name: 'Research / Analytics' },
       { name: 'District MIS' },
     ],
@@ -109,33 +107,27 @@ const stackLayers: StackLayerProps[] = [
 const mentraInternals = [
   {
     title: 'The Capture Layer',
-    description: 'Students work naturally inside modules — Guided Q&A, Investigations, Coding, the Signal & Noise game, open exploration, journaling and goals. Their attempts, revisions and reflections emit learning signal: dozens of distinct signal types across cognition, metacognition, engagement, and emotion. Not answers. Not grades. The texture of thinking.',
-    badge: null,
+    description: 'Students work in Mentra’s modules: Guided Q&A, Investigations, Coding, the Signal & Noise game, open exploration, journaling and goals. Their attempts, revisions and reflections become learning signals, dozens of types across cognition, metacognition, engagement and emotion. These record how a student worked, not just their answers or grades.',
   },
   {
     title: 'The Ontology',
-    description: 'The curated semantic layer — the same idea that powers Palantir — that gives every signal a precise, governed meaning: what it is, where it comes from, how sensitive it is, and whether AI is even allowed to reason on it. For a product serving children, that governance is the safety boundary.',
-    badge: 'The Moat',
+    description: 'A defined vocabulary for every signal: what it means, where it comes from, how sensitive it is, and whether AI is allowed to reason on it at all. Because Mentra serves children, these rules are where the safety boundary sits.',
   },
   {
     title: 'The Knowledge Graph',
-    description: 'A per-child model that keeps the full history of every signal, with typed links for prerequisites, common confusions, misconceptions and transfer between contexts. It grows more complete as a student works.',
-    badge: null,
+    description: 'Each student has their own model that keeps the full history of their signals, linked by prerequisites, common confusions, misconceptions and transfer between contexts. It grows more complete as the student works.',
   },
   {
     title: 'Engine, AI, Human',
-    description: 'Two kinds of intelligence read the graph. Fixed rules decide the reads adults see, like whether help is fading as independent work holds up — auditable and the same every time. Sprig grades individual tutoring replies as one input, and turns the result into warm, human prose. The adult approves. The machine never acts on a child unsupervised.',
-    badge: null,
+    description: 'Two things read the graph. Fixed rules decide what adults see, like whether help is fading as independent work holds up, so the result can be audited and is the same every time. Sprig grades individual tutoring replies as one input and writes the result up in plain prose. An adult approves it. Nothing acts on a child without an adult in the loop.',
   },
   {
     title: 'Delivery — into the LMS',
-    description: 'LTI 1.3 Advantage moves Mentra inside Canvas, Schoology, or Google Classroom: Deep Linking, OIDC Launch, NRPS roster sync, and AGS grade passback — with cognitive comments attached to grades. No one ever sees raw signal; everyone sees insight tuned to what they can do about it.',
-    badge: null,
+    description: 'LTI 1.3 Advantage puts Mentra inside Canvas, Schoology or Google Classroom: Deep Linking, OIDC Launch, NRPS roster sync and AGS grade passback, with comments on how the student worked attached to the grade. Nobody sees raw signals; each person sees what they can act on.',
   },
   {
     title: 'Delivery — out to partners',
-    description: 'A versioned Partner API with OAuth2 + PKCE, scoped access, and district-safe governance — so governed cognition insight flows safely to the parent platforms, assessment vendors, and research partners that need it.',
-    badge: null,
+    description: 'A versioned Partner API with OAuth2 + PKCE and scoped access, under rules the district sets, so approved parent platforms, assessment tools and research partners can receive insight safely.',
   },
 ];
 
@@ -214,11 +206,6 @@ const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: bool
               >
                 LAYER {layer.step}
               </span>
-              {layer.highlight && (
-                <span className="text-xs font-bold uppercase tracking-wider bg-white text-mentra-blue px-2.5 py-0.5 rounded-full">
-                  {layer.highlight}
-                </span>
-              )}
             </div>
             <h3
               className={`text-xl sm:text-2xl font-bold mb-3 ${
@@ -290,6 +277,7 @@ const StackLayer: React.FC<{ layer: StackLayerProps; index: number; isLast: bool
 
 const Platform = () => {
   const { open: openScheduleCall } = useScheduleCall();
+  usePageTitle('The Mentra Platform | Cognition Infrastructure for K–12');
 
   return (
     <PageTransition>
@@ -315,7 +303,7 @@ const Platform = () => {
                     <span className="bg-gradient-to-r from-mentra-blue to-growth-green bg-clip-text text-transparent">
                       Cognition
                     </span>{' '}
-                    Infrastructure Layer for K–12
+                    Infrastructure Layer for <span className="whitespace-nowrap">K–12</span>
                   </h1>
                   <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
                     Mentra sits downstream of the LMS as a learning tool, and upstream of partners
@@ -349,7 +337,7 @@ const Platform = () => {
                 <SprigOrb size="lg">
                   <img
                     src="/images/sprig/platform-hero.png"
-                    alt="Two Sprigs at the Mentra stack — architecting cognition infrastructure"
+                    alt="Two Sprigs working together at the Mentra stack"
                     width="400"
                     height="400"
                     className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] drop-shadow-2xl animate-breathe motion-reduce:animate-none"
@@ -366,11 +354,15 @@ const Platform = () => {
             <AnimateOnScroll>
               <div className="max-w-3xl mx-auto text-center mb-14">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-balance">
-                  Mentra in the K–12 ecosystem
+                  Mentra in the <span className="whitespace-nowrap">K–12</span> ecosystem
                 </h2>
                 <p className="text-lg text-gray-500">
-                  Five layers, one direction of flow. Mentra sits where capability gets built —
-                  and where new signal becomes available to everything downstream.
+                  Five layers, with data flowing down. Mentra sits where students do the work,
+                  and passes what it learns to the systems below it that a district approves.
+                </p>
+                <p className="mt-3 text-sm text-gray-400">
+                  Logos show examples of the systems in each layer. They are not Mentra partners or
+                  endorsements.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -399,9 +391,9 @@ const Platform = () => {
                   How the machine works
                 </h2>
                 <p className="text-lg text-gray-500">
-                  It starts with how a child actually thinks and ends with insight a teacher,
-                  parent, or student can act on. In between: a governed language for every signal,
-                  a living map of one mind, and decisions a human always approves.
+                  It starts with how a student works through a problem and ends with insight a
+                  teacher, parent or student can act on. In between: rules for what each signal
+                  means, a record for each student, and decisions an adult approves.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -414,11 +406,6 @@ const Platform = () => {
                       <h3 className="text-lg sm:text-xl font-bold text-gray-900">
                         {item.title}
                       </h3>
-                      {item.badge && (
-                        <span className="text-xs font-bold uppercase tracking-wider bg-mentra-blue text-white px-2.5 py-0.5 rounded-full">
-                          {item.badge}
-                        </span>
-                      )}
                     </div>
                     <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
                       {item.description}
@@ -541,8 +528,8 @@ const Platform = () => {
                   Built on standards your district already uses
                 </h2>
                 <p className="text-lg text-gray-500">
-                  No proprietary connectors. No custom integration tax. Mentra speaks the
-                  protocols your SIS, SSO, and LMS already speak.
+                  No proprietary connectors or custom integration work. Mentra uses the same
+                  protocols as your SIS, SSO and LMS.
                 </p>
               </div>
             </AnimateOnScroll>

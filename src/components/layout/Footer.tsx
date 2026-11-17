@@ -38,7 +38,8 @@ const Footer = () => {
               loading="lazy"
             />
             <p className="text-gray-400 leading-relaxed text-sm">
-              AI that builds independent thinkers — not dependent users. Students grow, teachers lead, parents control.
+              Sprig guides students through productive struggle, so they learn to think for themselves. Teachers decide
+              how much help it gives.
             </p>
           </div>
 

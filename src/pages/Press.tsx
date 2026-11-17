@@ -3,8 +3,10 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import PageTransition from '../components/layout/PageTransition';
 import '../App.css';
+import { usePageTitle } from '@/lib/usePageTitle';
 
 export default function Press() {
+  usePageTitle('Press | Mentra');
   return (
     <PageTransition>
       <Header />

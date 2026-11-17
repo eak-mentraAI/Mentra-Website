@@ -60,9 +60,9 @@ const HelpLevelDemo = () => {
   const level = levels[index];
 
   return (
-    <section id="help-levels" className="py-24 bg-white scroll-mt-20" aria-labelledby="help-levels-heading">
+    <section id="help-levels" className="py-16 sm:py-20 bg-white scroll-mt-20" aria-labelledby="help-levels-heading">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-10">
           <AnimateOnScroll>
             <div className="max-w-3xl space-y-5">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue">Try it</p>

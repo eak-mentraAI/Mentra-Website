@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PageTransition from '@/components/layout/PageTransition';
 import { Button } from '@/components/ui/button';
+import { usePageTitle } from '@/lib/usePageTitle';
 import {
   Heart,
   ArrowRight,
@@ -181,11 +182,12 @@ const unlocks = [
   {
     icon: ShieldCheck,
     title: 'Safe by architecture',
-    description: 'COPPA/FERPA compliance, parent-gated data, and fail-closed consent are built in — funding never trades away safety.',
+    description: 'Designed around COPPA and FERPA, with parent-gated data and fail-closed consent, so funding never trades away safety.',
   },
 ];
 
 export default function SponsorASchool() {
+  usePageTitle('Sponsor a School | Mentra');
   const scrollTo = (id: string) => () =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 

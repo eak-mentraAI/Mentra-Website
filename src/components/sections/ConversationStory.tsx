@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { CalendarDays } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import TeacherCheck from '@/components/sections/TeacherCheck';
-import { useScheduleCall } from '@/contexts/ScheduleCallContext';
 import { SHOWCASE_DISCLOSURE } from '@/data/productScreens';
 import { cn } from '@/lib/utils';
 
@@ -86,8 +82,6 @@ const beats: Beat[] = [
   },
 ];
 
-const CTA_BEAT = beats.length;
-
 // Beat 8's example: Jordan's energy turn and the targeted hint before it.
 const CHECK_TURN = turns.findIndex((t) => t.reportLabel === 'with help');
 const CHECK_HINT = turns[CHECK_TURN - 1].text;
@@ -115,9 +109,10 @@ const useCheckSteps = (active: boolean) => {
 
 // Scroll per beat. Swipes and wheel gestures step one beat at a time (useBeatStepping), so this only sets how far a
 // keyboard or scrollbar scroll travels per beat.
+// The booking ask used to be a final beat here; it now follows the teacher evidence (HomeWalkthroughCta).
+const BEATS = beats.length;
 const BEAT_VH = 60;
-const TRACK_VH = (CTA_BEAT + 1) * BEAT_VH + 30;
-const BEATS = CTA_BEAT + 1;
+const TRACK_VH = BEATS * BEAT_VH + 30;
 
 /**
  * One gesture, one beat. While the scene is pinned, a swipe or a wheel/trackpad gesture moves to the next or previous
@@ -372,40 +367,9 @@ const ChatWindow = ({ shown, animate, labelled }: { shown: number; animate: bool
   </div>
 );
 
-const CtaPanel = ({ onBook }: { onBook: () => void }) => (
-  <div className="flex flex-col items-start gap-6">
-    <h3 className="text-3xl sm:text-5xl font-bold leading-[1.08] tracking-tight text-white text-balance max-w-2xl">
-      See the whole loop on a walkthrough.
-    </h3>
-    <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
-      From a student&rsquo;s first question to the label on the teacher&rsquo;s report, with time for your questions.
-    </p>
-    <div className="flex flex-col sm:flex-row gap-3">
-      <Button
-        size="lg"
-        className="bg-mentra-blue hover:bg-mentra-blue/90 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg focus:ring-2 focus:ring-mentra-blue focus:ring-offset-2 focus:ring-offset-gray-900"
-        aria-label="Book a walkthrough with the Mentra team"
-        onClick={onBook}
-      >
-        <CalendarDays className="mr-2 h-5 w-5" aria-hidden="true" />
-        Book a walkthrough
-      </Button>
-      <Button
-        asChild
-        size="lg"
-        variant="outline"
-        className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white px-8 py-4 rounded-full font-medium text-lg"
-      >
-        <Link to="/teachers">See Mentra for teachers</Link>
-      </Button>
-    </div>
-    <p className="text-xs text-gray-400 leading-relaxed max-w-xl">{SHOWCASE_DISCLOSURE}</p>
-  </div>
-);
-
 /** Static version for reduced motion: the whole story, readable top to bottom, no pinning. */
-const StaticStory = ({ onBook }: { onBook: () => void }) => (
-  <div className="container mx-auto px-4 py-24 grid gap-12 lg:grid-cols-2 lg:items-start">
+const StaticStory = () => (
+  <div className="container mx-auto px-4 py-16 sm:py-20 grid gap-12 lg:grid-cols-2 lg:items-start">
     <div className="space-y-4">
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue">A real conversation</p>
       <h2 id="conversation-story-heading" className="text-3xl sm:text-4xl font-bold text-gray-900 text-balance">
@@ -415,26 +379,25 @@ const StaticStory = ({ onBook }: { onBook: () => void }) => (
         It asks what the sunlight is doing for the plant, nudges past a first guess about warmth, and lets Jordan reach
         the idea: sunlight is the energy a plant uses to make its own food.
       </p>
+      <p className="text-xs text-gray-500 leading-relaxed max-w-xl">{SHOWCASE_DISCLOSURE}</p>
     </div>
     <div className="h-[40rem]"><ChatWindow shown={turns.length} animate={false} labelled /></div>
     <div className="space-y-4">
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-mentra-blue">Then the teacher sees it</p>
-      <p className="text-lg text-gray-600 leading-relaxed">{beats[CTA_BEAT - 2].text} {beats[CTA_BEAT - 1].text}</p>
+      <p className="text-lg text-gray-600 leading-relaxed">{beats[BEATS - 2].text} {beats[BEATS - 1].text}</p>
     </div>
     <figure className="m-0 space-y-3">
       <TeacherCheck step={4} hint={CHECK_HINT} turn={CHECK_TEXT} still />
       <figcaption className="text-sm text-gray-500">{CHECK_CAPTION}</figcaption>
     </figure>
-    <div className="lg:col-span-2 rounded-3xl bg-gray-900 p-8 sm:p-12"><CtaPanel onBook={onBook} /></div>
   </div>
 );
 
 /**
  * The homepage story as one pinned, scroll-driven scene: Jordan's conversation builds turn by turn, the teacher's
- * view follows, and the scene ends on the booking ask. Reduced-motion visitors get StaticStory instead.
+ * view follows, and the scene ends on the teacher opening Jordan's turn. Reduced-motion visitors get StaticStory instead.
  */
 const ConversationStory = () => {
-  const { open: openScheduleCall } = useScheduleCall();
   const reduceMotion = useReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
@@ -442,26 +405,25 @@ const ConversationStory = () => {
 
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start start', 'end end'] });
   useMotionValueEvent(scrollYProgress, 'change', (p) => {
-    const next = Math.min(CTA_BEAT, Math.floor(p * (CTA_BEAT + 1)));
+    const next = Math.min(BEATS - 1, Math.floor(p * BEATS));
     setBeat((prev) => (prev === next ? prev : next));
   });
   const stacked = useStackedLayout();
 
   useBeatStepping(trackRef, sceneRef, !reduceMotion);
-  const showCheck = !reduceMotion && beat < CTA_BEAT && !!beats[beat].check;
+  const showCheck = !reduceMotion && !!beats[beat].check;
   const checkStep = useCheckSteps(showCheck);
 
   if (reduceMotion) {
     return (
       <section id="the-story" className="bg-gray-50 scroll-mt-16" aria-labelledby="conversation-story-heading">
-        <StaticStory onBook={openScheduleCall} />
+        <StaticStory />
       </section>
     );
   }
 
-  const shownBeat = Math.min(beat, CTA_BEAT - 1);
+  const shownBeat = beat;
   const current = beats[shownBeat];
-  const showCta = beat >= CTA_BEAT;
 
   // Jump straight past the pinned scene; a smooth scroll would play every beat on the way.
   const skipStory = () => {
@@ -520,6 +482,8 @@ const ConversationStory = () => {
                   Skip the story
                 </button>
               </div>
+              {/* Shown once on the homepage, beside the first product screen */}
+              <p className="mt-2 lg:mt-6 max-w-md text-[11px] sm:text-xs leading-snug text-gray-400">{SHOWCASE_DISCLOSURE}</p>
             </div>
 
             {/* Stage: the chat, then the teacher's view */}
@@ -546,21 +510,6 @@ const ConversationStory = () => {
             </div>
           </div>
 
-          {/* Final beat: the booking ask wipes in over the scene. */}
-          <motion.div
-            className="absolute inset-0 bg-gray-900 flex items-center"
-            initial={false}
-            animate={{ clipPath: showCta ? 'circle(150% at 85% 85%)' : 'circle(0% at 85% 85%)' }}
-            transition={{ duration: 0.8, ease: [0.6, 0, 0.2, 1] }}
-            aria-hidden={!showCta}
-            // Keep the hidden CTA out of the tab order until it wipes in
-            {...(showCta ? {} : { inert: '' })}
-            style={{ pointerEvents: showCta ? 'auto' : 'none' }}
-          >
-            <div className="container mx-auto px-4">
-              <CtaPanel onBook={openScheduleCall} />
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

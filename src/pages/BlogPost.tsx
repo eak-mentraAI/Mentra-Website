@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import PageTransition from '../components/layout/PageTransition';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
 import NotFound from './NotFound';
+import { usePageTitle } from '@/lib/usePageTitle';
 import '../App.css';
 
 const formatDate = (dateString: string) =>
@@ -31,6 +32,10 @@ const BlogPost = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  // Matches the per-post title scripts/prerender-routes.mjs writes. A missing post renders
+  // NotFound, which sets its own title.
+  usePageTitle(post ? `${post.title} | Mentra` : null);
 
   useEffect(() => {
     if (!post?.canonicalUrl) return;
