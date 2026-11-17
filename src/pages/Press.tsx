@@ -35,7 +35,7 @@ export default function Press() {
             <li><b>Founded:</b> 2025 by Edward Kerr (technologist, educator, parent)</li>
             <li><b>Mission:</b> Empower every child to thrive in an AI-powered world</li>
             <li><b>What We Do:</b> A learning platform that captures how students think, maps it to a per-child knowledge graph, and delivers insight to students, parents, and educators</li>
-            <li><b>Approach:</b> Engine decides, AI explains, human approves — provable, human-centered, privacy-first, and pedagogically aligned</li>
+            <li><b>Approach:</b> Engine decides, AI explains, human approves — auditable, human-centered, privacy-first, and pedagogically aligned</li>
             <li><b>Contact:</b> <a href="mailto:hello@mymentra.ai" className="text-mentra-blue underline">hello@mymentra.ai</a></li>
           </ul>
         </section>

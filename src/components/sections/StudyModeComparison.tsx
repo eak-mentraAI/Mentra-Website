@@ -4,20 +4,23 @@ import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 
 // "Built for a class, not one student": a summary of what the reader has just seen, placed after the evidence
-// section. It states what Mentra gives a school rather than arguing with any product; the study-mode column describes
-// design intent only. Mentra's column traces to app code: assignment AI-help levels (AdvancedSettingsCard.tsx),
-// independence labels (independence_evidence.py), RecommendationCard.tsx, parent prompts, consent for every student
-// (coppa_gate.py), district data separation and age-band safety settings.
+// section. It states what Mentra gives a school rather than arguing with any named product. The left column describes
+// free study modes and AI chat summaries generally (see the Mentra App repo's reports/K12 teacher insight competitor
+// teardown.md: none documents separating helped from unaided work, or saying it cannot tell). Mentra's column traces
+// to app code: assignment AI-help levels (AdvancedSettingsCard.tsx), independence labels and mimicry scoring
+// (independence_evidence.py), template-built teacher briefs, "too early to tell", RecommendationCard.tsx, consent for
+// every student (coppa_gate.py), district data separation and age-band safety settings.
 const studyMode = [
-  'An AI tutor the student chooses to use',
-  'A switch back to direct answers whenever they want',
-  'No record for the teacher of how the work was reached',
+  'A study mode each student chooses whether to use',
+  'An AI-written summary of what students asked about',
+  'No line between work done with help and work done alone',
 ];
 
 const mentra = [
   'Help the teacher sets for each assignment, including No AI Help',
   'A report showing which answers came with help, and which were unaided',
-  'Recommendations the teacher approves, changes or dismisses',
+  'Teacher briefs built by fixed rules from the recorded work, not written by a chatbot',
+  '“Too early to tell” when the evidence is thin, instead of a guess',
   'One thing for families to try at home',
   'Consent for every student, data separated by district, safety tuned by age',
 ];
@@ -33,8 +36,8 @@ const StudyModeComparison = () => (
               Built for a class, not one student
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Free AI study modes are built for one student who chooses to learn. Mentra is built for a class, a
-              teacher and a district.
+              Free AI tools now coach students and summarise their chats for teachers. Mentra is built for a different
+              job: showing a teacher what each student did with help, and what they did on their own.
             </p>
           </div>
         </AnimateOnScroll>
@@ -53,7 +56,7 @@ const StudyModeComparison = () => (
         <div className="grid gap-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-8">
           <AnimateOnScroll>
             <div className="h-full rounded-2xl border border-gray-200 p-6 sm:p-8">
-              <h3 className="text-lg font-bold text-gray-500">A study mode gives a student</h3>
+              <h3 className="text-lg font-bold text-gray-500">Free AI tools give a class</h3>
               <ul className="mt-4 space-y-3 text-base leading-relaxed text-gray-600">
                 {studyMode.map((s) => (
                   <li key={s} className="flex gap-3">

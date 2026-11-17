@@ -22,7 +22,7 @@ const PAGES = {
   '/': {
     title: 'Mentra - AI That Teaches Students to Think Without It',
     description:
-      'Mentra measures how every child actually thinks — not just what they did — and turns it into insight teachers, parents, and students can act on. Support that fades as students grow.',
+      'Sprig coaches students through productive struggle on work their teacher sets, and Mentra shows the teacher what each student did with help and what they did on their own. Support that fades as students grow.',
   },
   '/about': {
     title: 'About Mentra | Why We Built It',
@@ -37,7 +37,7 @@ const PAGES = {
   '/teachers': {
     title: 'Mentra for Teachers',
     description:
-      "Mentra shows where each student's reasoning is growing, where it stalls, and what you might try next. You stay the one making the decisions.",
+      'When the finished work stops telling you much, see the working. Assign work with Sprig and see what each student tried, where they needed help and what they managed on their own.',
   },
   '/parents': {
     title: 'Mentra for Families',
@@ -47,7 +47,7 @@ const PAGES = {
   '/schools': {
     title: 'Mentra for Schools and Districts',
     description:
-      'Mentra shows how students reason, where a class gets stuck and what to try next. A pilot then measures whether it is worth the cost, against measures you agree up front.',
+      'Mentra shows how students reason, where a class gets stuck and what to try next. A pilot then measures whether it is worth the cost, against measures you agree up front, including a check of unaided work.',
   },
   '/sponsor-a-school': {
     title: 'Sponsor a School | Mentra',

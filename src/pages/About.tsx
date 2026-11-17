@@ -136,6 +136,9 @@ export default function About() {
                     A student can now get a finished answer in seconds. What gets skipped is the slow part: working out what the question asks, trying something, getting it wrong, and trying again. That’s where reasoning is built.
                   </p>
                   <p>
+                    Teachers feel it first. In secondary school, a finished essay or problem set no longer shows who did the thinking. Detectors give a probability, not evidence, so teachers are getting the evidence back with their own time: handwritten work in class, oral checks, tests watched from the back of the room. Students feel it too. In one 2026 survey, two-thirds of students said using AI for schoolwork harms their critical thinking, while their use of it kept rising.
+                  </p>
+                  <p>
                     Most ed-tech responded by giving kids more AI. We asked a different question: what if AI’s job was to make itself unnecessary, so that every interaction left a student stronger, not more dependent?
                   </p>
                 </div>

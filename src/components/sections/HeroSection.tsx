@@ -40,7 +40,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Sprig helps students work through productive struggle, and teachers decide how much help it gives. Then Mentra shows which progress was the student&rsquo;s own, and what to do next.
+                Sprig helps students work through productive struggle, and teachers decide how much help it gives. Then Mentra shows the teacher the student&rsquo;s working: what they did with help, what they did on their own, and what to do next.
               </p>
             </div>
 
