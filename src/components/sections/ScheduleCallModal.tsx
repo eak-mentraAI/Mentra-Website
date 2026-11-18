@@ -60,7 +60,7 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
             Schedule a call
           </DialogTitle>
           <DialogDescription className="text-gray-600">
-            Two fields. We'll reach out within one business day to find a time that works.
+            Tell us who you are and where you work. We'll reach out within one business day to find a time that works.
           </DialogDescription>
         </DialogHeader>
 
@@ -96,6 +96,17 @@ export default function ScheduleCallModal({ open, onOpenChange }: ScheduleCallMo
                 name="email"
                 required
                 placeholder="Email"
+                className="w-full px-4 py-3 rounded-lg bg-journal-sand/30 border border-gray-200 focus:border-mentra-blue focus:ring-2 focus:ring-mentra-blue/20 focus:shadow-[0_0_0_4px_rgba(58,134,255,0.08)] focus:bg-white transition-all duration-200 text-base placeholder:text-gray-400"
+              />
+            </div>
+            <div>
+              <label htmlFor="schedule-organization" className="sr-only">School or district (optional)</label>
+              <input
+                id="schedule-organization"
+                type="text"
+                name="organization"
+                autoComplete="organization"
+                placeholder="School or district (optional)"
                 className="w-full px-4 py-3 rounded-lg bg-journal-sand/30 border border-gray-200 focus:border-mentra-blue focus:ring-2 focus:ring-mentra-blue/20 focus:shadow-[0_0_0_4px_rgba(58,134,255,0.08)] focus:bg-white transition-all duration-200 text-base placeholder:text-gray-400"
               />
             </div>
