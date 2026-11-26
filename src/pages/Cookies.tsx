@@ -7,183 +7,142 @@ import LegalTableOfContents from '../components/shared/LegalTableOfContents';
 import '../App.css';
 import { usePageTitle } from '@/lib/usePageTitle';
 
+const cell = 'border border-gray-300 px-4 py-2 align-top';
+
 const sections: LegalSectionItem[] = [
   {
     id: 'introduction',
     title: 'Introduction',
     content: (
       <p className="text-gray-700">
-        This cookie policy applies to the Mentra marketing website (mymentra.ai). We use cookies to make your browsing experience smoother, safer, and more useful. This policy explains what cookies are, how we use them, and how you can control your choices.
+        This cookie policy applies to the Mentra marketing website (mymentra.ai). It explains what this website stores in your browser, which outside services your browser contacts when you visit, and how you can control both. The short version: we don't use analytics, advertising or tracking cookies on this website.
       </p>
     ),
   },
   {
     id: 'what-are-cookies',
-    title: '1. What Are Cookies?',
+    title: '1. Cookies and Browser Storage',
     content: (
       <p className="text-gray-700">
-        Cookies are small text files placed on your device when you visit our website. They help us remember your preferences, analyze usage, and personalize content. Cookies can be "session cookies" (deleted when you close your browser) or "persistent cookies" (which remain for a set period).
+        Cookies are small text files a website places in your browser. Browsers also offer "local storage" and "session storage", which let a website remember small pieces of information on your device. Nothing in local or session storage is sent to us; it stays in your browser until you or your browser clears it.
       </p>
     ),
   },
   {
-    id: 'how-we-use-cookies',
-    title: '2. How We Use Cookies',
+    id: 'what-we-store',
+    title: '2. What This Website Stores',
     content: (
       <>
-        <p className="text-gray-700 mb-4">We use cookies for these purposes:</p>
-        <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li><b>Essential:</b> Enable core site features like navigation, security, and forms.</li>
-          <li><b>Performance:</b> Help us understand how you use Mentra so we can improve.</li>
-          <li><b>Functional:</b> Remember your preferences and settings.</li>
-          <li><b>Analytics:</b> Show us which pages are most popular and how users navigate.</li>
+        <p className="text-gray-700 mb-4">
+          This website sets no cookies of its own. It keeps these items in your browser's storage, all of them to make the site work the way you left it:
+        </p>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className={`${cell} text-left`}>Name</th>
+                <th className={`${cell} text-left`}>Purpose</th>
+                <th className={`${cell} text-left`}>Kept until</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className={cell}>mentra_consent</td>
+                <td className={cell}>Remembers the choices you made in the cookie banner</td>
+                <td className={cell}>You clear your browser storage</td>
+              </tr>
+              <tr>
+                <td className={cell}>legal-collapse-*</td>
+                <td className={cell}>Remembers which sections of our legal pages you expanded</td>
+                <td className={cell}>You clear your browser storage</td>
+              </tr>
+              <tr>
+                <td className={cell}>mentra_hero_hint_dismissed</td>
+                <td className={cell}>Remembers that you dismissed a hint on the home page</td>
+                <td className={cell}>You clear your browser storage</td>
+              </tr>
+              <tr>
+                <td className={cell}>redirect (session storage)</td>
+                <td className={cell}>Sends you to the right page when you open a link directly</td>
+                <td className={cell}>You close the tab</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: 'third-parties',
+    title: '3. Outside Services Your Browser Contacts',
+    content: (
+      <>
+        <p className="text-gray-700 mb-4">
+          Some parts of the website are delivered by other companies. When your browser loads them, that company receives your IP address and basic browser information, and handles it under its own privacy policy:
+        </p>
+        <ul className="list-disc list-inside text-gray-700 ml-4 space-y-2">
+          <li><b>GitHub Pages (GitHub, Inc.)</b> hosts the website and serves every page.</li>
+          <li><b>Google Fonts (Google LLC)</b> supplies the fonts on every page.</li>
+          <li><b>YouTube (Google LLC)</b> plays the video on our About page. We use YouTube's privacy-enhanced mode, which doesn't set cookies until you play the video. Once you press play, YouTube's own cookies and storage apply.</li>
+          <li><b>Formspree</b> receives the details you type into the "Schedule a call" form, only when you submit it.</li>
         </ul>
       </>
     ),
   },
   {
-    id: 'types-of-cookies',
-    title: '3. Types of Cookies We Use',
+    id: 'what-we-dont-use',
+    title: '4. What We Don\'t Use',
     content: (
-      <>
-        <div className="bg-gray-50 p-6 rounded-lg mb-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">3.1 First-Party Cookies</h3>
-          <p className="text-gray-700 mb-4">Set directly by Mentra, these include:</p>
-          <ul className="list-disc list-inside text-gray-700 ml-4">
-            <li><strong>Authentication:</strong> Remember your login status</li>
-            <li><strong>Preference:</strong> Store your language and display preferences</li>
-            <li><strong>Session:</strong> Maintain your session while using our platform</li>
-            <li><strong>Security:</strong> Help protect against fraud and unauthorized access</li>
-          </ul>
-        </div>
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">3.2 Third-Party Cookies</h3>
-          <p className="text-gray-700 mb-4">Set by third-party services to enhance Mentra's functionality:</p>
-          <ul className="list-disc list-inside text-gray-700 ml-4">
-            <li><strong>Analytics:</strong> Google Analytics, Mixpanel</li>
-            <li><strong>Payments:</strong> Stripe, PayPal</li>
-            <li><strong>Communication:</strong> Intercom, Zendesk</li>
-            <li><strong>Content delivery:</strong> Cloudflare, AWS</li>
-          </ul>
-        </div>
-      </>
+      <p className="text-gray-700">
+        This website has no analytics, advertising, social-media tracking pixels, chat widgets or payment tools. The analytics and marketing options in the cookie banner are there so that, if we ever add a tool of that kind, it runs only for visitors who have allowed it. We would update this policy before adding one.
+      </p>
     ),
   },
   {
-    id: 'specific-cookies',
-    title: '4. Specific Cookies We Use',
-    content: (
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="border border-gray-300 px-4 py-2 text-left">Cookie Name</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Purpose</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Duration</th>
-              <th className="border border-gray-300 px-4 py-2 text-left">Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-300 px-4 py-2">mentra_session</td>
-              <td className="border border-gray-300 px-4 py-2">Maintains user session</td>
-              <td className="border border-gray-300 px-4 py-2">Session</td>
-              <td className="border border-gray-300 px-4 py-2">Essential</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 px-4 py-2">mentra_preferences</td>
-              <td className="border border-gray-300 px-4 py-2">Stores user preferences</td>
-              <td className="border border-gray-300 px-4 py-2">1 year</td>
-              <td className="border border-gray-300 px-4 py-2">Functional</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 px-4 py-2">_ga</td>
-              <td className="border border-gray-300 px-4 py-2">Google Analytics tracking</td>
-              <td className="border border-gray-300 px-4 py-2">2 years</td>
-              <td className="border border-gray-300 px-4 py-2">Analytics</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 px-4 py-2">_gid</td>
-              <td className="border border-gray-300 px-4 py-2">Google Analytics session</td>
-              <td className="border border-gray-300 px-4 py-2">24 hours</td>
-              <td className="border border-gray-300 px-4 py-2">Analytics</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 px-4 py-2">mentra_consent</td>
-              <td className="border border-gray-300 px-4 py-2">Remembers cookie consent</td>
-              <td className="border border-gray-300 px-4 py-2">1 year</td>
-              <td className="border border-gray-300 px-4 py-2">Essential</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    ),
-  },
-  {
-    id: 'control-cookies',
-    title: '5. Control Your Cookies',
+    id: 'managing-cookies',
+    title: '5. Managing Your Choices',
     content: (
       <>
-        <h3 className="text-lg font-semibold text-gray-800 mb-3">5.1 Cookie Consent</h3>
         <p className="text-gray-700 mb-4">
-          When you first visit Mentra, you'll see a cookie consent banner. You can choose which types of cookies you want to accept, and change your preferences at any time through our cookie settings.
+          You can change your choices at any time with the "Cookie Settings" button in the bottom-right corner of the screen. You can also use your browser's settings to:
         </p>
-        <h3 className="text-lg font-semibold text-gray-800 mb-3">5.2 Browser Settings</h3>
-        <p className="text-gray-700 mb-4">
-          You can also control cookies through your browser. Most browsers let you:
-        </p>
-        <ul className="list-disc list-inside text-gray-700 mb-4 ml-4">
-          <li>Block all cookies</li>
-          <li>Block third-party cookies</li>
-          <li>Delete existing cookies</li>
+        <ul className="list-disc list-inside text-gray-700 ml-4">
+          <li>Clear the site's stored data</li>
+          <li>Block cookies, or only third-party cookies</li>
           <li>Set preferences for specific websites</li>
         </ul>
-        <h3 className="text-lg font-semibold text-gray-800 mb-3">5.3 Opt-Out Options</h3>
-        <p className="text-gray-700">
-          For analytics cookies, you can opt out of Google Analytics tracking by installing the Google Analytics Opt-out Browser Add-on or by adjusting your cookie preferences in our settings.
+        <p className="text-gray-700 mt-4">
+          Clearing storage resets your banner choice and the small preferences listed above. The website keeps working either way.
         </p>
       </>
     ),
   },
   {
-    id: 'impact-disabling',
-    title: '6. Impact of Disabling Cookies',
+    id: 'learning-platform',
+    title: '6. The Mentra Learning Platform',
     content: (
-      <>
-        <p className="text-gray-700 mb-4">
-          If you disable cookies, some features of Mentra may not work as expected:
-        </p>
-        <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li>You may need to log in repeatedly</li>
-          <li>Your preferences may not be saved</li>
-          <li>Some personalized content may not be available</li>
-          <li>Website performance may be affected</li>
-          <li>Security features may be limited</li>
-        </ul>
-      </>
+      <p className="text-gray-700">
+        This policy covers only the marketing website. The Mentra learning platform at app.mymentra.ai uses session cookies for sign-in and platform features, as described in its{' '}
+        <a href="https://app.mymentra.ai/privacy" className="text-mentra-blue hover:underline">privacy policy</a>.
+      </p>
     ),
   },
   {
-    id: 'policy-updates',
+    id: 'updates',
     title: '7. Updates to This Policy',
     content: (
-      <>
-        <p className="text-gray-700 mb-4">
-          We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the updated policy on our website.
-        </p>
-        <p className="text-gray-700">
-          Your continued use of Mentra after any changes constitutes acceptance of the updated Cookie Policy.
-        </p>
-      </>
+      <p className="text-gray-700">
+        We'll update this policy when the website changes what it stores or which services it uses, and change the "Last updated" date above.
+      </p>
     ),
   },
   {
-    id: 'contact-us',
+    id: 'contact',
     title: '8. Contact Us',
     content: (
       <>
         <p className="text-gray-700 mb-4">
-          If you have any questions about our use of cookies or this Cookie Policy, please contact us:
+          If you have questions about this Cookie Policy, please contact us:
         </p>
         <div className="bg-gray-50 p-4 rounded-lg">
           <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@mymentra.ai</p>
@@ -192,22 +151,6 @@ const sections: LegalSectionItem[] = [
             <strong>Data Protection Officer:</strong> Edward Kerr, Founder
           </p>
         </div>
-      </>
-    ),
-  },
-  {
-    id: 'additional-resources',
-    title: '9. Additional Resources',
-    content: (
-      <>
-        <p className="text-gray-700 mb-4">
-          For more information about cookies and how to manage them, you can visit:
-        </p>
-        <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li><a href="https://www.allaboutcookies.org" className="text-mentra-blue hover:underline">All About Cookies</a></li>
-          <li><a href="https://www.youronlinechoices.com" className="text-mentra-blue hover:underline">Your Online Choices</a></li>
-          <li><a href="https://www.networkadvertising.org" className="text-mentra-blue hover:underline">Network Advertising Initiative</a></li>
-        </ul>
       </>
     ),
   },
@@ -223,12 +166,12 @@ export default function Cookies() {
         {/* Hero Section */}
         <section className="container mx-auto max-w-3xl px-4 flex flex-col items-center justify-center gap-4 mb-16 relative">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">Cookie Policy</h1>
-          <p className="text-gray-600 mb-0 text-center">Last updated: June 10, 2026</p>
+          <p className="text-gray-600 mb-0 text-center">Last updated: November 26, 2026</p>
         </section>
         <section className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto mb-6 rounded-xl border border-mentra-blue/20 bg-mentra-blue/5 px-4 py-3 text-sm text-gray-600">
-            This cookie policy applies to our marketing website (mymentra.ai). For the cookie policy governing the Mentra learning platform, please visit{' '}
-            <a href="https://app.mymentra.ai/cookies" className="text-mentra-blue hover:underline font-medium">app.mymentra.ai/cookies</a>.
+            This cookie policy applies to our marketing website (mymentra.ai). For the Mentra learning platform, see its privacy policy at{' '}
+            <a href="https://app.mymentra.ai/privacy" className="text-mentra-blue hover:underline font-medium">app.mymentra.ai/privacy</a>.
           </div>
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-5xl mx-auto">
             <LegalTableOfContents sections={sections} />
