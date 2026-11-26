@@ -4,7 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Settings, X, Shield, BarChart3, Cookie, Info } from 'lucide-react';
-import { CookiePreferences, setCookie, deleteCookie, initializeAnalytics, initializeMarketing } from '@/lib/cookies';
+import { CookiePreferences, deleteCookie, initializeAnalytics, initializeMarketing } from '@/lib/cookies';
+
+const LEGACY_PLACEHOLDER_COOKIES = ['mentra_session', 'mentra_consent', 'mentra_preferences', 'mentra_marketing', '_ga', '_gid'];
 
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
@@ -85,33 +87,13 @@ const CookieConsent = () => {
     }
   };
 
-  const setCookies = (prefs: CookiePreferences) => {
-    // Essential cookies (always set)
-    setCookie('mentra_session', 'true', 1); // 1 day
-    setCookie('mentra_consent', 'true', 365); // 1 year
-    
-    // Functional cookies
-    if (prefs.functional) {
-      setCookie('mentra_preferences', 'true', 365);
-    } else {
-      deleteCookie('mentra_preferences');
-    }
-    
-    // Analytics cookies
-    if (prefs.analytics) {
-      setCookie('_ga', 'true', 730); // 2 years
-      setCookie('_gid', 'true', 1); // 1 day
-    } else {
-      deleteCookie('_ga');
-      deleteCookie('_gid');
-    }
-    
-    // Marketing cookies
-    if (prefs.marketing) {
-      setCookie('mentra_marketing', 'true', 365);
-    } else {
-      deleteCookie('mentra_marketing');
-    }
+  // The site sets no cookies of its own; choices live in localStorage
+  // ('mentra_consent'). Earlier versions set placeholder cookies (including
+  // fake '_ga'/'_gid') that nothing read, so remove any left on returning
+  // visitors' browsers. `prefs` stays in the signature so the call sites keep
+  // working when a consented tool is added later.
+  const setCookies = (_prefs: CookiePreferences) => {
+    LEGACY_PLACEHOLDER_COOKIES.forEach(deleteCookie);
   };
 
   if (!showBanner) {
@@ -146,7 +128,7 @@ const CookieConsent = () => {
                       <span className="text-xs bg-mentra-blue/10 text-mentra-blue px-2 py-1 rounded">Required</span>
                     </div>
                     <p className="text-sm text-gray-600">
-                      Necessary for the website to function properly. Cannot be disabled.
+                      Remembers the choices you make here. Cannot be disabled.
                     </p>
                   </div>
                 </div>
@@ -164,7 +146,7 @@ const CookieConsent = () => {
                       <span className="font-medium">Functional Cookies</span>
                     </div>
                     <p className="text-sm text-gray-600">
-                      Remember your preferences and settings to improve your experience.
+                      Would remember settings such as language. None in use today.
                     </p>
                   </div>
                 </div>
@@ -182,7 +164,7 @@ const CookieConsent = () => {
                       <span className="font-medium">Analytics Cookies</span>
                     </div>
                     <p className="text-sm text-gray-600">
-                      Help us understand how visitors use our website to improve it.
+                      Would help us see which pages are useful. None in use today.
                     </p>
                   </div>
                 </div>
@@ -200,7 +182,7 @@ const CookieConsent = () => {
                       <span className="font-medium">Marketing Cookies</span>
                     </div>
                     <p className="text-sm text-gray-600">
-                      Used to deliver personalized content and advertisements.
+                      Would measure our own outreach. We never show ads. None in use today.
                     </p>
                   </div>
                 </div>
@@ -228,11 +210,10 @@ const CookieConsent = () => {
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               <Cookie className="w-5 h-5 text-mentra-blue" />
-              <h3 className="font-semibold text-gray-900">We use cookies</h3>
+              <h3 className="font-semibold text-gray-900">Your privacy choices</h3>
             </div>
             <p className="text-sm text-gray-600 mb-3">
-              We use cookies to enhance your experience, analyze site usage, and assist with our marketing efforts. 
-              By clicking "Accept All", you consent to our use of cookies. 
+              We don't use analytics or advertising cookies. This banner lets you decide now whether any we add in future may run. 
               <Link to="/cookies" className="text-mentra-blue hover:underline ml-1">
                 Learn more
               </Link>

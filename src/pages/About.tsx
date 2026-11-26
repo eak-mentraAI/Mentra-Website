@@ -396,7 +396,7 @@ export default function About() {
 
             <div className="aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-200">
               <iframe
-                src="https://www.youtube.com/embed/Q84vfTtvGMA"
+                src="https://www.youtube-nocookie.com/embed/Q84vfTtvGMA"
                 title="Why we built Mentra"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

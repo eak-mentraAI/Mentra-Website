@@ -22,14 +22,15 @@ const sections: LegalSectionItem[] = [
     title: 'Information We Collect',
     content: (
       <>
-        <p className="text-gray-700 mb-4">When you visit our website, we may collect the following information:</p>
-        <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li><strong>Device information:</strong> Browser type, operating system, screen resolution</li>
-          <li><strong>Usage data:</strong> Pages visited, time on site, referring URLs</li>
-          <li><strong>Network data:</strong> IP address and approximate location</li>
-          <li><strong>Cookie data:</strong> As described in our Cookie Policy</li>
-          <li><strong>Contact information:</strong> Name and email, if you submit a form on our site</li>
+        <p className="text-gray-700 mb-4">This website collects very little:</p>
+        <ul className="list-disc list-inside text-gray-700 ml-4 space-y-2">
+          <li><strong>What you send us:</strong> If you use the "Schedule a call" form, we receive your name, email address, phone number if you give one, how you prefer to be contacted, and which page you sent the form from.</li>
+          <li><strong>What your browser sends to the services that deliver the site:</strong> Our hosting provider and the font and video services listed below receive your IP address and basic browser information when your browser loads them. We don't receive or keep those records ourselves.</li>
+          <li><strong>What stays on your device:</strong> A few small settings, such as your cookie choices, are kept in your browser's storage, as described in our Cookie Policy.</li>
         </ul>
+        <p className="text-gray-700 mt-4">
+          We don't run analytics or advertising tools on this website, and we don't build profiles of visitors.
+        </p>
       </>
     ),
   },
@@ -38,13 +39,11 @@ const sections: LegalSectionItem[] = [
     title: 'How We Use Your Information',
     content: (
       <>
-        <p className="text-gray-700 mb-4">We use the information we collect to:</p>
+        <p className="text-gray-700 mb-4">We use the information you send us to:</p>
         <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li>Improve website performance and user experience</li>
-          <li>Analyze site traffic and usage patterns</li>
-          <li>Ensure website security and prevent abuse</li>
-          <li>Send marketing communications (with your consent)</li>
-          <li>Respond to inquiries submitted through the website</li>
+          <li>Respond to your enquiry and arrange the call you asked for</li>
+          <li>Follow up about Mentra, if you asked us to</li>
+          <li>Keep the website and form secure and prevent abuse</li>
         </ul>
       </>
     ),
@@ -55,10 +54,16 @@ const sections: LegalSectionItem[] = [
     content: (
       <>
         <p className="text-gray-700 mb-4">
-          We don't sell your personal information. We may share data in these situations:
+          We don't sell your personal information. These service providers help us run the website:
         </p>
+        <ul className="list-disc list-inside text-gray-700 ml-4 space-y-2">
+          <li><strong>GitHub Pages (GitHub, Inc.):</strong> hosts the website</li>
+          <li><strong>Formspree:</strong> receives and delivers "Schedule a call" form submissions</li>
+          <li><strong>Google Fonts (Google LLC):</strong> supplies the website's fonts</li>
+          <li><strong>YouTube (Google LLC):</strong> plays the video on our About page, in privacy-enhanced mode</li>
+        </ul>
+        <p className="text-gray-700 mt-4 mb-4">We may also share information:</p>
         <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li><strong>Service providers:</strong> Hosting, analytics, and security partners who help us operate the website</li>
           <li><strong>Legal requirements:</strong> When required by law or to protect safety</li>
           <li><strong>Business transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
         </ul>
@@ -71,13 +76,12 @@ const sections: LegalSectionItem[] = [
     content: (
       <>
         <p className="text-gray-700 mb-4">
-          We protect your information with industry-standard security measures:
+          We protect the information you send us:
         </p>
         <ul className="list-disc list-inside text-gray-700 ml-4">
-          <li>Encryption of all data in transit and at rest</li>
-          <li>Regular security assessments and updates</li>
-          <li>Strict access controls and authentication</li>
-          <li>Employee training on data protection</li>
+          <li>The form sends your details to Formspree over an encrypted HTTPS connection</li>
+          <li>Form submissions are available only to the Mentra team members who respond to them</li>
+          <li>We keep enquiries only as long as we need them to respond and follow up</li>
         </ul>
       </>
     ),
@@ -91,7 +95,7 @@ const sections: LegalSectionItem[] = [
         <ul className="list-disc list-inside text-gray-700 ml-4">
           <li>Request access to personal information we hold about you</li>
           <li>Correct inaccurate information</li>
-          <li>Opt out of marketing communications</li>
+          <li>Ask us to stop contacting you</li>
           <li>Withdraw consent for data processing</li>
           <li>Request information about how your data is used</li>
         </ul>
@@ -103,7 +107,7 @@ const sections: LegalSectionItem[] = [
     title: 'Global Standards',
     content: (
       <p className="text-gray-700">
-        Your information may be processed in different countries. We ensure appropriate safeguards are in place to protect your data according to this policy and applicable laws.
+        Our service providers are based in the United States and may process information there or in other countries where they operate. We choose providers that protect information in line with this policy and applicable law.
       </p>
     ),
   },
@@ -146,7 +150,7 @@ export default function Privacy() {
         {/* Hero Section */}
         <section className="container mx-auto max-w-3xl px-4 flex flex-col items-center justify-center gap-4 mb-16 relative">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-          <p className="text-gray-600 mb-0 text-center">Last updated: June 10, 2026</p>
+          <p className="text-gray-600 mb-0 text-center">Last updated: November 26, 2026</p>
         </section>
         <section className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto mb-6 rounded-xl border border-mentra-blue/20 bg-mentra-blue/5 px-4 py-3 text-sm text-gray-600">
